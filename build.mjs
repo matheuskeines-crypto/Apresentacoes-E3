@@ -539,7 +539,7 @@ const PRODUCTS = [
     { label: "Proposta Comercial", sub: "apresentação · site", href: "https://pacote-evolucao-publico.vercel.app" },
     { label: "Onboarding", sub: "figma · apresentação", href: "https://spot-clasp-91538610.figma.site" },
     { label: "Consultoria Comercial", sub: "playbook comercial · site", href: "https://consultoria-comercial-e3.vercel.app" },
-    { label: "Auditoria Criativa", sub: "consultoria · on-scroll", href: "./auditoria-criativa/index.html" },
+    { label: "Auditoria Criativa", sub: "deck · 39 slides", href: "./auditoria-criativa/index.html" },
   ] },
   { name: "Social Media", slug: "social-media" },
   { name: "Estruturação de Instagram", slug: "estruturacao-instagram" },
