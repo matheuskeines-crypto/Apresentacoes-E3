@@ -543,7 +543,6 @@ const PRODUCTS = [
     { label: "Playbook", sub: "pdf · escopo & funções", href: "./playbook-assessoria-light-pro/Playbook-Assessoria-Light.pdf" },
   ] },
   { name: "Evolução Jurídica", slug: "evolucao-juridica", skipBase: true, extras: [
-    { label: "Proposta Comercial", sub: "apresentação · site", href: "https://pacote-evolucao-publico.vercel.app" },
     { label: "Onboarding", sub: "figma · apresentação", href: "https://spot-clasp-91538610.figma.site" },
     CONSULTORIA_COMERCIAL,
     { label: "Auditoria Criativa", sub: "deck · 39 slides", href: "./auditoria-criativa/index.html" },
