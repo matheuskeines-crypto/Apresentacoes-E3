@@ -529,20 +529,25 @@ for (const deck of decks) {
 }
 
 /* ─── página-menu (índice) ─── */
+const CONSULTORIA_COMERCIAL = { label: "Consultoria Comercial", sub: "playbook comercial · site", href: "https://consultoria-comercial-e3.vercel.app" };
+
 const PRODUCTS = [
-  { name: "Aceleração Comercial", slug: "aceleracao-comercial", hideProposta: true },
-  { name: "Estruturação PRO", slug: "estruturacao-pro" },
+  { name: "Aceleração Comercial", slug: "aceleracao-comercial", hideProposta: true, extras: [
+    CONSULTORIA_COMERCIAL,
+  ] },
+  { name: "Estruturação PRO", slug: "estruturacao-pro", extras: [
+    CONSULTORIA_COMERCIAL,
+  ] },
   { name: "Assessoria Light & Pro", slug: "assessoria-light-pro", extras: [
     { label: "Playbook", sub: "pdf · escopo & funções", href: "./playbook-assessoria-light-pro/Playbook-Assessoria-Light.pdf" },
+    CONSULTORIA_COMERCIAL,
   ] },
   { name: "Evolução Jurídica", slug: "evolucao-juridica", skipBase: true, extras: [
     { label: "Proposta Comercial", sub: "apresentação · site", href: "https://pacote-evolucao-publico.vercel.app" },
     { label: "Onboarding", sub: "figma · apresentação", href: "https://spot-clasp-91538610.figma.site" },
-    { label: "Consultoria Comercial", sub: "playbook comercial · site", href: "https://consultoria-comercial-e3.vercel.app" },
+    CONSULTORIA_COMERCIAL,
     { label: "Auditoria Criativa", sub: "deck · 39 slides", href: "./auditoria-criativa/index.html" },
   ] },
-  { name: "Social Media", slug: "social-media" },
-  { name: "Estruturação de Instagram", slug: "estruturacao-instagram" },
 ];
 const extLink = (e) => `<a href="${e.href}"${e.href.startsWith("http") ? ' target="_blank" rel="noopener"' : ""}><span class="mt">${e.label}</span><span class="ms">${e.sub}</span></a>`;
 const menuCard = (p) => `<div class="mcard">
@@ -570,7 +575,8 @@ header img{height:64px;margin-bottom:20px;filter:drop-shadow(0 0 22px rgba(255,9
 h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3.2rem);letter-spacing:-.03em}
 h1 span{color:var(--o)}
 .sub{color:rgba(255,255,255,.5);margin-top:10px;font-size:1.05rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
 .mcard{border:1px solid rgba(255,255,255,.08);border-radius:20px;background:rgba(255,255,255,.02);padding:24px}
 .mcard h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.35rem;margin-bottom:16px}
 .mlinks{display:flex;flex-direction:column;gap:10px}
