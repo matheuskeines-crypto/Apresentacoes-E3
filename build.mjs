@@ -532,15 +532,15 @@ for (const deck of decks) {
 const CONSULTORIA_COMERCIAL = { label: "Consultoria Comercial", sub: "playbook comercial · site", href: "https://consultoria-comercial-e3.vercel.app" };
 
 const PRODUCTS = [
-  { name: "Aceleração Comercial", slug: "aceleracao-comercial", hideProposta: true, extras: [
+  { name: "Aceleração Comercial", slug: "aceleracao-comercial", extras: [
     CONSULTORIA_COMERCIAL,
   ] },
   { name: "Estruturação PRO", slug: "estruturacao-pro", extras: [
     CONSULTORIA_COMERCIAL,
   ] },
   { name: "Assessoria Light & Pro", slug: "assessoria-light-pro", extras: [
-    { label: "Playbook", sub: "pdf · escopo & funções", href: "./playbook-assessoria-light-pro/Playbook-Assessoria-Light.pdf" },
     CONSULTORIA_COMERCIAL,
+    { label: "Playbook", sub: "pdf · escopo & funções", href: "./playbook-assessoria-light-pro/Playbook-Assessoria-Light.pdf" },
   ] },
   { name: "Evolução Jurídica", slug: "evolucao-juridica", skipBase: true, extras: [
     { label: "Proposta Comercial", sub: "apresentação · site", href: "https://pacote-evolucao-publico.vercel.app" },
@@ -553,7 +553,7 @@ const extLink = (e) => `<a href="${e.href}"${e.href.startsWith("http") ? ' targe
 const menuCard = (p) => `<div class="mcard">
   <h3>${p.name}</h3>
   <div class="mlinks">
-    ${p.skipBase ? "" : `${p.hideProposta ? "" : `<a href="./proposta-${p.slug}/index.html"><span class="mt">Proposta</span><span class="ms">vertical · vendendo</span></a>\n    `}<a href="./onboarding-${p.slug}/index.html"><span class="mt">Onboarding</span><span class="ms">deck · kickoff</span></a>
+    ${p.skipBase ? "" : `<a href="./onboarding-${p.slug}/index.html"><span class="mt">Onboarding</span><span class="ms">deck · kickoff</span></a>
     <a href="./offboarding-${p.slug}/index.html"><span class="mt">Offboarding</span><span class="ms">deck · entrega final</span></a>
     `}${(p.extras || []).map(extLink).join("\n    ")}
   </div>
