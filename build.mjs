@@ -554,7 +554,6 @@ const menuCard = (p) => `<div class="mcard">
   <h3>${p.name}</h3>
   <div class="mlinks">
     ${p.skipBase ? "" : `<a href="./onboarding-${p.slug}/index.html"><span class="mt">Onboarding</span><span class="ms">deck · kickoff</span></a>
-    <a href="./offboarding-${p.slug}/index.html"><span class="mt">Offboarding</span><span class="ms">deck · entrega final</span></a>
     `}${(p.extras || []).map(extLink).join("\n    ")}
   </div>
 </div>`;
@@ -594,7 +593,7 @@ footer{text-align:center;color:rgba(255,255,255,.3);margin-top:40px;font-size:.8
   <header>
     <img src="${LOGO_URI}" alt="E3"/>
     <h1>Apresentações <span>E3</span></h1>
-    <p class="sub">Proposta · Onboarding · Offboarding — por produto</p>
+    <p class="sub">Proposta · Onboarding — por produto</p>
   </header>
   <div class="grid">${PRODUCTS.map(menuCard).join("")}</div>
   <footer>E3 Digital · o hub de marketing e vendas para advogados</footer>
