@@ -540,7 +540,8 @@ const PRODUCTS = [
   ] },
   { name: "Assessoria Light & Pro", slug: "assessoria-light-pro", extras: [
     CONSULTORIA_COMERCIAL,
-    { label: "Playbook", sub: "pdf · escopo & funções", href: "./playbook-assessoria-light-pro/Playbook-Assessoria-Light.pdf" },
+    { label: "Playbook de Funções", sub: "pdf · escopo, rotinas & kpis", href: "./playbook-assessoria-light-pro/Playbook-Assessoria-Light-Pro-Operacao.pdf" },
+    { label: "Entrega & Alinhamento", sub: "pdf · light & pro", href: "./playbook-entrega-alinhamento/Playbook-Entrega-Alinhamento-Light-Pro.pdf" },
   ] },
   { name: "Evolução Jurídica", slug: "evolucao-juridica", skipBase: true, extras: [
     { label: "Onboarding", sub: "figma · apresentação", href: "https://spot-clasp-91538610.figma.site" },
