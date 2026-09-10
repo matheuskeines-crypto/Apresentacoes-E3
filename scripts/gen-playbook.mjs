@@ -33,9 +33,18 @@ const secHead = (num, title, desc) => `<div class="sechead">
   <div><h2>${title}</h2><p class="lead">${desc}</p></div>
 </div><div class="rule"></div>`;
 
-const cardHead = (icon, kicker, title) => `<div class="chead">
+const cardHead = (icon, kicker, title, tag = "") => `<div class="chead">
   <span class="isq">${svg(icon)}</span>
-  <div>${kicker ? `<p class="kicker">${kicker}</p>` : ""}<h3>${title}</h3></div>
+  <div>${kicker ? `<p class="kicker">${kicker}</p>` : ""}<h3>${title}${tag}</h3></div>
+</div>`;
+const tag = (label, cls) => `<span class="tag ${cls}">${label}</span>`;
+const tagBoth = () => tag("LIGHT &amp; PRO", "tag-both");
+const tagPro = () => tag("EXCLUSIVO PRO", "tag-pro");
+const tagLight = () => tag("LIGHT", "tag-light");
+const legend = () => `<div class="legend">
+  <div class="lg-item">${tagBoth()}<span>a função atua em contas <b>Light</b> e <b>Pro</b></span></div>
+  <div class="lg-item">${tagLight()}<span>entrega <b>exclusiva</b> de clientes Light</span></div>
+  <div class="lg-item">${tagPro()}<span>entrega ou função <b>exclusiva</b> de clientes Pro</span></div>
 </div>`;
 
 const bul = (items) => `<ul class="bul">${items.map((i) => `<li>${i}</li>`).join("")}</ul>`;
@@ -79,6 +88,8 @@ P.push(page(1, `
     { v: "&lt;11%", l: "Meta de churn mensal" },
   ])}
   ${callout("activity", "COMO LER ESTE PLAYBOOK", "Da geração de leads ao fechamento", "O documento está organizado em três blocos: os <b>pilares de sucesso</b> (o que entregamos), a <b>rotina e as funções da squad</b> (quem faz, quando e com quais metas) e o <b>Acordo de Nível de Serviço</b> (os compromissos de prazo entre E3 e cliente).")}
+  <p class="kicker" style="margin-bottom:10px">LEGENDA · LIGHT OU PRO</p>
+  ${legend()}
   <div class="quote">
     <p class="qk">O PRINCÍPIO QUE ORGANIZA TUDO</p>
     <p>Não existe cliente do Account, do Gestor de Projetos ou do Gestor de Tráfego. <b>O cliente é da E3</b> e está sob a responsabilidade do squad como um todo.</p>
@@ -134,7 +145,7 @@ P.push(page(3, `
 /* — ACCOUNT MANAGER — */
 P.push(page(4, `
   <div class="card">
-    ${cardHead("users", "", "Account Manager")}
+    ${cardHead("users", "", "Account Manager", tagBoth())}
     <div class="quote inline"><p><b>Foco:</b> liderança, estratégia, retenção e monetização. Líder da squad responsável pelo cliente: conduz o relacionamento direto, traduz necessidades em entregas reais, define prioridades e monitora a performance para identificar oportunidades de crescimento.</p></div>
     <div class="grid2">
       ${block("GESTÃO ESTRATÉGICA", ["Conduzir o relacionamento direto e traduzir necessidades em <b>entregas reais</b>.", "Mapeamento de ICP, posicionamento e condução das consultorias quinzenais."])}
@@ -142,9 +153,15 @@ P.push(page(4, `
       ${block("REUNIÕES &amp; APRESENTAÇÃO", ["Conduzir reuniões de estratégia, performance e resultados.", "Comunicação <b>clara e transparente</b> com o cliente."])}
       ${block("ONBOARDING DE NOVOS CLIENTES", ["Validar tese, metas do escritório e objetivos de campanha em D+0.", "Garantir estratégia/card validado antes de qualquer campanha iniciar."])}
       ${block("PROTOCOLO DE CRISE (RETENÇÃO)", ["Diagnosticar falhas operacionais/estratégicas e analisar o CRM.", "Validar o plano emergencial com a coordenação antes de acionar o cliente."])}
-      ${block("TREINAMENTO COMERCIAL DO CLIENTE", ["Capacitar a equipe comercial dos clientes Light em conversão.", "Boas práticas de venda e acompanhamento da aplicação, quando aplicável."])}
+      ${block("TREINAMENTO COMERCIAL DO CLIENTE " + tagLight(), ["Capacitar a equipe comercial dos clientes Light em conversão.", "Boas práticas de venda e acompanhamento da aplicação, quando aplicável."])}
     </div>
   </div>
+  <h3 class="h3">Rotina · Account Manager</h3>
+  ${tbl(["Quando", "O quê"], [
+    ["<b>Diária</b> · 09h00–09h20", "Daily do squad: otimizar/organizar a rotina do dia, priorizar atividades de clientes e cobrar cumprimento de prazos."],
+    ["<b>Diária</b> · ao longo do dia", "Manter os planos de ação atualizados. Calls de retenção e alinhamento. Garantir que todas as atividades do squad estejam sendo realizadas."],
+    ["<b>Semanal</b> · sexta-feira", "Atualização obrigatória da planilha BSC."],
+  ])}
   <h3 class="h3">Principais KPIs · Account Manager</h3>
   ${tbl(["Indicador", "Meta"], [
     ["Churn mensal", "Abaixo de <b>11%</b>."],
@@ -157,7 +174,7 @@ P.push(page(4, `
 /* — GESTOR DE TRÁFEGO — */
 P.push(page(5, `
   <div class="card">
-    ${cardHead("chart", "", "Gestor de Tráfego")}
+    ${cardHead("chart", "", "Gestor de Tráfego", tagBoth())}
     <div class="quote inline"><p><b>Foco:</b> performance de mídia paga, análise de dados e otimização diária. Converte o planejamento estratégico em campanhas eficientes para gerar leads qualificados e atingir metas.</p></div>
     <div class="grid2">
       ${block("ESTRATÉGIA E CRIAÇÃO", ["Desenvolver copies, roteiros de anúncio e definir abordagens.", "Estruturar briefings detalhados para a equipe de criação."])}
@@ -166,6 +183,13 @@ P.push(page(5, `
       ${block("ANÁLISE INTEGRADA", ["Com AM e GP, diagnosticar os dados do CRM: da geração do lead ao fechamento.", "Central de Leads e ClickUp sempre atualizados na sua área."])}
     </div>
   </div>
+  <h3 class="h3">Rotina · Gestor de Tráfego</h3>
+  ${tbl(["Quando", "O quê"], [
+    ["<b>Diária</b> · 09h00–09h20", "Daily do squad: reportar clientes com campanha em risco (performance caindo ou anúncio pausado) para priorizar no dia."],
+    ["<b>Diária</b> · ao longo do dia", "Averiguar o saldo de investimento de cada cliente. Analisar campanhas de clientes em risco/conflito."],
+    ["<b>Semanal</b> · seg. e ter. de manhã", "Otimizar e analisar todas as campanhas ativas da base."],
+    ["<b>Semanal</b> · sexta-feira", "Atualização das métricas de cada cliente no ClickUp e da planilha BSC."],
+  ])}
   <h3 class="h3">Principais KPIs · Gestor de Tráfego</h3>
   ${tbl(["Indicador", "Meta"], [
     ["CPL / CPC / CTR / CPM", "Dentro da meta de cada tese/cliente."],
@@ -178,7 +202,7 @@ P.push(page(5, `
 /* — GESTOR DE PROJETOS — */
 P.push(page(6, `
   <div class="card">
-    ${cardHead("clipboard", "", "Gestor de Projetos")}
+    ${cardHead("clipboard", "", "Gestor de Projetos", tagBoth())}
     <div class="quote inline"><p><b>Foco:</b> organização, comunicação, prazo e experiência do cliente. Transforma a estratégia do Account em entregas reais, com previsibilidade e comunicação ágil.</p></div>
     <div class="grid2">
       ${block("COMUNICAÇÃO E PREVENÇÃO", ["Triagem de demandas no grupo: anúncios vão para o GT, estratégico/comercial vai para o AM.", "Detecção antecipada de insatisfação, com acionamento imediato do AM."])}
@@ -187,6 +211,14 @@ P.push(page(6, `
       ${block("PROCESSOS E CONTROLE DE PRAZOS", ["ClickUp rigoroso: nenhum cliente 7+ dias sem atualização; onboarding/risco, 3+ dias.", "Cobrança do prazo de <b>todas</b> as entregas do squad, inclusive criativos e roteiros da equipe de design."])}
     </div>
   </div>
+  <h3 class="h3">Rotina · Gestor de Projetos</h3>
+  ${tbl(["Quando", "O quê"], [
+    ["<b>Diária</b> · 09h00–09h20", "Daily do squad: anotar as tarefas do dia, propor melhorias e seguir a orientação do AM."],
+    ["<b>Diária</b> · antes de encerrar", "Passar em todos os grupos de clientes e não sair sem responder todos. SLA máximo de 60 minutos, seg. a sex., 09h–18h."],
+    ["<b>Semanal</b> · quarta-feira", "Envio das perguntas de qualificação e preenchimento do Painel E3."],
+    ["<b>Semanal</b> · quinta-feira", "Atualização do briefing semanal de cada cliente no ClickUp."],
+    ["<b>Semanal</b> · sexta-feira", "Atualização obrigatória da planilha BSC."],
+  ])}
   <h3 class="h3">Principais KPIs · Gestor de Projetos</h3>
   ${tbl(["Indicador", "Meta"], [
     ["SLA de resposta", "Abaixo de <b>60 minutos</b>."],
@@ -199,7 +231,7 @@ P.push(page(6, `
 /* — CONSULTOR COMERCIAL (exclusivo Pro) — */
 P.push(page(0, `
   <div class="card">
-    ${cardHead("handshake", "EXCLUSIVO ASSESSORIA PRO", "Consultor Comercial")}
+    ${cardHead("handshake", "", "Consultor Comercial", tagPro())}
     <div class="quote inline"><p><b>Foco:</b> o comercial do escritório. Responsável por todo o acompanhamento comercial dos clientes <b>Pro</b> — dá o direcionamento da rotina comercial, conduz a consultoria de vendas e estrutura a operação comercial do cliente para que o lead gerado vire contrato assinado.</p></div>
     <div class="grid2">
       ${block("ROTINA COMERCIAL DO CLIENTE", ["Definir e implantar a rotina comercial do escritório: cadência de contato, follow-up e metas.", "Direcionar o time do cliente sobre disciplina de CRM e uso do funil no dia a dia."])}
@@ -250,7 +282,7 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
 .pfoot b{color:var(--o)}
 .kicker{font-family:var(--s);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--o);font-weight:700;margin-bottom:8px}
 .h2{font-family:var(--d);font-weight:800;font-size:28px;letter-spacing:-.01em;margin-bottom:16px}
-.h3{font-family:var(--d);font-weight:800;font-size:19px;letter-spacing:-.01em;margin:22px 0 12px}
+.h3{font-family:var(--d);font-weight:800;font-size:17px;letter-spacing:-.01em;margin:16px 0 8px}
 .body{font-size:14px;line-height:1.6;color:rgba(255,255,255,.72);margin-bottom:14px}
 .body b{color:#fff;font-weight:700}
 /* CAPA */
@@ -283,7 +315,7 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
 .quote p:first-of-type{margin-top:0}
 .quote b{color:var(--o)}
 .qk{font-family:var(--s);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--o);font-weight:700}
-.quote.inline{margin:16px 0 20px;background:rgba(255,255,255,.02);border-left:2px solid var(--o)}
+.quote.inline{margin:12px 0 14px;background:rgba(255,255,255,.02);border-left:2px solid var(--o)}
 .quote.inline p{color:rgba(255,255,255,.75);margin:0}
 .quote.inline b{color:var(--o)}
 /* sechead */
@@ -293,10 +325,19 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
 .sechead .lead{font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.5}
 .rule{height:1px;background:rgba(255,255,255,.1);margin-bottom:20px}
 /* cards */
-.card{border:1px solid rgba(255,255,255,.1);border-radius:18px;background:rgba(255,255,255,.02);padding:22px 24px;margin-bottom:18px}
-.chead{display:flex;align-items:center;gap:14px;margin-bottom:14px}
-.chead h3{font-family:var(--d);font-weight:800;font-size:18px}
+.card{border:1px solid rgba(255,255,255,.1);border-radius:18px;background:rgba(255,255,255,.02);padding:18px 22px;margin-bottom:14px}
+.chead{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.chead h3{font-family:var(--d);font-weight:800;font-size:18px;display:flex;align-items:center;gap:10px}
 .chead .kicker{margin-bottom:2px}
+/* tags Light/Pro */
+.tag{display:inline-block;font-family:var(--s);font-size:9.5px;font-weight:800;letter-spacing:.08em;padding:4px 10px;border-radius:999px;vertical-align:middle}
+.tag-both{color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.06)}
+.tag-pro{color:var(--o);border:1px solid rgba(255,95,31,.5);background:rgba(255,95,31,.1)}
+.tag-light{color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.04)}
+.blk .kicker .tag{margin-left:4px;transform:translateY(-1px)}
+.legend{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.lg-item{display:flex;align-items:center;gap:10px;font-size:11.5px;color:rgba(255,255,255,.6)}
+.lg-item b{color:#fff}
 /* feats (pilares) */
 .feats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 20px}
 .feat{position:relative;padding-left:14px}
@@ -304,16 +345,16 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
 .ft{font-family:var(--s);font-weight:700;font-size:13px;margin-bottom:3px}
 .fd{font-size:11.5px;color:rgba(255,255,255,.5);line-height:1.45}
 /* grid2 / blk / bul (funções) */
-.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 28px}
-.blk .kicker{font-size:10px;letter-spacing:.12em;margin-bottom:8px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 26px}
+.blk .kicker{font-size:9.5px;letter-spacing:.1em;margin-bottom:5px}
 .bul{list-style:none}
-.bul li{position:relative;padding-left:14px;font-size:12px;line-height:1.5;color:rgba(255,255,255,.72);margin-bottom:7px}
+.bul li{position:relative;padding-left:14px;font-size:11.5px;line-height:1.42;color:rgba(255,255,255,.72);margin-bottom:4px}
 .bul li::before{content:"";position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:999px;background:var(--o)}
 .bul li b{color:#fff}
 /* tabelas */
-.tbl{width:100%;border-collapse:collapse;font-size:12px;border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden}
-.tbl th{background:linear-gradient(90deg,rgba(255,95,31,.16),rgba(255,51,0,.05));color:var(--o);text-align:left;padding:11px 16px;font-family:var(--d);font-weight:700;font-size:11.5px;letter-spacing:.02em}
-.tbl td{padding:11px 16px;border-top:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.7);vertical-align:top;line-height:1.5}
+.tbl{width:100%;border-collapse:collapse;font-size:11.5px;border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden}
+.tbl th{background:linear-gradient(90deg,rgba(255,95,31,.16),rgba(255,51,0,.05));color:var(--o);text-align:left;padding:8px 16px;font-family:var(--d);font-weight:700;font-size:11px;letter-spacing:.02em}
+.tbl td{padding:8px 16px;border-top:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.7);vertical-align:top;line-height:1.4}
 .tbl td.k{color:#fff;font-weight:700;white-space:nowrap}
 .tbl td b{color:var(--o)}
 /* SLA rules */
