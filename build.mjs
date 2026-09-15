@@ -532,31 +532,67 @@ for (const deck of decks) {
 const CONSULTORIA_COMERCIAL = { label: "Consultoria Comercial", sub: "playbook comercial · site", href: "https://consultoria-comercial-e3.vercel.app" };
 
 const PRODUCTS = [
-  { name: "Aceleração Comercial", slug: "aceleracao-comercial", extras: [
-    CONSULTORIA_COMERCIAL,
-  ] },
-  { name: "Estruturação PRO", slug: "estruturacao-pro", extras: [
-    CONSULTORIA_COMERCIAL,
-  ] },
-  { name: "Assessoria Light & Pro", slug: "assessoria-light-pro", extras: [
-    CONSULTORIA_COMERCIAL,
-    { label: "Playbook de Funções", sub: "pdf · escopo, rotinas & kpis", href: "./playbook-assessoria-light-pro/Playbook-Assessoria-Light-Pro-Operacao.pdf" },
-    { label: "Entrega & Alinhamento", sub: "pdf · light & pro", href: "./playbook-entrega-alinhamento/Playbook-Entrega-Alinhamento-Light-Pro.pdf" },
-  ] },
-  { name: "Evolução Jurídica", slug: "evolucao-juridica", skipBase: true, extras: [
-    { label: "Onboarding", sub: "figma · apresentação", href: "https://spot-clasp-91538610.figma.site" },
-    CONSULTORIA_COMERCIAL,
-    { label: "Auditoria Criativa", sub: "deck · 39 slides", href: "./auditoria-criativa/index.html" },
-  ] },
+  {
+    name: "Assessoria Light & Pro",
+    links: [
+      { label: "Onboarding", sub: "deck · kickoff", href: "./onboarding-assessoria-light-pro/index.html" },
+      { label: "Playbook", sub: "pdf · escopo & alinhamento", href: "./playbook-entrega-alinhamento/Playbook-Entrega-Alinhamento-Light-Pro.pdf" },
+      { label: "Função e Atribuição", sub: "pdf · escopo, rotinas & kpis", href: "./playbook-assessoria-light-pro/Playbook-Assessoria-Light-Pro-Operacao.pdf" },
+      CONSULTORIA_COMERCIAL,
+    ],
+  },
+  {
+    name: "Estruturação",
+    links: [
+      { label: "Onboarding", sub: "deck · kickoff", href: "./onboarding-estruturacao-pro/index.html" },
+      { label: "Playbook", sub: "pdf / material · a definir", href: "#" },
+      { label: "Função e Atribuição", sub: "pdf / material · a definir", href: "#" },
+      CONSULTORIA_COMERCIAL,
+      { label: "Forms 360°", sub: "formulário diagnóstico · a definir", href: "#" },
+      { label: "Auditoria Mídia Paga (Material específico)", sub: "material específico · a definir", href: "#" },
+      { label: "Auditoria Criativa (Material específico)", sub: "deck · 39 slides", href: "./auditoria-criativa/index.html" },
+    ],
+  },
+  {
+    name: "Evolução",
+    links: [
+      { label: "Onboarding", sub: "figma · apresentação", href: "https://spot-clasp-91538610.figma.site" },
+      { label: "Playbook", sub: "pdf / material · a definir", href: "#" },
+      { label: "Função e Atribuição", sub: "pdf / material · a definir", href: "#" },
+      CONSULTORIA_COMERCIAL,
+      { label: "Forms 360°", sub: "formulário diagnóstico · a definir", href: "#" },
+      { label: "Auditoria Criativa (Material específico)", sub: "deck · 39 slides", href: "./auditoria-criativa/index.html" },
+    ],
+  },
+  {
+    name: "Aceleração Comercial",
+    links: [
+      { label: "Onboarding", sub: "deck · kickoff", href: "./onboarding-aceleracao-comercial/index.html" },
+      CONSULTORIA_COMERCIAL,
+    ],
+  },
 ];
-const extLink = (e) => `<a href="${e.href}"${e.href.startsWith("http") ? ' target="_blank" rel="noopener"' : ""}><span class="mt">${e.label}</span><span class="ms">${e.sub}</span></a>`;
+
+const KNOWLEDGE = [
+  { label: "Curso comercial Interno", sub: "deck · slides do treinamento", href: "./treinamento-comercial/index.html" },
+  { label: "Materiais em PDF explicando as principais tese", sub: "pdf · materiais de tese (a definir)", href: "#" },
+];
+
+const extLink = (e) => {
+  const isHttp = e.href.startsWith("http");
+  const isHash = e.href === "#";
+  const target = isHttp ? ' target="_blank" rel="noopener"' : "";
+  const click = isHash ? ' onclick="event.preventDefault();"' : "";
+  return `<a href="${e.href}"${target}${click}><span class="mt">${e.label}</span><span class="ms">${e.sub}</span></a>`;
+};
+
 const menuCard = (p) => `<div class="mcard">
   <h3>${p.name}</h3>
   <div class="mlinks">
-    ${p.skipBase ? "" : `<a href="./onboarding-${p.slug}/index.html"><span class="mt">Onboarding</span><span class="ms">deck · kickoff</span></a>
-    `}${(p.extras || []).map(extLink).join("\n    ")}
+    ${p.links.map(extLink).join("\n    ")}
   </div>
 </div>`;
+
 const menuHTML = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Apresentações E3 — Índice</title>
@@ -583,8 +619,14 @@ h1 span{color:var(--o)}
 .mlinks a:hover{border-color:var(--o);background:rgba(255,95,31,.08);transform:translateX(3px)}
 .mt{font-weight:700;font-size:.98rem}
 .ms{font-size:.74rem;color:rgba(255,255,255,.42);letter-spacing:.02em}
-.extra{margin-top:22px;text-align:center}
-.extra a{display:inline-flex;flex-direction:column;padding:14px 28px;border:1px solid rgba(255,95,31,.4);border-radius:14px;background:rgba(255,95,31,.06);text-decoration:none;color:#fff}
+.k-wrap{margin-top:36px;border-top:1px solid rgba(255,255,255,.08);padding-top:28px}
+.k-head{margin-bottom:18px}
+.k-head h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.55rem;letter-spacing:-.02em;color:#fff}
+.k-sub{color:rgba(255,255,255,.45);font-size:.9rem;margin-top:4px}
+.k-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:720px){.k-grid{grid-template-columns:1fr}}
+.k-grid a{display:flex;flex-direction:column;padding:14px 18px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:rgba(255,255,255,.02);text-decoration:none;color:#fff;transition:.25s}
+.k-grid a:hover{border-color:var(--o);background:rgba(255,95,31,.08);transform:translateX(3px)}
 footer{text-align:center;color:rgba(255,255,255,.3);margin-top:40px;font-size:.82rem}
 </style></head>
 <body>
@@ -593,9 +635,18 @@ footer{text-align:center;color:rgba(255,255,255,.3);margin-top:40px;font-size:.8
   <header>
     <img src="${LOGO_URI}" alt="E3"/>
     <h1>Apresentações <span>E3</span></h1>
-    <p class="sub">Proposta · Onboarding — por produto</p>
+    <p class="sub">Proposta · Onboarding · Materiais — por produto</p>
   </header>
   <div class="grid">${PRODUCTS.map(menuCard).join("")}</div>
+  <div class="k-wrap">
+    <div class="k-head">
+      <h2>Conhecimento</h2>
+      <p class="k-sub">Capacitação interna e teses estratégicas</p>
+    </div>
+    <div class="k-grid">
+      ${KNOWLEDGE.map(extLink).join("\n      ")}
+    </div>
+  </div>
   <footer>E3 Digital · o hub de marketing e vendas para advogados</footer>
 </div>
 </body></html>`;
