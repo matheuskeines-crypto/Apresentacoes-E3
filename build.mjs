@@ -542,15 +542,10 @@ const PRODUCTS = [
     ],
   },
   {
-    name: "Estruturação",
+    name: "Aceleração Comercial",
     links: [
-      { label: "Onboarding", sub: "deck · kickoff", href: "./onboarding-estruturacao-pro/index.html" },
-      { label: "Playbook", sub: "pdf / material · a definir", href: "#" },
-      { label: "Função e Atribuição", sub: "pdf / material · a definir", href: "#" },
+      { label: "Onboarding", sub: "deck · kickoff", href: "./onboarding-aceleracao-comercial/index.html" },
       CONSULTORIA_COMERCIAL,
-      { label: "Forms 360°", sub: "formulário diagnóstico · a definir", href: "#" },
-      { label: "Auditoria Mídia Paga (Material específico)", sub: "material específico · a definir", href: "#" },
-      { label: "Auditoria Criativa (Material específico)", sub: "deck · 39 slides", href: "./auditoria-criativa/index.html" },
     ],
   },
   {
@@ -565,10 +560,15 @@ const PRODUCTS = [
     ],
   },
   {
-    name: "Aceleração Comercial",
+    name: "Estruturação",
     links: [
-      { label: "Onboarding", sub: "deck · kickoff", href: "./onboarding-aceleracao-comercial/index.html" },
+      { label: "Onboarding", sub: "deck · kickoff", href: "./onboarding-estruturacao-pro/index.html" },
+      { label: "Playbook", sub: "pdf / material · a definir", href: "#" },
+      { label: "Função e Atribuição", sub: "pdf / material · a definir", href: "#" },
       CONSULTORIA_COMERCIAL,
+      { label: "Forms 360°", sub: "formulário diagnóstico · a definir", href: "#" },
+      { label: "Auditoria Mídia Paga (Material específico)", sub: "material específico · a definir", href: "#" },
+      { label: "Auditoria Criativa (Material específico)", sub: "deck · 39 slides", href: "./auditoria-criativa/index.html" },
     ],
   },
 ];
