@@ -556,7 +556,7 @@ const PRODUCTS = [
       { label: "Função e Atribuição", sub: "pdf / material · a definir", href: "#" },
       CONSULTORIA_COMERCIAL,
       { label: "Forms 360°", sub: "formulário diagnóstico · a definir", href: "#" },
-      { label: "Auditoria Criativa (Material específico)", sub: "deck · 39 slides", href: "./auditoria-criativa/index.html" },
+      { label: "Auditoria Criativa", sub: "deck · 39 slides", href: "./auditoria-criativa/index.html" },
     ],
   },
   {
@@ -567,8 +567,8 @@ const PRODUCTS = [
       { label: "Função e Atribuição", sub: "pdf / material · a definir", href: "#" },
       CONSULTORIA_COMERCIAL,
       { label: "Forms 360°", sub: "formulário diagnóstico · a definir", href: "#" },
-      { label: "Auditoria Mídia Paga (Material específico)", sub: "material específico · a definir", href: "#" },
-      { label: "Auditoria Criativa (Material específico)", sub: "deck · 39 slides", href: "./auditoria-criativa/index.html" },
+      { label: "Auditoria Mídia Paga", sub: "material específico · a definir", href: "#" },
+      { label: "Auditoria Criativa", sub: "deck · 39 slides", href: "./auditoria-criativa/index.html" },
     ],
   },
 ];
