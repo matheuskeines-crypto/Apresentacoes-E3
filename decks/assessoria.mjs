@@ -88,7 +88,7 @@ export const onboarding = {
         { icon: "trending", title: "Mais fechamentos e previsibilidade", desc: "Aumento da taxa de conversão e receita recorrente." },
       ] },
 
-    { type: "acronym", kicker: "Nossa metodologia", title: 'Nosso <span class="hl">Objetivo</span>',
+    { type: "acronym", kicker: "Nossa metodologia",
       lead: "Uma solução completa de marketing e vendas, na qual faça escritórios de advocacia faturarem mais através da nossa metodologia CPP.",
       big: "CPP",
       pills: ["Canais de aquisição de clientes", "Produtos Jurídicos", "Processo comercial"] },
@@ -100,7 +100,7 @@ export const onboarding = {
         { icon: "message", title: "Abordagem e comunicação comercial", desc: "Estratégias de contato e persuasão eficazes." },
         { icon: "chart", title: "Gestão de funil e acompanhamento", desc: "Monitoramento constante do pipeline de vendas." },
         { icon: "users", title: "Treinamento da equipe", desc: "Capacitação contínua do time comercial." },
-        { icon: "calendar", title: "Reuniões semanais estratégicas", desc: "Conversão e alinhamento (plano Pro)." },
+        { icon: "calendar", title: "Reuniões quinzenais estratégicas", desc: "Conversão e alinhamento (plano Pro)." },
       ],
       note: "Nosso objetivo: conectar o marketing ao comercial, garantindo que o investimento em tráfego se converta em resultados reais e sustentáveis." },
 

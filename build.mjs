@@ -119,7 +119,7 @@ function slideInner(s) {
           .join("")}</div>${s.note ? `<p class="lead note">${esc(s.note)}</p>` : ""}` };
 
     case "acronym": // sigla grande + pilares (ex.: CPP)
-      return { cls: "si-center", html: `${kicker}<h2 class="h2">${s.title}</h2>
+      return { cls: "si-center", html: `${kicker}${s.title ? `<h2 class="h2">${s.title}</h2>` : ""}
         ${s.lead ? `<p class="lead center">${esc(s.lead)}</p>` : ""}
         <div class="acr-big">${esc(s.big)}</div>
         <div class="acr-pills">${s.pills.map((t) => `<span class="acr-pill">${esc(t)}</span>`).join("")}</div>` };
