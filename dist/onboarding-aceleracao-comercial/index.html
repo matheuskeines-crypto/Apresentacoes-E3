@@ -76,8 +76,19 @@ b,strong,.hl{color:var(--o)}
 .stat-l{font-size:.82rem;color:rgba(255,255,255,.45);max-width:16ch;line-height:1.35}
 /* cards */
 .cards{display:grid;gap:16px}
+.cols-1{grid-template-columns:1fr}
 .cols-2{grid-template-columns:repeat(2,1fr)}
 .cols-3{grid-template-columns:repeat(3,1fr)}
+.note{margin-top:4px;color:rgba(255,255,255,.72)}
+.list-rows .card{align-items:center;padding:16px 20px}
+.list-rows .card-t{margin-bottom:0;font-size:1rem}
+.acr-big{font-family:var(--d);font-weight:800;font-size:9.5rem;letter-spacing:.14em;line-height:.95;color:#fff;margin:10px 0 18px;text-shadow:0 0 70px rgba(255,95,31,.35)}
+.acr-pills{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.acr-pill{font-size:.98rem;font-weight:600;color:#fff;border:1.5px solid rgba(255,95,31,.55);background:rgba(255,95,31,.07);padding:14px 26px;border-radius:999px}
+.reward{display:grid;grid-template-columns:.85fr 1.15fr;gap:22px;align-items:center;margin-top:8px}
+.reward-amt{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;padding:34px 20px;border:1px solid rgba(255,95,31,.4);border-radius:20px;background:rgba(255,95,31,.06)}
+.reward-amt .stat-v{font-size:3.8rem}
+.reward-opts .kicker{margin-bottom:10px}
 .cols-4{grid-template-columns:repeat(4,1fr)}
 .card{display:flex;gap:16px;align-items:flex-start;padding:22px;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:rgba(255,255,255,.025);transition:.3s}
 .card:hover{border-color:rgba(255,95,31,.32);transform:translateY(-2px)}
@@ -177,6 +188,7 @@ b,strong,.hl{color:var(--o)}
 <section class="slide" data-i="1"><div class="slide-inner "><p class="kicker">Roteiro da reunião</p><h2 class="h2">O que vamos alinhar hoje</h2>
         <ol class="agenda"><li><span class="ag-n">01</span><span>Boas-vindas e conexão</span></li><li><span class="ag-n">02</span><span>Alinhamento de expectativas</span></li><li><span class="ag-n">03</span><span>Apresentação do cronograma de 8 semanas</span></li><li><span class="ag-n">04</span><span>Diagnóstico da sua operação atual</span></li><li><span class="ag-n">05</span><span>Definição de SLAs e próximos passos</span></li></ol></div></section>
 <section class="slide" data-i="2"><div class="slide-inner "><p class="kicker">Estrutura</p><h2 class="h2">Como esta reunião se divide (45–60 min)</h2>
+        
         <table class="tbl"><thead><tr><th>Etapa</th><th>Objetivo</th><th>Tempo</th></tr></thead>
         <tbody><tr><td>Boas-vindas &amp; conexão</td><td>Apresentar o gerente de sucesso e validar o alinhamento</td><td>5 min</td></tr><tr><td>Alinhamento de expectativas</td><td>Confirmar o foco: estruturar o processo comercial</td><td>5 min</td></tr><tr><td>Apresentação do cronograma</td><td>Detalhar a jornada de 8 semanas e as entregas</td><td>10 min</td></tr><tr><td>Diagnóstico e triagem</td><td>Investigar a operação de vendas e a mídia ativa</td><td>25 min</td></tr><tr><td>Definição de SLAs</td><td>Formalizar acessos e formulário para o kickoff</td><td>10 min</td></tr></tbody></table></div></section>
 <section class="slide" data-i="3"><div class="slide-inner "><p class="kicker">Cronograma</p><h2 class="h2">A jornada de 8 semanas</h2>
@@ -186,6 +198,7 @@ b,strong,.hl{color:var(--o)}
         
         <div class="cards cols-2"><div class="card"><span class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><div><p class="card-t">Tempo de resposta</p><p class="card-d">Quanto tempo até a primeira mensagem no WhatsApp após o lead chegar?</p></div></div><div class="card"><span class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span><div><p class="card-t">Gestão de oportunidades</p><p class="card-d">Como você controla quem não fechou no primeiro contato?</p></div></div><div class="card"><span class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg></span><div><p class="card-t">Triagem &amp; qualificação</p><p class="card-d">Existem mensagens-padrão para priorizar leads qualificados?</p></div></div><div class="card"><span class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><div><p class="card-t">Processo de atendimento</p><p class="card-d">Quem faz o primeiro contato — com script ou livre?</p></div></div></div></div></section>
 <section class="slide" data-i="5"><div class="slide-inner "><p class="kicker">Corresponsabilidade</p><h2 class="h2">O que precisamos de você (SLAs)</h2>
+        
         <table class="tbl"><thead><tr><th>Responsável</th><th>Ação</th><th>Prazo</th></tr></thead>
         <tbody><tr><td>Cliente</td><td>Preencher o formulário e liberar acessos (mídia paga + WhatsApp Business)</td><td>Até 48h</td></tr><tr><td>Equipe E3</td><td>Criar o grupo oficial e agendar as sessões estratégicas</td><td>No mesmo dia</td></tr><tr><td>Ambos</td><td>Bloquear a agenda do time para o treinamento de SLA (Semana 4)</td><td>Alinhado na reunião</td></tr></tbody></table></div></section>
 <section class="slide" data-i="6"><div class="slide-inner si-cover"><div class="cover-aurora"></div>

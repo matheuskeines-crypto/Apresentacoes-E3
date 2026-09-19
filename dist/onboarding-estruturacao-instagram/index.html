@@ -76,8 +76,19 @@ b,strong,.hl{color:var(--o)}
 .stat-l{font-size:.82rem;color:rgba(255,255,255,.45);max-width:16ch;line-height:1.35}
 /* cards */
 .cards{display:grid;gap:16px}
+.cols-1{grid-template-columns:1fr}
 .cols-2{grid-template-columns:repeat(2,1fr)}
 .cols-3{grid-template-columns:repeat(3,1fr)}
+.note{margin-top:4px;color:rgba(255,255,255,.72)}
+.list-rows .card{align-items:center;padding:16px 20px}
+.list-rows .card-t{margin-bottom:0;font-size:1rem}
+.acr-big{font-family:var(--d);font-weight:800;font-size:9.5rem;letter-spacing:.14em;line-height:.95;color:#fff;margin:10px 0 18px;text-shadow:0 0 70px rgba(255,95,31,.35)}
+.acr-pills{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.acr-pill{font-size:.98rem;font-weight:600;color:#fff;border:1.5px solid rgba(255,95,31,.55);background:rgba(255,95,31,.07);padding:14px 26px;border-radius:999px}
+.reward{display:grid;grid-template-columns:.85fr 1.15fr;gap:22px;align-items:center;margin-top:8px}
+.reward-amt{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;padding:34px 20px;border:1px solid rgba(255,95,31,.4);border-radius:20px;background:rgba(255,95,31,.06)}
+.reward-amt .stat-v{font-size:3.8rem}
+.reward-opts .kicker{margin-bottom:10px}
 .cols-4{grid-template-columns:repeat(4,1fr)}
 .card{display:flex;gap:16px;align-items:flex-start;padding:22px;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:rgba(255,255,255,.025);transition:.3s}
 .card:hover{border-color:rgba(255,95,31,.32);transform:translateY(-2px)}
@@ -180,6 +191,7 @@ b,strong,.hl{color:var(--o)}
         
         <div class="timeline-h" style="--n:6"><div class="th-step"><div class="th-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><p class="th-w">Etapa 1</p><p class="th-t">Diagnóstico do perfil</p><p class="th-d">Analisamos perfil atual, nicho e cliente ideal.</p></div><div class="th-step"><div class="th-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div><p class="th-w">Etapa 2</p><p class="th-t">Posicionamento &amp; bio</p><p class="th-d">Reescrevemos bio, @ e a mensagem de autoridade.</p></div><div class="th-step"><div class="th-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><p class="th-w">Etapa 3</p><p class="th-t">Identidade visual</p><p class="th-d">Paleta, tipografia e templates do feed.</p></div><div class="th-step"><div class="th-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div><p class="th-w">Etapa 4</p><p class="th-t">Vitrine de 9 posts</p><p class="th-d">Grid inicial que estabelece autoridade.</p></div><div class="th-step"><div class="th-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div><p class="th-w">Etapa 5</p><p class="th-t">Destaques &amp; organização</p><p class="th-d">Highlights e navegação do perfil estruturados.</p></div><div class="th-step"><div class="th-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><p class="th-w">Etapa 6</p><p class="th-t">Perfil no ar</p><p class="th-d">Publicação e orientação para manter consistência.</p></div></div></div></section>
 <section class="slide" data-i="3"><div class="slide-inner "><p class="kicker">Corresponsabilidade</p><h2 class="h2">O que precisamos de você (SLAs)</h2>
+        
         <table class="tbl"><thead><tr><th>Responsável</th><th>Ação</th><th>Prazo</th></tr></thead>
         <tbody><tr><td>Cliente</td><td>Liberar acesso ao perfil e enviar fotos e informações</td><td>Até 48h</td></tr><tr><td>Cliente</td><td>Aprovar bio, identidade visual e vitrine</td><td>Até 48h após envio</td></tr><tr><td>Equipe E3</td><td>Estruturar posicionamento, identidade e grid inicial</td><td>Conforme cronograma</td></tr></tbody></table></div></section>
 <section class="slide" data-i="4"><div class="slide-inner si-cover"><div class="cover-aurora"></div>

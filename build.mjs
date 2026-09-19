@@ -109,7 +109,30 @@ function slideInner(s) {
         ${s.lead ? `<p class="lead">${esc(s.lead)}</p>` : ""}
         <div class="cards ${s.cols ? "cols-" + s.cols : "cols-2"}">${s.items
           .map((it) => `<div class="card">${it.icon ? `<span class="card-ic">${icon(it.icon)}</span>` : ""}<div><p class="card-t">${esc(it.title)}</p>${it.desc ? `<p class="card-d">${esc(it.desc)}</p>` : ""}</div></div>`)
-          .join("")}</div>` };
+          .join("")}</div>${s.note ? `<p class="lead note">${esc(s.note)}</p>` : ""}` };
+
+    case "list": // linhas de pergunta/tópico com ícone (uma ou duas colunas)
+      return { cls: "", html: `${kicker}<h2 class="h2">${s.title}</h2>
+        ${s.lead ? `<p class="lead">${esc(s.lead)}</p>` : ""}
+        <div class="cards cols-${s.cols || 1} list-rows">${s.items
+          .map((it) => `<div class="card">${it.icon ? `<span class="card-ic">${icon(it.icon)}</span>` : ""}<div><p class="card-t">${esc(it.text)}</p></div></div>`)
+          .join("")}</div>${s.note ? `<p class="lead note">${esc(s.note)}</p>` : ""}` };
+
+    case "acronym": // sigla grande + pilares (ex.: CPP)
+      return { cls: "si-center", html: `${kicker}<h2 class="h2">${s.title}</h2>
+        ${s.lead ? `<p class="lead center">${esc(s.lead)}</p>` : ""}
+        <div class="acr-big">${esc(s.big)}</div>
+        <div class="acr-pills">${s.pills.map((t) => `<span class="acr-pill">${esc(t)}</span>`).join("")}</div>` };
+
+    case "reward": // valor em destaque + formas de receber
+      return { cls: "", html: `${kicker}<h2 class="h2">${s.title}</h2>
+        <p class="lead">${esc(s.lead)}</p>
+        <div class="reward">
+          <div class="reward-amt"><span class="stat-v">${esc(s.amount)}</span><span class="stat-l">${esc(s.caption)}</span></div>
+          <div class="reward-opts"><p class="kicker">${esc(s.optsTitle)}</p><div class="cards cols-1">${s.options
+            .map((o) => `<div class="card">${o.icon ? `<span class="card-ic">${icon(o.icon)}</span>` : ""}<div><p class="card-t">${esc(o.title)}</p><p class="card-d">${esc(o.desc)}</p></div></div>`)
+            .join("")}</div></div>
+        </div>` };
 
     case "journey": // no formato deck (slides): timeline HORIZONTAL (passos lado a lado)
     case "timeline":
@@ -121,8 +144,9 @@ function slideInner(s) {
 
     case "table":
       return { cls: "", html: `${kicker}<h2 class="h2">${s.title}</h2>
+        ${s.lead ? `<p class="lead">${esc(s.lead)}</p>` : ""}
         <table class="tbl"><thead><tr>${s.head.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead>
-        <tbody>${s.rows.map((r) => `<tr>${r.map((c) => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table>` };
+        <tbody>${s.rows.map((r) => `<tr>${r.map((c) => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table>${s.note ? `<p class="lead note">${esc(s.note)}</p>` : ""}` };
 
     case "quote":
       return { cls: "si-quote", html: `<span class="q-mark">&ldquo;</span>
@@ -254,8 +278,19 @@ b,strong,.hl{color:var(--o)}
 .stat-l{font-size:.82rem;color:rgba(255,255,255,.45);max-width:16ch;line-height:1.35}
 /* cards */
 .cards{display:grid;gap:16px}
+.cols-1{grid-template-columns:1fr}
 .cols-2{grid-template-columns:repeat(2,1fr)}
 .cols-3{grid-template-columns:repeat(3,1fr)}
+.note{margin-top:4px;color:rgba(255,255,255,.72)}
+.list-rows .card{align-items:center;padding:16px 20px}
+.list-rows .card-t{margin-bottom:0;font-size:1rem}
+.acr-big{font-family:var(--d);font-weight:800;font-size:9.5rem;letter-spacing:.14em;line-height:.95;color:#fff;margin:10px 0 18px;text-shadow:0 0 70px rgba(255,95,31,.35)}
+.acr-pills{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.acr-pill{font-size:.98rem;font-weight:600;color:#fff;border:1.5px solid rgba(255,95,31,.55);background:rgba(255,95,31,.07);padding:14px 26px;border-radius:999px}
+.reward{display:grid;grid-template-columns:.85fr 1.15fr;gap:22px;align-items:center;margin-top:8px}
+.reward-amt{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;padding:34px 20px;border:1px solid rgba(255,95,31,.4);border-radius:20px;background:rgba(255,95,31,.06)}
+.reward-amt .stat-v{font-size:3.8rem}
+.reward-opts .kicker{margin-bottom:10px}
 .cols-4{grid-template-columns:repeat(4,1fr)}
 .card{display:flex;gap:16px;align-items:flex-start;padding:22px;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:rgba(255,255,255,.025);transition:.3s}
 .card:hover{border-color:rgba(255,95,31,.32);transform:translateY(-2px)}

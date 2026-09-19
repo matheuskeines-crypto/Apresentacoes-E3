@@ -76,8 +76,19 @@ b,strong,.hl{color:var(--o)}
 .stat-l{font-size:.82rem;color:rgba(255,255,255,.45);max-width:16ch;line-height:1.35}
 /* cards */
 .cards{display:grid;gap:16px}
+.cols-1{grid-template-columns:1fr}
 .cols-2{grid-template-columns:repeat(2,1fr)}
 .cols-3{grid-template-columns:repeat(3,1fr)}
+.note{margin-top:4px;color:rgba(255,255,255,.72)}
+.list-rows .card{align-items:center;padding:16px 20px}
+.list-rows .card-t{margin-bottom:0;font-size:1rem}
+.acr-big{font-family:var(--d);font-weight:800;font-size:9.5rem;letter-spacing:.14em;line-height:.95;color:#fff;margin:10px 0 18px;text-shadow:0 0 70px rgba(255,95,31,.35)}
+.acr-pills{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.acr-pill{font-size:.98rem;font-weight:600;color:#fff;border:1.5px solid rgba(255,95,31,.55);background:rgba(255,95,31,.07);padding:14px 26px;border-radius:999px}
+.reward{display:grid;grid-template-columns:.85fr 1.15fr;gap:22px;align-items:center;margin-top:8px}
+.reward-amt{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;padding:34px 20px;border:1px solid rgba(255,95,31,.4);border-radius:20px;background:rgba(255,95,31,.06)}
+.reward-amt .stat-v{font-size:3.8rem}
+.reward-opts .kicker{margin-bottom:10px}
 .cols-4{grid-template-columns:repeat(4,1fr)}
 .card{display:flex;gap:16px;align-items:flex-start;padding:22px;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:rgba(255,255,255,.025);transition:.3s}
 .card:hover{border-color:rgba(255,95,31,.32);transform:translateY(-2px)}
@@ -180,6 +191,7 @@ b,strong,.hl{color:var(--o)}
         
         <div class="timeline-h" style="--n:6"><div class="th-step"><div class="th-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><p class="th-w">Etapa 1</p><p class="th-t">Planejamento</p><p class="th-d">Temas, formatos e objetivos do mês.</p></div><div class="th-step"><div class="th-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div><p class="th-w">Etapa 2</p><p class="th-t">Roteiro &amp; copy</p><p class="th-d">Textos na sua voz e no seu posicionamento.</p></div><div class="th-step"><div class="th-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div><p class="th-w">Etapa 3</p><p class="th-t">Design &amp; edição</p><p class="th-d">Peças e vídeos dentro da identidade visual.</p></div><div class="th-step"><div class="th-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><p class="th-w">Etapa 4</p><p class="th-t">Aprovação</p><p class="th-d">Você revisa e aprova antes de publicar.</p></div><div class="th-step"><div class="th-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><p class="th-w">Etapa 5</p><p class="th-t">Publicação</p><p class="th-d">Agendamento nos melhores horários.</p></div><div class="th-step"><div class="th-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><p class="th-w">Etapa 6</p><p class="th-t">Análise</p><p class="th-d">Relatório de desempenho e ajustes do ciclo.</p></div></div></div></section>
 <section class="slide" data-i="3"><div class="slide-inner "><p class="kicker">Corresponsabilidade</p><h2 class="h2">O que precisamos de você (SLAs)</h2>
+        
         <table class="tbl"><thead><tr><th>Responsável</th><th>Ação</th><th>Prazo</th></tr></thead>
         <tbody><tr><td>Cliente</td><td>Enviar materiais brutos (fotos, bastidores, casos)</td><td>Conforme pauta mensal</td></tr><tr><td>Cliente</td><td>Aprovar o conteúdo dentro da janela combinada</td><td>Até 48h após envio</td></tr><tr><td>Equipe E3</td><td>Planejar, produzir, agendar e reportar resultados</td><td>Ciclo mensal</td></tr></tbody></table></div></section>
 <section class="slide" data-i="4"><div class="slide-inner si-cover"><div class="cover-aurora"></div>
