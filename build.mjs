@@ -625,7 +625,7 @@ h1 span{color:var(--o)}
 .mlinks a:hover{border-color:var(--o);background:rgba(255,95,31,.08);transform:translateX(3px)}
 .mt{font-weight:700;font-size:.98rem}
 .ms{font-size:.74rem;color:rgba(255,255,255,.42);letter-spacing:.02em}
-.k-wrap{margin-top:36px;border-top:1px solid rgba(255,255,255,.08);padding-top:28px}
+.k-wrap{margin-bottom:36px;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:32px}
 .k-head{margin-bottom:18px}
 .k-head h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.55rem;letter-spacing:-.02em;color:#fff}
 .k-sub{color:rgba(255,255,255,.45);font-size:.9rem;margin-top:4px}
@@ -643,7 +643,6 @@ footer{text-align:center;color:rgba(255,255,255,.3);margin-top:40px;font-size:.8
     <h1>Apresentações <span>E3</span></h1>
     <p class="sub">Proposta · Onboarding · Materiais — por produto</p>
   </header>
-  <div class="grid">${PRODUCTS.map(menuCard).join("")}</div>
   <div class="k-wrap">
     <div class="k-head">
       <h2>Conhecimento</h2>
@@ -653,6 +652,7 @@ footer{text-align:center;color:rgba(255,255,255,.3);margin-top:40px;font-size:.8
       ${KNOWLEDGE.map(extLink).join("\n      ")}
     </div>
   </div>
+  <div class="grid">${PRODUCTS.map(menuCard).join("")}</div>
   <footer>E3 Digital · o hub de marketing e vendas para advogados</footer>
 </div>
 </body></html>`;
