@@ -542,8 +542,8 @@ const PRODUCTS = [
     name: "Assessoria Light & Pro",
     links: [
       { label: "Onboarding", sub: "deck · kickoff", href: "./onboarding-assessoria-light-pro/index.html" },
-      { label: "Playbook", sub: "documento · escopo & alinhamento", href: "./playbook-entrega-alinhamento/index.html" },
-      { label: "Função e Atribuição", sub: "documento · escopo, rotinas & kpis", href: "./playbook-assessoria-light-pro/index.html" },
+      { label: "Manual de Entrega", sub: "documento · escopo & alinhamento", href: "./playbook-entrega-alinhamento/index.html" },
+      { label: "Playbook de Funções", sub: "documento · escopo, rotinas & kpis", href: "./playbook-assessoria-light-pro/index.html" },
       CONSULTORIA_COMERCIAL,
     ],
   },
@@ -558,8 +558,8 @@ const PRODUCTS = [
     name: "Evolução",
     links: [
       { label: "Onboarding", sub: "figma · apresentação", href: "https://spot-clasp-91538610.figma.site" },
-      { label: "Playbook", sub: "pdf / material · a definir", href: "#" },
-      { label: "Função e Atribuição", sub: "pdf / material · a definir", href: "#" },
+      { label: "Manual de Entrega", sub: "pdf / material · a definir", href: "#" },
+      { label: "Playbook de Funções", sub: "pdf / material · a definir", href: "#" },
       CONSULTORIA_COMERCIAL,
       { label: "Forms 360°", sub: "formulário diagnóstico · a definir", href: "#" },
       { label: "Auditoria Criativa", sub: "deck · 39 slides", href: "./auditoria-criativa/index.html" },
@@ -569,8 +569,8 @@ const PRODUCTS = [
     name: "Estruturação",
     links: [
       { label: "Onboarding", sub: "deck · kickoff", href: "./onboarding-estruturacao-pro/index.html" },
-      { label: "Playbook", sub: "pdf / material · a definir", href: "#" },
-      { label: "Função e Atribuição", sub: "pdf / material · a definir", href: "#" },
+      { label: "Manual de Entrega", sub: "pdf / material · a definir", href: "#" },
+      { label: "Playbook de Funções", sub: "pdf / material · a definir", href: "#" },
       CONSULTORIA_COMERCIAL,
       { label: "Forms 360°", sub: "formulário diagnóstico · a definir", href: "#" },
       { label: "Auditoria Mídia Paga", sub: "material específico · a definir", href: "#" },

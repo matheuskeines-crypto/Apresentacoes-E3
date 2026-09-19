@@ -257,8 +257,8 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
 `;
 
 const html = shell({
-  title: "Playbook · Entrega &amp; Alinhamento — Assessoria Light &amp; Pro · E3 Digital",
-  navTitle: "Entrega &amp; Alinhamento · Assessoria Light &amp; Pro",
+  title: "Manual de Entrega — Assessoria Light &amp; Pro · E3 Digital",
+  navTitle: "Manual de Entrega · Assessoria Light &amp; Pro",
   logoUri: LOGO_URI,
   style: STYLE,
   pages: P,

@@ -383,8 +383,8 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
 `;
 
 const html = shell({
-  title: "Playbook · Função e Atribuição — Assessoria Light &amp; Pro · E3 Digital",
-  navTitle: "Função e Atribuição · Assessoria Light &amp; Pro",
+  title: "Playbook de Funções — Assessoria Light &amp; Pro · E3 Digital",
+  navTitle: "Playbook de Funções · Assessoria Light &amp; Pro",
   logoUri: LOGO_URI,
   style: STYLE,
   pages: P,
