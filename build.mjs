@@ -3,6 +3,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { execFileSync } from "node:child_process";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const LOGO = readFileSync(join(__dirname, "logo_e3.b64"), "utf8").trim();
@@ -528,6 +529,11 @@ for (const deck of decks) {
   console.log("built:", deck.slug, "(" + deck.slides.length + (deck.layout === "vertical" ? " · vertical" : " slides") + ")");
 }
 
+/* ─── playbooks (HTML responsivo, com "Baixar PDF" via impressão) ─── */
+for (const gen of ["gen-playbook.mjs", "gen-playbook-entrega.mjs"]) {
+  execFileSync(process.execPath, [join(__dirname, "scripts", gen)], { stdio: "inherit" });
+}
+
 /* ─── página-menu (índice) ─── */
 const CONSULTORIA_COMERCIAL = { label: "Consultoria Comercial", sub: "playbook comercial · site", href: "https://consultoria-comercial-e3.vercel.app" };
 
@@ -536,8 +542,8 @@ const PRODUCTS = [
     name: "Assessoria Light & Pro",
     links: [
       { label: "Onboarding", sub: "deck · kickoff", href: "./onboarding-assessoria-light-pro/index.html" },
-      { label: "Playbook", sub: "pdf · escopo & alinhamento", href: "./playbook-entrega-alinhamento/Playbook-Entrega-Alinhamento-Light-Pro.pdf" },
-      { label: "Função e Atribuição", sub: "pdf · escopo, rotinas & kpis", href: "./playbook-assessoria-light-pro/Playbook-Assessoria-Light-Pro-Operacao.pdf" },
+      { label: "Playbook", sub: "documento · escopo & alinhamento", href: "./playbook-entrega-alinhamento/index.html" },
+      { label: "Função e Atribuição", sub: "documento · escopo, rotinas & kpis", href: "./playbook-assessoria-light-pro/index.html" },
       CONSULTORIA_COMERCIAL,
     ],
   },

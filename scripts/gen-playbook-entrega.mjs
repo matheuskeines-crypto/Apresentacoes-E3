@@ -1,8 +1,11 @@
 // Gera o Playbook de Entrega & Alinhamento (Assessoria Light & Pro) em HTML pronto para impressão.
 // Mesmo design system do scripts/gen-playbook.mjs (Playbook de Funções).
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+import { shell, LOGO_B64_PATH } from "./playbook-web.mjs";
 
-const LOGO = readFileSync("/Users/matheus/Desktop/e3-apresentacoes/logo_e3.b64", "utf8").trim();
+const LOGO = readFileSync(LOGO_B64_PATH, "utf8").trim();
 const LOGO_URI = `data:image/png;base64,${LOGO}`;
 
 const ic = {
@@ -18,19 +21,28 @@ const ic = {
 const svg = (n) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ic[n]}</svg>`;
 
 let folio = 0;
-const page = (body, opts = {}) => `<section class="page${opts.cover ? " cover" : ""}">
+const SECTIONS = [];
+const NAV = [null, "Visão geral", "Entregas Light", "Camada Pro", "Ritos", "KPIs Light", "KPIs Pro", "Ciclo de 30 dias", "Compromisso"];
+let pageIdx = 0;
+const page = (body, opts = {}) => {
+  const idx = pageIdx++;
+  const label = NAV[idx];
+  const id = label ? `s${idx}` : "";
+  if (label) SECTIONS.push({ id, label });
+  return `<section class="page rv${opts.cover ? " cover" : ""}"${id ? ` id="${id}"` : ""}>
   <div class="amb"></div>
   <div class="pbody">${body}</div>
   ${opts.cover ? "" : `<div class="pfoot"><span>PLAYBOOK · ENTREGA &amp; ALINHAMENTO · <b>E3</b></span><span>${String(++folio).padStart(2, "0")}</span></div>`}
 </section>`;
+};
 
 const secHead = (num, title, desc) => `<div class="sechead">
   <span class="secnum">${num}</span>
   <div><h2>${title}</h2><p class="lead">${desc}</p></div>
 </div><div class="rule"></div>`;
 
-const tbl = (head, rows) => `<table class="tbl"><thead><tr>${head.map((h) => `<th>${h}</th>`).join("")}</tr></thead>
-  <tbody>${rows.map((r) => `<tr>${r.map((c, i) => `<td${i === 0 ? ' class="k"' : ""}>${c}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+const tbl = (head, rows) => `<div class="tblw"><table class="tbl"><thead><tr>${head.map((h) => `<th>${h}</th>`).join("")}</tr></thead>
+  <tbody>${rows.map((r) => `<tr>${r.map((c, i) => `<td${i === 0 ? ' class="k"' : ""}>${c}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
 const statRow = (items) => `<div class="stats">${items.map((s) => `<div class="stat"><span class="sv">${s.v}</span><span class="sl">${s.l}</span></div>`).join("")}</div>`;
 const callout = (icon, kicker, title, text) => `<div class="callout">
   <span class="isq">${svg(icon)}</span>
@@ -158,7 +170,7 @@ P.push(page(`
 
 /* — COMPROMISSO — */
 P.push(page(`
-  <div class="commit" style="margin-top:380px">
+  <div class="commit commit-solo">
     <span class="commit-pill">COMPROMISSO E3</span>
     <h3 class="commit-t">Um único padrão de excelência, duas profundidades de entrega.</h3>
     <p class="commit-d">Light e Pro compartilham a mesma disciplina operacional e os mesmos ritos de acompanhamento — o que muda é a profundidade da entrega comercial e o nível de dedicação do squad em cada ciclo.</p>
@@ -180,7 +192,8 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
 .pbody{position:relative;z-index:2;padding:56px 64px 0}
 .pfoot{position:absolute;left:64px;right:64px;bottom:32px;z-index:2;display:flex;justify-content:space-between;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35)}
 .pfoot b{color:var(--o)}
-.kicker{font-family:var(--s);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--o);font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.kicker{font-family:var(--s);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--o);font-weight:700;margin-bottom:8px}
+.kicker .tag{margin-left:8px}
 .h2{font-family:var(--d);font-weight:800;font-size:28px;letter-spacing:-.01em;margin-bottom:16px}
 .h3{font-family:var(--d);font-weight:800;font-size:17px;letter-spacing:-.01em;margin:16px 0 8px}
 .body{font-size:14px;line-height:1.6;color:rgba(255,255,255,.72);margin-bottom:14px}
@@ -240,13 +253,19 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
 .commit-pill{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.14em;color:var(--o);border:1px solid rgba(255,95,31,.5);border-radius:999px;padding:6px 16px;margin-bottom:16px}
 .commit-t{font-family:var(--d);font-weight:800;font-size:21px;letter-spacing:-.01em;margin-bottom:10px}
 .commit-d{font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.55;max-width:56ch;margin:0 auto}
+.commit-solo{margin-top:380px}
 `;
 
-const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"/>
-<title>Playbook · Entrega &amp; Alinhamento — E3 Digital</title>
-<style>${STYLE}</style>
-</head><body>${P.join("\n")}</body></html>`;
+const html = shell({
+  title: "Playbook · Entrega &amp; Alinhamento — Assessoria Light &amp; Pro · E3 Digital",
+  navTitle: "Entrega &amp; Alinhamento · Assessoria Light &amp; Pro",
+  logoUri: LOGO_URI,
+  style: STYLE,
+  pages: P,
+  sections: SECTIONS,
+});
 
-const outPath = process.argv[2] || "playbook-entrega.html";
+const outPath = process.argv[2] || fileURLToPath(new URL("../dist/playbook-entrega-alinhamento/index.html", import.meta.url));
+mkdirSync(dirname(outPath), { recursive: true });
 writeFileSync(outPath, html, "utf8");
-console.log("HTML gerado:", outPath, "·", P.length, "páginas");
+console.log("playbook entrega:", outPath, "·", P.length, "páginas");

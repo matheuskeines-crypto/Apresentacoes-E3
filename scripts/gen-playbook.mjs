@@ -1,7 +1,10 @@
 // Gera o Playbook unificado (Assessoria Light & Pro) em HTML pronto para impressão.
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+import { shell, LOGO_B64_PATH } from "./playbook-web.mjs";
 
-const LOGO = readFileSync("/Users/matheus/Desktop/e3-apresentacoes/logo_e3.b64", "utf8").trim();
+const LOGO = readFileSync(LOGO_B64_PATH, "utf8").trim();
 const LOGO_URI = `data:image/png;base64,${LOGO}`;
 
 const ic = {
@@ -22,11 +25,20 @@ const svg = (n) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" s
 
 /* ── helpers de componente ───────────────────────────── */
 let folio = 0;
-const page = (_n, body, opts = {}) => `<section class="page${opts.cover ? " cover" : ""}">
+const SECTIONS = [];
+const NAV = [null, "Visão geral", "Pilares", "Squad", "Account Manager", "Gestor de Tráfego", "Gestor de Projetos", "Consultor Comercial", "SLA"];
+let pageIdx = 0;
+const page = (_n, body, opts = {}) => {
+  const idx = pageIdx++;
+  const label = NAV[idx];
+  const id = label ? `s${idx}` : "";
+  if (label) SECTIONS.push({ id, label });
+  return `<section class="page rv${opts.cover ? " cover" : ""}"${id ? ` id="${id}"` : ""}>
   <div class="amb"></div>
   <div class="pbody">${body}</div>
   ${opts.cover ? "" : `<div class="pfoot"><span>PLAYBOOK · ASSESSORIA LIGHT &amp; PRO · <b>E3</b></span><span>${String(++folio).padStart(2, "0")}</span></div>`}
 </section>`;
+};
 
 const secHead = (num, title, desc) => `<div class="sechead">
   <span class="secnum">${num}</span>
@@ -49,8 +61,8 @@ const legend = () => `<div class="legend">
 
 const bul = (items) => `<ul class="bul">${items.map((i) => `<li>${i}</li>`).join("")}</ul>`;
 const block = (kicker, items) => `<div class="blk"><p class="kicker">${kicker}</p>${bul(items)}</div>`;
-const tbl = (head, rows, cls = "") => `<table class="tbl ${cls}"><thead><tr>${head.map((h) => `<th>${h}</th>`).join("")}</tr></thead>
-  <tbody>${rows.map((r) => `<tr>${r.map((c, i) => `<td${i === 0 ? ' class="k"' : ""}>${c}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+const tbl = (head, rows, cls = "") => `<div class="tblw"><table class="tbl ${cls}"><thead><tr>${head.map((h) => `<th>${h}</th>`).join("")}</tr></thead>
+  <tbody>${rows.map((r) => `<tr>${r.map((c, i) => `<td${i === 0 ? ' class="k"' : ""}>${c}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
 const statRow = (items) => `<div class="stats">${items.map((s) => `<div class="stat"><span class="sv">${s.v}</span><span class="sl">${s.l}</span></div>`).join("")}</div>`;
 const feat = (items) => `<div class="feats">${items.map((f) => `<div class="feat"><p class="ft">${f.t}</p><p class="fd">${f.d}</p></div>`).join("")}</div>`;
 const callout = (icon, kicker, title, text) => `<div class="callout">
@@ -370,11 +382,16 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
 .commit-d{font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.55;max-width:56ch;margin:0 auto}
 `;
 
-const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"/>
-<title>Playbook · Assessoria Light &amp; Pro — E3 Digital</title>
-<style>${STYLE}</style>
-</head><body>${P.join("\n")}</body></html>`;
+const html = shell({
+  title: "Playbook · Função e Atribuição — Assessoria Light &amp; Pro · E3 Digital",
+  navTitle: "Função e Atribuição · Assessoria Light &amp; Pro",
+  logoUri: LOGO_URI,
+  style: STYLE,
+  pages: P,
+  sections: SECTIONS,
+});
 
-const outPath = process.argv[2] || "playbook.html";
+const outPath = process.argv[2] || fileURLToPath(new URL("../dist/playbook-assessoria-light-pro/index.html", import.meta.url));
+mkdirSync(dirname(outPath), { recursive: true });
 writeFileSync(outPath, html, "utf8");
-console.log("HTML gerado:", outPath, "·", P.length, "páginas");
+console.log("playbook funções:", outPath, "·", P.length, "páginas");
