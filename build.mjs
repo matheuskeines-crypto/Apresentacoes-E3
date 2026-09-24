@@ -565,7 +565,7 @@ for (const deck of decks) {
 }
 
 /* ─── playbooks (HTML responsivo, com "Baixar PDF" via impressão) ─── */
-for (const gen of ["gen-playbook.mjs", "gen-playbook-entrega.mjs"]) {
+for (const gen of ["gen-playbook.mjs", "gen-playbook-entrega.mjs", "gen-manual-evolucao.mjs"]) {
   execFileSync(process.execPath, [join(__dirname, "scripts", gen)], { stdio: "inherit" });
 }
 
@@ -594,7 +594,7 @@ const PRODUCTS = [
     links: [
       { label: "Onboarding", sub: "deck · kickoff", href: "./onboarding-evolucao-juridica/index.html" },
       { label: "Onboarding (versão antiga)", sub: "figma · backup", href: "https://spot-clasp-91538610.figma.site" },
-      { label: "Manual de Entrega", sub: "pdf / material · a definir", href: "#" },
+      { label: "Manual de Entrega", sub: "documento · entregas & alinhamento", href: "./manual-entrega-evolucao-juridica/index.html" },
       { label: "Playbook de Funções", sub: "pdf / material · a definir", href: "#" },
       CONSULTORIA_COMERCIAL,
       { label: "Forms 360°", sub: "formulário diagnóstico · a definir", href: "#" },
