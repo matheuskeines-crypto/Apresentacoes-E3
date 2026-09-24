@@ -62,7 +62,7 @@ export const onboarding = {
   slides: [
     { type: "cover", kicker: "Onboarding · E3 Digital",
       title: 'Bem-vindo à <span class="hl">Evolução Jurídica</span>',
-      subtitle: "Vamos alinhar o método, a jornada de 8 semanas e o que precisamos de você para começar.",
+      subtitle: "Vamos alinhar o método, a jornada de algumas semanas e o que precisamos de você para começar.",
       tag: "Basic + Pro · 8 semanas" },
     { type: "agenda", kicker: "Roteiro da reunião", title: "O que vamos alinhar hoje",
       items: [
@@ -73,15 +73,13 @@ export const onboarding = {
         "Próximos passos e acessos",
       ] },
 
-    { type: "table", kicker: "Como conduzimos esta reunião", title: "Estrutura do Onboarding (45–60 min)",
-      lead: "Uma ordem lógica que constrói confiança antes de entrar no diagnóstico mais profundo.",
-      head: ["Etapa", "Objetivo", "Tempo"],
-      rows: [
-        ["1. Boas-vindas & Conexão", "Apresentar o Assessor E3 e validar que o escritório tomou a decisão certa.", "5 min"],
-        ["2. Cronograma de Entrega", "Apresentar o calendário de 30 (Evolução) ou 60 dias (Pro), com entregas e ritos semana a semana.", "10 min"],
-        ["3. Diagnóstico de Maturidade", "Perguntas investigativas para entender o processo comercial e mapear oportunidades.", "25 min"],
-        ["4. Campanha de Indicação", "Apresentar o programa \u201cMembro Ganha Membro\u201d — R$ 300 por indicação fechada.", "5 min"],
-        ["5. Próximos Passos & SLA", "Coleta de acessos e definição de responsabilidades para a Semana 1.", "5 min"],
+    { type: "list", kicker: "Como conduzimos esta reunião", title: "Onboarding",
+      items: [
+        { icon: "handshake", text: "Boas-vindas & Conexão" },
+        { icon: "calendar", text: "Cronograma de Entrega" },
+        { icon: "search", text: "Diagnóstico de Maturidade" },
+        { icon: "megaphone", text: "Campanha de Indicação" },
+        { icon: "check", text: "Próximos Passos & SLA" },
       ] },
 
     { type: "table", kicker: "Fase 1 · Evolução (30 dias)", title: "Cronograma da Fase 1",
