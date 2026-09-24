@@ -61,7 +61,7 @@ export const onboarding = {
   title: "Onboarding · Evolução Jurídica",
   slides: [
     { type: "cover", kicker: "Onboarding · E3 Digital",
-      title: 'Bem-vindo à <span class="hl">Evolução</span>',
+      title: 'Bem-vindo à <span class="hl">Evolução Jurídica</span>',
       subtitle: "Vamos alinhar o método, a jornada de 8 semanas e o que precisamos de você para começar.",
       tag: "Basic + Pro · 8 semanas" },
     { type: "agenda", kicker: "Roteiro da reunião", title: "O que vamos alinhar hoje",
@@ -72,17 +72,71 @@ export const onboarding = {
         "Os 3 funis de receita",
         "Próximos passos e acessos",
       ] },
-    pmv,
-    { type: "timeline", kicker: "Cronograma", title: "A jornada de 8 semanas", steps: jornada.steps },
-    { type: "table", kicker: "Corresponsabilidade", title: "O que precisamos de você (SLAs)",
-      head: ["Responsável", "Ação", "Prazo"],
+
+    { type: "table", kicker: "Como conduzimos esta reunião", title: "Estrutura do Onboarding (45–60 min)",
+      lead: "Uma ordem lógica que constrói confiança antes de entrar no diagnóstico mais profundo.",
+      head: ["Etapa", "Objetivo", "Tempo"],
       rows: [
-        ["Cliente", "Preencher formulário de diagnóstico e liberar acessos", "Até 48h"],
-        ["Equipe E3", "Abrir canal de comunicação e agendar as sessões", "No mesmo dia"],
-        ["Ambos", "Aprovar as entregas de cada semana para não travar o cronograma", "Semanalmente"],
+        ["1. Boas-vindas & Conexão", "Apresentar o Assessor E3 e validar que o escritório tomou a decisão certa.", "5 min"],
+        ["2. Cronograma de Entrega", "Apresentar o calendário de 30 (Evolução) ou 60 dias (Pro), com entregas e ritos semana a semana.", "10 min"],
+        ["3. Diagnóstico de Maturidade", "Perguntas investigativas para entender o processo comercial e mapear oportunidades.", "25 min"],
+        ["4. Campanha de Indicação", "Apresentar o programa \u201cMembro Ganha Membro\u201d — R$ 300 por indicação fechada.", "5 min"],
+        ["5. Próximos Passos & SLA", "Coleta de acessos e definição de responsabilidades para a Semana 1.", "5 min"],
       ] },
+
+    { type: "table", kicker: "Fase 1 · Evolução (30 dias)", title: "Cronograma da Fase 1",
+      lead: "Do kick-off ao pitch de renovação — quatro semanas até o primeiro resultado.",
+      head: ["Semana", "O que a equipe entrega"],
+      rows: [
+        ["Semana 0 · Kick-off & Onboarding", "CS Manager envia vídeo e formulário comercial e analisa o Instagram. Account conduz o onboarding: define o ICP, redesenha o posicionamento e envia os formulários da página e do Google Meu Negócio."],
+        ["Semana 1 · Posicionamento", "Account fecha posicionamento, persona, dores e objeções com o cliente. Gestor de Projeto desenvolve copies e briefings de arte com base nessa reunião."],
+        ["Semana 2 · Presença Digital", "Web Design publica a Landing Page. Gestor de Projeto finaliza a otimização completa do Google Meu Negócio."],
+        ["Semana 3 · Capacitação & Vitrine", "Criação publica a grade de 9 posts no Instagram como vitrine de autoridade. Consultor Comercial conduz o treinamento comercial do time do cliente."],
+        ["Semana 4 · Resultados & Pitch", "Account apresenta os resultados do ciclo e conduz o pitch de renovação ou upgrade para o Pro."],
+      ] },
+
+    { type: "table", kicker: "Fase 2 · Evolução Pro (60 dias)", title: "Cronograma da Fase 2",
+      lead: "Para quem avança na aceleração comercial: mais quatro semanas até a escala.",
+      head: ["Semana", "O que a equipe entrega"],
+      rows: [
+        ["Semana 5 · Prospecção Ativa", "Consultor Comercial estrutura o Social Selling, escreve os scripts de DM e ativa o Funil de Indicação. Gestor de Projeto acompanha a implantação e cobra as entregas."],
+        ["Semana 6 · Live Estratégica TikTok", "Account planeja, roteiriza e lança a primeira live estratégica no TikTok do cliente."],
+        ["Semana 7 · Otimização Comercial", "Gestor de Projeto audita a operação, acompanha a ativação do funil de indicação e ajusta abordagens."],
+        ["Semana 8 · Resultados & Escala", "Account e Consultor Comercial revisam as métricas dos 60 dias, desenham o plano de escala e conduzem o novo pitch de renovação."],
+      ] },
+
+    { type: "bullets", kicker: "Diagnóstico de maturidade", title: "Onde também podemos ajudar seu escritório", cols: 3,
+      lead: "Ao longo da conversa, vamos mapear juntos oportunidades como estas:",
+      items: [
+        { icon: "layers", title: "CRM", desc: "Organiza toda a jornada do lead, evitando que o investimento em anúncios se perca por falta de follow-up." },
+        { icon: "zap", title: "IA de Atendimento", desc: "Triagem 24h que responde o lead em minutos e só passa ao advogado quem tem real potencial de fechar." },
+        { icon: "award", title: "Identidade Visual & Branding", desc: "Uma imagem à altura da autoridade do escritório, para sustentar honorários premium." },
+        { icon: "instagram", title: "Social Media", desc: "Um perfil ativo que vira \u201ccolateral de confiança\u201d para quem pesquisa o escritório após o anúncio." },
+        { icon: "users", title: "Treinamento Comercial", desc: "Técnicas de venda para o time que atende o WhatsApp converter mais consultas em contratos." },
+        { icon: "target", title: "Novas Landing Pages", desc: "Uma página por área de atuação para captar tráfego qualificado em cada frente rentável." },
+      ] },
+
+    { type: "reward", kicker: "Campanha de indicação", title: "Indique e ganhe R$ 300",
+      lead: "Bons profissionais se conectam com outros excelentes profissionais. Indique um colega advogado ou parceiro de outro escritório e, se ele fechar com a E3, você é recompensado.",
+      amount: "R$ 300,00", caption: "Em créditos de bonificação por indicação fechada.",
+      optsTitle: "Como usar o seu crédito",
+      options: [
+        { icon: "megaphone", title: "Mídia paga", desc: "Adicione o valor no orçamento de anúncios gerenciado pela E3." },
+        { icon: "handshake", title: "Abater na assessoria", desc: "Use para abater mensalidades ou novos serviços, como CRM, IA ou Identidade Visual." },
+        { icon: "dollar", title: "Pix na conta", desc: "Receba o valor líquido direto por transferência." },
+      ] },
+
+    { type: "table", kicker: "Antes de fechar por hoje", title: "Próximos Passos · SLA da Semana 1",
+      lead: "Para cumprir a Semana 2 (Landing Page + Google Meu Negócio) com maestria.",
+      head: ["Responsável", "Ação"],
+      rows: [
+        ["Cliente", "Preencher o formulário de diagnóstico técnico: informações institucionais, fotos e biografia."],
+        ["Cliente", "Enviar os acessos de domínio (Registro.br ou similar) e do perfil do Google Meu Negócio."],
+        ["Equipe E3", "Criar o grupo operacional no WhatsApp e agendar os criativos para aprovação na semana seguinte."],
+      ] },
+
     { type: "final", title: "Bora evoluir.",
-      subtitle: "Seu primeiro passo: formulário de diagnóstico e acessos liberados em até 48h.",
+      subtitle: "Seu primeiro passo: formulário de diagnóstico e acessos liberados para começar a Semana 1.",
       contact: "E3 Digital · o hub de marketing e vendas para advogados" },
   ],
 };

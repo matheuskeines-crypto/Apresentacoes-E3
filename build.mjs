@@ -592,7 +592,8 @@ const PRODUCTS = [
   {
     name: "Evolução",
     links: [
-      { label: "Onboarding", sub: "figma · apresentação", href: "https://spot-clasp-91538610.figma.site" },
+      { label: "Onboarding", sub: "deck · kickoff", href: "./onboarding-evolucao-juridica/index.html" },
+      { label: "Onboarding (versão antiga)", sub: "figma · backup", href: "https://spot-clasp-91538610.figma.site" },
       { label: "Manual de Entrega", sub: "pdf / material · a definir", href: "#" },
       { label: "Playbook de Funções", sub: "pdf / material · a definir", href: "#" },
       CONSULTORIA_COMERCIAL,
