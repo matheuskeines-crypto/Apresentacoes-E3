@@ -73,14 +73,28 @@ export const onboarding = {
         "Próximos passos e acessos",
       ] },
 
-    { type: "list", kicker: "Como conduzimos esta reunião", title: "Onboarding",
+    { type: "list", kicker: "Diagnóstico inicial", title: "Marco Zero", cols: 2,
       items: [
-        { icon: "handshake", text: "Boas-vindas & Conexão" },
-        { icon: "calendar", text: "Cronograma de Entrega" },
-        { icon: "search", text: "Diagnóstico de Maturidade" },
-        { icon: "megaphone", text: "Campanha de Indicação" },
-        { icon: "check", text: "Próximos Passos & SLA" },
+        { icon: "search", text: "Já atuou com o digital?" },
+        { icon: "check", text: "Já fechou contratos? Quantos?" },
+        { icon: "users", text: "Como funciona o comercial hoje? Pessoas, processos, ferramentas?" },
+        { icon: "layers", text: "Como é sua presença no digital? Tem site ou GMN?" },
+        { icon: "dollar", text: "Hoje, qual o seu faturamento?" },
+        { icon: "megaphone", text: "Tem posicionamento digital ativo? Produz conteúdo de forma orgânica?" },
       ] },
+
+    { type: "bullets", kicker: "Nosso compromisso nos próximos 6 meses", title: "Nossos Objetivos", cols: 2,
+      items: [
+        { icon: "layers", title: "Presença digital validada", desc: "Landing Page no ar e Google Meu Negócio otimizado, prontos para captar leads." },
+        { icon: "instagram", title: "Autoridade no Instagram", desc: "Vitrine de conteúdo estruturada, reforçando a credibilidade do escritório." },
+        { icon: "users", title: "Comercial capacitado", desc: "Time do cliente treinado para converter os leads gerados em contratos." },
+        { icon: "trending", title: "Previsibilidade de novos contratos", desc: "Um processo repetível, do lead ao pitch de renovação." },
+      ] },
+
+    { type: "acronym", kicker: "Nossa metodologia",
+      lead: "Uma solução completa de marketing e vendas, na qual fazemos escritórios de advocacia faturarem mais através da nossa metodologia CPP.",
+      big: "CPP",
+      pills: ["Canais de aquisição de clientes", "Produtos Jurídicos", "Processo comercial"] },
 
     { type: "table", kicker: "Fase 1 · Evolução (30 dias)", title: "Cronograma da Fase 1",
       lead: "Do kick-off ao pitch de renovação — quatro semanas até o primeiro resultado.",
@@ -103,6 +117,15 @@ export const onboarding = {
         ["Semana 8 · Resultados & Escala", "Account e Consultor Comercial revisam as métricas dos 60 dias, desenham o plano de escala e conduzem o novo pitch de renovação."],
       ] },
 
+    { type: "list", kicker: "Antes de estruturar o plano", title: "Quanto Tempo de Resultado?",
+      lead: "Essas respostas nos ajudam a calibrar o cronograma e as prioridades do seu projeto:",
+      items: [
+        { icon: "search", text: "Como seu negócio é visto hoje? Qual posicionamento adotado?" },
+        { icon: "settings", text: "Como funciona o processo comercial atualmente? Ferramentas, pessoas e processo?" },
+        { icon: "chart", text: "Qual sua taxa de fechamento atualmente?" },
+        { icon: "clock", text: "Quanto tempo o seu cliente demora para fechar com você?" },
+      ] },
+
     { type: "bullets", kicker: "Diagnóstico de maturidade", title: "Onde também podemos ajudar seu escritório", cols: 3,
       lead: "Ao longo da conversa, vamos mapear juntos oportunidades como estas:",
       items: [
@@ -113,6 +136,13 @@ export const onboarding = {
         { icon: "users", title: "Treinamento Comercial", desc: "Técnicas de venda para o time que atende o WhatsApp converter mais consultas em contratos." },
         { icon: "target", title: "Novas Landing Pages", desc: "Uma página por área de atuação para captar tráfego qualificado em cada frente rentável." },
       ] },
+
+    { type: "bullets", kicker: "Reuniões e acompanhamento", title: "Nossas Reuniões e Acompanhamento", cols: 2,
+      items: [
+        { icon: "calendar", title: "Durante os próximos 30 dias · Consultoria e entregas", desc: "Reunião semanal conforme cronograma. Entregas e acompanhamento." },
+        { icon: "trending", title: "Após 30 dias (Pro) · Busca da escala", desc: "Alinhamento e consultoria. Feedback do cliente e oportunidades de melhoria." },
+      ],
+      note: "Essas reuniões são fundamentais para garantir o alinhamento estratégico e maximizar os resultados do projeto." },
 
     { type: "reward", kicker: "Campanha de indicação", title: "Indique e ganhe R$ 300",
       lead: "Bons profissionais se conectam com outros excelentes profissionais. Indique um colega advogado ou parceiro de outro escritório e, se ele fechar com a E3, você é recompensado.",
