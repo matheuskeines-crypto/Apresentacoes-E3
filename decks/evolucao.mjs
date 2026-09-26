@@ -102,7 +102,7 @@ export const onboarding = {
         { label: "Semana 1", icon: "target", title: "Posicionamento", desc: "" },
         { label: "Semana 2", icon: "cog", title: "Presença Digital", desc: "" },
         { label: "Semana 3", icon: "instagram", title: "Capacitação & Vitrine", desc: "" },
-        { label: "Semana 4", icon: "trending", title: "Resultados & Pitch", desc: "" },
+        { label: "Semana 4", icon: "trending", title: "Resultados", desc: "" },
       ] },
 
     { type: "timeline", kicker: "Cronograma · Evolução Pro", title: "A jornada em 8 semanas",
@@ -111,7 +111,7 @@ export const onboarding = {
         { label: "Semana 1", icon: "target", title: "Posicionamento", desc: "" },
         { label: "Semana 2", icon: "cog", title: "Presença Digital", desc: "" },
         { label: "Semana 3", icon: "instagram", title: "Capacitação & Vitrine", desc: "" },
-        { label: "Semana 4", icon: "trending", title: "Resultados & Pitch", desc: "" },
+        { label: "Semana 4", icon: "trending", title: "Resultados", desc: "" },
         { label: "Semana 5", icon: "users", title: "Prospecção Ativa", desc: "" },
         { label: "Semana 6", icon: "phone", title: "Live Estratégica TikTok", desc: "" },
         { label: "Semana 7", icon: "settings", title: "Otimização Comercial", desc: "" },
