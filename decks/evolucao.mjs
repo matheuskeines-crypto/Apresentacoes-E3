@@ -96,7 +96,7 @@ export const onboarding = {
       big: "CPP",
       pills: ["Canais de aquisição de clientes", "Produtos Jurídicos", "Processo comercial"] },
 
-    { type: "timeline", kicker: "Cronograma · Evolução", title: "A jornada em 5 semanas",
+    { type: "timeline", kicker: "Cronograma · Evolução", title: "A jornada em 4 semanas",
       steps: [
         { label: "Semana 0", icon: "megaphone", title: "Kick-off & Onboarding", desc: "" },
         { label: "Semana 1", icon: "target", title: "Posicionamento", desc: "" },
