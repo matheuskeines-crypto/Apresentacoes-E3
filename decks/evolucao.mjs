@@ -155,15 +155,6 @@ export const onboarding = {
         { icon: "dollar", title: "Pix na conta", desc: "Receba o valor líquido direto por transferência." },
       ] },
 
-    { type: "table", kicker: "Antes de fechar por hoje", title: "Próximos Passos · SLA da Semana 1",
-      lead: "Para cumprir a Semana 2 (Landing Page + Google Meu Negócio) com maestria.",
-      head: ["Responsável", "Ação"],
-      rows: [
-        ["Cliente", "Preencher o formulário de diagnóstico técnico: informações institucionais, fotos e biografia."],
-        ["Cliente", "Enviar os acessos de domínio (Registro.br ou similar) e do perfil do Google Meu Negócio."],
-        ["Equipe E3", "Criar o grupo operacional no WhatsApp e agendar os criativos para aprovação na semana seguinte."],
-      ] },
-
     { type: "final", title: "Bora evoluir.",
       subtitle: "Seu primeiro passo: formulário de diagnóstico e acessos liberados para começar a Semana 1.",
       contact: "E3 Digital · o hub de marketing e vendas para advogados" },
