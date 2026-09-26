@@ -6,106 +6,114 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23000'/%3E%3Ctext x='50' y='68' font-size='54' font-family='Arial' font-weight='800' fill='%23FF5F1F' text-anchor='middle'%3EE3%3C/text%3E%3C/svg%3E">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Sans:wght@400;500;600;700&display=swap');
-@page{size:794px 1123px;margin:0}
+@page{size:1280px 720px;margin:0}
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--o:#FF5F1F;--o2:#FF3300;--bg:#050505;--d:'Bricolage Grotesque',sans-serif;--s:'DM Sans',sans-serif}
 html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoothing:antialiased}
-.page{position:relative;width:794px;height:1123px;overflow:hidden;background:var(--bg);page-break-after:always}
+.page{position:relative;width:1280px;height:720px;overflow:hidden;background:var(--bg);page-break-after:always}
 .page:last-child{page-break-after:auto}
 .amb{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-.amb::before{content:"";position:absolute;top:-14%;left:-8%;width:60%;height:38%;border-radius:50%;background:rgba(255,95,31,.16);filter:blur(90px)}
-.amb::after{content:"";position:absolute;bottom:-16%;right:-10%;width:56%;height:36%;border-radius:50%;background:rgba(255,51,0,.10);filter:blur(90px)}
-.pbody{position:relative;z-index:2;padding:56px 64px 0}
-.pfoot{position:absolute;left:64px;right:64px;bottom:32px;z-index:2;display:flex;justify-content:space-between;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.amb::before{content:"";position:absolute;top:-18%;left:-8%;width:46%;height:60%;border-radius:50%;background:rgba(255,95,31,.16);filter:blur(90px)}
+.amb::after{content:"";position:absolute;bottom:-20%;right:-8%;width:42%;height:56%;border-radius:50%;background:rgba(255,51,0,.10);filter:blur(90px)}
+.pbody{position:relative;z-index:2;padding:34px 56px 0}
+.pfoot{position:absolute;left:56px;right:56px;bottom:18px;z-index:2;display:flex;justify-content:space-between;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35)}
 .pfoot b{color:var(--o)}
-.kicker{font-family:var(--s);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--o);font-weight:700;margin-bottom:8px}
-.h2{font-family:var(--d);font-weight:800;font-size:28px;letter-spacing:-.01em;margin-bottom:16px}
-.h3{font-family:var(--d);font-weight:800;font-size:17px;letter-spacing:-.01em;margin:16px 0 8px}
-.body{font-size:14px;line-height:1.6;color:rgba(255,255,255,.72);margin-bottom:14px}
+.kicker{font-family:var(--s);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--o);font-weight:700;margin-bottom:6px}
+.h2{font-family:var(--d);font-weight:800;font-size:23px;letter-spacing:-.01em;margin-bottom:8px}
+.h3{font-family:var(--d);font-weight:800;font-size:14px;letter-spacing:-.01em;margin:10px 0 6px}
+.body{font-size:12px;line-height:1.5;color:rgba(255,255,255,.72);margin-bottom:8px}
 .body b{color:#fff;font-weight:700}
+.muted{font-weight:400;color:rgba(255,255,255,.5);font-size:9.5px}
 /* CAPA */
-.cover .pbody{padding:0 68px}
-.cover .logo{width:130px;margin:150px 0 26px}
-.cov-k{margin-bottom:12px}
-.cover h1{font-family:var(--d);font-weight:800;font-size:52px;line-height:1;letter-spacing:-.02em;margin-bottom:22px}
+.cover .pbody{padding:0 72px;display:flex;flex-direction:column;justify-content:center;height:100%}
+.cover .logo{width:88px;margin:0 0 16px}
+.cov-k{margin-bottom:10px}
+.cover h1{font-family:var(--d);font-weight:800;font-size:38px;line-height:1.05;letter-spacing:-.02em;margin-bottom:14px}
 .cover h1 span{color:var(--o)}
-.cov-sub{font-size:15px;line-height:1.6;color:rgba(255,255,255,.7);max-width:56ch;margin-bottom:30px}
-.pills{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
-.pill{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,95,31,.5);background:rgba(255,95,31,.06);padding:9px 16px;border-radius:999px}
-.cov-rule{height:1px;background:rgba(255,255,255,.12);margin-bottom:16px}
-.cov-foot{font-size:12px;color:rgba(255,255,255,.4)}
+.cov-sub{font-size:13px;line-height:1.55;color:rgba(255,255,255,.7);max-width:64ch;margin-bottom:18px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.pill{font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,95,31,.5);background:rgba(255,95,31,.06);padding:7px 14px;border-radius:999px}
+.cov-rule{height:1px;background:rgba(255,255,255,.12);margin-bottom:10px}
+.cov-foot{font-size:10.5px;color:rgba(255,255,255,.4)}
 /* stats */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;margin:18px 0}
-.stat{display:flex;flex-direction:column;align-items:center;gap:4px;padding:20px 8px;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;margin:10px 0}
+.stat{display:flex;flex-direction:column;align-items:center;gap:3px;padding:12px 6px;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
 .stat:last-child{border-right:0}
-.sv{font-family:var(--d);font-weight:800;font-size:24px;color:var(--o)}
-.sl{font-size:10.5px;color:rgba(255,255,255,.5);line-height:1.3}
+.sv{font-family:var(--d);font-weight:800;font-size:18px;color:var(--o)}
+.sl{font-size:9px;color:rgba(255,255,255,.5);line-height:1.25}
 /* callout */
-.callout{display:flex;gap:16px;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:20px 22px;background:rgba(255,255,255,.02);margin-bottom:18px}
-.isq{flex:0 0 auto;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,var(--o),var(--o2));color:#fff}
-.isq svg{width:18px;height:18px}
-.callout h4{font-family:var(--d);font-weight:700;font-size:15px;margin:2px 0 6px}
-.cd{font-size:12.5px;line-height:1.55;color:rgba(255,255,255,.6)}
+.callout{display:flex;gap:12px;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px 16px;background:rgba(255,255,255,.02);margin-bottom:10px}
+.isq{flex:0 0 auto;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(135deg,var(--o),var(--o2));color:#fff}
+.isq svg{width:14px;height:14px}
+.callout h4{font-family:var(--d);font-weight:700;font-size:12px;margin:1px 0 3px}
+.cd{font-size:10.5px;line-height:1.4;color:rgba(255,255,255,.6)}
 .cd b{color:#fff}
 /* quote */
-.quote{border-left:2px solid var(--o);padding:14px 20px;background:rgba(255,95,31,.04)}
-.quote p{font-size:12.5px;line-height:1.6;color:rgba(255,255,255,.68);margin-top:8px}
+.quote{border-left:2px solid var(--o);padding:10px 16px;background:rgba(255,95,31,.04)}
+.quote p{font-size:10.5px;line-height:1.45;color:rgba(255,255,255,.68);margin-top:5px}
 .quote p:first-of-type{margin-top:0}
 .quote b{color:var(--o)}
-.qk{font-family:var(--s);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--o);font-weight:700}
-.quote.inline{margin:12px 0 14px;background:rgba(255,255,255,.02);border-left:2px solid var(--o)}
+.qk{font-family:var(--s);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--o);font-weight:700}
+.quote.inline{margin:6px 0 8px;background:rgba(255,255,255,.02);border-left:2px solid var(--o)}
 .quote.inline p{color:rgba(255,255,255,.75);margin:0}
 .quote.inline b{color:var(--o)}
 /* sechead */
-.sechead{display:flex;align-items:flex-start;gap:18px;margin-bottom:14px}
-.secnum{font-family:var(--d);font-weight:800;font-size:48px;line-height:.8;color:transparent;-webkit-text-stroke:1.5px rgba(255,95,31,.6)}
-.sechead h2{font-family:var(--d);font-weight:800;font-size:24px;letter-spacing:-.01em;margin-bottom:6px}
-.sechead .lead{font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.5}
-.rule{height:1px;background:rgba(255,255,255,.1);margin-bottom:20px}
+.sechead{display:flex;align-items:flex-start;gap:14px;margin-bottom:8px}
+.secnum{font-family:var(--d);font-weight:800;font-size:32px;line-height:.8;color:transparent;-webkit-text-stroke:1.3px rgba(255,95,31,.6)}
+.sechead h2{font-family:var(--d);font-weight:800;font-size:19px;letter-spacing:-.01em;margin-bottom:4px}
+.sechead .lead{font-size:10.5px;color:rgba(255,255,255,.55);line-height:1.4}
+.rule{height:1px;background:rgba(255,255,255,.1);margin-bottom:10px}
 /* cards */
-.card{border:1px solid rgba(255,255,255,.1);border-radius:18px;background:rgba(255,255,255,.02);padding:18px 22px;margin-bottom:14px}
-.chead{display:flex;align-items:center;gap:14px;margin-bottom:10px}
-.chead h3{font-family:var(--d);font-weight:800;font-size:18px;display:flex;align-items:center;gap:10px}
-.chead .kicker{margin-bottom:2px}
-/* tags Light/Pro */
-.tag{display:inline-block;font-family:var(--s);font-size:9.5px;font-weight:800;letter-spacing:.08em;padding:4px 10px;border-radius:999px;vertical-align:middle}
+.card{border:1px solid rgba(255,255,255,.1);border-radius:14px;background:rgba(255,255,255,.02);padding:12px 16px;margin-bottom:8px}
+.chead{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.chead h3{font-family:var(--d);font-weight:800;font-size:14px;display:flex;align-items:center;gap:8px}
+.chead .kicker{margin-bottom:1px}
+/* tags */
+.tag{display:inline-block;font-family:var(--s);font-size:8px;font-weight:800;letter-spacing:.06em;padding:3px 8px;border-radius:999px;vertical-align:middle}
 .tag-both{color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.06)}
 .tag-pro{color:var(--o);border:1px solid rgba(255,95,31,.5);background:rgba(255,95,31,.1)}
 .tag-light{color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.04)}
-.blk .kicker .tag{margin-left:4px;transform:translateY(-1px)}
-.legend{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
-.lg-item{display:flex;align-items:center;gap:10px;font-size:11.5px;color:rgba(255,255,255,.6)}
+.blk .kicker .tag{margin-left:3px;transform:translateY(-1px)}
+.legend{display:flex;flex-direction:column;gap:5px;margin-bottom:10px}
+.lg-item{display:flex;align-items:center;gap:8px;font-size:10px;color:rgba(255,255,255,.6)}
 .lg-item b{color:#fff}
-/* feats (pilares) */
-.feats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 20px}
-.feat{position:relative;padding-left:14px}
-.feat::before{content:"";position:absolute;left:0;top:6px;width:6px;height:6px;border-radius:999px;background:var(--o)}
-.ft{font-family:var(--s);font-weight:700;font-size:13px;margin-bottom:3px}
-.fd{font-size:11.5px;color:rgba(255,255,255,.5);line-height:1.45}
-/* grid2 / blk / bul (funções) */
-.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 26px}
-.blk .kicker{font-size:9.5px;letter-spacing:.1em;margin-bottom:5px}
+/* pilares lado a lado */
+.pilares3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.feats{display:flex;flex-direction:column;gap:7px}
+.feat{position:relative;padding-left:12px}
+.feat::before{content:"";position:absolute;left:0;top:5px;width:5px;height:5px;border-radius:999px;background:var(--o)}
+.ft{font-family:var(--s);font-weight:700;font-size:10.5px;margin-bottom:2px}
+.fd{font-size:9px;color:rgba(255,255,255,.5);line-height:1.3}
+/* grid2/3 · blk · bul */
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:6px 20px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px 16px}
+.blk .kicker{font-size:8px;letter-spacing:.08em;margin-bottom:3px}
 .bul{list-style:none}
-.bul li{position:relative;padding-left:14px;font-size:11.5px;line-height:1.42;color:rgba(255,255,255,.72);margin-bottom:4px}
-.bul li::before{content:"";position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:999px;background:var(--o)}
+.bul li{position:relative;padding-left:12px;font-size:9.5px;line-height:1.32;color:rgba(255,255,255,.72);margin-bottom:2px}
+.bul li::before{content:"";position:absolute;left:0;top:5px;width:4px;height:4px;border-radius:999px;background:var(--o)}
 .bul li b{color:#fff}
+/* split em 2 colunas (rotina + kpis lado a lado, etc.) */
+.split2{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
 /* tabelas */
-.tbl{width:100%;border-collapse:collapse;font-size:11.5px;border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden}
-.tbl th{background:linear-gradient(90deg,rgba(255,95,31,.16),rgba(255,51,0,.05));color:var(--o);text-align:left;padding:8px 16px;font-family:var(--d);font-weight:700;font-size:11px;letter-spacing:.02em}
-.tbl td{padding:8px 16px;border-top:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.7);vertical-align:top;line-height:1.4}
-.tbl td.k{color:#fff;font-weight:700;white-space:nowrap}
+.tblw{width:100%}
+.tbl{width:100%;border-collapse:collapse;font-size:9.5px;border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden}
+.tbl th{background:linear-gradient(90deg,rgba(255,95,31,.16),rgba(255,51,0,.05));color:var(--o);text-align:left;padding:6px 12px;font-family:var(--d);font-weight:700;font-size:9px;letter-spacing:.02em}
+.tbl td{padding:6px 12px;border-top:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.7);vertical-align:top;line-height:1.28}
+.tbl td.k{color:#fff;font-weight:700}
 .tbl td b{color:var(--o)}
-/* SLA rules */
-.rules{display:flex;flex-direction:column;gap:14px;margin-bottom:26px}
-.rule-item{display:flex;gap:16px;align-items:flex-start;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 20px;background:rgba(255,255,255,.02)}
-.nbadge{flex:0 0 auto;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--o),var(--o2));font-family:var(--d);font-weight:800;font-size:13px;color:#fff}
-.rt{font-family:var(--s);font-weight:700;font-size:14px;margin-bottom:4px}
-.rd{font-size:12px;line-height:1.5;color:rgba(255,255,255,.6)}
+/* rules (ritos / SLA) */
+.rules{display:flex;flex-direction:column;gap:7px;margin-bottom:10px}
+.rules.grid2r{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px}
+.rule-item{display:flex;gap:10px;align-items:flex-start;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:9px 13px;background:rgba(255,255,255,.02)}
+.nbadge{flex:0 0 auto;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--o),var(--o2));font-family:var(--d);font-weight:800;font-size:10.5px;color:#fff}
+.rt{font-family:var(--s);font-weight:700;font-size:11px;margin-bottom:2px}
+.rd{font-size:9.5px;line-height:1.35;color:rgba(255,255,255,.6)}
 .rd b{color:var(--o)}
-.commit{border:1px solid rgba(255,95,31,.35);border-radius:18px;padding:32px 40px;text-align:center}
-.commit-pill{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.14em;color:var(--o);border:1px solid rgba(255,95,31,.5);border-radius:999px;padding:6px 16px;margin-bottom:16px}
-.commit-t{font-family:var(--d);font-weight:800;font-size:22px;letter-spacing:-.01em;margin-bottom:12px}
-.commit-d{font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.55;max-width:56ch;margin:0 auto}
+.commit{border:1px solid rgba(255,95,31,.35);border-radius:14px;padding:18px 28px;text-align:center}
+.commit-pill{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.12em;color:var(--o);border:1px solid rgba(255,95,31,.5);border-radius:999px;padding:5px 13px;margin-bottom:10px}
+.commit-t{font-family:var(--d);font-weight:800;font-size:17px;letter-spacing:-.01em;margin-bottom:7px}
+.commit-d{font-size:10.5px;color:rgba(255,255,255,.55);line-height:1.4;max-width:70ch;margin:0 auto}
+.commit-solo{margin-top:60px}
 </style>
 <style>
 .topnav,.controls{display:none}
@@ -120,7 +128,7 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
   .topnav button{flex:0 0 auto;font-family:var(--s);font-size:12px;font-weight:700;letter-spacing:.04em;color:#fff;background:linear-gradient(135deg,var(--o),var(--o2));border:0;padding:9px 18px;border-radius:999px;cursor:pointer;box-shadow:0 6px 20px rgba(255,95,31,.35);transition:transform .2s}
   .topnav button:hover{transform:translateY(-1px)}
   .stage{position:relative;flex:1 1 auto;overflow:hidden}
-  .page{position:absolute;top:50%;left:50%;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s ease;border-radius:20px;border:1px solid rgba(255,255,255,.08);box-shadow:0 30px 80px rgba(0,0,0,.55)}
+  .page{position:absolute;top:50%;left:50%;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s ease;border-radius:16px;border:1px solid rgba(255,255,255,.08);box-shadow:0 30px 80px rgba(0,0,0,.55)}
   .page.active{opacity:1;visibility:visible;pointer-events:auto}
   .controls{flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:18px;padding:14px 28px;background:rgba(5,5,5,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.07)}
   .navbtn{flex:0 0 auto;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);color:#fff;cursor:pointer;transition:.2s}
@@ -169,71 +177,75 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
 <section class="page" id="s1" data-label="Visão geral">
   <div class="amb"></div>
   <div class="pbody">
-  <p class="kicker">VISÃO GERAL</p>
-  <h2 class="h2">O que é a Assessoria Light &amp; Pro</h2>
-  <p class="body">Este documento oficializa o <b>escopo de entrega</b>, o cronograma operacional, as <b>responsabilidades e os indicadores de cada função</b> e as diretrizes de execução dos produtos <b>Assessoria Light</b> e <b>Assessoria Pro</b>. O escopo foi mapeado com base nos requisitos técnicos de Tráfego, Marketing e Receita estabelecidos para estas modalidades, garantindo previsibilidade de entrega e qualidade para o cliente.</p>
-  <p class="body">A Assessoria é um produto integrado que une a <b>geração de demanda qualificada</b> (mídia paga) com a <b>estruturação da máquina de vendas</b> (CRM e processos comerciais), ideal para escritórios que já possuem investimento em tráfego e buscam otimizar seu fechamento de contratos.</p>
-  <div class="stats"><div class="stat"><span class="sv">3</span><span class="sl">Pilares de atuação</span></div><div class="stat"><span class="sv">4</span><span class="sl">Semanas de rampa de entrega</span></div><div class="stat"><span class="sv">15/15</span><span class="sl">Consultorias quinzenais</span></div><div class="stat"><span class="sv">&lt;11%</span><span class="sl">Meta de churn mensal</span></div></div>
-  <div class="callout">
+  <div class="split2"><div>
+    <p class="kicker">VISÃO GERAL</p>
+    <h2 class="h2">O que é a Assessoria Light &amp; Pro</h2>
+    <p class="body">Este documento oficializa o <b>escopo de entrega</b>, o cronograma operacional, as <b>responsabilidades e os indicadores de cada função</b> e as diretrizes de execução dos produtos <b>Assessoria Light</b> e <b>Assessoria Pro</b>.</p>
+    <p class="body">A Assessoria une a <b>geração de demanda qualificada</b> (mídia paga) com a <b>estruturação da máquina de vendas</b> (CRM e processos comerciais), ideal para escritórios que já investem em tráfego e buscam otimizar o fechamento.</p>
+    <div class="stats"><div class="stat"><span class="sv">3</span><span class="sl">Pilares de atuação</span></div><div class="stat"><span class="sv">4</span><span class="sl">Semanas de rampa</span></div><div class="stat"><span class="sv">15/15</span><span class="sl">Consultorias quinzenais</span></div><div class="stat"><span class="sv">&lt;11%</span><span class="sl">Meta de churn</span></div></div>
+  </div><div>
+    <div class="callout">
   <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
-  <div><p class="kicker">COMO LER ESTE PLAYBOOK</p><h4>Da geração de leads ao fechamento</h4><p class="cd">O documento está organizado em três blocos: os <b>pilares de sucesso</b> (o que entregamos), a <b>rotina e as funções da squad</b> (quem faz, quando e com quais metas) e o <b>Acordo de Nível de Serviço</b> (os compromissos de prazo entre E3 e cliente).</p></div>
+  <div><p class="kicker">COMO LER ESTE PLAYBOOK</p><h4>Da geração de leads ao fechamento</h4><p class="cd">Três blocos: os <b>pilares de sucesso</b>, a <b>rotina e funções da squad</b> e o <b>Acordo de Nível de Serviço</b>.</p></div>
 </div>
-  <p class="kicker" style="margin-bottom:10px">LEGENDA · LIGHT OU PRO</p>
-  <div class="legend">
+    <p class="kicker" style="margin-bottom:6px">LEGENDA · LIGHT OU PRO</p>
+    <div class="legend">
   <div class="lg-item"><span class="tag tag-both">LIGHT &amp; PRO</span><span>a função atua em contas <b>Light</b> e <b>Pro</b></span></div>
   <div class="lg-item"><span class="tag tag-light">LIGHT</span><span>entrega <b>exclusiva</b> de clientes Light</span></div>
   <div class="lg-item"><span class="tag tag-pro">EXCLUSIVO PRO</span><span>entrega ou função <b>exclusiva</b> de clientes Pro</span></div>
 </div>
-  <div class="quote">
-    <p class="qk">O PRINCÍPIO QUE ORGANIZA TUDO</p>
-    <p>Não existe cliente do Account, do Gestor de Projetos ou do Gestor de Tráfego. <b>O cliente é da E3</b> e está sob a responsabilidade do squad como um todo.</p>
-    <p>A partir disso, cada função assume <b>100% de responsabilidade</b> pelas próprias entregas, cumprindo rigorosamente metas e SLAs — sem terceirizar problemas para o colega nem para o próprio cliente.</p>
-  </div>
+    <div class="quote">
+      <p class="qk">O PRINCÍPIO QUE ORGANIZA TUDO</p>
+      <p>Não existe cliente do Account, do GP ou do GT. <b>O cliente é da E3</b> e está sob responsabilidade do squad como um todo — cada função assume <b>100%</b> pelas próprias entregas.</p>
+    </div>
+  </div></div>
 </div>
-  <div class="pfoot"><span>PLAYBOOK · ASSESSORIA LIGHT &amp; PRO · <b>E3</b></span><span>01</span></div>
+  <div class="pfoot"><span>PLAYBOOK · ASSESSORIA LIGHT & PRO · <b>E3</b></span><span>01</span></div>
 </section>
 <section class="page" id="s2" data-label="Pilares">
   <div class="amb"></div>
   <div class="pbody">
   <div class="sechead">
   <span class="secnum">01</span>
-  <div><h2>Pilares de sucesso no projeto</h2><p class="lead">A entrega do produto está dividida de forma cirúrgica em três pilares principais de atuação.</p></div>
+  <div><h2>Pilares de sucesso no projeto</h2><p class="lead">A entrega está dividida de forma cirúrgica em três pilares principais de atuação.</p></div>
 </div><div class="rule"></div>
-  <div class="card">
-    <div class="chead">
+  <div class="pilares3">
+    <div class="card">
+      <div class="chead">
   <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
   <div><p class="kicker">PILAR 01</p><h3>Tráfego Pago &amp; Performance</h3></div>
 </div>
-    <div class="feats"><div class="feat"><p class="ft">Gestão de Tráfego Pago</p><p class="fd">Configuração, criação e otimização de campanhas de conversão no Google Ads ou Meta Ads.</p></div><div class="feat"><p class="ft">Análise Diária de Métricas</p><p class="fd">Monitoramento diário de CTR, CPC, Custo por Lead e volume para evitar desperdício de verba.</p></div><div class="feat"><p class="ft">Estratégia de Campanhas</p><p class="fd">Segmentação de público, palavras-chave de alta intenção e distribuição de orçamento por área.</p></div><div class="feat"><p class="ft">Consultorias Quinzenais</p><p class="fd">Reuniões a cada 15 dias: resultados, alinhamento de público e calibração de verba.</p></div><div class="feat"><p class="ft">Relatório em Tempo Real Semanal</p><p class="fd">Painel semanal com cliques, acessos à página e leads gerados no período.</p></div></div>
-  </div>
-  <div class="card">
-    <div class="chead">
+      <div class="feats"><div class="feat"><p class="ft">Gestão de Tráfego Pago</p><p class="fd">Configuração, criação e otimização de campanhas no Google Ads ou Meta Ads.</p></div><div class="feat"><p class="ft">Análise Diária de Métricas</p><p class="fd">Monitoramento de CTR, CPC, Custo por Lead e volume.</p></div><div class="feat"><p class="ft">Estratégia de Campanhas</p><p class="fd">Segmentação, palavras-chave de alta intenção e orçamento por área.</p></div><div class="feat"><p class="ft">Consultorias Quinzenais</p><p class="fd">Resultados, alinhamento de público e calibração de verba.</p></div><div class="feat"><p class="ft">Relatório Semanal</p><p class="fd">Painel com cliques, acessos e leads gerados.</p></div></div>
+    </div>
+    <div class="card">
+      <div class="chead">
   <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></span>
   <div><p class="kicker">PILAR 02</p><h3>Criação &amp; Conversão</h3></div>
 </div>
-    <div class="feats"><div class="feat"><p class="ft">Criativos Estáticos</p><p class="fd">Peças de design profissionais de alta conversão para os anúncios (Meta Ads).</p></div><div class="feat"><p class="ft">Copy para Anúncios e Páginas</p><p class="fd">Redação persuasiva com foco em conversão para criativos e Landing Page de captura.</p></div></div>
-  </div>
-  <div class="card">
-    <div class="chead">
+      <div class="feats"><div class="feat"><p class="ft">Criativos Estáticos</p><p class="fd">Peças de design de alta conversão para os anúncios (Meta Ads).</p></div><div class="feat"><p class="ft">Copy para Anúncios e Páginas</p><p class="fd">Redação persuasiva para criativos e Landing Page.</p></div></div>
+    </div>
+    <div class="card">
+      <div class="chead">
   <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>
   <div><p class="kicker">PILAR 03</p><h3>Máquina de Vendas &amp; Crescimento</h3></div>
 </div>
-    <div class="feats"><div class="feat"><p class="ft">Scripts de Vendas</p><p class="fd">Roteiros de WhatsApp e ligação para triagem rápida e contorno de objeções de leads frios.</p></div><div class="feat"><p class="ft">Implementação de CRM Padrão</p><p class="fd">Setup completo, organização do funil e treinamento técnico do software comercial.</p></div><div class="feat"><p class="ft">Cliente Oculto</p><p class="fd">Auditoria simulando um lead real: tempo de resposta, aplicação do script e postura comercial.</p></div><div class="feat"><p class="ft">Funil de Indicação</p><p class="fd">Campanha "Membro Ganha Membro" para novos negócios com custo de aquisição zero.</p></div></div>
+      <div class="feats"><div class="feat"><p class="ft">Scripts de Vendas</p><p class="fd">Roteiros de WhatsApp e ligação para triagem e objeções.</p></div><div class="feat"><p class="ft">CRM Padrão</p><p class="fd">Setup completo, funil organizado e treinamento do time.</p></div><div class="feat"><p class="ft">Cliente Oculto</p><p class="fd">Auditoria simulando um lead real.</p></div><div class="feat"><p class="ft">Funil de Indicação</p><p class="fd">"Membro Ganha Membro", custo de aquisição zero.</p></div></div>
+    </div>
   </div>
 </div>
-  <div class="pfoot"><span>PLAYBOOK · ASSESSORIA LIGHT &amp; PRO · <b>E3</b></span><span>02</span></div>
+  <div class="pfoot"><span>PLAYBOOK · ASSESSORIA LIGHT & PRO · <b>E3</b></span><span>02</span></div>
 </section>
 <section class="page" id="s3" data-label="Squad">
   <div class="amb"></div>
   <div class="pbody">
   <div class="sechead">
   <span class="secnum">02</span>
-  <div><h2>Rotina e funções da squad</h2><p class="lead">Para garantir agilidade operacional, as entregas são distribuídas de forma sequencial ao longo das primeiras 4 semanas de projeto.</p></div>
+  <div><h2>Rotina e funções da squad</h2><p class="lead">As entregas são distribuídas de forma sequencial ao longo das primeiras 4 semanas de projeto.</p></div>
 </div><div class="rule"></div>
-  <div class="tblw"><table class="tbl "><thead><tr><th>Função</th><th>Entregáveis operacionais da equipe</th></tr></thead>
-  <tbody><tr><td class="k">CS · Gestora de Projeto</td><td>Criação do grupo oficial de suporte. Início do setup do CRM Padrão.</td></tr><tr><td class="k">Coordenador</td><td>Receber os acessos e organizar para a respectiva pessoa responsável.</td></tr><tr><td class="k">Account Manager</td><td>Reunião de Onboarding e de Kick-Off. Alinhamento de estratégia, mapeamento do ICP e do posicionamento de mercado. Coleta de acessos às contas de anúncios — repassados para BM Principal, BM Operacional e Coordenador.</td></tr><tr><td class="k">Gestor de Projeto</td><td>Forecasting, onboarding quando necessário, roteiro de atendimento, toda a comunicação no grupo, planejamento e entrega das peças de design (criativos estáticos).</td></tr><tr><td class="k">Gestor de Tráfego</td><td>Produzir copies de criativo e roteiro de anúncio. Análise de CRM junto ao Account quando necessário. Manutenção da central de leads atualizada. Configura, publica e inicia as campanhas de Tráfego Pago (Google/Meta).</td></tr><tr><td class="k">Gestor de Projeto</td><td>Entrega dos Scripts de Vendas e do manual do CRM. Execução do teste de Cliente Oculto no comercial do cliente. Disparo do Relatório Semanal de Tráfego.</td></tr><tr><td class="k">Consultor Comercial</td><td>Acompanhamento comercial dos clientes <b>Pro</b>: direcionamento da rotina comercial, consultoria de vendas e estruturação do comercial do escritório. Primeira consultoria quinzenal e ativação do Funil de Indicação.</td></tr></tbody></table></div>
+  <div class="tblw"><table class="tbl"><thead><tr><th>Função</th><th>Entregáveis operacionais da equipe</th></tr></thead>
+  <tbody><tr><td class="k">CS · Gestora de Projeto</td><td>Criação do grupo oficial de suporte. Início do setup do CRM Padrão.</td></tr><tr><td class="k">Coordenador</td><td>Receber os acessos e organizar para a respectiva pessoa responsável.</td></tr><tr><td class="k">Account Manager</td><td>Onboarding e Kick-Off. Alinhamento de estratégia, ICP e posicionamento. Coleta de acessos às contas de anúncios.</td></tr><tr><td class="k">Gestor de Projeto</td><td>Forecasting, onboarding, roteiro de atendimento, comunicação no grupo e entrega das peças de design.</td></tr><tr><td class="k">Gestor de Tráfego</td><td>Copies e roteiro de anúncio. Análise de CRM com o Account. Configura, publica e inicia as campanhas.</td></tr><tr><td class="k">Gestor de Projeto</td><td>Scripts de Vendas e manual do CRM. Teste de Cliente Oculto. Relatório Semanal de Tráfego.</td></tr><tr><td class="k">Consultor Comercial</td><td>Acompanhamento comercial dos clientes <b>Pro</b>: rotina comercial, consultoria de vendas e estruturação. Ativação do Funil de Indicação.</td></tr></tbody></table></div>
 </div>
-  <div class="pfoot"><span>PLAYBOOK · ASSESSORIA LIGHT &amp; PRO · <b>E3</b></span><span>03</span></div>
+  <div class="pfoot"><span>PLAYBOOK · ASSESSORIA LIGHT & PRO · <b>E3</b></span><span>03</span></div>
 </section>
 <section class="page" id="s4" data-label="Account Manager">
   <div class="amb"></div>
@@ -243,24 +255,27 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
   <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
   <div><h3>Account Manager<span class="tag tag-both">LIGHT &amp; PRO</span></h3></div>
 </div>
-    <div class="quote inline"><p><b>Foco:</b> liderança, estratégia, retenção e monetização. Líder da squad responsável pelo cliente: conduz o relacionamento direto, traduz necessidades em entregas reais, define prioridades e monitora a performance para identificar oportunidades de crescimento.</p></div>
-    <div class="grid2">
-      <div class="blk"><p class="kicker">GESTÃO ESTRATÉGICA</p><ul class="bul"><li>Conduzir o relacionamento direto e traduzir necessidades em <b>entregas reais</b>.</li><li>Mapeamento de ICP, posicionamento e condução das consultorias quinzenais.</li></ul></div>
-      <div class="blk"><p class="kicker">LIDERANÇA DA SQUAD</p><ul class="bul"><li>Distribuir e acompanhar as demandas da equipe operacional.</li><li>Acompanhamento ostensivo do ClickUp/Painel E3 para garantir prazo e eficiência.</li></ul></div>
-      <div class="blk"><p class="kicker">REUNIÕES &amp; APRESENTAÇÃO</p><ul class="bul"><li>Conduzir reuniões de estratégia, performance e resultados.</li><li>Comunicação <b>clara e transparente</b> com o cliente.</li></ul></div>
-      <div class="blk"><p class="kicker">ONBOARDING DE NOVOS CLIENTES</p><ul class="bul"><li>Validar tese, metas do escritório e objetivos de campanha em D+0.</li><li>Garantir estratégia/card validado antes de qualquer campanha iniciar.</li></ul></div>
-      <div class="blk"><p class="kicker">PROTOCOLO DE CRISE (RETENÇÃO)</p><ul class="bul"><li>Diagnosticar falhas operacionais/estratégicas e analisar o CRM.</li><li>Validar o plano emergencial com a coordenação antes de acionar o cliente.</li></ul></div>
-      <div class="blk"><p class="kicker">TREINAMENTO COMERCIAL DO CLIENTE <span class="tag tag-light">LIGHT</span></p><ul class="bul"><li>Capacitar a equipe comercial dos clientes Light em conversão.</li><li>Boas práticas de venda e acompanhamento da aplicação, quando aplicável.</li></ul></div>
+    <div class="quote inline"><p><b>Foco:</b> liderança, estratégia, retenção e monetização. Líder da squad: conduz o relacionamento, traduz necessidades em entregas reais, define prioridades e monitora a performance.</p></div>
+    <div class="grid3">
+      <div class="blk"><p class="kicker">GESTÃO ESTRATÉGICA</p><ul class="bul"><li>Traduzir necessidades em <b>entregas reais</b>.</li><li>ICP, posicionamento e consultorias quinzenais.</li></ul></div>
+      <div class="blk"><p class="kicker">LIDERANÇA DA SQUAD</p><ul class="bul"><li>Distribuir e acompanhar as demandas.</li><li>ClickUp/Painel E3 para garantir prazo.</li></ul></div>
+      <div class="blk"><p class="kicker">REUNIÕES &amp; APRESENTAÇÃO</p><ul class="bul"><li>Estratégia, performance e resultados.</li><li>Comunicação <b>clara e transparente</b>.</li></ul></div>
+      <div class="blk"><p class="kicker">ONBOARDING</p><ul class="bul"><li>Validar tese e metas em D+0.</li><li>Estratégia validada antes da campanha.</li></ul></div>
+      <div class="blk"><p class="kicker">PROTOCOLO DE CRISE</p><ul class="bul"><li>Diagnosticar falhas e analisar o CRM.</li><li>Validar plano com a coordenação.</li></ul></div>
+      <div class="blk"><p class="kicker">TREINAMENTO COMERCIAL <span class="tag tag-light">LIGHT</span></p><ul class="bul"><li>Capacitar a equipe comercial em conversão.</li><li>Boas práticas e acompanhamento.</li></ul></div>
     </div>
   </div>
-  <h3 class="h3">Rotina · Account Manager</h3>
-  <div class="tblw"><table class="tbl "><thead><tr><th>Quando</th><th>O quê</th></tr></thead>
-  <tbody><tr><td class="k"><b>Diária</b> · 09h00–09h20</td><td>Daily do squad: otimizar/organizar a rotina do dia, priorizar atividades de clientes e cobrar cumprimento de prazos.</td></tr><tr><td class="k"><b>Diária</b> · ao longo do dia</td><td>Manter os planos de ação atualizados. Calls de retenção e alinhamento. Garantir que todas as atividades do squad estejam sendo realizadas.</td></tr><tr><td class="k"><b>Semanal</b> · sexta-feira</td><td>Atualização obrigatória da planilha BSC.</td></tr></tbody></table></div>
-  <h3 class="h3">Principais KPIs · Account Manager</h3>
-  <div class="tblw"><table class="tbl "><thead><tr><th>Indicador</th><th>Meta</th></tr></thead>
-  <tbody><tr><td class="k">Churn mensal</td><td>Abaixo de <b>11%</b>.</td></tr><tr><td class="k">NPS / LTV</td><td>Alto e estável — clientes satisfeitos e engajados.</td></tr><tr><td class="k">Upsell / cross-sell</td><td>Geração ativa na base — <b>R$ 10.000 mensais</b>.</td></tr><tr><td class="k">Resolução de crise</td><td>Conta estabilizada dentro do prazo do plano de ação.</td></tr></tbody></table></div>
+  <div class="split2"><div>
+    <h3 class="h3">Rotina</h3>
+    <div class="tblw"><table class="tbl"><thead><tr><th>Quando</th><th>O quê</th></tr></thead>
+  <tbody><tr><td class="k">Diária · 09h–09h20</td><td>Daily do squad: organizar a rotina, priorizar clientes e cobrar prazos.</td></tr><tr><td class="k">Diária · dia todo</td><td>Planos de ação atualizados. Calls de retenção e alinhamento.</td></tr><tr><td class="k">Semanal · sexta</td><td>Atualização obrigatória da planilha BSC.</td></tr></tbody></table></div>
+  </div><div>
+    <h3 class="h3">Principais KPIs</h3>
+    <div class="tblw"><table class="tbl"><thead><tr><th>Indicador</th><th>Meta</th></tr></thead>
+  <tbody><tr><td class="k">Churn mensal</td><td>Abaixo de <b>11%</b>.</td></tr><tr><td class="k">NPS / LTV</td><td>Alto e estável.</td></tr><tr><td class="k">Upsell / cross-sell</td><td><b>R$ 10.000</b> mensais na base.</td></tr><tr><td class="k">Resolução de crise</td><td>Dentro do prazo do plano de ação.</td></tr></tbody></table></div>
+  </div></div>
 </div>
-  <div class="pfoot"><span>PLAYBOOK · ASSESSORIA LIGHT &amp; PRO · <b>E3</b></span><span>04</span></div>
+  <div class="pfoot"><span>PLAYBOOK · ASSESSORIA LIGHT & PRO · <b>E3</b></span><span>04</span></div>
 </section>
 <section class="page" id="s5" data-label="Gestor de Tráfego">
   <div class="amb"></div>
@@ -270,22 +285,25 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
   <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
   <div><h3>Gestor de Tráfego<span class="tag tag-both">LIGHT &amp; PRO</span></h3></div>
 </div>
-    <div class="quote inline"><p><b>Foco:</b> performance de mídia paga, análise de dados e otimização diária. Converte o planejamento estratégico em campanhas eficientes para gerar leads qualificados e atingir metas.</p></div>
+    <div class="quote inline"><p><b>Foco:</b> performance de mídia paga, análise de dados e otimização diária. Converte o planejamento em campanhas eficientes para gerar leads qualificados.</p></div>
     <div class="grid2">
-      <div class="blk"><p class="kicker">ESTRATÉGIA E CRIAÇÃO</p><ul class="bul"><li>Desenvolver copies, roteiros de anúncio e definir abordagens.</li><li>Estruturar briefings detalhados para a equipe de criação.</li></ul></div>
-      <div class="blk"><p class="kicker">EXECUÇÃO TÉCNICA</p><ul class="bul"><li>Configuração, publicação e estruturação de campanhas (Google e Meta Ads).</li><li>Padronização rigorosa de nomenclaturas e controle de verba.</li></ul></div>
-      <div class="blk"><p class="kicker">OTIMIZAÇÃO DIÁRIA (REGRA DE OURO)</p><ul class="bul"><li>Pausar o ineficiente, escalar o de alta performance.</li><li>Testes contínuos de público, criativo e segmentação.</li></ul></div>
-      <div class="blk"><p class="kicker">ANÁLISE INTEGRADA</p><ul class="bul"><li>Com AM e GP, diagnosticar os dados do CRM: da geração do lead ao fechamento.</li><li>Central de Leads e ClickUp sempre atualizados na sua área.</li></ul></div>
+      <div class="blk"><p class="kicker">ESTRATÉGIA E CRIAÇÃO</p><ul class="bul"><li>Copies, roteiros de anúncio e abordagens.</li><li>Briefings detalhados para a criação.</li></ul></div>
+      <div class="blk"><p class="kicker">EXECUÇÃO TÉCNICA</p><ul class="bul"><li>Configuração e estruturação de campanhas.</li><li>Padronização de nomenclaturas e verba.</li></ul></div>
+      <div class="blk"><p class="kicker">OTIMIZAÇÃO DIÁRIA</p><ul class="bul"><li>Pausar o ineficiente, escalar o forte.</li><li>Testes contínuos de público e criativo.</li></ul></div>
+      <div class="blk"><p class="kicker">ANÁLISE INTEGRADA</p><ul class="bul"><li>Com AM e GP, dados do CRM.</li><li>Central de Leads e ClickUp atualizados.</li></ul></div>
     </div>
   </div>
-  <h3 class="h3">Rotina · Gestor de Tráfego</h3>
-  <div class="tblw"><table class="tbl "><thead><tr><th>Quando</th><th>O quê</th></tr></thead>
-  <tbody><tr><td class="k"><b>Diária</b> · 09h00–09h20</td><td>Daily do squad: reportar clientes com campanha em risco (performance caindo ou anúncio pausado) para priorizar no dia.</td></tr><tr><td class="k"><b>Diária</b> · ao longo do dia</td><td>Averiguar o saldo de investimento de cada cliente. Analisar campanhas de clientes em risco/conflito.</td></tr><tr><td class="k"><b>Semanal</b> · seg. e ter. de manhã</td><td>Otimizar e analisar todas as campanhas ativas da base.</td></tr><tr><td class="k"><b>Semanal</b> · sexta-feira</td><td>Atualização das métricas de cada cliente no ClickUp e da planilha BSC.</td></tr></tbody></table></div>
-  <h3 class="h3">Principais KPIs · Gestor de Tráfego</h3>
-  <div class="tblw"><table class="tbl "><thead><tr><th>Indicador</th><th>Meta</th></tr></thead>
-  <tbody><tr><td class="k">CPL / CPC / CTR / CPM</td><td>Dentro da meta de cada tese/cliente.</td></tr><tr><td class="k">ROI</td><td>Dentro da meta de cada cliente.</td></tr><tr><td class="k">Estabilidade da base</td><td>Acima de <b>60%</b> dos clientes estáveis.</td></tr><tr><td class="k">Apoio à retenção</td><td>Contribuição direta para churn <b>abaixo de 11%</b>.</td></tr></tbody></table></div>
+  <div class="split2"><div>
+    <h3 class="h3">Rotina</h3>
+    <div class="tblw"><table class="tbl"><thead><tr><th>Quando</th><th>O quê</th></tr></thead>
+  <tbody><tr><td class="k">Diária · 09h–09h20</td><td>Daily do squad: campanhas em risco para priorizar.</td></tr><tr><td class="k">Diária · dia todo</td><td>Saldo de investimento e campanhas em conflito.</td></tr><tr><td class="k">Semanal · seg/ter</td><td>Otimizar e analisar todas as campanhas da base.</td></tr><tr><td class="k">Semanal · sexta</td><td>Métricas no ClickUp e planilha BSC.</td></tr></tbody></table></div>
+  </div><div>
+    <h3 class="h3">Principais KPIs</h3>
+    <div class="tblw"><table class="tbl"><thead><tr><th>Indicador</th><th>Meta</th></tr></thead>
+  <tbody><tr><td class="k">CPL / CPC / CTR / CPM</td><td>Dentro da meta de cada cliente.</td></tr><tr><td class="k">ROI</td><td>Dentro da meta de cada cliente.</td></tr><tr><td class="k">Estabilidade da base</td><td>Acima de <b>60%</b> estáveis.</td></tr><tr><td class="k">Apoio à retenção</td><td>Churn <b>abaixo de 11%</b>.</td></tr></tbody></table></div>
+  </div></div>
 </div>
-  <div class="pfoot"><span>PLAYBOOK · ASSESSORIA LIGHT &amp; PRO · <b>E3</b></span><span>05</span></div>
+  <div class="pfoot"><span>PLAYBOOK · ASSESSORIA LIGHT & PRO · <b>E3</b></span><span>05</span></div>
 </section>
 <section class="page" id="s6" data-label="Gestor de Projetos">
   <div class="amb"></div>
@@ -295,65 +313,66 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
   <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><polyline points="9 14 11 16 15 12"/></svg></span>
   <div><h3>Gestor de Projetos<span class="tag tag-both">LIGHT &amp; PRO</span></h3></div>
 </div>
-    <div class="quote inline"><p><b>Foco:</b> organização, comunicação, prazo e experiência do cliente. Transforma a estratégia do Account em entregas reais, com previsibilidade e comunicação ágil.</p></div>
+    <div class="quote inline"><p><b>Foco:</b> organização, comunicação, prazo e experiência do cliente. Transforma a estratégia do Account em entregas reais.</p></div>
     <div class="grid2">
-      <div class="blk"><p class="kicker">COMUNICAÇÃO E PREVENÇÃO</p><ul class="bul"><li>Triagem de demandas no grupo: anúncios vão para o GT, estratégico/comercial vai para o AM.</li><li>Detecção antecipada de insatisfação, com acionamento imediato do AM.</li></ul></div>
-      <div class="blk"><p class="kicker">ONBOARDING</p><ul class="bul"><li>Condução do onboarding com validação de tese, metas e objetivos de campanha.</li><li>Garantir estratégia/card validado antes do início, para mitigar erro na largada.</li></ul></div>
-      <div class="blk"><p class="kicker">EXECUÇÃO E ENTREGAS</p><ul class="bul"><li>Testes de Cliente Oculto, relatórios semanais no ClickUp e manuais de CRM/roteiro de atendimento.</li><li>Análise periódica do CRM dos clientes em busca de gaps e oportunidades no comercial.</li></ul></div>
-      <div class="blk"><p class="kicker">PROCESSOS E CONTROLE DE PRAZOS</p><ul class="bul"><li>ClickUp rigoroso: nenhum cliente 7+ dias sem atualização; onboarding/risco, 3+ dias.</li><li>Cobrança do prazo de <b>todas</b> as entregas do squad, inclusive criativos e roteiros da equipe de design.</li></ul></div>
+      <div class="blk"><p class="kicker">COMUNICAÇÃO E PREVENÇÃO</p><ul class="bul"><li>Triagem: anúncios ao GT, comercial ao AM.</li><li>Detecção antecipada, aciona o AM.</li></ul></div>
+      <div class="blk"><p class="kicker">ONBOARDING</p><ul class="bul"><li>Validação de tese e metas.</li><li>Card validado antes do início.</li></ul></div>
+      <div class="blk"><p class="kicker">EXECUÇÃO E ENTREGAS</p><ul class="bul"><li>Cliente Oculto e relatórios semanais.</li><li>Análise do CRM em busca de gaps.</li></ul></div>
+      <div class="blk"><p class="kicker">CONTROLE DE PRAZOS</p><ul class="bul"><li>ClickUp rigoroso, sem atrasos.</li><li>Cobrança de <b>todas</b> as entregas.</li></ul></div>
     </div>
   </div>
-  <h3 class="h3">Rotina · Gestor de Projetos</h3>
-  <div class="tblw"><table class="tbl "><thead><tr><th>Quando</th><th>O quê</th></tr></thead>
-  <tbody><tr><td class="k"><b>Diária</b> · 09h00–09h20</td><td>Daily do squad: anotar as tarefas do dia, propor melhorias e seguir a orientação do AM.</td></tr><tr><td class="k"><b>Diária</b> · antes de encerrar</td><td>Passar em todos os grupos de clientes e não sair sem responder todos. SLA máximo de 60 minutos, seg. a sex., 09h–18h.</td></tr><tr><td class="k"><b>Semanal</b> · quarta-feira</td><td>Envio das perguntas de qualificação e preenchimento do Painel E3.</td></tr><tr><td class="k"><b>Semanal</b> · quinta-feira</td><td>Atualização do briefing semanal de cada cliente no ClickUp.</td></tr><tr><td class="k"><b>Semanal</b> · sexta-feira</td><td>Atualização obrigatória da planilha BSC.</td></tr></tbody></table></div>
-  <h3 class="h3">Principais KPIs · Gestor de Projetos</h3>
-  <div class="tblw"><table class="tbl "><thead><tr><th>Indicador</th><th>Meta</th></tr></thead>
-  <tbody><tr><td class="k">SLA de resposta</td><td>Abaixo de <b>60 minutos</b>.</td></tr><tr><td class="k">Entregas no prazo</td><td><b>100%</b>.</td></tr><tr><td class="k">NPS</td><td>Acima de <b>60</b>, com taxa de resposta acima de 50%.</td></tr><tr><td class="k">Monetização</td><td>Gerar até <b>8 oportunidades</b> por mês.</td></tr></tbody></table></div>
+  <div class="split2"><div>
+    <h3 class="h3">Rotina</h3>
+    <div class="tblw"><table class="tbl"><thead><tr><th>Quando</th><th>O quê</th></tr></thead>
+  <tbody><tr><td class="k">Diária · 09h–09h20</td><td>Daily: tarefas do dia e orientação do AM.</td></tr><tr><td class="k">Diária · antes de encerrar</td><td>Responder todos os grupos. SLA 60 min.</td></tr><tr><td class="k">Semanal · quarta</td><td>Perguntas de qualificação e Painel E3.</td></tr><tr><td class="k">Semanal · quinta</td><td>Briefing semanal de cada cliente no ClickUp.</td></tr><tr><td class="k">Semanal · sexta</td><td>Atualização obrigatória da planilha BSC.</td></tr></tbody></table></div>
+  </div><div>
+    <h3 class="h3">Principais KPIs</h3>
+    <div class="tblw"><table class="tbl"><thead><tr><th>Indicador</th><th>Meta</th></tr></thead>
+  <tbody><tr><td class="k">SLA de resposta</td><td>Abaixo de <b>60 min</b>.</td></tr><tr><td class="k">Entregas no prazo</td><td><b>100%</b>.</td></tr><tr><td class="k">NPS</td><td>Acima de <b>60</b>, resposta &gt;50%.</td></tr><tr><td class="k">Monetização</td><td>Até <b>8 oportunidades</b>/mês.</td></tr></tbody></table></div>
+  </div></div>
 </div>
-  <div class="pfoot"><span>PLAYBOOK · ASSESSORIA LIGHT &amp; PRO · <b>E3</b></span><span>06</span></div>
+  <div class="pfoot"><span>PLAYBOOK · ASSESSORIA LIGHT & PRO · <b>E3</b></span><span>06</span></div>
 </section>
 <section class="page" id="s7" data-label="Consultor Comercial">
   <div class="amb"></div>
   <div class="pbody">
-  <div class="card">
-    <div class="chead">
+  <div class="split2"><div>
+    <div class="card">
+      <div class="chead">
   <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></span>
   <div><h3>Consultor Comercial<span class="tag tag-pro">EXCLUSIVO PRO</span></h3></div>
 </div>
-    <div class="quote inline"><p><b>Foco:</b> o comercial do escritório. Responsável por todo o acompanhamento comercial dos clientes <b>Pro</b> — dá o direcionamento da rotina comercial, conduz a consultoria de vendas e estrutura a operação comercial do cliente para que o lead gerado vire contrato assinado.</p></div>
-    <div class="grid2">
-      <div class="blk"><p class="kicker">ROTINA COMERCIAL DO CLIENTE</p><ul class="bul"><li>Definir e implantar a rotina comercial do escritório: cadência de contato, follow-up e metas.</li><li>Direcionar o time do cliente sobre disciplina de CRM e uso do funil no dia a dia.</li></ul></div>
-      <div class="blk"><p class="kicker">CONSULTORIA DE VENDAS</p><ul class="bul"><li>Reuniões quinzenais de consultoria comercial com o escritório.</li><li>Treinamento de abordagem, qualificação, contorno de objeções e fechamento.</li></ul></div>
-      <div class="blk"><p class="kicker">ESTRUTURAÇÃO DO COMERCIAL</p><ul class="bul"><li>Desenhar o processo comercial: etapas do funil, critérios de qualificação e responsáveis.</li><li>Ajustar scripts de vendas e roteiro de atendimento à realidade da tese do cliente.</li></ul></div>
-      <div class="blk"><p class="kicker">ACOMPANHAMENTO &amp; DIAGNÓSTICO</p><ul class="bul"><li>Diagnóstico do comercial do escritório e plano de correção com o time do cliente.</li><li>Análise do funil (leads, MQL, SQL e fechamentos) junto com AM, GP e GT.</li></ul></div>
+      <div class="quote inline"><p><b>Foco:</b> comercial do escritório. Acompanhamento comercial dos clientes <b>Pro</b> — rotina, consultoria de vendas e estruturação para o lead virar contrato.</p></div>
+      <div class="grid2">
+        <div class="blk"><p class="kicker">ROTINA COMERCIAL</p><ul class="bul"><li>Cadência, follow-up e metas.</li><li>Disciplina de CRM e uso do funil.</li></ul></div>
+        <div class="blk"><p class="kicker">CONSULTORIA DE VENDAS</p><ul class="bul"><li>Reuniões quinzenais.</li><li>Abordagem, qualificação e fechamento.</li></ul></div>
+        <div class="blk"><p class="kicker">ESTRUTURAÇÃO</p><ul class="bul"><li>Funil, critérios e responsáveis.</li><li>Scripts ajustados à tese do cliente.</li></ul></div>
+        <div class="blk"><p class="kicker">DIAGNÓSTICO</p><ul class="bul"><li>Plano de correção com o cliente.</li><li>Funil (leads, MQL, SQL) com AM/GP/GT.</li></ul></div>
+      </div>
     </div>
-  </div>
-  <h3 class="h3">Valor entregue ao projeto</h3>
-  <div class="tblw"><table class="tbl "><thead><tr><th>Indicador</th><th>Meta</th></tr></thead>
-  <tbody><tr><td class="k">Conversão de lead em contrato</td><td>Evolução consistente da taxa de fechamento do escritório.</td></tr><tr><td class="k">Tempo de resposta ao lead</td><td>Contato com o lead no menor tempo possível após a entrada.</td></tr><tr><td class="k">Aderência ao processo</td><td>Script, CRM e rotina comercial aplicados pelo time do cliente.</td></tr><tr><td class="k">Apoio à retenção</td><td>Resultado comercial sustentando renovação e upgrade de plano.</td></tr></tbody></table></div>
+  </div><div>
+    <h3 class="h3">Valor entregue ao projeto</h3>
+    <div class="tblw"><table class="tbl"><thead><tr><th>Indicador</th><th>Meta</th></tr></thead>
+  <tbody><tr><td class="k">Conversão de lead em contrato</td><td>Evolução consistente da taxa de fechamento.</td></tr><tr><td class="k">Tempo de resposta ao lead</td><td>O menor possível após a entrada.</td></tr><tr><td class="k">Aderência ao processo</td><td>Script, CRM e rotina aplicados pelo cliente.</td></tr><tr><td class="k">Apoio à retenção</td><td>Sustentando renovação e upgrade de plano.</td></tr></tbody></table></div>
+  </div></div>
 </div>
-  <div class="pfoot"><span>PLAYBOOK · ASSESSORIA LIGHT &amp; PRO · <b>E3</b></span><span>07</span></div>
+  <div class="pfoot"><span>PLAYBOOK · ASSESSORIA LIGHT & PRO · <b>E3</b></span><span>07</span></div>
 </section>
 <section class="page" id="s8" data-label="SLA">
   <div class="amb"></div>
   <div class="pbody">
   <div class="sechead">
   <span class="secnum">03</span>
-  <div><h2>Acordo de Nível de Serviço (SLA)</h2><p class="lead">Para o sucesso e a velocidade da Assessoria Light &amp; Pro, as seguintes diretrizes devem ser seguidas por E3 e cliente.</p></div>
+  <div><h2>Acordo de Nível de Serviço (SLA)</h2><p class="lead">Para o sucesso e a velocidade da Assessoria, as diretrizes abaixo devem ser seguidas por E3 e cliente.</p></div>
 </div><div class="rule"></div>
-  <div class="rules">
-    <div class="rule-item"><span class="nbadge">1</span><div><p class="rt">SLA de Retorno de Informações</p><p class="rd">O cliente se compromete a fornecer os <b>acessos técnicos e formulários em até 48 horas</b> após o onboarding.</p></div></div>
-    <div class="rule-item"><span class="nbadge">2</span><div><p class="rt">Prazo de Produção de Criativos</p><p class="rd">A equipe criativa entrega as artes e textos em <b>até 5 dias úteis</b> após a aprovação do roteiro conceitual.</p></div></div>
-    <div class="rule-item"><span class="nbadge">3</span><div><p class="rt">Frequência de Relatórios</p><p class="rd">O dashboard consolidado de métricas em tempo real é atualizado e compartilhado com o cliente <b>todas as sextas-feiras</b>.</p></div></div>
-    <div class="rule-item"><span class="nbadge">4</span><div><p class="rt">SLA de Atendimento no Grupo</p><p class="rd">Toda mensagem do cliente é respondida em <b>até 60 minutos</b>, de segunda a sexta, das 09h às 18h.</p></div></div>
-  </div>
+  <div class="rules grid2r"><div class="rule-item"><span class="nbadge">1</span><div><p class="rt">SLA de Retorno de Informações</p><p class="rd">Acessos técnicos e formulários em <b>até 48h</b> após o onboarding.</p></div></div><div class="rule-item"><span class="nbadge">2</span><div><p class="rt">Prazo de Produção de Criativos</p><p class="rd">Artes e textos em <b>até 5 dias úteis</b> após a aprovação do roteiro.</p></div></div><div class="rule-item"><span class="nbadge">3</span><div><p class="rt">Frequência de Relatórios</p><p class="rd">Dashboard atualizado e compartilhado <b>todas as sextas</b>.</p></div></div><div class="rule-item"><span class="nbadge">4</span><div><p class="rt">SLA de Atendimento no Grupo</p><p class="rd">Mensagens respondidas em <b>até 60 minutos</b>, seg. a sex., 09h–18h.</p></div></div></div>
   <div class="commit">
     <span class="commit-pill">COMPROMISSO E3</span>
     <h3 class="commit-t">Previsibilidade de entrega, do lead ao contrato.</h3>
     <p class="commit-d">Cada prazo, função e KPI deste playbook existe para transformar investimento em mídia em fechamento de contratos — com dados, disciplina e relacionamento.</p>
   </div>
 </div>
-  <div class="pfoot"><span>PLAYBOOK · ASSESSORIA LIGHT &amp; PRO · <b>E3</b></span><span>08</span></div>
+  <div class="pfoot"><span>PLAYBOOK · ASSESSORIA LIGHT & PRO · <b>E3</b></span><span>08</span></div>
 </section>
 </main>
 <footer class="controls">
@@ -382,7 +401,7 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
   function fit(){
     var p=pages[i]; if(!p||!stage) return;
     var r=stage.getBoundingClientRect();
-    var sc=Math.min((r.width*0.94)/794,(r.height*0.94)/1123,1);
+    var sc=Math.min((r.width*0.94)/1280,(r.height*0.94)/720,1);
     p.style.transform='translate(-50%,-50%) scale('+sc+')';
   }
   function go(n){

@@ -6,80 +6,114 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23000'/%3E%3Ctext x='50' y='68' font-size='54' font-family='Arial' font-weight='800' fill='%23FF5F1F' text-anchor='middle'%3EE3%3C/text%3E%3C/svg%3E">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Sans:wght@400;500;600;700&display=swap');
-@page{size:794px 1123px;margin:0}
+@page{size:1280px 720px;margin:0}
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--o:#FF5F1F;--o2:#FF3300;--bg:#050505;--d:'Bricolage Grotesque',sans-serif;--s:'DM Sans',sans-serif}
 html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoothing:antialiased}
-.page{position:relative;width:794px;height:1123px;overflow:hidden;background:var(--bg);page-break-after:always}
+.page{position:relative;width:1280px;height:720px;overflow:hidden;background:var(--bg);page-break-after:always}
 .page:last-child{page-break-after:auto}
 .amb{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-.amb::before{content:"";position:absolute;top:-14%;left:-8%;width:60%;height:38%;border-radius:50%;background:rgba(255,95,31,.16);filter:blur(90px)}
-.amb::after{content:"";position:absolute;bottom:-16%;right:-10%;width:56%;height:36%;border-radius:50%;background:rgba(255,51,0,.10);filter:blur(90px)}
-.pbody{position:relative;z-index:2;padding:56px 64px 0}
-.pfoot{position:absolute;left:64px;right:64px;bottom:32px;z-index:2;display:flex;justify-content:space-between;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.amb::before{content:"";position:absolute;top:-18%;left:-8%;width:46%;height:60%;border-radius:50%;background:rgba(255,95,31,.16);filter:blur(90px)}
+.amb::after{content:"";position:absolute;bottom:-20%;right:-8%;width:42%;height:56%;border-radius:50%;background:rgba(255,51,0,.10);filter:blur(90px)}
+.pbody{position:relative;z-index:2;padding:34px 56px 0}
+.pfoot{position:absolute;left:56px;right:56px;bottom:18px;z-index:2;display:flex;justify-content:space-between;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35)}
 .pfoot b{color:var(--o)}
-.kicker{font-family:var(--s);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--o);font-weight:700;margin-bottom:8px}
-.kicker .tag{margin-left:8px}
-.h2{font-family:var(--d);font-weight:800;font-size:28px;letter-spacing:-.01em;margin-bottom:16px}
-.h3{font-family:var(--d);font-weight:800;font-size:17px;letter-spacing:-.01em;margin:16px 0 8px}
-.body{font-size:14px;line-height:1.6;color:rgba(255,255,255,.72);margin-bottom:14px}
+.kicker{font-family:var(--s);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--o);font-weight:700;margin-bottom:6px}
+.h2{font-family:var(--d);font-weight:800;font-size:23px;letter-spacing:-.01em;margin-bottom:8px}
+.h3{font-family:var(--d);font-weight:800;font-size:14px;letter-spacing:-.01em;margin:10px 0 6px}
+.body{font-size:12px;line-height:1.5;color:rgba(255,255,255,.72);margin-bottom:8px}
 .body b{color:#fff;font-weight:700}
-.muted{font-weight:400;color:rgba(255,255,255,.5);font-size:11px}
+.muted{font-weight:400;color:rgba(255,255,255,.5);font-size:9.5px}
 /* CAPA */
-.cover .pbody{padding:0 68px}
-.cover .logo{width:130px;margin:150px 0 26px}
-.cov-k{margin-bottom:12px}
-.cover h1{font-family:var(--d);font-weight:800;font-size:52px;line-height:1;letter-spacing:-.02em;margin-bottom:22px}
+.cover .pbody{padding:0 72px;display:flex;flex-direction:column;justify-content:center;height:100%}
+.cover .logo{width:88px;margin:0 0 16px}
+.cov-k{margin-bottom:10px}
+.cover h1{font-family:var(--d);font-weight:800;font-size:38px;line-height:1.05;letter-spacing:-.02em;margin-bottom:14px}
 .cover h1 span{color:var(--o)}
-.cov-sub{font-size:15px;line-height:1.6;color:rgba(255,255,255,.7);max-width:56ch;margin-bottom:30px}
-.pills{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
-.pill{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,95,31,.5);background:rgba(255,95,31,.06);padding:9px 16px;border-radius:999px}
-.cov-rule{height:1px;background:rgba(255,255,255,.12);margin-bottom:16px}
-.cov-foot{font-size:12px;color:rgba(255,255,255,.4)}
+.cov-sub{font-size:13px;line-height:1.55;color:rgba(255,255,255,.7);max-width:64ch;margin-bottom:18px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.pill{font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,95,31,.5);background:rgba(255,95,31,.06);padding:7px 14px;border-radius:999px}
+.cov-rule{height:1px;background:rgba(255,255,255,.12);margin-bottom:10px}
+.cov-foot{font-size:10.5px;color:rgba(255,255,255,.4)}
 /* stats */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;margin:18px 0}
-.stat{display:flex;flex-direction:column;align-items:center;gap:4px;padding:20px 8px;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;margin:10px 0}
+.stat{display:flex;flex-direction:column;align-items:center;gap:3px;padding:12px 6px;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
 .stat:last-child{border-right:0}
-.sv{font-family:var(--d);font-weight:800;font-size:22px;color:var(--o)}
-.sl{font-size:10.5px;color:rgba(255,255,255,.5);line-height:1.3}
+.sv{font-family:var(--d);font-weight:800;font-size:18px;color:var(--o)}
+.sl{font-size:9px;color:rgba(255,255,255,.5);line-height:1.25}
 /* callout */
-.callout{display:flex;gap:16px;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:20px 22px;background:rgba(255,255,255,.02);margin-bottom:18px}
-.isq{flex:0 0 auto;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,var(--o),var(--o2));color:#fff}
-.isq svg{width:18px;height:18px}
-.callout h4{font-family:var(--d);font-weight:700;font-size:15px;margin:2px 0 6px}
-.cd{font-size:12.5px;line-height:1.55;color:rgba(255,255,255,.6)}
+.callout{display:flex;gap:12px;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px 16px;background:rgba(255,255,255,.02);margin-bottom:10px}
+.isq{flex:0 0 auto;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(135deg,var(--o),var(--o2));color:#fff}
+.isq svg{width:14px;height:14px}
+.callout h4{font-family:var(--d);font-weight:700;font-size:12px;margin:1px 0 3px}
+.cd{font-size:10.5px;line-height:1.4;color:rgba(255,255,255,.6)}
 .cd b{color:#fff}
-/* legend / tags */
-.tag{display:inline-block;font-family:var(--s);font-size:9.5px;font-weight:800;letter-spacing:.08em;padding:4px 10px;border-radius:999px;vertical-align:middle}
+/* quote */
+.quote{border-left:2px solid var(--o);padding:10px 16px;background:rgba(255,95,31,.04)}
+.quote p{font-size:10.5px;line-height:1.45;color:rgba(255,255,255,.68);margin-top:5px}
+.quote p:first-of-type{margin-top:0}
+.quote b{color:var(--o)}
+.qk{font-family:var(--s);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--o);font-weight:700}
+.quote.inline{margin:6px 0 8px;background:rgba(255,255,255,.02);border-left:2px solid var(--o)}
+.quote.inline p{color:rgba(255,255,255,.75);margin:0}
+.quote.inline b{color:var(--o)}
+/* sechead */
+.sechead{display:flex;align-items:flex-start;gap:14px;margin-bottom:8px}
+.secnum{font-family:var(--d);font-weight:800;font-size:32px;line-height:.8;color:transparent;-webkit-text-stroke:1.3px rgba(255,95,31,.6)}
+.sechead h2{font-family:var(--d);font-weight:800;font-size:19px;letter-spacing:-.01em;margin-bottom:4px}
+.sechead .lead{font-size:10.5px;color:rgba(255,255,255,.55);line-height:1.4}
+.rule{height:1px;background:rgba(255,255,255,.1);margin-bottom:10px}
+/* cards */
+.card{border:1px solid rgba(255,255,255,.1);border-radius:14px;background:rgba(255,255,255,.02);padding:12px 16px;margin-bottom:8px}
+.chead{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.chead h3{font-family:var(--d);font-weight:800;font-size:14px;display:flex;align-items:center;gap:8px}
+.chead .kicker{margin-bottom:1px}
+/* tags */
+.tag{display:inline-block;font-family:var(--s);font-size:8px;font-weight:800;letter-spacing:.06em;padding:3px 8px;border-radius:999px;vertical-align:middle}
+.tag-both{color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.06)}
 .tag-pro{color:var(--o);border:1px solid rgba(255,95,31,.5);background:rgba(255,95,31,.1)}
 .tag-light{color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.04)}
-.legend{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
-.lg-item{display:flex;align-items:center;gap:10px;font-size:11.5px;color:rgba(255,255,255,.6)}
+.blk .kicker .tag{margin-left:3px;transform:translateY(-1px)}
+.legend{display:flex;flex-direction:column;gap:5px;margin-bottom:10px}
+.lg-item{display:flex;align-items:center;gap:8px;font-size:10px;color:rgba(255,255,255,.6)}
 .lg-item b{color:#fff}
-/* sechead */
-.sechead{display:flex;align-items:flex-start;gap:18px;margin-bottom:14px}
-.secnum{font-family:var(--d);font-weight:800;font-size:48px;line-height:.8;color:transparent;-webkit-text-stroke:1.5px rgba(255,95,31,.6)}
-.sechead h2{font-family:var(--d);font-weight:800;font-size:22px;letter-spacing:-.01em;margin-bottom:6px;display:flex;align-items:center;gap:10px}
-.sechead .lead{font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.5}
-.rule{height:1px;background:rgba(255,255,255,.1);margin-bottom:20px}
+/* pilares lado a lado */
+.pilares3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.feats{display:flex;flex-direction:column;gap:7px}
+.feat{position:relative;padding-left:12px}
+.feat::before{content:"";position:absolute;left:0;top:5px;width:5px;height:5px;border-radius:999px;background:var(--o)}
+.ft{font-family:var(--s);font-weight:700;font-size:10.5px;margin-bottom:2px}
+.fd{font-size:9px;color:rgba(255,255,255,.5);line-height:1.3}
+/* grid2/3 · blk · bul */
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:6px 20px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px 16px}
+.blk .kicker{font-size:8px;letter-spacing:.08em;margin-bottom:3px}
+.bul{list-style:none}
+.bul li{position:relative;padding-left:12px;font-size:9.5px;line-height:1.32;color:rgba(255,255,255,.72);margin-bottom:2px}
+.bul li::before{content:"";position:absolute;left:0;top:5px;width:4px;height:4px;border-radius:999px;background:var(--o)}
+.bul li b{color:#fff}
+/* split em 2 colunas (rotina + kpis lado a lado, etc.) */
+.split2{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
 /* tabelas */
-.tbl{width:100%;border-collapse:collapse;font-size:11.5px;border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden}
-.tbl th{background:linear-gradient(90deg,rgba(255,95,31,.16),rgba(255,51,0,.05));color:var(--o);text-align:left;padding:9px 14px;font-family:var(--d);font-weight:700;font-size:10.5px;letter-spacing:.02em}
-.tbl td{padding:10px 14px;border-top:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.7);vertical-align:top;line-height:1.42}
+.tblw{width:100%}
+.tbl{width:100%;border-collapse:collapse;font-size:9.5px;border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden}
+.tbl th{background:linear-gradient(90deg,rgba(255,95,31,.16),rgba(255,51,0,.05));color:var(--o);text-align:left;padding:6px 12px;font-family:var(--d);font-weight:700;font-size:9px;letter-spacing:.02em}
+.tbl td{padding:6px 12px;border-top:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.7);vertical-align:top;line-height:1.28}
 .tbl td.k{color:#fff;font-weight:700}
 .tbl td b{color:var(--o)}
-/* rules (ritos / ciclo) */
-.rules{display:flex;flex-direction:column;gap:12px;margin-bottom:22px}
-.rule-item{display:flex;gap:16px;align-items:flex-start;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:15px 20px;background:rgba(255,255,255,.02)}
-.nbadge{flex:0 0 auto;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--o),var(--o2));font-family:var(--d);font-weight:800;font-size:13px;color:#fff}
-.rt{font-family:var(--s);font-weight:700;font-size:13.5px;margin-bottom:4px}
-.rd{font-size:12px;line-height:1.5;color:rgba(255,255,255,.6)}
+/* rules (ritos / SLA) */
+.rules{display:flex;flex-direction:column;gap:7px;margin-bottom:10px}
+.rules.grid2r{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px}
+.rule-item{display:flex;gap:10px;align-items:flex-start;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:9px 13px;background:rgba(255,255,255,.02)}
+.nbadge{flex:0 0 auto;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--o),var(--o2));font-family:var(--d);font-weight:800;font-size:10.5px;color:#fff}
+.rt{font-family:var(--s);font-weight:700;font-size:11px;margin-bottom:2px}
+.rd{font-size:9.5px;line-height:1.35;color:rgba(255,255,255,.6)}
 .rd b{color:var(--o)}
-.commit{border:1px solid rgba(255,95,31,.35);border-radius:18px;padding:28px 36px;text-align:center}
-.commit-pill{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.14em;color:var(--o);border:1px solid rgba(255,95,31,.5);border-radius:999px;padding:6px 16px;margin-bottom:16px}
-.commit-t{font-family:var(--d);font-weight:800;font-size:21px;letter-spacing:-.01em;margin-bottom:10px}
-.commit-d{font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.55;max-width:56ch;margin:0 auto}
-.commit-solo{margin-top:380px}
+.commit{border:1px solid rgba(255,95,31,.35);border-radius:14px;padding:18px 28px;text-align:center}
+.commit-pill{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.12em;color:var(--o);border:1px solid rgba(255,95,31,.5);border-radius:999px;padding:5px 13px;margin-bottom:10px}
+.commit-t{font-family:var(--d);font-weight:800;font-size:17px;letter-spacing:-.01em;margin-bottom:7px}
+.commit-d{font-size:10.5px;color:rgba(255,255,255,.55);line-height:1.4;max-width:70ch;margin:0 auto}
+.commit-solo{margin-top:60px}
 </style>
 <style>
 .topnav,.controls{display:none}
@@ -94,7 +128,7 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
   .topnav button{flex:0 0 auto;font-family:var(--s);font-size:12px;font-weight:700;letter-spacing:.04em;color:#fff;background:linear-gradient(135deg,var(--o),var(--o2));border:0;padding:9px 18px;border-radius:999px;cursor:pointer;box-shadow:0 6px 20px rgba(255,95,31,.35);transition:transform .2s}
   .topnav button:hover{transform:translateY(-1px)}
   .stage{position:relative;flex:1 1 auto;overflow:hidden}
-  .page{position:absolute;top:50%;left:50%;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s ease;border-radius:20px;border:1px solid rgba(255,255,255,.08);box-shadow:0 30px 80px rgba(0,0,0,.55)}
+  .page{position:absolute;top:50%;left:50%;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s ease;border-radius:16px;border:1px solid rgba(255,255,255,.08);box-shadow:0 30px 80px rgba(0,0,0,.55)}
   .page.active{opacity:1;visibility:visible;pointer-events:auto}
   .controls{flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:18px;padding:14px 28px;background:rgba(5,5,5,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.07)}
   .navbtn{flex:0 0 auto;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);color:#fff;cursor:pointer;transition:.2s}
@@ -145,19 +179,18 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
   <div class="pbody">
   <p class="kicker">VISÃO GERAL</p>
   <h2 class="h2">Escopo técnico e alinhamento contínuo</h2>
-  <p class="body">Este documento estabelece o <b>escopo de entrega técnica</b>, o <b>fluxo operacional</b> e a estrutura de acompanhamento estratégico da Assessoria Light e Pro. É um produto de <b>entrega contínua (recorrente)</b>, sem data de finalização, que unifica as frentes de Tráfego Pago, Marketing (criativos e copy) e estruturação de Receita (vendas e CRM).</p>
-  <p class="body">O objetivo é garantir <b>clareza absoluta na execução operacional</b>, alinhamento de expectativas com o cliente e manutenção do engajamento de longo prazo (LTV) — deixando explícito, em cada frente, o que é entrega padrão do plano <b>Light</b> e o que é camada exclusiva do plano <b>Pro</b>.</p>
+  <p class="body">Este documento estabelece o <b>escopo de entrega técnica</b>, o <b>fluxo operacional</b> e a estrutura de acompanhamento estratégico da Assessoria Light e Pro. Entrega <b>contínua (recorrente)</b>, sem data de finalização, unificando Tráfego Pago, Marketing e Receita (vendas e CRM).</p>
   <div class="stats"><div class="stat"><span class="sv">3</span><span class="sl">Frentes operacionais</span></div><div class="stat"><span class="sv">30 dias</span><span class="sl">Ciclo de otimização</span></div><div class="stat"><span class="sv">3</span><span class="sl">Ritos de acompanhamento</span></div><div class="stat"><span class="sv">2</span><span class="sl">Camadas: Light e Pro</span></div></div>
   <div class="callout">
   <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
-  <div><p class="kicker">COMO LER ESTE PLAYBOOK</p><h4>Do escopo ao ciclo mensal</h4><p class="cd">O documento segue quatro blocos: a <b>divisão de entregas</b> por plano (Light e a camada exclusiva Pro), a <b>agenda padrão de ritos</b> de acompanhamento, os <b>indicadores de sucesso</b> de cada plano e o <b>ciclo operacional de 30 dias</b> com os responsáveis de cada etapa.</p></div>
+  <div><p class="kicker">COMO LER ESTE MANUAL</p><h4>Do escopo ao ciclo mensal</h4><p class="cd">Quatro blocos: a <b>divisão de entregas</b> por plano, a <b>agenda de ritos</b>, os <b>indicadores de sucesso</b> de cada plano e o <b>ciclo operacional de 30 dias</b> com os responsáveis.</p></div>
 </div>
   <div class="legend">
     <div class="lg-item"><span class="tag tag-light">LIGHT</span><span>entrega <b>padrão</b> do plano Light</span></div>
     <div class="lg-item"><span class="tag tag-pro">EXCLUSIVO PRO</span><span>camada <b>exclusiva</b> do plano Pro</span></div>
   </div>
 </div>
-  <div class="pfoot"><span>PLAYBOOK · ENTREGA &amp; ALINHAMENTO · <b>E3</b></span><span>01</span></div>
+  <div class="pfoot"><span>MANUAL DE ENTREGA · ASSESSORIA LIGHT & PRO · <b>E3</b></span><span>01</span></div>
 </section>
 <section class="page" id="s2" data-label="Entregas Light">
   <div class="amb"></div>
@@ -167,59 +200,59 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
   <div><h2>Divisão de entregas <span class="tag tag-light">LIGHT</span></h2><p class="lead">Com base na estrutura de canais contratada, as frentes operacionais da Assessoria Light se dividem em três pilares.</p></div>
 </div><div class="rule"></div>
   <div class="tblw"><table class="tbl"><thead><tr><th>Pilar / Responsável</th><th>Escopo operacional da equipe</th><th>Entregáveis para o cliente</th></tr></thead>
-  <tbody><tr><td class="k">Tráfego Pago<br><span class="muted">Gestor de Tráfego</span></td><td>Criação, configuração e otimização diária de campanhas focadas no público-alvo (Google Ads ou Meta Ads); análise constante de lances e segmentação.</td><td>Contas de anúncios configuradas, estratégias de campanha ativas e consultorias quinzenais de tráfego.</td></tr><tr><td class="k">Marketing &amp; Conteúdo<br><span class="muted">Account Manager e Gestor de Projeto</span></td><td>Desenvolvimento estético e textual dos anúncios; redação de copies persuasivas para páginas de conversão e anúncios ativos.</td><td>Criativos estáticos mensais, copies de anúncios e relatório de métricas semanal em tempo real.</td></tr><tr><td class="k">Receita &amp; Comercial<br><span class="muted">Account Manager</span></td><td>Estruturação de processos comerciais internos; implementação de CRM para gestão de oportunidades; testes práticos com simulação de atendimento.</td><td>Scripts de vendas personalizados, CRM Padrão implementado, relatório de Cliente Oculto e estruturação do funil de indicação.</td></tr></tbody></table></div>
+  <tbody><tr><td class="k">Tráfego Pago<br><span class="muted">Gestor de Tráfego</span></td><td>Criação, configuração e otimização diária de campanhas (Google Ads ou Meta Ads); análise constante de lances e segmentação.</td><td>Contas de anúncios configuradas, estratégias de campanha ativas e consultorias quinzenais.</td></tr><tr><td class="k">Marketing &amp; Conteúdo<br><span class="muted">Account e Gestor de Projeto</span></td><td>Desenvolvimento estético e textual dos anúncios; copies persuasivas para páginas de conversão.</td><td>Criativos estáticos mensais, copies de anúncios e relatório semanal em tempo real.</td></tr><tr><td class="k">Receita &amp; Comercial<br><span class="muted">Account Manager</span></td><td>Estruturação de processos comerciais; implementação de CRM; simulação de atendimento.</td><td>Scripts de vendas, CRM Padrão, relatório de Cliente Oculto e funil de indicação.</td></tr></tbody></table></div>
 </div>
-  <div class="pfoot"><span>PLAYBOOK · ENTREGA &amp; ALINHAMENTO · <b>E3</b></span><span>02</span></div>
+  <div class="pfoot"><span>MANUAL DE ENTREGA · ASSESSORIA LIGHT & PRO · <b>E3</b></span><span>02</span></div>
 </section>
 <section class="page" id="s3" data-label="Camada Pro">
   <div class="amb"></div>
   <div class="pbody">
   <div class="sechead">
   <span class="secnum">02</span>
-  <div><h2>Camada exclusiva <span class="tag tag-pro">EXCLUSIVO PRO</span></h2><p class="lead">Tudo o que a Assessoria Light entrega, mais a camada abaixo — pensada para escritórios em fase de escala comercial.</p></div>
+  <div><h2>Camada exclusiva <span class="tag tag-pro">EXCLUSIVO PRO</span></h2><p class="lead">Tudo o que a Assessoria Light entrega, mais a camada abaixo — para escritórios em fase de escala comercial.</p></div>
 </div><div class="rule"></div>
   <div class="tblw"><table class="tbl"><thead><tr><th>Pilar</th><th>Escopo contínuo da equipe</th><th>Entregáveis exclusivos Pro</th></tr></thead>
-  <tbody><tr><td class="k">Tráfego</td><td>Planejamento estratégico de verba, criação, publicação e otimização diária de campanhas em múltiplos canais; infraestrutura de conversão.</td><td>Gestão de Tráfego (Google Ads e Meta Ads) e criação/otimização de Landing Page própria de alta conversão.</td></tr><tr><td class="k">Receita</td><td>Capacitação e consultoria de vendas contínua para o time do cliente; roteiros atualizados mensalmente; automação de fluxos comerciais.</td><td>Consultor Comercial dedicado ao escritório, Auditoria de Vendas diária/semanal, CRM Padrão, IA de Atendimento e Triagem 24h no WhatsApp, Funil de Indicação e Funil de Social Selling.</td></tr><tr><td class="k">Gestão &amp; Estratégia</td><td>Acompanhamento executivo contínuo, projeção de metas comerciais e análise de ROI.</td><td>Reuniões quinzenais comerciais de calibração, planejamento estratégico mensal de crescimento e Selo de Garantia do Pro.</td></tr></tbody></table></div>
+  <tbody><tr><td class="k">Tráfego</td><td>Planejamento estratégico de verba, criação e otimização diária em múltiplos canais.</td><td>Gestão de Tráfego (Google e Meta Ads) e Landing Page própria de alta conversão.</td></tr><tr><td class="k">Receita</td><td>Capacitação e consultoria de vendas contínua; roteiros mensais; automação de fluxos.</td><td>Consultor Comercial dedicado, Auditoria de Vendas, CRM Padrão, IA de Atendimento 24h, Funil de Indicação e Social Selling.</td></tr><tr><td class="k">Gestão &amp; Estratégia</td><td>Acompanhamento executivo contínuo e análise de ROI.</td><td>Reuniões quinzenais comerciais, planejamento mensal e Selo de Garantia do Pro.</td></tr></tbody></table></div>
 </div>
-  <div class="pfoot"><span>PLAYBOOK · ENTREGA &amp; ALINHAMENTO · <b>E3</b></span><span>03</span></div>
+  <div class="pfoot"><span>MANUAL DE ENTREGA · ASSESSORIA LIGHT & PRO · <b>E3</b></span><span>03</span></div>
 </section>
 <section class="page" id="s4" data-label="Ritos">
   <div class="amb"></div>
   <div class="pbody">
   <div class="sechead">
   <span class="secnum">03</span>
-  <div><h2>Agenda padrão de acompanhamento</h2><p class="lead">Sendo um produto recorrente, a constância nos ritos é essencial para manter o cliente assistido e ativo — válida para Light e Pro.</p></div>
+  <div><h2>Agenda padrão de acompanhamento</h2><p class="lead">A constância nos ritos é essencial para manter o cliente assistido e ativo — válida para Light e Pro.</p></div>
 </div><div class="rule"></div>
-  <div class="rules"><div class="rule-item"><span class="nbadge">1</span><div><p class="rt">Semanal (assíncrono)</p><p class="rd">Envio e atualização do Relatório de Métricas em Tempo Real: desempenho das campanhas, criativos e fluxo de leads.</p></div></div><div class="rule-item"><span class="nbadge">2</span><div><p class="rt">Quinzenal (síncrono · 30 min)</p><p class="rd">Consultoria de Tráfego e Alinhamento Comercial — calibração da qualidade dos leads, revisão do uso do CRM e definição de criativos/ofertas da quinzena seguinte.</p></div></div><div class="rule-item"><span class="nbadge">3</span><div><p class="rt">Mensal (síncrono · 45 min)</p><p class="rd">Reunião Estratégica de Fechamento de Ciclo — apresentação dos KPIs consolidados do mês, resultado do Cliente Oculto e atualização do plano de ação.</p></div></div></div>
+  <div class="rules grid2r"><div class="rule-item"><span class="nbadge">1</span><div><p class="rt">Semanal (assíncrono)</p><p class="rd">Relatório de Métricas em Tempo Real: campanhas, criativos e fluxo de leads.</p></div></div><div class="rule-item"><span class="nbadge">2</span><div><p class="rt">Quinzenal (30 min)</p><p class="rd">Consultoria de Tráfego e Alinhamento Comercial — qualidade dos leads, CRM e criativos da quinzena.</p></div></div><div class="rule-item"><span class="nbadge">3</span><div><p class="rt">Mensal (45 min)</p><p class="rd">Reunião Estratégica de Fechamento — KPIs do mês, Cliente Oculto e plano de ação.</p></div></div></div>
   <div class="commit">
     <span class="commit-pill">NA PRÁTICA</span>
     <h3 class="commit-t">No Pro, os mesmos ritos ganham profundidade.</h3>
-    <p class="commit-d">A quinzenal de alinhamento comercial passa a ser conduzida pelo Consultor Comercial dedicado, e a mensal incorpora o planejamento estratégico de crescimento exclusivo do plano.</p>
+    <p class="commit-d">A quinzenal passa a ser conduzida pelo Consultor Comercial dedicado, e a mensal incorpora o planejamento estratégico exclusivo do plano.</p>
   </div>
 </div>
-  <div class="pfoot"><span>PLAYBOOK · ENTREGA &amp; ALINHAMENTO · <b>E3</b></span><span>04</span></div>
+  <div class="pfoot"><span>MANUAL DE ENTREGA · ASSESSORIA LIGHT & PRO · <b>E3</b></span><span>04</span></div>
 </section>
 <section class="page" id="s5" data-label="KPIs Light">
   <div class="amb"></div>
   <div class="pbody">
   <p class="kicker">INDICADORES DE SUCESSO <span class="tag tag-light">LIGHT</span></p>
   <h2 class="h2">KPIs · Assessoria Light</h2>
-  <p class="body" style="margin-bottom:18px">Métricas de performance de marketing e de vendas do escritório do cliente, acompanhadas em todo ciclo.</p>
+  <p class="body">Métricas de performance de marketing e de vendas do escritório do cliente, acompanhadas em todo ciclo.</p>
   <div class="tblw"><table class="tbl"><thead><tr><th>Indicador</th><th>O que mede na prática</th><th>Meta ideal / referência</th></tr></thead>
-  <tbody><tr><td class="k">Custo por Lead (CPL)</td><td>Valor médio investido em mídia para gerar cada contato que inicia uma conversa.</td><td>Variável por nicho de atuação</td></tr><tr><td class="k">Taxa de Conversão de Atendimento</td><td>Percentual de leads da mídia paga que aceitam agendar uma consulta/reunião.</td><td>Mínimo de 20% a 40%</td></tr><tr><td class="k">SLA de Primeiro Contato</td><td>Tempo médio que a equipe do cliente leva para responder o lead após a entrada.</td><td>Menos de 15 minutos</td></tr><tr><td class="k">Taxa de Aproveitamento (CRM)</td><td>Quantidade de contatos atualizados e movidos corretamente dentro do funil de vendas.</td><td>100% dos leads registrados</td></tr><tr><td class="k">ROI (Retorno sobre Investimento)</td><td>Faturamento em contratos fechados em relação ao valor total investido.</td><td>Idealmente acima de 3x a 5x</td></tr></tbody></table></div>
+  <tbody><tr><td class="k">Custo por Lead (CPL)</td><td>Valor médio investido em mídia por contato iniciado.</td><td>Variável por nicho de atuação</td></tr><tr><td class="k">Taxa de Conversão de Atendimento</td><td>% de leads que aceitam agendar uma consulta/reunião.</td><td>Mínimo de 20% a 40%</td></tr><tr><td class="k">SLA de Primeiro Contato</td><td>Tempo médio para a equipe do cliente responder o lead.</td><td>Menos de 15 minutos</td></tr><tr><td class="k">Taxa de Aproveitamento (CRM)</td><td>Contatos atualizados e movidos corretamente no funil.</td><td>100% dos leads registrados</td></tr><tr><td class="k">ROI (Retorno sobre Investimento)</td><td>Faturamento fechado em relação ao valor investido.</td><td>Idealmente acima de 3x a 5x</td></tr></tbody></table></div>
 </div>
-  <div class="pfoot"><span>PLAYBOOK · ENTREGA &amp; ALINHAMENTO · <b>E3</b></span><span>05</span></div>
+  <div class="pfoot"><span>MANUAL DE ENTREGA · ASSESSORIA LIGHT & PRO · <b>E3</b></span><span>05</span></div>
 </section>
 <section class="page" id="s6" data-label="KPIs Pro">
   <div class="amb"></div>
   <div class="pbody">
   <p class="kicker">INDICADORES DE SUCESSO <span class="tag tag-pro">EXCLUSIVO PRO</span></p>
   <h2 class="h2">KPIs · Assessoria Pro</h2>
-  <p class="body" style="margin-bottom:18px">Camada adicional de indicadores comerciais, acompanhada junto ao Consultor Comercial dedicado.</p>
+  <p class="body">Camada adicional de indicadores comerciais, acompanhada junto ao Consultor Comercial dedicado.</p>
   <div class="tblw"><table class="tbl"><thead><tr><th>KPI comercial</th><th>O que mede na prática</th><th>Meta ideal / referência Pro</th></tr></thead>
-  <tbody><tr><td class="k">SLA de Triagem (IA)</td><td>Tempo médio de resposta da primeira interação com o lead no WhatsApp.</td><td>Imediato — menos de 1 minuto, 24h por dia</td></tr><tr><td class="k">Taxa de Qualificação de Leads</td><td>Percentual de leads que passam no filtro técnico da IA ou do formulário da LP.</td><td>Acima de 40%</td></tr><tr><td class="k">Eficiência de Vendas (CRM)</td><td>Percentual de leads qualificados convertidos em contrato fechado pelo time interno.</td><td>15% a 30%, com auditoria de vendas ativa</td></tr><tr><td class="k">Taxa de Conversão de Social Selling</td><td>Abordagens ativas (DMs) que se transformam em reuniões agendadas.</td><td>Mínimo de 5% a 10% de conversão</td></tr><tr><td class="k">ROI Geral do Pro</td><td>Retorno direto sobre a verba investida em mídia e taxa de assessoria.</td><td>Projeção mínima de 4x a 6x o investimento</td></tr></tbody></table></div>
+  <tbody><tr><td class="k">SLA de Triagem (IA)</td><td>Tempo de resposta da primeira interação no WhatsApp.</td><td>Imediato — menos de 1 minuto, 24h/dia</td></tr><tr><td class="k">Taxa de Qualificação de Leads</td><td>% de leads que passam no filtro técnico da IA/LP.</td><td>Acima de 40%</td></tr><tr><td class="k">Eficiência de Vendas (CRM)</td><td>% de leads qualificados convertidos em contrato.</td><td>15% a 30%, com auditoria de vendas ativa</td></tr><tr><td class="k">Conversão de Social Selling</td><td>Abordagens ativas (DMs) que viram reuniões.</td><td>Mínimo de 5% a 10% de conversão</td></tr><tr><td class="k">ROI Geral do Pro</td><td>Retorno sobre a verba de mídia e taxa de assessoria.</td><td>Projeção mínima de 4x a 6x o investimento</td></tr></tbody></table></div>
 </div>
-  <div class="pfoot"><span>PLAYBOOK · ENTREGA &amp; ALINHAMENTO · <b>E3</b></span><span>06</span></div>
+  <div class="pfoot"><span>MANUAL DE ENTREGA · ASSESSORIA LIGHT & PRO · <b>E3</b></span><span>06</span></div>
 </section>
 <section class="page" id="s7" data-label="Ciclo de 30 dias">
   <div class="amb"></div>
@@ -228,12 +261,12 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
   <span class="secnum">04</span>
   <div><h2>Ciclo operacional de 30 dias</h2><p class="lead">Embora o contrato seja contínuo, a operação roda em ciclos mensais de otimização com o roteiro abaixo.</p></div>
 </div><div class="rule"></div>
-  <div class="rules"><div class="rule-item"><span class="nbadge">1</span><div><p class="rt">Semana 1 · Planejamento &amp; Alinhamento</p><p class="rd">Reunião mensal de alinhamento das metas do mês. Definição das teses de campanha e roteirização dos novos criativos/copy.</p></div></div><div class="rule-item"><span class="nbadge">2</span><div><p class="rt">Semana 2 · Produção &amp; Configuração</p><p class="rd">Produção das peças criativas estáticas e aprovação textual das copies pelo cliente. Otimizações técnicas no CRM e calibração de públicos.</p></div></div><div class="rule-item"><span class="nbadge">3</span><div><p class="rt">Semana 3 · Execução &amp; Consultoria</p><p class="rd">Distribuição do orçamento de mídia nas campanhas ativas, execução das consultorias quinzenais e aplicação do teste de Cliente Oculto (scripts e SLA).</p></div></div><div class="rule-item"><span class="nbadge">4</span><div><p class="rt">Semana 4 · Fechamento &amp; Próximo Ciclo</p><p class="rd">Fechamento dos relatórios analíticos de tráfego e do CRM. Apresentação dos resultados de vendas e início do planejamento do ciclo seguinte.</p></div></div></div>
+  <div class="rules grid2r"><div class="rule-item"><span class="nbadge">1</span><div><p class="rt">Semana 1 · Planejamento</p><p class="rd">Alinhamento das metas do mês. Teses de campanha e roteirização dos criativos.</p></div></div><div class="rule-item"><span class="nbadge">2</span><div><p class="rt">Semana 2 · Produção</p><p class="rd">Peças criativas e aprovação das copies. Otimizações no CRM e calibração de públicos.</p></div></div><div class="rule-item"><span class="nbadge">3</span><div><p class="rt">Semana 3 · Execução</p><p class="rd">Distribuição do orçamento, consultorias quinzenais e teste de Cliente Oculto.</p></div></div><div class="rule-item"><span class="nbadge">4</span><div><p class="rt">Semana 4 · Fechamento</p><p class="rd">Relatórios de tráfego e CRM. Resultados de vendas e planejamento do próximo ciclo.</p></div></div></div>
   <h3 class="h3">Responsáveis no ciclo</h3>
   <div class="tblw"><table class="tbl"><thead><tr><th>Função</th><th>O que faz ao longo do ciclo</th></tr></thead>
-  <tbody><tr><td class="k">Account Manager</td><td>Gestão do projeto, condução de reuniões, suporte ao grupo, solicitação à equipe criativa, atualização do ClickUp e onboarding.</td></tr><tr><td class="k">Gestor de Projeto</td><td>Reuniões, suporte ao grupo, solicitação à equipe criativa e atualização do ClickUp.</td></tr><tr><td class="k">Gestor de Tráfego</td><td>Criação, otimização, acompanhamento e configuração da conta de anúncios, atualização do ClickUp e relatório semanal de performance.</td></tr></tbody></table></div>
+  <tbody><tr><td class="k">Account Manager</td><td>Gestão do projeto, reuniões, suporte ao grupo, solicitação à equipe criativa, ClickUp e onboarding.</td></tr><tr><td class="k">Gestor de Projeto</td><td>Reuniões, suporte ao grupo, solicitação à equipe criativa e atualização do ClickUp.</td></tr><tr><td class="k">Gestor de Tráfego</td><td>Criação, otimização, configuração da conta de anúncios, ClickUp e relatório semanal.</td></tr></tbody></table></div>
 </div>
-  <div class="pfoot"><span>PLAYBOOK · ENTREGA &amp; ALINHAMENTO · <b>E3</b></span><span>07</span></div>
+  <div class="pfoot"><span>MANUAL DE ENTREGA · ASSESSORIA LIGHT & PRO · <b>E3</b></span><span>07</span></div>
 </section>
 <section class="page" id="s8" data-label="Compromisso">
   <div class="amb"></div>
@@ -244,7 +277,7 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
     <p class="commit-d">Light e Pro compartilham a mesma disciplina operacional e os mesmos ritos de acompanhamento — o que muda é a profundidade da entrega comercial e o nível de dedicação do squad em cada ciclo.</p>
   </div>
 </div>
-  <div class="pfoot"><span>PLAYBOOK · ENTREGA &amp; ALINHAMENTO · <b>E3</b></span><span>08</span></div>
+  <div class="pfoot"><span>MANUAL DE ENTREGA · ASSESSORIA LIGHT & PRO · <b>E3</b></span><span>08</span></div>
 </section>
 </main>
 <footer class="controls">
@@ -273,7 +306,7 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
   function fit(){
     var p=pages[i]; if(!p||!stage) return;
     var r=stage.getBoundingClientRect();
-    var sc=Math.min((r.width*0.94)/794,(r.height*0.94)/1123,1);
+    var sc=Math.min((r.width*0.94)/1280,(r.height*0.94)/720,1);
     p.style.transform='translate(-50%,-50%) scale('+sc+')';
   }
   function go(n){

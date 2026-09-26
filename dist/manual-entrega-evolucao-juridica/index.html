@@ -6,79 +6,113 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23000'/%3E%3Ctext x='50' y='68' font-size='54' font-family='Arial' font-weight='800' fill='%23FF5F1F' text-anchor='middle'%3EE3%3C/text%3E%3C/svg%3E">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Sans:wght@400;500;600;700&display=swap');
-@page{size:794px 1123px;margin:0}
+@page{size:1280px 720px;margin:0}
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--o:#FF5F1F;--o2:#FF3300;--bg:#050505;--d:'Bricolage Grotesque',sans-serif;--s:'DM Sans',sans-serif}
 html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoothing:antialiased}
-.page{position:relative;width:794px;height:1123px;overflow:hidden;background:var(--bg);page-break-after:always}
+.page{position:relative;width:1280px;height:720px;overflow:hidden;background:var(--bg);page-break-after:always}
 .page:last-child{page-break-after:auto}
 .amb{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-.amb::before{content:"";position:absolute;top:-14%;left:-8%;width:60%;height:38%;border-radius:50%;background:rgba(255,95,31,.16);filter:blur(90px)}
-.amb::after{content:"";position:absolute;bottom:-16%;right:-10%;width:56%;height:36%;border-radius:50%;background:rgba(255,51,0,.10);filter:blur(90px)}
-.pbody{position:relative;z-index:2;padding:56px 64px 0}
-.pfoot{position:absolute;left:64px;right:64px;bottom:32px;z-index:2;display:flex;justify-content:space-between;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.amb::before{content:"";position:absolute;top:-18%;left:-8%;width:46%;height:60%;border-radius:50%;background:rgba(255,95,31,.16);filter:blur(90px)}
+.amb::after{content:"";position:absolute;bottom:-20%;right:-8%;width:42%;height:56%;border-radius:50%;background:rgba(255,51,0,.10);filter:blur(90px)}
+.pbody{position:relative;z-index:2;padding:34px 56px 0}
+.pfoot{position:absolute;left:56px;right:56px;bottom:18px;z-index:2;display:flex;justify-content:space-between;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35)}
 .pfoot b{color:var(--o)}
-.kicker{font-family:var(--s);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--o);font-weight:700;margin-bottom:8px}
-.kicker .tag{margin-left:8px}
-.h2{font-family:var(--d);font-weight:800;font-size:28px;letter-spacing:-.01em;margin-bottom:16px}
-.h3{font-family:var(--d);font-weight:800;font-size:17px;letter-spacing:-.01em;margin:16px 0 8px}
-.body{font-size:14px;line-height:1.6;color:rgba(255,255,255,.72);margin-bottom:14px}
+.kicker{font-family:var(--s);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--o);font-weight:700;margin-bottom:6px}
+.h2{font-family:var(--d);font-weight:800;font-size:23px;letter-spacing:-.01em;margin-bottom:8px}
+.h3{font-family:var(--d);font-weight:800;font-size:14px;letter-spacing:-.01em;margin:10px 0 6px}
+.body{font-size:12px;line-height:1.5;color:rgba(255,255,255,.72);margin-bottom:8px}
 .body b{color:#fff;font-weight:700}
-.muted{font-weight:400;color:rgba(255,255,255,.5);font-size:11px}
+.muted{font-weight:400;color:rgba(255,255,255,.5);font-size:9.5px}
 /* CAPA */
-.cover .pbody{padding:0 68px}
-.cover .logo{width:130px;margin:150px 0 26px}
-.cov-k{margin-bottom:12px}
-.cover h1{font-family:var(--d);font-weight:800;font-size:52px;line-height:1;letter-spacing:-.02em;margin-bottom:22px}
+.cover .pbody{padding:0 72px;display:flex;flex-direction:column;justify-content:center;height:100%}
+.cover .logo{width:88px;margin:0 0 16px}
+.cov-k{margin-bottom:10px}
+.cover h1{font-family:var(--d);font-weight:800;font-size:38px;line-height:1.05;letter-spacing:-.02em;margin-bottom:14px}
 .cover h1 span{color:var(--o)}
-.cov-sub{font-size:15px;line-height:1.6;color:rgba(255,255,255,.7);max-width:56ch;margin-bottom:30px}
-.pills{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
-.pill{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,95,31,.5);background:rgba(255,95,31,.06);padding:9px 16px;border-radius:999px}
-.cov-rule{height:1px;background:rgba(255,255,255,.12);margin-bottom:16px}
-.cov-foot{font-size:12px;color:rgba(255,255,255,.4)}
+.cov-sub{font-size:13px;line-height:1.55;color:rgba(255,255,255,.7);max-width:64ch;margin-bottom:18px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.pill{font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,95,31,.5);background:rgba(255,95,31,.06);padding:7px 14px;border-radius:999px}
+.cov-rule{height:1px;background:rgba(255,255,255,.12);margin-bottom:10px}
+.cov-foot{font-size:10.5px;color:rgba(255,255,255,.4)}
 /* stats */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;margin:18px 0}
-.stat{display:flex;flex-direction:column;align-items:center;gap:4px;padding:20px 8px;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;margin:10px 0}
+.stat{display:flex;flex-direction:column;align-items:center;gap:3px;padding:12px 6px;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
 .stat:last-child{border-right:0}
-.sv{font-family:var(--d);font-weight:800;font-size:22px;color:var(--o)}
-.sl{font-size:10.5px;color:rgba(255,255,255,.5);line-height:1.3}
+.sv{font-family:var(--d);font-weight:800;font-size:18px;color:var(--o)}
+.sl{font-size:9px;color:rgba(255,255,255,.5);line-height:1.25}
 /* callout */
-.callout{display:flex;gap:16px;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:20px 22px;background:rgba(255,255,255,.02);margin-bottom:18px}
-.isq{flex:0 0 auto;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,var(--o),var(--o2));color:#fff}
-.isq svg{width:18px;height:18px}
-.callout h4{font-family:var(--d);font-weight:700;font-size:15px;margin:2px 0 6px}
-.cd{font-size:12.5px;line-height:1.55;color:rgba(255,255,255,.6)}
+.callout{display:flex;gap:12px;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px 16px;background:rgba(255,255,255,.02);margin-bottom:10px}
+.isq{flex:0 0 auto;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(135deg,var(--o),var(--o2));color:#fff}
+.isq svg{width:14px;height:14px}
+.callout h4{font-family:var(--d);font-weight:700;font-size:12px;margin:1px 0 3px}
+.cd{font-size:10.5px;line-height:1.4;color:rgba(255,255,255,.6)}
 .cd b{color:#fff}
-/* legend / tags */
-.tag{display:inline-block;font-family:var(--s);font-size:9.5px;font-weight:800;letter-spacing:.08em;padding:4px 10px;border-radius:999px;vertical-align:middle}
+/* quote */
+.quote{border-left:2px solid var(--o);padding:10px 16px;background:rgba(255,95,31,.04)}
+.quote p{font-size:10.5px;line-height:1.45;color:rgba(255,255,255,.68);margin-top:5px}
+.quote p:first-of-type{margin-top:0}
+.quote b{color:var(--o)}
+.qk{font-family:var(--s);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--o);font-weight:700}
+.quote.inline{margin:6px 0 8px;background:rgba(255,255,255,.02);border-left:2px solid var(--o)}
+.quote.inline p{color:rgba(255,255,255,.75);margin:0}
+.quote.inline b{color:var(--o)}
+/* sechead */
+.sechead{display:flex;align-items:flex-start;gap:14px;margin-bottom:8px}
+.secnum{font-family:var(--d);font-weight:800;font-size:32px;line-height:.8;color:transparent;-webkit-text-stroke:1.3px rgba(255,95,31,.6)}
+.sechead h2{font-family:var(--d);font-weight:800;font-size:19px;letter-spacing:-.01em;margin-bottom:4px}
+.sechead .lead{font-size:10.5px;color:rgba(255,255,255,.55);line-height:1.4}
+.rule{height:1px;background:rgba(255,255,255,.1);margin-bottom:10px}
+/* cards */
+.card{border:1px solid rgba(255,255,255,.1);border-radius:14px;background:rgba(255,255,255,.02);padding:12px 16px;margin-bottom:8px}
+.chead{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.chead h3{font-family:var(--d);font-weight:800;font-size:14px;display:flex;align-items:center;gap:8px}
+.chead .kicker{margin-bottom:1px}
+/* tags */
+.tag{display:inline-block;font-family:var(--s);font-size:8px;font-weight:800;letter-spacing:.06em;padding:3px 8px;border-radius:999px;vertical-align:middle}
+.tag-both{color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.06)}
 .tag-pro{color:var(--o);border:1px solid rgba(255,95,31,.5);background:rgba(255,95,31,.1)}
 .tag-light{color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.04)}
-.legend{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
-.lg-item{display:flex;align-items:center;gap:10px;font-size:11.5px;color:rgba(255,255,255,.6)}
+.blk .kicker .tag{margin-left:3px;transform:translateY(-1px)}
+.legend{display:flex;flex-direction:column;gap:5px;margin-bottom:10px}
+.lg-item{display:flex;align-items:center;gap:8px;font-size:10px;color:rgba(255,255,255,.6)}
 .lg-item b{color:#fff}
-/* sechead */
-.sechead{display:flex;align-items:flex-start;gap:18px;margin-bottom:14px}
-.secnum{font-family:var(--d);font-weight:800;font-size:48px;line-height:.8;color:transparent;-webkit-text-stroke:1.5px rgba(255,95,31,.6)}
-.sechead h2{font-family:var(--d);font-weight:800;font-size:22px;letter-spacing:-.01em;margin-bottom:6px;display:flex;align-items:center;gap:10px}
-.sechead .lead{font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.5}
-.rule{height:1px;background:rgba(255,255,255,.1);margin-bottom:20px}
+/* pilares lado a lado */
+.pilares3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.feats{display:flex;flex-direction:column;gap:7px}
+.feat{position:relative;padding-left:12px}
+.feat::before{content:"";position:absolute;left:0;top:5px;width:5px;height:5px;border-radius:999px;background:var(--o)}
+.ft{font-family:var(--s);font-weight:700;font-size:10.5px;margin-bottom:2px}
+.fd{font-size:9px;color:rgba(255,255,255,.5);line-height:1.3}
+/* grid2/3 · blk · bul */
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:6px 20px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px 16px}
+.blk .kicker{font-size:8px;letter-spacing:.08em;margin-bottom:3px}
+.bul{list-style:none}
+.bul li{position:relative;padding-left:12px;font-size:9.5px;line-height:1.32;color:rgba(255,255,255,.72);margin-bottom:2px}
+.bul li::before{content:"";position:absolute;left:0;top:5px;width:4px;height:4px;border-radius:999px;background:var(--o)}
+.bul li b{color:#fff}
+/* split em 2 colunas (rotina + kpis lado a lado, etc.) */
+.split2{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
 /* tabelas */
-.tbl{width:100%;border-collapse:collapse;font-size:11.5px;border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden}
-.tbl th{background:linear-gradient(90deg,rgba(255,95,31,.16),rgba(255,51,0,.05));color:var(--o);text-align:left;padding:9px 14px;font-family:var(--d);font-weight:700;font-size:10.5px;letter-spacing:.02em}
-.tbl td{padding:10px 14px;border-top:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.7);vertical-align:top;line-height:1.42}
+.tblw{width:100%}
+.tbl{width:100%;border-collapse:collapse;font-size:9.5px;border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden}
+.tbl th{background:linear-gradient(90deg,rgba(255,95,31,.16),rgba(255,51,0,.05));color:var(--o);text-align:left;padding:6px 12px;font-family:var(--d);font-weight:700;font-size:9px;letter-spacing:.02em}
+.tbl td{padding:6px 12px;border-top:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.7);vertical-align:top;line-height:1.28}
 .tbl td.k{color:#fff;font-weight:700}
 .tbl td b{color:var(--o)}
-/* rules (ritos / ciclo) */
-.rules{display:flex;flex-direction:column;gap:12px;margin-bottom:22px}
-.rule-item{display:flex;gap:16px;align-items:flex-start;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:15px 20px;background:rgba(255,255,255,.02)}
-.nbadge{flex:0 0 auto;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--o),var(--o2));font-family:var(--d);font-weight:800;font-size:13px;color:#fff}
-.rt{font-family:var(--s);font-weight:700;font-size:13.5px;margin-bottom:4px}
-.rd{font-size:12px;line-height:1.5;color:rgba(255,255,255,.6)}
+/* rules (ritos / SLA) */
+.rules{display:flex;flex-direction:column;gap:7px;margin-bottom:10px}
+.rules.grid2r{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px}
+.rule-item{display:flex;gap:10px;align-items:flex-start;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:9px 13px;background:rgba(255,255,255,.02)}
+.nbadge{flex:0 0 auto;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--o),var(--o2));font-family:var(--d);font-weight:800;font-size:10.5px;color:#fff}
+.rt{font-family:var(--s);font-weight:700;font-size:11px;margin-bottom:2px}
+.rd{font-size:9.5px;line-height:1.35;color:rgba(255,255,255,.6)}
 .rd b{color:var(--o)}
-.commit{border:1px solid rgba(255,95,31,.35);border-radius:18px;padding:28px 36px;text-align:center}
-.commit-pill{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.14em;color:var(--o);border:1px solid rgba(255,95,31,.5);border-radius:999px;padding:6px 16px;margin-bottom:16px}
-.commit-t{font-family:var(--d);font-weight:800;font-size:21px;letter-spacing:-.01em;margin-bottom:10px}
-.commit-d{font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.55;max-width:56ch;margin:0 auto}
+.commit{border:1px solid rgba(255,95,31,.35);border-radius:14px;padding:18px 28px;text-align:center}
+.commit-pill{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.12em;color:var(--o);border:1px solid rgba(255,95,31,.5);border-radius:999px;padding:5px 13px;margin-bottom:10px}
+.commit-t{font-family:var(--d);font-weight:800;font-size:17px;letter-spacing:-.01em;margin-bottom:7px}
+.commit-d{font-size:10.5px;color:rgba(255,255,255,.55);line-height:1.4;max-width:70ch;margin:0 auto}
 .commit-solo{margin-top:60px}
 </style>
 <style>
@@ -94,7 +128,7 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
   .topnav button{flex:0 0 auto;font-family:var(--s);font-size:12px;font-weight:700;letter-spacing:.04em;color:#fff;background:linear-gradient(135deg,var(--o),var(--o2));border:0;padding:9px 18px;border-radius:999px;cursor:pointer;box-shadow:0 6px 20px rgba(255,95,31,.35);transition:transform .2s}
   .topnav button:hover{transform:translateY(-1px)}
   .stage{position:relative;flex:1 1 auto;overflow:hidden}
-  .page{position:absolute;top:50%;left:50%;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s ease;border-radius:20px;border:1px solid rgba(255,255,255,.08);box-shadow:0 30px 80px rgba(0,0,0,.55)}
+  .page{position:absolute;top:50%;left:50%;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s ease;border-radius:16px;border:1px solid rgba(255,255,255,.08);box-shadow:0 30px 80px rgba(0,0,0,.55)}
   .page.active{opacity:1;visibility:visible;pointer-events:auto}
   .controls{flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:18px;padding:14px 28px;background:rgba(5,5,5,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.07)}
   .navbtn{flex:0 0 auto;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);color:#fff;cursor:pointer;transition:.2s}
@@ -143,18 +177,21 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
 <section class="page" id="s1" data-label="Visão geral">
   <div class="amb"></div>
   <div class="pbody">
-  <p class="kicker">VISÃO GERAL</p>
-  <h2 class="h2">Alinhamento comercial e operacional</h2>
-  <p class="body">Este manual estrutura o alinhamento definitivo entre o que é <b>vendido pelo time Comercial</b> e o que é <b>executado pelo time Operacional</b> no produto Evolução, nas versões <b>Evolução</b> e <b>Evolução Pro</b>. Ele detalha as etapas da jornada do cliente, garantindo clareza de funções, cronograma de reuniões, entregas da equipe e metas de cada fase.</p>
-  <div class="stats"><div class="stat"><span class="sv">30 dias</span><span class="sl">Duração do plano Evolução</span></div><div class="stat"><span class="sv">60 dias</span><span class="sl">Duração do plano Evolução Pro</span></div><div class="stat"><span class="sv">9</span><span class="sl">Semanas de cronograma no total</span></div><div class="stat"><span class="sv">3</span><span class="sl">Grupos de indicadores de sucesso</span></div></div>
-  <div class="callout">
+  <div class="split2"><div>
+    <p class="kicker">VISÃO GERAL</p>
+    <h2 class="h2">Alinhamento comercial e operacional</h2>
+    <p class="body">Este manual estrutura o alinhamento entre o que é <b>vendido pelo time Comercial</b> e o que é <b>executado pelo time Operacional</b> no produto Evolução, nas versões <b>Evolução</b> e <b>Evolução Pro</b>.</p>
+    <div class="stats"><div class="stat"><span class="sv">30 dias</span><span class="sl">Duração do plano Evolução</span></div><div class="stat"><span class="sv">60 dias</span><span class="sl">Duração do plano Pro</span></div><div class="stat"><span class="sv">9</span><span class="sl">Semanas de cronograma</span></div><div class="stat"><span class="sv">3</span><span class="sl">Grupos de indicadores</span></div></div>
+  </div><div>
+    <div class="callout">
   <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
-  <div><p class="kicker">COMO LER ESTE MANUAL</p><h4>Do onboarding à escala</h4><p class="cd">O documento segue os mesmos blocos do onboarding: a <b>divisão de entregas</b> por plano (Evolução e a camada exclusiva Pro), o <b>cronograma semana a semana</b> de cada fase e os <b>indicadores de sucesso</b> acompanhados pela equipe.</p></div>
+  <div><p class="kicker">COMO LER ESTE MANUAL</p><h4>Do onboarding à escala</h4><p class="cd">A <b>divisão de entregas</b> por plano, o <b>cronograma semana a semana</b> e os <b>indicadores de sucesso</b> acompanhados pela equipe.</p></div>
 </div>
-  <div class="legend">
-    <div class="lg-item"><span class="tag tag-light">EVOLUÇÃO</span><span>entrega <b>padrão</b> do plano Evolução (30 dias)</span></div>
-    <div class="lg-item"><span class="tag tag-pro">EXCLUSIVO PRO</span><span>camada <b>exclusiva</b> do plano Evolução Pro (60 dias)</span></div>
-  </div>
+    <div class="legend">
+      <div class="lg-item"><span class="tag tag-light">EVOLUÇÃO</span><span>entrega <b>padrão</b> do plano Evolução (30 dias)</span></div>
+      <div class="lg-item"><span class="tag tag-pro">EXCLUSIVO PRO</span><span>camada <b>exclusiva</b> do plano Evolução Pro (60 dias)</span></div>
+    </div>
+  </div></div>
 </div>
   <div class="pfoot"><span>MANUAL DE ENTREGA · EVOLUÇÃO JURÍDICA · <b>E3</b></span><span>01</span></div>
 </section>
@@ -165,12 +202,17 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
   <span class="secnum">01</span>
   <div><h2>Divisão de entregas <span class="tag tag-light">EVOLUÇÃO</span></h2><p class="lead">O que o time Comercial vende e o que o time Operacional entrega no plano Evolução.</p></div>
 </div><div class="rule"></div>
-  <div class="callout">
+  <div class="split2"><div>
+    <div class="callout">
   <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></span>
   <div><p class="kicker">O QUE O COMERCIAL VENDE</p><h4>Canais, posicionamento e treinamento inicial</h4><p class="cd">Estruturação de canais básicos de captação, posicionamento de mercado e treinamento inicial de vendas.</p></div>
 </div>
-  <h3 class="h3">O que o Operacional entrega</h3>
-  <div class="rules"><div class="rule-item"><span class="nbadge">1</span><div><p class="rt">Onboarding</p><p class="rd">Abertura oficial do projeto e alinhamento inicial com o cliente.</p></div></div><div class="rule-item"><span class="nbadge">2</span><div><p class="rt">Diagnóstico de ICP</p><p class="rd">Mapeamento do perfil de cliente ideal e validação do posicionamento.</p></div></div><div class="rule-item"><span class="nbadge">3</span><div><p class="rt">Landing Page otimizada</p><p class="rd">Página de conversão publicada e pronta para captar leads.</p></div></div><div class="rule-item"><span class="nbadge">4</span><div><p class="rt">Ajuste do Google Meu Negócio</p><p class="rd">Presença local fortalecida, com ficha e informações completas.</p></div></div><div class="rule-item"><span class="nbadge">5</span><div><p class="rt">Roteiros estratégicos de conteúdo</p><p class="rd">Base para sustentar a produção de conteúdo e a autoridade do escritório.</p></div></div><div class="rule-item"><span class="nbadge">6</span><div><p class="rt">Treinamento comercial</p><p class="rd">Capacitação do time do cliente para converter os leads gerados.</p></div></div><div class="rule-item"><span class="nbadge">7</span><div><p class="rt">Acompanhamento no Go-live</p><p class="rd">Suporte da equipe E3 no lançamento de todas as entregas.</p></div></div></div>
+    <h3 class="h3">O que o Operacional entrega</h3>
+    <div class="rules "><div class="rule-item"><span class="nbadge">1</span><div><p class="rt">Onboarding</p><p class="rd">Abertura oficial do projeto e alinhamento inicial.</p></div></div><div class="rule-item"><span class="nbadge">2</span><div><p class="rt">Diagnóstico de ICP</p><p class="rd">Perfil de cliente ideal e validação do posicionamento.</p></div></div><div class="rule-item"><span class="nbadge">3</span><div><p class="rt">Landing Page otimizada</p><p class="rd">Página de conversão publicada.</p></div></div><div class="rule-item"><span class="nbadge">4</span><div><p class="rt">Google Meu Negócio</p><p class="rd">Presença local com ficha e informações completas.</p></div></div></div>
+  </div><div>
+    <h3 class="h3">&nbsp;</h3>
+    <div class="rules "><div class="rule-item"><span class="nbadge">1</span><div><p class="rt">Roteiros estratégicos de conteúdo</p><p class="rd">Base para produção de conteúdo e autoridade.</p></div></div><div class="rule-item"><span class="nbadge">2</span><div><p class="rt">Treinamento comercial</p><p class="rd">Capacitação do time para converter os leads.</p></div></div><div class="rule-item"><span class="nbadge">3</span><div><p class="rt">Acompanhamento no Go-live</p><p class="rd">Suporte da equipe E3 no lançamento das entregas.</p></div></div></div>
+  </div></div>
 </div>
   <div class="pfoot"><span>MANUAL DE ENTREGA · EVOLUÇÃO JURÍDICA · <b>E3</b></span><span>02</span></div>
 </section>
@@ -186,7 +228,7 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
   <div><p class="kicker">O QUE O COMERCIAL VENDE (PRO)</p><h4>Aceleração comercial avançada</h4><p class="cd">Canais ativos adicionais de aquisição: Social Selling, TikTok Lives e Funil de Indicação.</p></div>
 </div>
   <h3 class="h3">O que o Operacional entrega a mais</h3>
-  <div class="rules"><div class="rule-item"><span class="nbadge">1</span><div><p class="rt">Setup de Social Selling</p><p class="rd">Operação de prospecção ativa estruturada do zero.</p></div></div><div class="rule-item"><span class="nbadge">2</span><div><p class="rt">Scripts de DM personalizados</p><p class="rd">Roteiros de abordagem para conexão e conversão via redes sociais.</p></div></div><div class="rule-item"><span class="nbadge">3</span><div><p class="rt">Funil de Indicação (com acompanhamento)</p><p class="rd">Ativação da base de clientes como canal de novos negócios.</p></div></div><div class="rule-item"><span class="nbadge">4</span><div><p class="rt">Planejamento e estratégia de Live no TikTok</p><p class="rd">Roteirização técnica e lançamento de uma live estratégica.</p></div></div></div>
+  <div class="rules grid2r"><div class="rule-item"><span class="nbadge">1</span><div><p class="rt">Setup de Social Selling</p><p class="rd">Operação de prospecção ativa estruturada do zero.</p></div></div><div class="rule-item"><span class="nbadge">2</span><div><p class="rt">Scripts de DM personalizados</p><p class="rd">Roteiros de abordagem via redes sociais.</p></div></div><div class="rule-item"><span class="nbadge">3</span><div><p class="rt">Funil de Indicação (com acompanhamento)</p><p class="rd">Ativação da base de clientes como canal de negócios.</p></div></div><div class="rule-item"><span class="nbadge">4</span><div><p class="rt">Live no TikTok</p><p class="rd">Roteirização técnica e lançamento de uma live estratégica.</p></div></div></div>
 </div>
   <div class="pfoot"><span>MANUAL DE ENTREGA · EVOLUÇÃO JURÍDICA · <b>E3</b></span><span>03</span></div>
 </section>
@@ -202,7 +244,7 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
   <div><p class="kicker">REUNIÃO DE ONBOARDING</p><h4>Alinhamento inicial com o cliente</h4><p class="cd">Alinhamento de expectativas, apresentação oficial do Assessor E3 e diagnóstico profundo do escritório.</p></div>
 </div>
   <h3 class="h3">Atividades operacionais da Semana 1</h3>
-  <div class="rules"><div class="rule-item"><span class="nbadge">1</span><div><p class="rt">Disparo do formulário de diagnóstico operacional</p></div></div><div class="rule-item"><span class="nbadge">2</span><div><p class="rt">Mapeamento do ICP e validação do posicionamento atual da marca</p></div></div><div class="rule-item"><span class="nbadge">3</span><div><p class="rt">Coleta de acessos técnicos (domínio, hospedagem, Google)</p></div></div></div>
+  <div class="rules grid2r"><div class="rule-item"><span class="nbadge">1</span><div><p class="rt">Disparo do formulário de diagnóstico operacional</p></div></div><div class="rule-item"><span class="nbadge">2</span><div><p class="rt">Mapeamento do ICP e validação do posicionamento atual da marca</p></div></div><div class="rule-item"><span class="nbadge">3</span><div><p class="rt">Coleta de acessos técnicos (domínio, hospedagem, Google)</p></div></div></div>
 </div>
   <div class="pfoot"><span>MANUAL DE ENTREGA · EVOLUÇÃO JURÍDICA · <b>E3</b></span><span>04</span></div>
 </section>
@@ -214,7 +256,7 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
   <div><h2>Cronograma da Fase 1 <span class="tag tag-light">EVOLUÇÃO</span></h2><p class="lead">Ritos de reunião e entregas semana a semana, do kick-off ao pitch de renovação.</p></div>
 </div><div class="rule"></div>
   <div class="tblw"><table class="tbl"><thead><tr><th>Semana</th><th>O que acontece</th></tr></thead>
-  <tbody><tr><td class="k">Semana 0 · Kick-off &amp; Onboarding</td><td>CS Manager envia vídeo e formulário comercial e analisa o Instagram. Account conduz o onboarding: define o ICP, redesenha o posicionamento e envia os formulários da página e do Google Meu Negócio.</td></tr><tr><td class="k">Semana 1 · Posicionamento</td><td>Account fecha posicionamento, persona, dores e objeções com o cliente. Gestor de Projeto desenvolve copies e briefings de arte com base nessa reunião.</td></tr><tr><td class="k">Semana 2 · Presença Digital</td><td>Web Design publica a Landing Page. Gestor de Projeto finaliza a otimização completa do Google Meu Negócio.</td></tr><tr><td class="k">Semana 3 · Capacitação &amp; Vitrine</td><td>Criação publica a grade de 9 posts no Instagram como vitrine de autoridade. Consultor Comercial conduz o treinamento comercial do time do cliente.</td></tr><tr><td class="k">Semana 4 · Resultados &amp; Pitch</td><td>Account apresenta os resultados do ciclo e conduz o pitch de renovação ou upgrade para o Pro.</td></tr></tbody></table></div>
+  <tbody><tr><td class="k">Semana 0 · Kick-off &amp; Onboarding</td><td>CS Manager envia vídeo e formulário comercial e analisa o Instagram. Account conduz o onboarding: ICP, posicionamento e formulários da página e do Google Meu Negócio.</td></tr><tr><td class="k">Semana 1 · Posicionamento</td><td>Account fecha posicionamento, persona, dores e objeções. Gestor de Projeto desenvolve copies e briefings de arte.</td></tr><tr><td class="k">Semana 2 · Presença Digital</td><td>Web Design publica a Landing Page. Gestor de Projeto finaliza a otimização do Google Meu Negócio.</td></tr><tr><td class="k">Semana 3 · Capacitação &amp; Vitrine</td><td>Criação publica a grade de 9 posts no Instagram. Consultor Comercial conduz o treinamento comercial.</td></tr><tr><td class="k">Semana 4 · Resultados &amp; Pitch</td><td>Account apresenta os resultados do ciclo e conduz o pitch de renovação ou upgrade.</td></tr></tbody></table></div>
 </div>
   <div class="pfoot"><span>MANUAL DE ENTREGA · EVOLUÇÃO JURÍDICA · <b>E3</b></span><span>05</span></div>
 </section>
@@ -226,7 +268,7 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
   <div><h2>Cronograma da Fase 2 <span class="tag tag-pro">EXCLUSIVO PRO</span></h2><p class="lead">Para quem avança para a aceleração comercial — mais quatro semanas até a escala.</p></div>
 </div><div class="rule"></div>
   <div class="tblw"><table class="tbl"><thead><tr><th>Semana</th><th>O que acontece</th></tr></thead>
-  <tbody><tr><td class="k">Semana 5 · Prospecção Ativa</td><td>Consultor Comercial estrutura o Social Selling, escreve os scripts de DM e ativa o Funil de Indicação. Gestor de Projeto acompanha a implantação e cobra as entregas.</td></tr><tr><td class="k">Semana 6 · Live Estratégica TikTok</td><td>Account planeja, roteiriza e lança a primeira live estratégica no TikTok do cliente.</td></tr><tr><td class="k">Semana 7 · Otimização Comercial</td><td>Gestor de Projeto audita a operação, acompanha a ativação do funil de indicação e ajusta abordagens.</td></tr><tr><td class="k">Semana 8 · Resultados &amp; Escala</td><td>Account e Consultor Comercial revisam as métricas dos 60 dias, desenham o plano de escala e conduzem o novo pitch de renovação.</td></tr></tbody></table></div>
+  <tbody><tr><td class="k">Semana 5 · Prospecção Ativa</td><td>Consultor Comercial estrutura o Social Selling, escreve os scripts de DM e ativa o Funil de Indicação. Gestor de Projeto acompanha a implantação.</td></tr><tr><td class="k">Semana 6 · Live Estratégica TikTok</td><td>Account planeja, roteiriza e lança a primeira live estratégica no TikTok do cliente.</td></tr><tr><td class="k">Semana 7 · Otimização Comercial</td><td>Gestor de Projeto audita a operação e acompanha a ativação do funil de indicação.</td></tr><tr><td class="k">Semana 8 · Resultados &amp; Escala</td><td>Account e Consultor Comercial revisam as métricas dos 60 dias e conduzem o novo pitch de renovação.</td></tr></tbody></table></div>
 </div>
   <div class="pfoot"><span>MANUAL DE ENTREGA · EVOLUÇÃO JURÍDICA · <b>E3</b></span><span>06</span></div>
 </section>
@@ -235,12 +277,15 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
   <div class="pbody">
   <p class="kicker">INDICADORES DE SUCESSO</p>
   <h2 class="h2">KPIs de entrega e retenção</h2>
-  <p class="body" style="margin-bottom:18px">Métricas que garantem que o cronograma foi cumprido no prazo e que o cliente segue satisfeito com a parceria.</p>
-  <div class="tblw"><table class="tbl"><thead><tr><th>Indicador operacional</th><th>Meta</th></tr></thead>
-  <tbody><tr><td class="k">SLA de entrega da LP (Semana 2)</td><td>Publicação do link no prazo estipulado — 100% de conformidade.</td></tr><tr><td class="k">Otimização do Google Meu Negócio</td><td>Setup completo: ficha atualizada, fotos, horário de atendimento e links funcionais.</td></tr><tr><td class="k">Frequência de conteúdo / scripts de DM</td><td>Entrega dos roteiros (S3) e das DMs (S5) validados pelo cliente.</td></tr></tbody></table></div>
-  <h3 class="h3">Indicadores de retenção</h3>
-  <div class="tblw"><table class="tbl"><thead><tr><th>Indicador</th><th>Meta</th></tr></thead>
-  <tbody><tr><td class="k">NPS do cliente</td><td>Nota coletada ao final da jornada de 30 e 60 dias — foco em manter promotores.</td></tr><tr><td class="k">Taxa de conversão do Pitch</td><td>% de renovação de contratos ou upgrade do plano Evolução para o Pro.</td></tr></tbody></table></div>
+  <div class="split2"><div>
+    <h3 class="h3">Entrega operacional</h3>
+    <div class="tblw"><table class="tbl"><thead><tr><th>Indicador</th><th>Meta</th></tr></thead>
+  <tbody><tr><td class="k">SLA de entrega da LP (S2)</td><td>Publicação no prazo — 100% de conformidade.</td></tr><tr><td class="k">Google Meu Negócio</td><td>Ficha, fotos, horário e links atualizados.</td></tr><tr><td class="k">Conteúdo / scripts de DM</td><td>Roteiros (S3) e DMs (S5) validados.</td></tr></tbody></table></div>
+  </div><div>
+    <h3 class="h3">Retenção</h3>
+    <div class="tblw"><table class="tbl"><thead><tr><th>Indicador</th><th>Meta</th></tr></thead>
+  <tbody><tr><td class="k">NPS do cliente</td><td>Nota ao final da jornada — foco em promotores.</td></tr><tr><td class="k">Taxa de conversão do Pitch</td><td>% de renovação ou upgrade para o Pro.</td></tr></tbody></table></div>
+  </div></div>
 </div>
   <div class="pfoot"><span>MANUAL DE ENTREGA · EVOLUÇÃO JURÍDICA · <b>E3</b></span><span>07</span></div>
 </section>
@@ -249,13 +294,12 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
   <div class="pbody">
   <p class="kicker">INDICADORES DE SUCESSO</p>
   <h2 class="h2">KPIs de performance comercial</h2>
-  <p class="body" style="margin-bottom:18px">Métricas do negócio do cliente, medidas a partir dos leads e canais ativados pela E3.</p>
   <div class="tblw"><table class="tbl"><thead><tr><th>Indicador</th><th>Meta</th></tr></thead>
-  <tbody><tr><td class="k">Taxa de conversão comercial</td><td>Aproveitamento dos leads gerados após o Treinamento Comercial (S3).</td></tr><tr><td class="k">Leads via prospecção ativa</td><td>Volume de respostas qualificadas geradas a partir do Social Selling/DMs (S5).</td></tr><tr><td class="k">Novas vendas via Funil de Indicação</td><td>Clientes gerados pela base de indicações ativada entre S5 e S7.</td></tr><tr><td class="k">Audiência e engajamento na Live TikTok</td><td>Pico de espectadores simultâneos e leads capturados na live (S6).</td></tr></tbody></table></div>
+  <tbody><tr><td class="k">Taxa de conversão comercial</td><td>Aproveitamento dos leads pós-Treinamento Comercial (S3).</td></tr><tr><td class="k">Leads via prospecção ativa</td><td>Respostas qualificadas geradas via Social Selling/DMs (S5).</td></tr><tr><td class="k">Novas vendas via Funil de Indicação</td><td>Clientes gerados pela base ativada entre S5 e S7.</td></tr><tr><td class="k">Audiência na Live TikTok</td><td>Pico de espectadores e leads capturados na live (S6).</td></tr></tbody></table></div>
   <div class="commit commit-solo">
     <span class="commit-pill">COMPROMISSO E3</span>
     <h3 class="commit-t">Do onboarding ao pitch, um único fio condutor.</h3>
-    <p class="commit-d">Cada semana, entrega e indicador deste manual existe para transformar o plano vendido em resultado real — com clareza de função, prazo e prestação de contas em cada etapa.</p>
+    <p class="commit-d">Cada semana, entrega e indicador deste manual existe para transformar o plano vendido em resultado real.</p>
   </div>
 </div>
   <div class="pfoot"><span>MANUAL DE ENTREGA · EVOLUÇÃO JURÍDICA · <b>E3</b></span><span>08</span></div>
@@ -287,7 +331,7 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
   function fit(){
     var p=pages[i]; if(!p||!stage) return;
     var r=stage.getBoundingClientRect();
-    var sc=Math.min((r.width*0.94)/794,(r.height*0.94)/1123,1);
+    var sc=Math.min((r.width*0.94)/1280,(r.height*0.94)/720,1);
     p.style.transform='translate(-50%,-50%) scale('+sc+')';
   }
   function go(n){
