@@ -29,7 +29,7 @@ const page = (body, opts = {}) => {
   const label = NAV[idx];
   const id = label ? `s${idx}` : "";
   if (label) SECTIONS.push({ id, label });
-  return `<section class="page rv${opts.cover ? " cover" : ""}"${id ? ` id="${id}"` : ""}>
+  return `<section class="page${opts.cover ? " cover" : ""}"${id ? ` id="${id}"` : ""}${label ? ` data-label="${label}"` : ""}>
   <div class="amb"></div>
   <div class="pbody">${body}</div>
   ${opts.cover ? "" : `<div class="pfoot"><span>PLAYBOOK · ENTREGA &amp; ALINHAMENTO · <b>E3</b></span><span>${String(++folio).padStart(2, "0")}</span></div>`}
