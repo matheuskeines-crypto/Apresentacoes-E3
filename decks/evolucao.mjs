@@ -96,25 +96,26 @@ export const onboarding = {
       big: "CPP",
       pills: ["Canais de aquisição de clientes", "Produtos Jurídicos", "Processo comercial"] },
 
-    { type: "table", kicker: "Fase 1 · Evolução (30 dias)", title: "Cronograma da Fase 1",
-      lead: "Do kick-off ao pitch de renovação — quatro semanas até o primeiro resultado.",
-      head: ["Semana", "O que a equipe entrega"],
-      rows: [
-        ["Semana 0 · Kick-off & Onboarding", "CS Manager envia vídeo e formulário comercial e analisa o Instagram. Account conduz o onboarding: define o ICP, redesenha o posicionamento e envia os formulários da página e do Google Meu Negócio."],
-        ["Semana 1 · Posicionamento", "Account fecha posicionamento, persona, dores e objeções com o cliente. Gestor de Projeto desenvolve copies e briefings de arte com base nessa reunião."],
-        ["Semana 2 · Presença Digital", "Web Design publica a Landing Page. Gestor de Projeto finaliza a otimização completa do Google Meu Negócio."],
-        ["Semana 3 · Capacitação & Vitrine", "Criação publica a grade de 9 posts no Instagram como vitrine de autoridade. Consultor Comercial conduz o treinamento comercial do time do cliente."],
-        ["Semana 4 · Resultados & Pitch", "Account apresenta os resultados do ciclo e conduz o pitch de renovação ou upgrade para o Pro."],
+    { type: "timeline", kicker: "Cronograma · Evolução", title: "A jornada em 5 semanas",
+      steps: [
+        { label: "Semana 0", icon: "megaphone", title: "Kick-off & Onboarding", desc: "" },
+        { label: "Semana 1", icon: "target", title: "Posicionamento", desc: "" },
+        { label: "Semana 2", icon: "cog", title: "Presença Digital", desc: "" },
+        { label: "Semana 3", icon: "instagram", title: "Capacitação & Vitrine", desc: "" },
+        { label: "Semana 4", icon: "trending", title: "Resultados & Pitch", desc: "" },
       ] },
 
-    { type: "table", kicker: "Fase 2 · Evolução Pro (60 dias)", title: "Cronograma da Fase 2",
-      lead: "Para quem avança na aceleração comercial: mais quatro semanas até a escala.",
-      head: ["Semana", "O que a equipe entrega"],
-      rows: [
-        ["Semana 5 · Prospecção Ativa", "Consultor Comercial estrutura o Social Selling, escreve os scripts de DM e ativa o Funil de Indicação. Gestor de Projeto acompanha a implantação e cobra as entregas."],
-        ["Semana 6 · Live Estratégica TikTok", "Account planeja, roteiriza e lança a primeira live estratégica no TikTok do cliente."],
-        ["Semana 7 · Otimização Comercial", "Gestor de Projeto audita a operação, acompanha a ativação do funil de indicação e ajusta abordagens."],
-        ["Semana 8 · Resultados & Escala", "Account e Consultor Comercial revisam as métricas dos 60 dias, desenham o plano de escala e conduzem o novo pitch de renovação."],
+    { type: "timeline", kicker: "Cronograma · Evolução Pro", title: "A jornada em 8 semanas",
+      steps: [
+        { label: "Semana 0", icon: "megaphone", title: "Kick-off & Onboarding", desc: "" },
+        { label: "Semana 1", icon: "target", title: "Posicionamento", desc: "" },
+        { label: "Semana 2", icon: "cog", title: "Presença Digital", desc: "" },
+        { label: "Semana 3", icon: "instagram", title: "Capacitação & Vitrine", desc: "" },
+        { label: "Semana 4", icon: "trending", title: "Resultados & Pitch", desc: "" },
+        { label: "Semana 5", icon: "users", title: "Prospecção Ativa", desc: "" },
+        { label: "Semana 6", icon: "phone", title: "Live Estratégica TikTok", desc: "" },
+        { label: "Semana 7", icon: "settings", title: "Otimização Comercial", desc: "" },
+        { label: "Semana 8", icon: "award", title: "Resultados & Escala", desc: "" },
       ] },
 
     { type: "list", kicker: "Antes de estruturar o plano", title: "Quanto Tempo de Resultado?",
