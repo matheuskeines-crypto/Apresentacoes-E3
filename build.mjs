@@ -565,7 +565,7 @@ for (const deck of decks) {
 }
 
 /* ─── playbooks (HTML responsivo, com "Baixar PDF" via impressão) ─── */
-for (const gen of ["gen-playbook.mjs", "gen-playbook-entrega.mjs", "gen-manual-evolucao.mjs", "gen-playbook-evolucao.mjs"]) {
+for (const gen of ["gen-playbook.mjs", "gen-playbook-entrega.mjs", "gen-manual-evolucao.mjs", "gen-playbook-evolucao.mjs", "gen-manual-estruturacao.mjs"]) {
   execFileSync(process.execPath, [join(__dirname, "scripts", gen)], { stdio: "inherit" });
 }
 
@@ -604,7 +604,7 @@ const PRODUCTS = [
     name: "Estruturação",
     links: [
       { label: "Onboarding", sub: "deck · kickoff", href: "./onboarding-estruturacao-pro/index.html" },
-      { label: "Manual de Entrega", sub: "pdf / material · a definir", href: "#" },
+      { label: "Manual de Entrega", sub: "documento · entregas & alinhamento", href: "./manual-entrega-estruturacao-pro/index.html" },
       { label: "Playbook de Funções", sub: "pdf / material · a definir", href: "#" },
       CONSULTORIA_COMERCIAL,
       { label: "Forms 360°", sub: "formulário diagnóstico · a definir", href: "#" },
