@@ -608,7 +608,6 @@ const PRODUCTS = [
       { label: "Playbook de Funções", sub: "pdf / material · a definir", href: "#" },
       CONSULTORIA_COMERCIAL,
       { label: "Forms 360°", sub: "formulário diagnóstico · a definir", href: "https://forms.gle/2SPjwk6HiPpgXgsq9" },
-      { label: "Auditoria Mídia Paga", sub: "material específico · a definir", href: "#" },
       { label: "Auditoria Criativa", sub: "deck · 39 slides", href: "./auditoria-criativa/index.html" },
     ],
   },
