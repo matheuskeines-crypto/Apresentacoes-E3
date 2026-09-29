@@ -615,6 +615,7 @@ const PRODUCTS = [
 
 const KNOWLEDGE = [
   { label: "Curso comercial Interno", sub: "deck · slides do treinamento", href: "./treinamento-comercial/index.html" },
+  { label: "Apresentação da Empresa", sub: "playlist · YouTube", href: "https://youtube.com/playlist?list=PLDqQzbm7q4NQ&si=Mf2_kLJ63HbhvBpB" },
   { label: "Materiais em PDF explicando as principais tese", sub: "pdf · materiais de tese (a definir)", href: "#" },
 ];
 
