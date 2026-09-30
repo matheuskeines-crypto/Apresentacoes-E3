@@ -156,7 +156,7 @@ function slideInner(s) {
         <div class="funnel">${s.steps.map((st, k) => `<div class="funnel-bar fb-${k + 1}" style="width:${st.w}%"><span class="fb-t">${esc(st.title)}</span><span class="fb-v">${esc(st.value)}</span></div>`).join("")}</div>
         <div class="funnel-rows">${s.rows.map((r) => `<div class="fr-row ${r.owner === "e3" ? "fr-dark" : "fr-orange"}">
             <span class="fr-n">${r.n}</span>
-            <div class="fr-body"><p class="fr-t">${esc(r.title)}</p><p class="fr-d">${esc(r.desc)}</p></div>
+            <div class="fr-body"><p class="fr-t">${esc(r.title)}</p><p class="fr-d">${esc(r.desc)}</p>${r.resp ? `<p class="fr-resp">Responsável: <b>${esc(r.resp)}</b></p>` : ""}</div>
             <span class="fr-badge">${r.owner === "e3" ? "MEDIMOS AQUI" : "VOCÊ INFORMA"}</span>
           </div>`).join("")}</div>` };
 
@@ -420,23 +420,25 @@ b,strong,.hl{color:var(--o)}
 .tbl td{padding:13px 18px;border-top:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.72);vertical-align:top}
 .tbl tr:nth-child(even) td{background:rgba(255,255,255,.015)}
 /* funnel (marketing) */
-.funnel{display:flex;flex-direction:column;align-items:center;gap:6px;margin:6px 0 22px}
-.funnel-bar{display:flex;align-items:center;justify-content:center;gap:10px;height:58px;clip-path:polygon(6% 0,94% 0,88% 100%,12% 100%);color:#fff}
-.fb-t{font-family:var(--d);font-weight:800;font-size:1rem;letter-spacing:.01em}
-.fb-v{font-size:.82rem;font-weight:700;opacity:.85}
+.funnel{display:flex;flex-direction:column;align-items:center;gap:7px;margin:8px 0 24px}
+.funnel-bar{display:flex;align-items:center;justify-content:center;gap:12px;height:66px;clip-path:polygon(6% 0,94% 0,88% 100%,12% 100%);color:#fff}
+.fb-t{font-family:var(--d);font-weight:800;font-size:1.22rem;letter-spacing:.01em}
+.fb-v{font-size:1.02rem;font-weight:700;opacity:.9}
 .fb-1{background:linear-gradient(90deg,#3a3f47,#4a5059)}
 .fb-2{background:linear-gradient(90deg,#a4431f,#c8511f)}
 .fb-3{background:linear-gradient(90deg,#dd5620,var(--o))}
 .fb-4{background:linear-gradient(90deg,var(--o),var(--o2))}
-.funnel-rows{display:flex;flex-direction:column;gap:10px}
-.fr-row{display:flex;align-items:center;gap:18px;padding:16px 20px;border-radius:14px}
+.funnel-rows{display:flex;flex-direction:column;gap:11px}
+.fr-row{display:flex;align-items:center;gap:20px;padding:18px 22px;border-radius:14px}
 .fr-dark{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
 .fr-orange{background:linear-gradient(90deg,rgba(255,95,31,.16),rgba(255,51,0,.12));border:1px solid rgba(255,95,31,.3)}
-.fr-n{font-family:var(--d);font-weight:800;font-size:1.3rem;color:rgba(255,255,255,.5);min-width:22px}
+.fr-n{font-family:var(--d);font-weight:800;font-size:1.5rem;color:rgba(255,255,255,.5);min-width:26px}
 .fr-body{flex:1}
-.fr-t{font-family:var(--d);font-weight:700;font-size:.98rem;margin-bottom:3px}
-.fr-d{font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.4}
-.fr-badge{flex:0 0 auto;font-size:.68rem;font-weight:800;letter-spacing:.06em;padding:7px 14px;border-radius:999px;white-space:nowrap}
+.fr-t{font-family:var(--d);font-weight:700;font-size:1.14rem;margin-bottom:4px}
+.fr-d{font-size:.95rem;color:rgba(255,255,255,.58);line-height:1.42}
+.fr-resp{margin-top:6px;font-size:.82rem;color:rgba(255,255,255,.75)}
+.fr-resp b{color:var(--o);font-weight:700}
+.fr-badge{flex:0 0 auto;font-size:.76rem;font-weight:800;letter-spacing:.05em;padding:8px 16px;border-radius:999px;white-space:nowrap}
 .fr-dark .fr-badge{background:rgba(255,255,255,.12);color:rgba(255,255,255,.75)}
 .fr-orange .fr-badge{background:#fff;color:#c8511f}
 /* rules (diretrizes) */

@@ -110,13 +110,13 @@ export const onboarding = {
         { title: "Leads", value: "100%", w: 100 },
         { title: "MQL", value: "20–30%", w: 76 },
         { title: "SQL", value: "5–10%", w: 54 },
-        { title: "Fechamentos", value: "1–3%", w: 32 },
+        { title: "Fechamentos", value: "Acima de 5%", w: 32 },
       ],
       rows: [
-        { n: 1, title: "Leads recebidos", desc: "Quantas pessoas entraram em contato pelo anúncio.", owner: "e3" },
-        { n: 2, title: "MQL — Leads qualificados", desc: "Lead com perfil real de caso, que demonstrou interesse genuíno.", owner: "cliente" },
-        { n: 3, title: "SQL — Atendimentos realizados", desc: "Lead que efetivamente compareceu à reunião ou consulta.", owner: "cliente" },
-        { n: 4, title: "Fechamentos — Contratos assinados", desc: "O resultado que de fato importa para o seu faturamento.", owner: "cliente" },
+        { n: 1, title: "Leads recebidos", desc: "Quantas pessoas entraram em contato pelo anúncio.", owner: "e3", resp: "Marketing" },
+        { n: 2, title: "MQL — Leads qualificados", desc: "Lead com perfil real de caso, que demonstrou interesse genuíno.", owner: "cliente", resp: "Marketing + Comercial" },
+        { n: 3, title: "SQL — Atendimentos realizados", desc: "Lead que efetivamente compareceu à reunião ou consulta.", owner: "cliente", resp: "Comercial do cliente" },
+        { n: 4, title: "Fechamentos — Contratos assinados", desc: "O resultado que de fato importa para o seu faturamento.", owner: "cliente", resp: "Comercial do cliente" },
       ] },
 
     { type: "cac", kicker: "Custo aproximado de aquisição de clientes", title: "Calculadora de CAC",
