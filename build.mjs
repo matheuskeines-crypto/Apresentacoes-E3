@@ -730,7 +730,7 @@ for (const deck of decks) {
 }
 
 /* ─── playbooks (HTML responsivo, com "Baixar PDF" via impressão) ─── */
-for (const gen of ["gen-playbook.mjs", "gen-playbook-entrega.mjs", "gen-manual-evolucao.mjs", "gen-playbook-evolucao.mjs", "gen-manual-estruturacao.mjs", "gen-playbook-estruturacao.mjs"]) {
+for (const gen of ["gen-playbook.mjs", "gen-playbook-entrega.mjs", "gen-manual-evolucao.mjs", "gen-playbook-evolucao.mjs", "gen-manual-estruturacao.mjs", "gen-playbook-estruturacao.mjs", "gen-teses.mjs"]) {
   execFileSync(process.execPath, [join(__dirname, "scripts", gen)], { stdio: "inherit" });
 }
 
@@ -781,7 +781,7 @@ const PRODUCTS = [
 const KNOWLEDGE = [
   { label: "Curso comercial Interno", sub: "deck · slides do treinamento", href: "./treinamento-comercial/index.html" },
   { label: "Apresentação da Empresa", sub: "playlist · YouTube", href: "https://youtube.com/playlist?list=PLDqQzbm7q4NQ&si=Mf2_kLJ63HbhvBpB" },
-  { label: "Materiais PDF", sub: "pdf · materiais de tese (a definir)", href: "#" },
+  { label: "Materiais PDF", sub: "hub · teses & materiais de apoio", href: "./materiais-pdf/index.html" },
 ];
 
 const extLink = (e) => {
