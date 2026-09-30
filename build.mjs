@@ -565,7 +565,7 @@ for (const deck of decks) {
 }
 
 /* ─── playbooks (HTML responsivo, com "Baixar PDF" via impressão) ─── */
-for (const gen of ["gen-playbook.mjs", "gen-playbook-entrega.mjs", "gen-manual-evolucao.mjs", "gen-playbook-evolucao.mjs", "gen-manual-estruturacao.mjs"]) {
+for (const gen of ["gen-playbook.mjs", "gen-playbook-entrega.mjs", "gen-manual-evolucao.mjs", "gen-playbook-evolucao.mjs", "gen-manual-estruturacao.mjs", "gen-playbook-estruturacao.mjs"]) {
   execFileSync(process.execPath, [join(__dirname, "scripts", gen)], { stdio: "inherit" });
 }
 
@@ -605,7 +605,7 @@ const PRODUCTS = [
     links: [
       { label: "Onboarding", sub: "deck · kickoff", href: "./onboarding-estruturacao-pro/index.html" },
       { label: "Manual de Entrega", sub: "documento · entregas & alinhamento", href: "./manual-entrega-estruturacao-pro/index.html" },
-      { label: "Playbook de Funções", sub: "pdf / material · a definir", href: "#" },
+      { label: "Playbook de Funções", sub: "documento · escopo, rotinas &amp; kpis", href: "./playbook-estruturacao-pro/index.html" },
       CONSULTORIA_COMERCIAL,
       { label: "Forms 360°", sub: "formulário diagnóstico · a definir", href: "https://forms.gle/2SPjwk6HiPpgXgsq9" },
       { label: "Auditoria Criativa", sub: "deck · 39 slides", href: "./auditoria-criativa/index.html" },
