@@ -104,6 +104,15 @@ export const onboarding = {
       ],
       note: "Nosso objetivo: conectar o marketing ao comercial, garantindo que o investimento em tráfego se converta em resultados reais e sustentáveis." },
 
+    { type: "rules", kicker: "Diretrizes essenciais para maximizar suas conversões", title: "Regras do Comercial",
+      items: [
+        { icon: "clock", title: "Atendimento Rápido", badge: "5 minutos", desc: "Tempo máximo para atender cada lead que entra.", note: "A velocidade de resposta impacta diretamente na conversão." },
+        { icon: "refresh", title: "Follow-up Consistente", badge: "5 pontos de contato", desc: "Mínimo de tentativas de contato por lead.", note: "Persistência é fundamental para não perder oportunidades." },
+        { icon: "target", title: "Meta de Conversão", badge: "5% a 10%", desc: "Taxa de conversão esperada de leads para clientes.", note: "Benchmark de mercado para serviços jurídicos." },
+      ],
+      callout: { icon: "alert", title: "Por que essas regras são importantes?",
+        desc: "Estudos mostram que 78% dos clientes fecham com a primeira empresa que responde. Além disso, múltiplos pontos de contato aumentam em até 400% as chances de conversão." } },
+
     { type: "cac", kicker: "Custo aproximado de aquisição de clientes", title: "Calculadora de CAC",
       lead: "Qual será o seu investimento mensal?" },
 

@@ -46,6 +46,8 @@ function icon(name) {
     award: '<circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>',
     shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
     dollar: '<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>',
+    refresh: '<path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>',
+    alert: '<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>',
   };
   return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${P[name] || P.check}</svg>`;
 }
@@ -147,6 +149,18 @@ function slideInner(s) {
         ${s.lead ? `<p class="lead">${esc(s.lead)}</p>` : ""}
         <table class="tbl"><thead><tr>${s.head.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead>
         <tbody>${s.rows.map((r) => `<tr>${r.map((c) => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table>${s.note ? `<p class="lead note">${esc(s.note)}</p>` : ""}` };
+
+    case "rules": // diretrizes com badge de meta + callout de justificativa
+      return { cls: "", html: `${kicker}<h2 class="h2">${s.title}</h2>
+        ${s.lead ? `<p class="lead">${esc(s.lead)}</p>` : ""}
+        <div class="cards cols-1 rules-cards">${s.items.map((it) => `<div class="card rule-card">
+            <span class="card-ic">${icon(it.icon)}</span>
+            <div><p class="card-t">${esc(it.title)} ${it.badge ? `<span class="rule-badge">${esc(it.badge)}</span>` : ""}</p>
+            <p class="card-d">${esc(it.desc)}</p>
+            ${it.note ? `<p class="rule-note">${esc(it.note)}</p>` : ""}</div>
+          </div>`).join("")}</div>
+        ${s.callout ? `<div class="rule-callout"><span class="card-ic">${icon(s.callout.icon || "alert")}</span>
+          <div><p class="rule-callout-t">${esc(s.callout.title)}</p><p class="rule-callout-d">${esc(s.callout.desc)}</p></div></div>` : ""}` };
 
     case "cac": // calculadora interativa de CAC (investimento, CPL, taxa de fechamento)
       return { cls: "", html: `${kicker}<h2 class="h2">${s.title}</h2>
@@ -395,6 +409,13 @@ b,strong,.hl{color:var(--o)}
 .tbl th{background:rgba(255,95,31,.1);color:var(--o);text-align:left;padding:14px 18px;font-family:var(--d);font-weight:700;font-size:.85rem;letter-spacing:.02em}
 .tbl td{padding:13px 18px;border-top:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.72);vertical-align:top}
 .tbl tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+/* rules (diretrizes) */
+.rules-cards .card{align-items:flex-start;padding:22px 24px}
+.rule-badge{display:inline-block;margin-left:8px;font-size:.72rem;font-weight:700;letter-spacing:.03em;color:var(--o);border:1px solid rgba(255,95,31,.5);background:rgba(255,95,31,.08);padding:3px 12px;border-radius:999px;vertical-align:middle}
+.rule-note{margin-top:5px;font-size:.78rem;color:rgba(255,255,255,.4);line-height:1.4}
+.rule-callout{display:flex;gap:16px;align-items:flex-start;margin-top:2px;padding:18px 22px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.02)}
+.rule-callout-t{font-family:var(--d);font-weight:700;font-size:.98rem;margin-bottom:5px}
+.rule-callout-d{font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.55}
 /* cac calculator */
 .cac-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:4px}
 .cac-panel{border:1px solid rgba(255,255,255,.08);border-radius:18px;background:rgba(255,255,255,.02);padding:22px}
