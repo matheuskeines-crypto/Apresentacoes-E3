@@ -180,14 +180,16 @@ export const onboarding = {
         { icon: "clock", title: "Horário de atendimento", desc: "09h às 18h, de segunda a sexta." },
       ] },
 
-    { type: "list", kicker: "Análises do projeto", title: "Quanto Tempo de Resultado?",
-      lead: "Onde nosso principal fator no projeto serão as seguintes análises:",
-      items: [
-        { icon: "search", text: "Como seu negócio é visto hoje? Qual posicionamento adotado?" },
-        { icon: "settings", text: "Como funciona o processo comercial atualmente? Ferramentas, pessoas e processo?" },
-        { icon: "chart", text: "Qual sua taxa de fechamento atualmente?" },
-        { icon: "clock", text: "Quanto tempo o seu cliente demora para fechar com você?" },
-      ] },
+    { type: "estimate", title: "Orçamento & Tempo de Resultado",
+      rows: [
+        { icon: "dollar", title: "Sustentação do Projeto", desc: "Você tem caixa para sustentar 3 meses de projeto (assessoria + anúncios)?" },
+        { icon: "alert", title: "Expectativa de Resultado (Transparência Total)", tone: "alert", desc: "Você está ciente de que os resultados dependem não só da estratégia aplicada, mas também da execução e do comprometimento do seu escritório na conversão dos leads?" },
+      ],
+      stats: [
+        { icon: "clock", label: "Primeiros Resultados", value: "30 a 45 dias" },
+        { icon: "target", label: "Melhores Resultados", value: "A partir do 3° mês" },
+      ],
+      note: { icon: "calendar", text: "No físico, um negócio leva muitos meses para amadurecer. No digital esse tempo é muito mais rápido, mas ainda exige constância e tempo de dados." } },
 
     { type: "bullets", kicker: "Rotina de acompanhamento", title: "Comunicação de Resultados", cols: 2,
       items: [

@@ -150,6 +150,19 @@ function slideInner(s) {
         <table class="tbl"><thead><tr>${s.head.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead>
         <tbody>${s.rows.map((r) => `<tr>${r.map((c) => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table>${s.note ? `<p class="lead note">${esc(s.note)}</p>` : ""}` };
 
+    case "estimate": // orçamento/tempo de resultado: linhas de alerta + stats + nota
+      return { cls: "", html: `${kicker}<h2 class="h2">${s.title}</h2>
+        <div class="est-rows">${s.rows.map((r) => `<div class="est-row">
+            <span class="card-ic">${icon(r.icon)}</span>
+            <div><p class="est-row-t${r.tone === "alert" ? " est-alert" : ""}">${esc(r.title)}</p><p class="est-row-d">${esc(r.desc)}</p></div>
+          </div>`).join("")}</div>
+        <div class="est-stats">${s.stats.map((st) => `<div class="est-stat">
+            <span class="card-ic">${icon(st.icon)}</span>
+            <p class="est-stat-l">${esc(st.label)}</p>
+            <p class="est-stat-v">${esc(st.value)}</p>
+          </div>`).join("")}</div>
+        ${s.note ? `<div class="est-note"><span class="card-ic">${icon(s.note.icon || "calendar")}</span><p>${esc(s.note.text)}</p></div>` : ""}` };
+
     case "funnel": // funil de marketing (leads → mql → sql → fechamentos), decrescente
       return { cls: "si-funnel", html: `<div class="funnel-head"><div>${kicker}<h2 class="h2">${s.title}</h2></div>
         ${s.lead ? `<p class="lead">${esc(s.lead)}</p>` : ""}</div>
@@ -449,6 +462,18 @@ b,strong,.hl{color:var(--o)}
 .fr-orange .fr-badge{background:#fff;color:#c8511f}
 .fr-resp{font-size:.76rem;font-weight:700;letter-spacing:.04em;color:var(--o);border:1px solid rgba(255,95,31,.45);padding:5px 13px;border-radius:999px;white-space:nowrap}
 .fr-dark .fr-resp{color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.2)}
+/* estimate (orçamento & tempo de resultado) */
+.est-rows{display:flex;flex-direction:column;gap:12px;margin-top:4px}
+.est-row{display:flex;gap:16px;align-items:flex-start;padding:20px 22px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.02)}
+.est-row-t{font-family:var(--d);font-weight:700;font-size:1.05rem;margin-bottom:5px}
+.est-row-t.est-alert{color:var(--o)}
+.est-row-d{font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.45}
+.est-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.est-stat{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;padding:26px 20px;border:1px solid rgba(255,95,31,.35);border-radius:16px;background:rgba(255,95,31,.06)}
+.est-stat-l{font-family:var(--d);font-weight:700;font-size:1rem}
+.est-stat-v{font-family:var(--d);font-weight:800;font-size:1.7rem;color:var(--o)}
+.est-note{display:flex;gap:14px;align-items:center;margin-top:16px;padding:16px 20px;border:1px solid rgba(255,255,255,.08);border-radius:14px;background:rgba(255,255,255,.02)}
+.est-note p{font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.45}
 /* rules (diretrizes) */
 .rules-cards .card{align-items:flex-start;padding:22px 24px}
 .rule-badge{display:inline-block;margin-left:8px;font-size:.72rem;font-weight:700;letter-spacing:.03em;color:var(--o);border:1px solid rgba(255,95,31,.5);background:rgba(255,95,31,.08);padding:3px 12px;border-radius:999px;vertical-align:middle}
