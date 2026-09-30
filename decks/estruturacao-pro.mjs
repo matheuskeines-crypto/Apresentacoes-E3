@@ -52,6 +52,16 @@ export const proposta = {
   ],
 };
 
+const jornadaOnboarding = [
+  { label: "Semana 0", icon: "handshake", title: "Onboarding", desc: "Formulários de diagnóstico 360°, CRM + IA e Landing Page, e coleta de acessos às ferramentas de tráfego." },
+  { label: "Semana 1", icon: "target", title: "Direcionamento", desc: "Diagnóstico 360° concluído e apresentado em reunião de direcionamento estratégico." },
+  { label: "Semana 2", icon: "instagram", title: "Orgânico", desc: "Auditoria criativa das redes sociais e do posicionamento orgânico do escritório." },
+  { label: "Semana 3", icon: "trending", title: "Comercial", desc: "Treinamento comercial, definição do ICP, scripts de atendimento e cadência de follow-up." },
+  { label: "Semana 4", icon: "layers", title: "Entregáveis", desc: "Landing Page, CRM + IA e Google Meu Negócio publicados e em funcionamento." },
+  { label: "Semana 5", icon: "megaphone", title: "Auditoria de Mídia Paga", desc: "Estratégia de captação definida, com roteiros de vídeo e direção de arte dos criativos." },
+  { label: "Semana 6", icon: "zap", title: "Assessoria", desc: "Entrega dos criativos e início das campanhas de captação de mídia paga." },
+];
+
 export const onboarding = {
   slug: "onboarding-estruturacao-pro",
   title: "Onboarding · Estruturação PRO",
@@ -68,7 +78,7 @@ export const onboarding = {
         "Governança e reuniões estratégicas",
         "Próximos passos e acessos",
       ] },
-    { type: "timeline", kicker: "Cronograma", title: "A jornada em 6 semanas", steps: jornada.steps },
+    { type: "timeline", kicker: "Cronograma", title: "A jornada em 6 semanas", steps: jornadaOnboarding },
     { type: "table", kicker: "Governança", title: "Nossas reuniões estratégicas",
       head: ["Momento", "Foco", "Time"],
       rows: [
