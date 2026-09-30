@@ -5,7 +5,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   shell, LOGO_B64_PATH, makePageFactory, secHead, tbl, statRow,
-  makeCallout, tag, rules, notabar,
+  tag, rules, notabar,
 } from "./playbook-kit.mjs";
 
 const LOGO = readFileSync(LOGO_B64_PATH, "utf8").trim();
@@ -16,7 +16,6 @@ const ic = {
   alert: '<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>',
 };
 const svg = (n) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ic[n]}</svg>`;
-const callout = makeCallout(svg);
 const hot = () => tag("MAIOR PROCURA", "tag-pro");
 const cplChip = (c) => (c ? `<span class="cpl">CPL ${c}</span>` : "");
 
@@ -244,58 +243,6 @@ function buildArea(area) {
 
 AREAS.forEach(buildArea);
 
-/* ─────────────────────────────── régua de CPL ─────────────────────────────── */
-function buildRegua() {
-  const NAV = [null, "Régua por área", "Como usar"];
-  const { page } = makePageFactory("RÉGUA DE CPL · PAINEL E3", NAV);
-  const P = [];
-  const totalTeses = AREAS.reduce((a, x) => a + x.benchTeses, 0);
-
-  P.push(page(`
-    <img class="logo" src="${LOGO_URI}" alt="E3"/>
-    <p class="kicker cov-k">REFERÊNCIA DE MÍDIA · PAINEL E3</p>
-    <h1>Régua de <span>CPL</span></h1>
-    <p class="cov-sub">Faixa de custo por lead esperada por área e por tese — a referência usada para planejar verba, precificar campanha e avaliar se o resultado está dentro do esperado.</p>
-    <div class="pills"><span class="pill">${totalTeses} TESES</span><span class="pill">11 ÁREAS</span><span class="pill">BASE: CPL_BENCHMARKS</span></div>
-    <div class="cov-rule"></div>
-    <p class="cov-foot">E3 Digital · o hub de marketing e vendas para advogados</p>
-  `, { cover: true }));
-
-  const ordenado = [...AREAS].sort((a, b) => {
-    const mn = (x) => parseInt(x.faixa.match(/\d+/)[0], 10);
-    return mn(a) - mn(b);
-  });
-
-  P.push(page(`
-    ${secHead("01", "Faixa de CPL por área", "Da tese mais barata de captar à mais cara. Quanto mais específica a dor e mais imediata a decisão, menor o CPL.")}
-    ${tbl(["Área", "Teses na régua", "Faixa de CPL"], ordenado.map((a) => [a.nome, String(a.benchTeses), `<b>${a.faixa}</b>`]))}
-  `));
-
-  P.push(page(`
-    ${secHead("02", "Como usar essa régua", "O CPL sozinho não diz se a campanha vai bem — ele precisa ser lido junto do ticket e da taxa de fechamento da tese.")}
-    ${statRow([
-      { v: "R$ 40–120", l: "CPL médio de advocacia no Brasil (campanha genérica)" },
-      { v: "R$ 15–45", l: "CPL com segmentação forte por área" },
-      { v: "R$ 4–90", l: "Faixa praticada na carteira E3" },
-    ])}
-    ${callout("activity", "POR QUE O NOSSO CPL É MENOR", "", "As campanhas da E3 são segmentadas por <b>tese</b>, não por “advogado”. Falar com quem já tem a dor específica derruba o custo por lead para bem abaixo da média de mercado.")}
-    ${callout("alert", "LEITURA CORRETA", "", "CPL baixo com fechamento ruim é prejuízo. Teses de ticket alto (empresarial, tributário consultivo, gestão de passivo) sustentam CPL maior; teses de massa (previdenciário, trabalhista) só fecham a conta com volume e agilidade no atendimento.")}
-  `));
-
-  const html = shell({
-    title: "Régua de CPL por Área e Tese · E3 Digital",
-    navTitle: "Régua de CPL · Painel E3",
-    logoUri: LOGO_URI,
-    pages: P,
-  });
-  const outPath = join(distRoot, "regua-cpl", "index.html");
-  mkdirSync(dirname(outPath), { recursive: true });
-  writeFileSync(outPath, html, "utf8");
-  console.log("régua de cpl:", outPath, "·", P.length, "páginas");
-}
-
-buildRegua();
-
 /* ─────────────────────────────── hub: Materiais PDF ─────────────────────────────── */
 const totalTeses = AREAS.reduce((a, x) => a + x.teses.length, 0);
 const cardsTeses = AREAS.map((a) =>
@@ -353,15 +300,7 @@ footer{text-align:center;color:rgba(255,255,255,.3);margin-top:36px;font-size:.8
     </div>
   </div>
 
-  <div class="k-wrap">
-    <div class="k-head">
-      <h2>Referência de mídia</h2>
-      <p class="k-sub">Benchmarks para planejar verba e avaliar o resultado das campanhas.</p>
-    </div>
-    <div class="k-grid two">
-      <a href="../regua-cpl/index.html"><span class="mt">Régua de CPL por área</span><span class="ms">referência · 73 teses em 11 áreas</span></a>
-    </div>
-  </div>
+</div>
 </div>
 </body></html>`;
 
