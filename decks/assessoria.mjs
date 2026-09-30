@@ -212,17 +212,6 @@ export const onboarding = {
         { icon: "dollar", title: "Pagamentos em dia", desc: "Para que as campanhas rodem sem interrupções, os pagamentos das plataformas precisam ser feitos dentro do prazo. A falta de pagamento pode prejudicar o desempenho das campanhas." },
       ] },
 
-    { type: "table", kicker: "Fornecimento de dados logo no início da operação", title: "Dados Comerciais Essenciais",
-      lead: "É fundamental que você forneça os dados comerciais do escritório logo no início do projeto. Essas informações são essenciais para garantir alinhamento estratégico e assertividade nas campanhas.",
-      head: ["Dados necessários", "Por que são importantes?"],
-      rows: [
-        ["Histórico de conversões", "Definir estratégias assertivas"],
-        ["Ticket médio de clientes", "Otimizar investimento em mídia"],
-        ["Principais serviços oferecidos", "Personalizar campanhas"],
-        ["Público-alvo atual", "Acelerar resultados"],
-      ],
-      note: "Quanto mais informações tivermos, mais rápido conseguiremos gerar resultados para o seu escritório." },
-
     { type: "reward", kicker: "Indique e seja recompensado", title: "Programa de Indicação E3 Digital",
       lead: "A confiança no nosso trabalho é o pilar do nosso escritório, e muitas das nossas melhores parcerias começam por uma recomendação. Por isso, premiamos nossos clientes por cada indicação fechada.",
       amount: "R$ 300,00", caption: "Você nos indica e, ao fechar o contrato, a recompensa é sua.",
