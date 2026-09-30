@@ -301,7 +301,6 @@ footer{text-align:center;color:rgba(255,255,255,.3);margin-top:36px;font-size:.8
   </div>
 
 </div>
-</div>
 </body></html>`;
 
 const hubOut = join(distRoot, "materiais-pdf", "index.html");

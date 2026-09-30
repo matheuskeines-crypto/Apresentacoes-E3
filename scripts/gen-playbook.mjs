@@ -4,7 +4,7 @@ import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   shell, LOGO_B64_PATH, makePageFactory, secHead, tbl, statRow, feat,
-  makeCallout, makeCardHead, tag, block, rules, split2,
+  makeCallout, makeCardHead, tag, block, rules, split2, notabar,
 } from "./playbook-kit.mjs";
 
 const LOGO = readFileSync(LOGO_B64_PATH, "utf8").trim();
@@ -36,6 +36,7 @@ const NAV = [
   null, "Visão geral", "Pilares", "Squad",
   "Account Manager", "Gestor de Tráfego", "Gestor de Projetos",
   "Consultor Comercial", "SLA",
+  "Cadência do Squad", "Regras de Ouro", "Onboarding", "Alta Performance",
 ];
 const { page, SECTIONS } = makePageFactory("PLAYBOOK · ASSESSORIA LIGHT & PRO", NAV);
 
@@ -261,6 +262,82 @@ P.push(page(`
     <h3 class="commit-t">Previsibilidade de entrega, do lead ao contrato.</h3>
     <p class="commit-d">Cada prazo, função e KPI deste playbook existe para transformar investimento em mídia em fechamento de contratos — com dados, disciplina e relacionamento.</p>
   </div>
+`));
+
+/* — CADÊNCIA COLETIVA DO SQUAD — */
+P.push(page(`
+  ${secHead("04", "Cadência Coletiva do Squad", "A visão consolidada da semana — útil para fixar no grupo ou no quadro do squad.")}
+  ${tbl(["Quando", "O quê", "Quem"], [
+    ["Todo dia, 09h–09h20", "Daily: otimizar a rotina e priorizar clientes em risco/conflito.", "Todos"],
+    ["Segunda e terça de manhã", "Otimização e análise de todas as campanhas da base.", "GT"],
+    ["Quarta-feira", "Perguntas de qualificação + preenchimento do Painel E3.", "GP"],
+    ["Quinta-feira", "Atualização do briefing semanal no ClickUp.", "GP"],
+    ["Sexta-feira", "Atualização das métricas dos clientes no ClickUp.", "GT"],
+    ["Sexta-feira", "Atualização da planilha BSC.", "Todos"],
+  ])}
+  ${split2(
+    block("DIARIAMENTE, POR FUNÇÃO", [
+      "<b>GT</b> — checa o saldo de verba de cada cliente.",
+      "<b>GP</b> — passa em todos os grupos e não sai sem responder. SLA em dia é inegociável.",
+      "<b>AM</b> — mantém os planos de ação sempre atualizados.",
+    ]),
+    block("MENSALMENTE", [
+      "<b>AM/GP</b> — no mínimo 2 calls com cada cliente da carteira.",
+      "<b>GP</b> — 1 reunião de forecasting, com o painel preenchido.",
+    ])
+  )}
+`));
+
+/* — REGRAS DE OURO — */
+P.push(page(`
+  ${secHead("05", "Regras de Ouro — Como Agir", "Valem para o squad inteiro, independente da função — o que transforma este playbook em referência de consulta, não só numa lista de tarefas.")}
+  ${rules([
+    { t: "Campanha nova entrou no ar", d: "O GT avisa o cliente no grupo, com clareza dos próximos passos e o número de onde os leads vão chegar." },
+    { t: "Qualificação de quarta-feira", d: "O GP não só registra a resposta: sonda o motivo da desqualificação e devolve o gap para o GT ajustar." },
+    { t: "Cliente reclama de leads desqualificados", d: "Busque antes os 4 números do funil — leads, MQL, SQL, fechamentos. Sem dado não existe parecer, só achismo." },
+    { t: "Problema não é da nossa equipe (ex.: financeiro)", d: "Resolva mesmo assim, o mais rápido possível. O cliente é da E3 — não existe “isso não é comigo”." },
+  ], "grid2r")}
+  <div class="quote">
+    <p class="qk">MENSAGEM PADRÃO · EXEMPLO (CAMPANHA NO AR)</p>
+    <p>"Olá Dr. [NOME], sua campanha de [TESE(S)] em breve estará no ar e os leads vão começar a chegar no número [XXXX], conforme alinhado."</p>
+  </div>
+`));
+
+/* — CHECKLIST DE ONBOARDING — */
+P.push(page(`
+  ${secHead("06", "Checklist de Onboarding", "Sequência dos primeiros dias de um cliente novo, e a responsabilidade de cada função.")}
+  ${split2(
+    tbl(["Etapa", "Prazo", "Resp."], [
+      ["Reunião de onboarding", "1 dia", "AM/GP"],
+      ["Treinamento online", "Imediato", "AM/GP"],
+      ["CRM grátis (Light, sem IA)", "Imediato", "AM/GP"],
+      ["Copy dos criativos estáticos", "Até 24h", "GT"],
+      ["Roteiro e orientação (vídeo)", "Até 24h", "GT"],
+      ["Exemplos de vídeos, se houver", "Até 24h", "GT"],
+    ]),
+    tbl(["Etapa", "Prazo", "Resp."], [
+      ["Roteiro de atendimento (lead)", "Até 24h", "GP"],
+      ["Fixar PGM na descrição do grupo", "Até 48h", "GP"],
+      ["Criativos estáticos prontos", "3 dias úteis", "GP"],
+      ["Conexão da plataforma / acessos", "Até 1 dia", "GT"],
+      ["Criativo fixado + início campanhas", "Até 1 dia", "GT"],
+      ["Atualização do ClickUp", "A cada 3 dias", "GP"],
+    ])
+  )}
+`));
+
+/* — SQUAD EM ALTA PERFORMANCE — */
+P.push(page(`
+  ${secHead("07", "Squad em Alta Performance", "Práticas que separam um squad organizado de um squad que só apaga incêndio.")}
+  <div class="grid3">
+    ${block("PROTEÇÃO DO TEMPO DO GT", ["Direcione dúvida de anúncio ao GP primeiro.", "GT só entra quando for tecnicamente necessário."])}
+    ${block("PADRONIZE ANTES DE ESCALAR", ["Comece do que já converteu em teses parecidas.", "Nomenclatura única de campanha e criativo."])}
+    ${block("CRM NÃO É SÓ PLANILHA BONITA", ["Cruze Leads × MQL × SQL × Fechamento toda semana.", "Revela se o gargalo é campanha ou comercial."])}
+    ${block("DAILY COMO FILTRO", ["3 perguntas: ontem, hoje, bloqueio.", "Passou de 20 min? Vira conversa à parte."])}
+    ${block("EM CRISE, O SQUAD ATACA JUNTO", ["Bloqueio crítico é atacado em conjunto.", "Cliente em crise não espera na fila normal."])}
+    ${block("BACKLOG PRIORIZADO", ["Impacto × urgência × esforço — não chegada.", "Demanda pequena não fura fila de algo crítico."])}
+  </div>
+  ${notabar("RETROSPECTIVA QUINZENAL", "2x ao mês, o squad discute o que funcionou, o que travou e uma mudança para testar até a próxima — melhoria contínua do time, não cobrança de cima para baixo.")}
 `));
 
 const html = shell({
