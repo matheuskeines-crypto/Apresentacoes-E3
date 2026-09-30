@@ -116,7 +116,8 @@ P.push(page(`
 P.push(page(`
   ${secHead("02", "Rotina e funções da squad", "As entregas são distribuídas de forma sequencial ao longo das primeiras 4 semanas de projeto.")}
   ${tbl(["Função", "Entregáveis operacionais da equipe"], [
-    ["CS · Gestora de Projeto", "Criação do grupo oficial de suporte. Início do setup do CRM Padrão."],
+    ["CS", "Criação do grupo oficial de suporte e orientação inicial para o cliente extrair valor rapidamente da solução. Início do setup do CRM Padrão. Monitoramento contínuo do Health Score para identificar risco de evasão."],
+    ["Gestora de Automação", "Integração de sistemas (ex.: chatbot de WhatsApp + CRM/IA). Monitoramento em tempo real para ajustar fluxos, melhorar a experiência do usuário e evitar falhas."],
     ["Coordenador", "Receber os acessos e organizar para a respectiva pessoa responsável."],
     ["Account Manager", "Onboarding e Kick-Off. Alinhamento de estratégia, ICP e posicionamento. Coleta de acessos às contas de anúncios."],
     ["Gestor de Projeto", "Forecasting, onboarding, roteiro de atendimento, comunicação no grupo e entrega das peças de design."],
@@ -130,14 +131,14 @@ P.push(page(`
 P.push(page(`
   <div class="card">
     ${cardHead("users", "", "Account Manager", tagBoth())}
-    <div class="quote inline"><p><b>Foco:</b> liderança, estratégia, retenção e monetização. Líder da squad: conduz o relacionamento, traduz necessidades em entregas reais, define prioridades e monitora a performance.</p></div>
+    <div class="quote inline"><p><b>Foco:</b> liderança, estratégia, retenção e monetização. Líder da squad: conduz o relacionamento direto com o cliente, traduz necessidades em entregas reais, define objetivos e prioridades e monitora a performance para identificar oportunidades de crescimento.</p></div>
     <div class="grid3">
-      ${block("GESTÃO ESTRATÉGICA", ["Traduzir necessidades em <b>entregas reais</b>.", "ICP, posicionamento e consultorias quinzenais."])}
-      ${block("LIDERANÇA DA SQUAD", ["Distribuir e acompanhar as demandas.", "ClickUp/Painel E3 para garantir prazo."])}
+      ${block("GESTÃO ESTRATÉGICA", ["Conduzir o relacionamento com o cliente.", "Definir prioridades e oportunidades de upsell."])}
+      ${block("LIDERANÇA DA SQUAD", ["Distribuir e acompanhar as demandas.", "Supervisionar GT e GP, garantindo prazo."])}
       ${block("REUNIÕES &amp; APRESENTAÇÃO", ["Estratégia, performance e resultados.", "Comunicação <b>clara e transparente</b>."])}
-      ${block("ONBOARDING", ["Validar tese e metas em D+0.", "Estratégia validada antes da campanha."])}
-      ${block("PROTOCOLO DE CRISE", ["Diagnosticar falhas e analisar o CRM.", "Validar plano com a coordenação."])}
-      ${block("TREINAMENTO COMERCIAL " + tagLight(), ["Capacitar a equipe comercial em conversão.", "Boas práticas e acompanhamento."])}
+      ${block("ONBOARDING DE CLIENTES", ["Validar acessos (Meta, Google, CRM).", "Atraso em D+0 é falha de gestão."])}
+      ${block("PROTOCOLO DE CRISE", ["Diagnosticar falhas e analisar o CRM.", "Validar plano com o Coordenador."])}
+      ${block("LIDERANÇA DE EQUIPE", ["Garantir entregas no prazo no ClickUp.", "Atualizar a BSC toda sexta-feira."])}
     </div>
   </div>
   ${split2(`
@@ -150,9 +151,9 @@ P.push(page(`
   `, `
     <h3 class="h3">Principais KPIs</h3>
     ${tbl(["Indicador", "Meta"], [
-      ["Churn mensal", "Abaixo de <b>11%</b>."],
-      ["NPS / LTV", "Alto e estável."],
-      ["Upsell / cross-sell", "<b>R$ 10.000</b> mensais na base."],
+      ["Churn mensal", "Abaixo de <b>10%</b>."],
+      ["LTV / NPS", "Clientes estáveis, satisfeitos e engajados."],
+      ["Upsell", "Monetização da base com upsell e cross-sell."],
       ["Resolução de crise", "Dentro do prazo do plano de ação."],
     ])}
   `)}
@@ -162,12 +163,12 @@ P.push(page(`
 P.push(page(`
   <div class="card">
     ${cardHead("chart", "", "Gestor de Tráfego", tagBoth())}
-    <div class="quote inline"><p><b>Foco:</b> performance de mídia paga, análise de dados e otimização diária. Converte o planejamento em campanhas eficientes para gerar leads qualificados.</p></div>
+    <div class="quote inline"><p><b>Missão:</b> planejar, executar, otimizar e analisar campanhas de mídia paga, convertendo o planejamento estratégico em campanhas eficientes para gerar leads qualificados e atingir metas.</p></div>
     <div class="grid2">
-      ${block("ESTRATÉGIA E CRIAÇÃO", ["Copies, roteiros de anúncio e abordagens.", "Briefings detalhados para a criação."])}
-      ${block("EXECUÇÃO TÉCNICA", ["Configuração e estruturação de campanhas.", "Padronização de nomenclaturas e verba."])}
-      ${block("OTIMIZAÇÃO DIÁRIA", ["Pausar o ineficiente, escalar o forte.", "Testes contínuos de público e criativo."])}
-      ${block("ANÁLISE INTEGRADA", ["Com AM e GP, dados do CRM.", "Central de Leads e ClickUp atualizados."])}
+      ${block("ATRIBUIÇÃO CRIATIVA", ["Definir ângulos, redigir copies e estruturar briefings.", "Direcionar testes com a equipe de criação."])}
+      ${block("EXECUÇÃO DE CAMPANHAS", ["Planejar, criar e estruturar contas e anúncios.", "Padronização de nomenclaturas e controle de verba."])}
+      ${block("OTIMIZAÇÃO DIÁRIA · REGRA DE OURO", ["Pausar o ineficiente, escalar o de alta performance.", "Testes contínuos de criativos, públicos e copies."])}
+      ${block("ANÁLISE DE PERFORMANCE", ["Comparar criativos, copies, públicos e vídeos.", "Com AM/GP, analisar o CRM para achar o gargalo."])}
     </div>
   </div>
   ${split2(`
@@ -181,10 +182,11 @@ P.push(page(`
   `, `
     <h3 class="h3">Principais KPIs</h3>
     ${tbl(["Indicador", "Meta"], [
-      ["CPL / CPC / CTR / CPM", "Dentro da meta de cada cliente."],
-      ["ROI", "Dentro da meta de cada cliente."],
+      ["CPL / CPC", "Monitorados diariamente."],
+      ["CTR / CPM", "Clique e custo por mil impressões."],
+      ["ROI", "Conversão, qualidade dos leads e retorno."],
       ["Estabilidade da base", "Acima de <b>60%</b> estáveis."],
-      ["Apoio à retenção", "Churn <b>abaixo de 11%</b>."],
+      ["Apoio à retenção", "Churn <b>abaixo de 10%</b> junto à squad."],
     ])}
   `)}
 `));
@@ -193,12 +195,12 @@ P.push(page(`
 P.push(page(`
   <div class="card">
     ${cardHead("clipboard", "", "Gestor de Projetos", tagBoth())}
-    <div class="quote inline"><p><b>Foco:</b> organização, comunicação, prazo e experiência do cliente. Transforma a estratégia do Account em entregas reais.</p></div>
+    <div class="quote inline"><p><b>Missão:</b> organização, previsibilidade e cumprimento de prazos — transformando a estratégia do Account em entregas reais.</p></div>
     <div class="grid2">
-      ${block("COMUNICAÇÃO E PREVENÇÃO", ["Triagem: anúncios ao GT, comercial ao AM.", "Detecção antecipada, aciona o AM."])}
-      ${block("ONBOARDING", ["Validação de tese e metas.", "Card validado antes do início."])}
-      ${block("EXECUÇÃO E ENTREGAS", ["Cliente Oculto e relatórios semanais.", "Análise do CRM em busca de gaps."])}
-      ${block("CONTROLE DE PRAZOS", ["ClickUp rigoroso, sem atrasos.", "Cobrança de <b>todas</b> as entregas."])}
+      ${block("GESTÃO DE DEMANDAS", ["Triagem: anúncios ao GT, comercial ao AM.", "Roteiros de vídeo e ajustes de criativos."])}
+      ${block("PREVENÇÃO DE CRISE", ["Detectar descontentamento nos grupos.", "Acionar o Account Manager de imediato."])}
+      ${block("ONBOARDING &amp; FORECASTING", ["Onboarding operacional e coleta de materiais.", "Reunião mensal de forecasting e projeções."])}
+      ${block("CONTROLE DE PRAZOS", ["ClickUp 100% atualizado, sem atrasos.", "Monetização: oportunidades no mês."])}
     </div>
   </div>
   ${split2(`
@@ -215,8 +217,8 @@ P.push(page(`
     ${tbl(["Indicador", "Meta"], [
       ["SLA de resposta", "Abaixo de <b>60 min</b>."],
       ["Entregas no prazo", "<b>100%</b>."],
-      ["NPS", "Acima de <b>60</b>, resposta &gt;50%."],
-      ["Monetização", "Até <b>8 oportunidades</b>/mês."],
+      ["NPS", "Acima de <b>70%</b>, resposta &gt;50%."],
+      ["Monetização", "Meta mensal de oportunidades batida."],
     ])}
   `)}
 `));
