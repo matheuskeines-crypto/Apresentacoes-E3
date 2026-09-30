@@ -29,8 +29,8 @@ html,body{height:100%;background:var(--bg);color:var(--ink);font-family:var(--s)
 .slide-inner{width:1000px;flex:0 0 auto;transform-origin:center center;display:flex;flex-direction:column;gap:22px}
 .si-center{align-items:center;text-align:center}
 /* canvas do deck: tamanhos fixos p/ escala uniforme (sem vw) */
-.slide-inner .h2{font-size:2.7rem;max-width:20ch}
-.slide-inner .lead{font-size:1.05rem}
+.slide-inner .h2{font-size:3.05rem;max-width:20ch}
+.slide-inner .lead{font-size:1.2rem}
 .slide-inner .cover-logo{height:72px;margin-bottom:26px}
 .slide-inner .cover-title{font-size:4.2rem;max-width:18ch}
 .slide-inner .cover-sub{font-size:1.2rem}
@@ -40,9 +40,9 @@ html,body{height:100%;background:var(--bg);color:var(--ink);font-family:var(--s)
 .slide-inner .q-text{font-size:2.5rem}
 .slide-inner .q-mark{font-size:6rem}
 .slide-inner .stat-v{font-size:2.7rem}
-.slide-inner .agenda li{font-size:1.15rem}
-.slide-inner .card-t{font-size:1.05rem}
-.slide-inner .tl-t{font-size:1.15rem}
+.slide-inner .agenda li{font-size:1.28rem}
+.slide-inner .card-t{font-size:1.18rem}
+.slide-inner .tl-t{font-size:1.28rem}
 .kicker{font-family:var(--s);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--o);font-weight:700;margin-bottom:6px}
 .h2{font-family:var(--d);font-weight:800;font-size:clamp(1.9rem,4.4vw,3.3rem);line-height:1.03;letter-spacing:-.02em;max-width:20ch}
 .lead{font-size:clamp(.95rem,1.5vw,1.15rem);color:rgba(255,255,255,.55);max-width:60ch;line-height:1.6}
@@ -65,15 +65,15 @@ b,strong,.hl{color:var(--o)}
 .section-title{font-family:var(--d);font-weight:800;font-size:clamp(2rem,5vw,3.6rem);line-height:1.02;letter-spacing:-.02em}
 /* agenda */
 .agenda{list-style:none;display:flex;flex-direction:column;gap:12px;max-width:60ch}
-.agenda li{display:flex;align-items:center;gap:20px;padding:16px 22px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.02);font-size:clamp(1rem,1.6vw,1.2rem);font-weight:500;transition:.3s}
+.agenda li{display:flex;align-items:center;gap:20px;padding:17px 22px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.02);font-size:clamp(1.1rem,1.7vw,1.32rem);font-weight:500;transition:.3s}
 .agenda li:hover{border-color:rgba(255,95,31,.4);background:rgba(255,95,31,.05)}
 .ag-n{font-family:var(--d);font-weight:800;color:var(--o);font-size:1.1rem;min-width:32px}
 /* stats */
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;margin:6px 0 4px}
 .stat{display:flex;flex-direction:column;align-items:center;gap:10px;padding:clamp(24px,4vw,48px) 20px;text-align:center;border-right:1px solid rgba(255,255,255,.07)}
 .stat:last-child{border-right:0}
-.stat-v{font-family:var(--d);font-weight:800;font-size:clamp(1.7rem,3.6vw,2.9rem);color:var(--o);letter-spacing:-.02em}
-.stat-l{font-size:.82rem;color:rgba(255,255,255,.45);max-width:16ch;line-height:1.35}
+.stat-v{font-family:var(--d);font-weight:800;font-size:clamp(1.85rem,3.8vw,3.15rem);color:var(--o);letter-spacing:-.02em}
+.stat-l{font-size:.92rem;color:rgba(255,255,255,.45);max-width:16ch;line-height:1.35}
 /* cards */
 .cards{display:grid;gap:16px}
 .cols-1{grid-template-columns:1fr}
@@ -81,10 +81,10 @@ b,strong,.hl{color:var(--o)}
 .cols-3{grid-template-columns:repeat(3,1fr)}
 .note{margin-top:4px;color:rgba(255,255,255,.72)}
 .list-rows .card{align-items:center;padding:16px 20px}
-.list-rows .card-t{margin-bottom:0;font-size:1rem}
+.list-rows .card-t{margin-bottom:0;font-size:1.12rem}
 .acr-big{font-family:var(--d);font-weight:800;font-size:9.5rem;letter-spacing:.14em;line-height:.95;color:#fff;margin:10px 0 18px;text-shadow:0 0 70px rgba(255,95,31,.35)}
 .acr-pills{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
-.acr-pill{font-size:.98rem;font-weight:600;color:#fff;border:1.5px solid rgba(255,95,31,.55);background:rgba(255,95,31,.07);padding:14px 26px;border-radius:999px}
+.acr-pill{font-size:1.08rem;font-weight:600;color:#fff;border:1.5px solid rgba(255,95,31,.55);background:rgba(255,95,31,.07);padding:14px 26px;border-radius:999px}
 .reward{display:grid;grid-template-columns:.85fr 1.15fr;gap:22px;align-items:center;margin-top:8px}
 .reward-amt{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;padding:34px 20px;border:1px solid rgba(255,95,31,.4);border-radius:20px;background:rgba(255,95,31,.06)}
 .reward-amt .stat-v{font-size:3.8rem}
@@ -94,8 +94,8 @@ b,strong,.hl{color:var(--o)}
 .card:hover{border-color:rgba(255,95,31,.32);transform:translateY(-2px)}
 .card-ic{flex:0 0 auto;width:44px;height:44px;display:grid;place-items:center;border-radius:12px;background:rgba(255,95,31,.12);color:var(--o)}
 .card-ic svg{width:22px;height:22px}
-.card-t{font-family:var(--d);font-weight:700;font-size:1.05rem;line-height:1.2;margin-bottom:5px}
-.card-d{font-size:.86rem;color:rgba(255,255,255,.5);line-height:1.5}
+.card-t{font-family:var(--d);font-weight:700;font-size:1.18rem;line-height:1.22;margin-bottom:5px}
+.card-d{font-size:.95rem;color:rgba(255,255,255,.5);line-height:1.5}
 /* timeline */
 .timeline{display:flex;flex-direction:column;gap:0;max-width:74ch}
 .tl-step{display:flex;gap:20px;position:relative;padding-bottom:20px}
@@ -104,8 +104,8 @@ b,strong,.hl{color:var(--o)}
 .tl-node svg{width:20px;height:20px}
 .tl-body{padding-top:4px}
 .tl-w{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--o);font-weight:700}
-.tl-t{font-family:var(--d);font-weight:700;font-size:1.15rem;margin:2px 0 4px}
-.tl-d{font-size:.88rem;color:rgba(255,255,255,.5);line-height:1.5;max-width:60ch}
+.tl-t{font-family:var(--d);font-weight:700;font-size:1.28rem;margin:2px 0 4px}
+.tl-d{font-size:.97rem;color:rgba(255,255,255,.5);line-height:1.5;max-width:60ch}
 /* journey "caminho" (estrada serpenteante) */
 .journey{position:relative;width:100%;max-width:860px;margin:10px auto 0}
 .road{position:relative;width:100%}
@@ -131,8 +131,8 @@ b,strong,.hl{color:var(--o)}
 .th-t{font-family:var(--d);font-weight:700;font-size:1rem;line-height:1.1;margin:4px 0 5px}
 .th-d{font-size:.76rem;color:rgba(255,255,255,.52);line-height:1.35}
 /* table */
-.tbl{width:100%;border-collapse:collapse;font-size:clamp(.8rem,1.3vw,.95rem);border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden}
-.tbl th{background:rgba(255,95,31,.1);color:var(--o);text-align:left;padding:14px 18px;font-family:var(--d);font-weight:700;font-size:.85rem;letter-spacing:.02em}
+.tbl{width:100%;border-collapse:collapse;font-size:clamp(.9rem,1.5vw,1.05rem);border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden}
+.tbl th{background:rgba(255,95,31,.1);color:var(--o);text-align:left;padding:14px 18px;font-family:var(--d);font-weight:700;font-size:.94rem;letter-spacing:.02em}
 .tbl td{padding:13px 18px;border-top:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.72);vertical-align:top}
 .tbl tr:nth-child(even) td{background:rgba(255,255,255,.015)}
 /* funnel (marketing) */

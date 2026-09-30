@@ -65,8 +65,8 @@ export const onboarding = {
     { type: "stats", kicker: "Quem somos", title: "Quem é a E3 Digital",
       items: [
         { v: "+R$20M", l: "já investidos em mídia paga" },
-        { v: "+500", l: "escritórios atendidos" },
-        { v: "+R$100M", l: "possibilitados em honorários" },
+        { v: "+800", l: "escritórios atendidos" },
+        { v: "+R$120M", l: "possibilitados em honorários" },
       ],
       note: "Somos um hub de soluções em marketing e vendas para advogados e escritórios de advocacia, com a visão de crescer cada vez mais parceiros por meio de Gestão, Marketing e Vendas." },
 
@@ -80,12 +80,19 @@ export const onboarding = {
         { icon: "megaphone", text: "Tem posicionamento digital ativo? Produz conteúdo de forma orgânica?" },
       ] },
 
-    { type: "bullets", kicker: "Nosso compromisso nos próximos 6 meses", title: "Nossos Objetivos", cols: 2,
+    { type: "list", kicker: "Direcionamento", title: "Objetivos e Metas",
       items: [
-        { icon: "layers", title: "Presença digital completa e ativa", desc: "Site, redes sociais e Google otimizados para atrair clientes." },
-        { icon: "settings", title: "Processo comercial estruturado", desc: "CRM implementado, funil definido e time alinhado." },
-        { icon: "award", title: "Posicionamento e autoridade", desc: "Marca reconhecida no mercado jurídico digital." },
-        { icon: "trending", title: "Mais fechamentos e previsibilidade", desc: "Aumento da taxa de conversão e receita recorrente." },
+        { icon: "target", text: "Qual o principal objetivo que o escritório tem para esse ano?" },
+        { icon: "calendar", text: "Quais suas metas mensais?" },
+        { icon: "clock", text: "O que você espera para os próximos 3 meses do projeto?" },
+      ] },
+
+    { type: "bullets", kicker: "Nosso compromisso nos próximos meses", title: "Nossos Objetivos", cols: 2,
+      items: [
+        { icon: "rocket", title: "Estruturação das Campanhas", desc: "Criação e configuração inicial." },
+        { icon: "users", title: "Adaptação do Time de Atendimento", desc: "Treinamento e alinhamento." },
+        { icon: "target", title: "Buscar Assertividade no Público", desc: "Identificação do público ideal." },
+        { icon: "settings", title: "Adaptação das Campanhas", desc: "Otimização contínua." },
       ] },
 
     { type: "acronym", kicker: "Nossa metodologia",
@@ -131,13 +138,6 @@ export const onboarding = {
       callout: { icon: "alert", title: "Por que essas regras são importantes?",
         desc: "Estudos mostram que 78% dos clientes fecham com a primeira empresa que responde. Além disso, múltiplos pontos de contato aumentam em até 400% as chances de conversão." } },
 
-    { type: "list", kicker: "Direcionamento", title: "Objetivos e Metas",
-      items: [
-        { icon: "target", text: "Qual o principal objetivo que o escritório tem para esse ano?" },
-        { icon: "calendar", text: "Quais suas metas mensais?" },
-        { icon: "clock", text: "O que você espera para os próximos 3 meses do projeto?" },
-      ] },
-
     { type: "timeline", kicker: "Cronograma", title: "Cronograma · 17 dias",
       lead: "Do dia do onboarding até o primeiro alinhamento comercial.",
       steps: [
@@ -145,7 +145,7 @@ export const onboarding = {
         { label: "Dias 2–5", icon: "target", title: "Alinhamento interno", desc: "Desenvolvimento da estratégia." },
         { label: "Dia 6 · Pro", icon: "pen", title: "Forms da LP + copy & design", desc: "Preenchimento do forms da LP e criação de copy e design gráfico." },
         { label: "Dia 7", icon: "message", title: "Script de vendas", desc: "Envio do script de vendas e do roteiro para gravação de anúncios." },
-        { label: "Dias 8–12", icon: "megaphone", title: "Início das campanhas", desc: "Anúncios no ar captando leads." },
+        { label: "Dias 8–15", icon: "megaphone", title: "Início das campanhas", desc: "Anúncios no ar captando leads." },
         { label: "Dias 13–15 · Pro", icon: "layers", title: "Página de vendas", desc: "Finalização da página de vendas." },
         { label: "Dia 17 · Pro", icon: "handshake", title: "1º alinhamento comercial", desc: "Revisão do funil e ajuste fino do processo." },
       ] },
