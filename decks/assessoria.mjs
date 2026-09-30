@@ -104,6 +104,21 @@ export const onboarding = {
       ],
       note: "Nosso objetivo: conectar o marketing ao comercial, garantindo que o investimento em tráfego se converta em resultados reais e sustentáveis." },
 
+    { type: "funnel", kicker: "Entendendo o fluxo de conversão das suas campanhas", title: "Alinhamento de Funil",
+      lead: "Cada etapa responde a uma pergunta diferente. A primeira nós medimos sozinhos; as três seguintes só existem dentro do seu escritório — e por isso dependem de você nos informar.",
+      steps: [
+        { title: "Leads", value: "100%", w: 100 },
+        { title: "MQL", value: "20–30%", w: 76 },
+        { title: "SQL", value: "5–10%", w: 54 },
+        { title: "Fechamentos", value: "1–3%", w: 32 },
+      ],
+      rows: [
+        { n: 1, title: "Leads recebidos", desc: "Quantas pessoas entraram em contato pelo anúncio.", owner: "e3" },
+        { n: 2, title: "MQL — Leads qualificados", desc: "Lead com perfil real de caso, que demonstrou interesse genuíno.", owner: "cliente" },
+        { n: 3, title: "SQL — Atendimentos realizados", desc: "Lead que efetivamente compareceu à reunião ou consulta.", owner: "cliente" },
+        { n: 4, title: "Fechamentos — Contratos assinados", desc: "O resultado que de fato importa para o seu faturamento.", owner: "cliente" },
+      ] },
+
     { type: "rules", kicker: "Diretrizes essenciais para maximizar suas conversões", title: "Regras do Comercial",
       items: [
         { icon: "clock", title: "Atendimento Rápido", badge: "5 minutos", desc: "Tempo máximo para atender cada lead que entra.", note: "A velocidade de resposta impacta diretamente na conversão." },

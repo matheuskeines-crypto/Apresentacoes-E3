@@ -135,6 +135,26 @@ b,strong,.hl{color:var(--o)}
 .tbl th{background:rgba(255,95,31,.1);color:var(--o);text-align:left;padding:14px 18px;font-family:var(--d);font-weight:700;font-size:.85rem;letter-spacing:.02em}
 .tbl td{padding:13px 18px;border-top:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.72);vertical-align:top}
 .tbl tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+/* funnel (marketing) */
+.funnel{display:flex;flex-direction:column;align-items:center;gap:6px;margin:6px 0 22px}
+.funnel-bar{display:flex;align-items:center;justify-content:center;gap:10px;height:58px;clip-path:polygon(6% 0,94% 0,88% 100%,12% 100%);color:#fff}
+.fb-t{font-family:var(--d);font-weight:800;font-size:1rem;letter-spacing:.01em}
+.fb-v{font-size:.82rem;font-weight:700;opacity:.85}
+.fb-1{background:linear-gradient(90deg,#3a3f47,#4a5059)}
+.fb-2{background:linear-gradient(90deg,#a4431f,#c8511f)}
+.fb-3{background:linear-gradient(90deg,#dd5620,var(--o))}
+.fb-4{background:linear-gradient(90deg,var(--o),var(--o2))}
+.funnel-rows{display:flex;flex-direction:column;gap:10px}
+.fr-row{display:flex;align-items:center;gap:18px;padding:16px 20px;border-radius:14px}
+.fr-dark{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
+.fr-orange{background:linear-gradient(90deg,rgba(255,95,31,.16),rgba(255,51,0,.12));border:1px solid rgba(255,95,31,.3)}
+.fr-n{font-family:var(--d);font-weight:800;font-size:1.3rem;color:rgba(255,255,255,.5);min-width:22px}
+.fr-body{flex:1}
+.fr-t{font-family:var(--d);font-weight:700;font-size:.98rem;margin-bottom:3px}
+.fr-d{font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.4}
+.fr-badge{flex:0 0 auto;font-size:.68rem;font-weight:800;letter-spacing:.06em;padding:7px 14px;border-radius:999px;white-space:nowrap}
+.fr-dark .fr-badge{background:rgba(255,255,255,.12);color:rgba(255,255,255,.75)}
+.fr-orange .fr-badge{background:#fff;color:#c8511f}
 /* rules (diretrizes) */
 .rules-cards .card{align-items:flex-start;padding:22px 24px}
 .rule-badge{display:inline-block;margin-left:8px;font-size:.72rem;font-weight:700;letter-spacing:.03em;color:var(--o);border:1px solid rgba(255,95,31,.5);background:rgba(255,95,31,.08);padding:3px 12px;border-radius:999px;vertical-align:middle}
