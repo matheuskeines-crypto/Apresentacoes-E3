@@ -122,30 +122,30 @@ P.push(page(`
 P.push(page(`
   <div class="card">
     ${cardHead("users", "", "Account Manager", tagPro())}
-    <div class="quote inline"><p><b>Foco:</b> liderança estratégica, diagnóstico e retenção. Líder da squad: conduz o projeto do diagnóstico ao fechamento do ciclo, define prioridades e monitora a performance.</p></div>
+    <div class="quote inline"><p><b>Foco:</b> liderança estratégica, diagnóstico e retenção. Conduz o projeto do diagnóstico ao fechamento do ciclo.</p></div>
     <div class="grid3">
-      ${block("DIAGNÓSTICO 360°", ["Avaliação de maturidade de marketing, comercial e operacional.", "Dashboard com score e plano de ação priorizado."])}
-      ${block("LIDERANÇA DA SQUAD", ["Distribuir e acompanhar as demandas no ClickUp.", "Garantir prazos e entregas de cada frente."])}
-      ${block("REUNIÕES ESTRATÉGICAS", ["Condução das 3 reuniões de passagem de fase.", "Apresentação de resultados e direcionamento."])}
+      ${block("DIAGNÓSTICO 360°", ["Maturidade de marketing, comercial e operacional.", "Dashboard com score e plano priorizado."])}
+      ${block("LIDERANÇA DA SQUAD", ["Acompanhar as demandas no ClickUp.", "Garantir prazos de cada frente."])}
+      ${block("REUNIÕES ESTRATÉGICAS", ["As 3 reuniões de passagem de fase.", "Resultados e direcionamento."])}
       ${block("ONBOARDING", ["Validar tese e metas em D+0.", "Estratégia validada antes do início das frentes."])}
       ${block("PROTOCOLO DE CRISE", ["Diagnosticar falhas e analisar o CRM.", "Validar plano com a coordenação."])}
-      ${block("PITCH DE RENOVAÇÃO", ["Relatório Final com ROI comprovado.", "Cronograma de continuidade fechado na Semana 6."])}
+      ${block("PITCH DE RENOVAÇÃO", ["Relatório Final com ROI comprovado.", "Cronograma de continuidade na S6."])}
     </div>
   </div>
   ${split2(`
     <h3 class="h3">Rotina</h3>
     ${tbl(["Quando", "O quê"], [
-      ["Diária · 09h–09h20", "Daily do squad: organizar a rotina, priorizar clientes e cobrar prazos."],
-      ["Diária · dia todo", "Planos de ação atualizados. Calls de alinhamento com o escritório."],
+      ["Diária · 09h–09h20", "Daily do squad: priorizar clientes e cobrar prazos."],
+      ["Diária · dia todo", "Planos de ação e calls de alinhamento."],
       ["Semanal · sexta", "Atualização obrigatória da planilha BSC."],
     ])}
   `, `
     <h3 class="h3">Principais KPIs</h3>
     ${tbl(["Indicador", "Meta"], [
-      ["Diagnóstico entregue (até S2)", "<b>100%</b> dos documentos aprovados."],
-      ["CRM em produção (até S3)", "Todos os fluxos testados e canais conectados."],
-      ["Pitch de Renovação (S6)", "Relatório Final + cronograma de continuidade."],
-      ["Satisfação do cliente", "NPS alto e estável ao final do projeto."],
+      ["Diagnóstico entregue (S2)", "<b>100%</b> dos documentos aprovados."],
+      ["CRM em produção (S3)", "Fluxos testados e canais conectados."],
+      ["Pitch de Renovação (S6)", "Relatório Final + continuidade."],
+      ["Satisfação do cliente", "NPS alto e estável."],
     ])}
   `)}
 `));
@@ -185,10 +185,10 @@ P.push(page(`
 P.push(page(`
   <div class="card">
     ${cardHead("clipboard", "", "Gestor de Projetos", tagPro())}
-    <div class="quote inline"><p><b>Foco:</b> organização, comunicação, prazo e experiência do cliente. Responsável pela Auditoria Criativa e pelo controle rigoroso do cronograma de 6 semanas.</p></div>
+    <div class="quote inline"><p><b>Foco:</b> organização, prazo e experiência do cliente. Responsável pela Auditoria Criativa e pelo cronograma de 6 semanas.</p></div>
     <div class="grid2">
-      ${block("AUDITORIA CRIATIVA", ["Análise de redes sociais e linha criativa ideal.", "Roteiros de vídeo e guia de comunicação."])}
-      ${block("ONBOARDING", ["Validação de tese e metas.", "Card validado antes do início das frentes."])}
+      ${block("AUDITORIA CRIATIVA", ["Redes sociais e linha criativa ideal.", "Roteiros de vídeo e guia de comunicação."])}
+      ${block("ONBOARDING", ["Validação de tese e metas.", "Card validado antes das frentes."])}
       ${block("EXECUÇÃO E ENTREGAS", ["Relatórios semanais e controle do ClickUp.", "Análise do CRM em busca de gaps."])}
       ${block("CONTROLE DE PRAZOS", ["ClickUp rigoroso, sem atrasos.", "Cobrança de <b>todas</b> as entregas."])}
     </div>
@@ -197,16 +197,16 @@ P.push(page(`
     <h3 class="h3">Rotina</h3>
     ${tbl(["Quando", "O quê"], [
       ["Diária · 09h–09h20", "Daily: tarefas do dia e orientação do AM."],
-      ["Diária · antes de encerrar", "Responder todos os grupos. SLA 60 min."],
+      ["Diária · ao encerrar", "Responder todos os grupos. SLA 60 min."],
       ["Semanal · quarta", "Perguntas de qualificação e Painel E3."],
-      ["Semanal · quinta", "Briefing semanal de cada cliente no ClickUp."],
+      ["Semanal · quinta", "Briefing de cada cliente no ClickUp."],
       ["Semanal · sexta", "Atualização obrigatória da planilha BSC."],
     ])}
   `, `
     <h3 class="h3">Principais KPIs</h3>
     ${tbl(["Indicador", "Meta"], [
       ["SLA de resposta", "Abaixo de <b>60 min</b>."],
-      ["Guia de Comunicação (até S3)", "Criativos e manual aprovados."],
+      ["Guia de Comunicação (S3)", "Criativos e manual aprovados."],
       ["Entregas no prazo", "<b>100%</b>."],
       ["NPS", "Acima de <b>60</b>, resposta >50%."],
     ])}

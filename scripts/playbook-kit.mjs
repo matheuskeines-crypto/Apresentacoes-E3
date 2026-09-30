@@ -71,6 +71,13 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
 .tag-both{color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.06)}
 .tag-pro{color:var(--o);border:1px solid rgba(255,95,31,.5);background:rgba(255,95,31,.1)}
 .tag-light{color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.04)}
+.dense .rules{gap:8px}
+.dense .rule-item{padding:10px 15px}
+.dense .rd{line-height:1.28}
+.notabar{display:flex;gap:11px;align-items:baseline;border-left:3px solid var(--o);background:rgba(255,95,31,.07);border-radius:0 10px 10px 0;padding:9px 15px;margin-bottom:11px;font-size:14.5px;line-height:1.35;color:rgba(255,255,255,.78)}
+.notabar .nk{flex:0 0 auto;font-weight:800;color:var(--o);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.notabar b{color:#fff}
+.cpl{display:inline-block;margin-left:5px;font-size:12.5px;font-weight:800;letter-spacing:.02em;color:var(--o);border:1px solid rgba(255,95,31,.45);background:rgba(255,95,31,.09);padding:2px 9px;border-radius:999px;white-space:nowrap}
 .blk .kicker .tag{margin-left:4px;transform:translateY(-1px)}
 .legend{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
 .lg-item{display:flex;align-items:center;gap:10px;font-size:16px;color:rgba(255,255,255,.64)}
@@ -162,6 +169,7 @@ export const tag = (label, cls) => `<span class="tag ${cls}">${label}</span>`;
 export const bul = (items) => `<ul class="bul">${items.map((i) => `<li>${i}</li>`).join("")}</ul>`;
 export const block = (kicker, items) => `<div class="blk"><p class="kicker">${kicker}</p>${bul(items)}</div>`;
 export const rules = (items, cls = "") => `<div class="rules ${cls}">${items.map((r, i) => `<div class="rule-item"><span class="nbadge">${i + 1}</span><div><p class="rt">${r.t}</p>${r.d ? `<p class="rd">${r.d}</p>` : ""}</div></div>`).join("")}</div>`;
+export const notabar = (kicker, text) => `<div class="notabar"><span class="nk">${kicker}</span><span>${text}</span></div>`;
 export const split2 = (left, right) => `<div class="split2"><div>${left}</div><div>${right}</div></div>`;
 
 export function shell({ title, navTitle, logoUri, pages }) {

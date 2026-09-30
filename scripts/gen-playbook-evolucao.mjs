@@ -122,12 +122,12 @@ P.push(page(`
 P.push(page(`
   <div class="card">
     ${cardHead("users", "", "Account Manager", tagBoth())}
-    <div class="quote inline"><p><b>Foco:</b> liderança do relacionamento, alinhamento estratégico e condução dos ritos. Conduz o cliente do kick-off ao pitch de renovação.</p></div>
+    <div class="quote inline"><p><b>Foco:</b> liderança do relacionamento e condução dos ritos, do kick-off ao pitch de renovação.</p></div>
     <div class="grid2">
-      ${block("KICK-OFF &amp; ONBOARDING", ["Enviar vídeo/formulário e analisar o Instagram (S0).", "Conduzir o onboarding: ICP e posicionamento."])}
-      ${block("REUNIÃO DE POSICIONAMENTO", ["Persona, dores e objeções na Semana 1.", "Alinhar a metodologia de roteiros de conteúdo."])}
+      ${block("KICK-OFF &amp; ONBOARDING", ["Vídeo, formulário e análise do Instagram (S0).", "Onboarding: ICP e posicionamento."])}
+      ${block("REUNIÃO DE POSICIONAMENTO", ["Persona, dores e objeções na Semana 1.", "Metodologia de roteiros de conteúdo."])}
       ${block("RESULTADOS &amp; PITCH", ["Apresentar resultados na Semana 4 (ou 8, Pro).", "Conduzir o pitch de renovação ou upgrade."])}
-      ${block("LIVE ESTRATÉGICA TIKTOK " + tagPro(), ["Planejar, roteirizar e lançar a live do cliente.", "Orientar e acompanhar o lançamento."])}
+      ${block("LIVE ESTRATÉGICA TIKTOK " + tagPro(), ["Planejar, roteirizar e lançar a live.", "Orientar e acompanhar o lançamento."])}
     </div>
   </div>
   ${split2(`
@@ -136,14 +136,14 @@ P.push(page(`
       ["Semana 0 · Kick-off", "Vídeo, formulário e reunião de onboarding."],
       ["Semana 1 · Posicionamento", "Persona, dores, objeções e roteiros."],
       ["Semana 4 · Resultados", "Resultados e pitch de renovação/upgrade."],
-      ["Semanas 6 e 8 · Pro", "Live no TikTok (S6) e resultados/escala (S8)."],
+      ["Semanas 6 e 8 · Pro", "Live no TikTok (S6) e escala (S8)."],
     ])}
   `, `
     <h3 class="h3">Principais KPIs</h3>
     ${tbl(["Indicador", "Meta"], [
       ["NPS do cliente", "Foco em manter promotores."],
       ["Taxa de conversão do Pitch", "% de renovação ou upgrade para o Pro."],
-      ["SLA de entrega da LP (S2)", "Publicação no prazo, com GP e Web Design."],
+      ["SLA de entrega da LP (S2)", "Publicação no prazo com GP e Design."],
     ])}
   `)}
 `));
