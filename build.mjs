@@ -148,6 +148,64 @@ function slideInner(s) {
         <table class="tbl"><thead><tr>${s.head.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead>
         <tbody>${s.rows.map((r) => `<tr>${r.map((c) => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table>${s.note ? `<p class="lead note">${esc(s.note)}</p>` : ""}` };
 
+    case "cac": // calculadora interativa de CAC (investimento, CPL, taxa de fechamento)
+      return { cls: "", html: `${kicker}<h2 class="h2">${s.title}</h2>
+        ${s.lead ? `<p class="lead">${esc(s.lead)}</p>` : ""}
+        <div class="cac-grid">
+          <div class="cac-panel">
+            <p class="cac-panel-t"><span class="card-ic">${icon("dollar")}</span>Dados de Entrada</p>
+            <div class="cac-field">
+              <label for="cacInv">Investimento Mensal (R$)</label>
+              <input type="number" id="cacInv" value="5000" min="100" step="100"/>
+              <input type="range" id="cacInvR" value="5000" min="500" max="50000" step="100"/>
+              <p class="cac-help">Investimento líquido (após dedução de 12,15% de imposto do Meta Ads): <span id="cacLiquido">R$ 4.392,50</span></p>
+            </div>
+            <div class="cac-field">
+              <label for="cacCpl">Média de CPL (R$)</label>
+              <input type="number" id="cacCpl" value="15" min="1" step="1"/>
+              <input type="range" id="cacCplR" value="15" min="3" max="100" step="1"/>
+            </div>
+            <div class="cac-field">
+              <label for="cacTax">Taxa de Fechamento (%)</label>
+              <input type="number" id="cacTax" value="10" min="1" step="1"/>
+              <input type="range" id="cacTaxR" value="10" min="1" max="50" step="1"/>
+            </div>
+          </div>
+          <div class="cac-panel">
+            <p class="cac-panel-t"><span class="card-ic">${icon("users")}</span>Resultados Estimados</p>
+            <div class="cac-result"><p class="cac-r-l">Quantidade de Leads</p><p class="cac-r-v" id="cacLeads">292</p><p class="cac-r-c">leads/mês estimados</p></div>
+            <div class="cac-result"><p class="cac-r-l">Contratos Fechados</p><p class="cac-r-v" id="cacContratos">29</p><p class="cac-r-c" id="cacContratosC">contratos/mês com 10% de conversão</p></div>
+            <div class="cac-result"><p class="cac-r-l">CAC (Custo por Contrato)</p><p class="cac-r-v" id="cacCac">R$ 151,47</p><p class="cac-r-c">por cliente adquirido</p></div>
+            <p class="cac-insight" id="cacInsight">Com R$ 5.000 de investimento, CPL de R$ 15,00 e 10% de fechamento → 29 contratos a R$ 151,47 cada.</p>
+          </div>
+        </div>
+        <script>(function(){
+          function fmt(n){return n.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}
+          function calc(){
+            var inv=parseFloat(document.getElementById('cacInv').value)||0;
+            var cpl=parseFloat(document.getElementById('cacCpl').value)||1;
+            var tax=parseFloat(document.getElementById('cacTax').value)||0;
+            var liquido=inv*(1-0.1215);
+            var leadsExact=liquido/Math.max(cpl,0.01);
+            var leads=Math.floor(leadsExact);
+            var contratos=Math.round(leadsExact*(tax/100));
+            var cac=contratos>0?liquido/contratos:0;
+            document.getElementById('cacLiquido').textContent='R$ '+fmt(liquido);
+            document.getElementById('cacLeads').textContent=leads.toLocaleString('pt-BR');
+            document.getElementById('cacContratos').textContent=contratos.toLocaleString('pt-BR');
+            document.getElementById('cacContratosC').textContent='contratos/mês com '+tax+'% de conversão';
+            document.getElementById('cacCac').textContent='R$ '+fmt(cac);
+            document.getElementById('cacInsight').textContent='Com R$ '+inv.toLocaleString('pt-BR')+' de investimento, CPL de R$ '+fmt(cpl)+' e '+tax+'% de fechamento → '+contratos+' contratos a R$ '+fmt(cac)+' cada.';
+          }
+          function link(numId,rangeId){
+            var n=document.getElementById(numId),r=document.getElementById(rangeId);
+            n.addEventListener('input',function(){r.value=n.value;calc()});
+            r.addEventListener('input',function(){n.value=r.value;calc()});
+          }
+          link('cacInv','cacInvR');link('cacCpl','cacCplR');link('cacTax','cacTaxR');
+          calc();
+        })();</script>` };
+
     case "quote":
       return { cls: "si-quote", html: `<span class="q-mark">&ldquo;</span>
         <p class="q-text">${s.text}</p>
@@ -337,6 +395,26 @@ b,strong,.hl{color:var(--o)}
 .tbl th{background:rgba(255,95,31,.1);color:var(--o);text-align:left;padding:14px 18px;font-family:var(--d);font-weight:700;font-size:.85rem;letter-spacing:.02em}
 .tbl td{padding:13px 18px;border-top:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.72);vertical-align:top}
 .tbl tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+/* cac calculator */
+.cac-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:4px}
+.cac-panel{border:1px solid rgba(255,255,255,.08);border-radius:18px;background:rgba(255,255,255,.02);padding:22px}
+.cac-panel-t{display:flex;align-items:center;gap:12px;font-family:var(--d);font-weight:700;font-size:1rem;margin-bottom:18px}
+.cac-panel-t .card-ic{width:34px;height:34px}
+.cac-panel-t .card-ic svg{width:17px;height:17px}
+.cac-field{margin-bottom:16px}
+.cac-field:last-child{margin-bottom:0}
+.cac-field label{display:block;font-size:.8rem;color:rgba(255,255,255,.6);margin-bottom:7px;font-weight:500}
+.cac-field input[type=number]{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 14px;color:#fff;font-family:var(--s);font-size:1rem;font-weight:600;margin-bottom:8px}
+.cac-field input[type=number]:focus{outline:none;border-color:var(--o)}
+.cac-field input[type=range]{width:100%;accent-color:var(--o);height:4px}
+.cac-help{margin-top:8px;font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.4}
+.cac-help span{color:var(--o);font-weight:700}
+.cac-result{border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px 18px;margin-bottom:12px}
+.cac-r-l{font-size:.78rem;color:rgba(255,255,255,.55);margin-bottom:4px}
+.cac-r-v{font-family:var(--d);font-weight:800;font-size:1.7rem;color:var(--o)}
+.cac-r-c{font-size:.72rem;color:rgba(255,255,255,.4);margin-top:2px}
+.cac-insight{margin-top:6px;padding:14px 16px;border-radius:12px;border:1px solid rgba(255,95,31,.35);background:rgba(255,95,31,.08);font-size:.82rem;line-height:1.5;color:rgba(255,255,255,.85)}
+@media(max-width:720px){.cac-grid{grid-template-columns:1fr}}
 /* quote */
 .si-quote{align-items:center;justify-content:center;text-align:center}
 .q-mark{font-family:var(--d);font-size:8rem;line-height:.6;color:var(--o);opacity:.5}

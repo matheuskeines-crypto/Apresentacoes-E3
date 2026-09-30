@@ -135,6 +135,26 @@ b,strong,.hl{color:var(--o)}
 .tbl th{background:rgba(255,95,31,.1);color:var(--o);text-align:left;padding:14px 18px;font-family:var(--d);font-weight:700;font-size:.85rem;letter-spacing:.02em}
 .tbl td{padding:13px 18px;border-top:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.72);vertical-align:top}
 .tbl tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+/* cac calculator */
+.cac-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:4px}
+.cac-panel{border:1px solid rgba(255,255,255,.08);border-radius:18px;background:rgba(255,255,255,.02);padding:22px}
+.cac-panel-t{display:flex;align-items:center;gap:12px;font-family:var(--d);font-weight:700;font-size:1rem;margin-bottom:18px}
+.cac-panel-t .card-ic{width:34px;height:34px}
+.cac-panel-t .card-ic svg{width:17px;height:17px}
+.cac-field{margin-bottom:16px}
+.cac-field:last-child{margin-bottom:0}
+.cac-field label{display:block;font-size:.8rem;color:rgba(255,255,255,.6);margin-bottom:7px;font-weight:500}
+.cac-field input[type=number]{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 14px;color:#fff;font-family:var(--s);font-size:1rem;font-weight:600;margin-bottom:8px}
+.cac-field input[type=number]:focus{outline:none;border-color:var(--o)}
+.cac-field input[type=range]{width:100%;accent-color:var(--o);height:4px}
+.cac-help{margin-top:8px;font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.4}
+.cac-help span{color:var(--o);font-weight:700}
+.cac-result{border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px 18px;margin-bottom:12px}
+.cac-r-l{font-size:.78rem;color:rgba(255,255,255,.55);margin-bottom:4px}
+.cac-r-v{font-family:var(--d);font-weight:800;font-size:1.7rem;color:var(--o)}
+.cac-r-c{font-size:.72rem;color:rgba(255,255,255,.4);margin-top:2px}
+.cac-insight{margin-top:6px;padding:14px 16px;border-radius:12px;border:1px solid rgba(255,95,31,.35);background:rgba(255,95,31,.08);font-size:.82rem;line-height:1.5;color:rgba(255,255,255,.85)}
+@media(max-width:720px){.cac-grid{grid-template-columns:1fr}}
 /* quote */
 .si-quote{align-items:center;justify-content:center;text-align:center}
 .q-mark{font-family:var(--d);font-size:8rem;line-height:.6;color:var(--o);opacity:.5}

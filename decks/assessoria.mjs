@@ -104,6 +104,9 @@ export const onboarding = {
       ],
       note: "Nosso objetivo: conectar o marketing ao comercial, garantindo que o investimento em tráfego se converta em resultados reais e sustentáveis." },
 
+    { type: "cac", kicker: "Custo aproximado de aquisição de clientes", title: "Calculadora de CAC",
+      lead: "Qual será o seu investimento mensal?" },
+
     { type: "list", kicker: "Direcionamento", title: "Objetivos e Metas",
       items: [
         { icon: "target", text: "Qual o principal objetivo que o escritório tem para esse ano?" },
