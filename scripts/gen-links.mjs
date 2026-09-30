@@ -28,7 +28,13 @@ const gruposHTML = GRUPOS.map((g) => `<div class="k-wrap">
       <p class="k-sub">${g.sub}</p>
     </div>
     <div class="k-grid two">
-      ${g.links.map((l) => `<a href="${l.href}" target="_blank" rel="noopener"><span class="mt">${l.label}</span><span class="ms">${l.sub}</span></a>`).join("\n      ")}
+      ${g.links.map((l) => `<div class="lcard">
+        <a class="lmain" href="${l.href}" target="_blank" rel="noopener"><span class="mt">${l.label}</span><span class="ms">${l.sub}</span></a>
+        <button class="copybtn" type="button" data-href="${l.href}" title="Copiar link" aria-label="Copiar link">
+          <svg class="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <svg class="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+      </div>`).join("\n      ")}
     </div>
   </div>`).join("\n\n  ");
 
@@ -57,10 +63,19 @@ h1 span{color:var(--o)}
 .k-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .k-grid.two{grid-template-columns:repeat(2,1fr)}
 @media(max-width:880px){.k-grid,.k-grid.two{grid-template-columns:1fr}}
-.k-grid a{display:flex;flex-direction:column;padding:15px 17px;border:1px solid rgba(255,255,255,.08);border-radius:14px;background:rgba(255,255,255,.02);text-decoration:none;color:#fff;transition:.25s}
-.k-grid a:hover{border-color:var(--o);background:rgba(255,95,31,.08);transform:translateX(3px)}
+.lcard{position:relative;border:1px solid rgba(255,255,255,.08);border-radius:14px;background:rgba(255,255,255,.02);transition:.25s}
+.lcard:hover{border-color:var(--o);background:rgba(255,95,31,.08)}
+.lcard:hover .lmain{transform:translateX(3px)}
+.lmain{display:flex;flex-direction:column;padding:15px 52px 15px 17px;text-decoration:none;color:#fff;transition:transform .25s}
 .mt{font-weight:700;font-size:1rem}
 .ms{font-size:.76rem;color:rgba(255,255,255,.42);margin-top:3px}
+.copybtn{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:8px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.25);color:rgba(255,255,255,.55);display:grid;place-items:center;cursor:pointer;transition:.2s}
+.copybtn:hover{border-color:var(--o);color:var(--o);background:rgba(255,95,31,.12)}
+.copybtn svg{width:15px;height:15px}
+.copybtn .i-check{display:none}
+.copybtn.ok{border-color:#22c55e;color:#22c55e;background:rgba(34,197,94,.12)}
+.copybtn.ok .i-copy{display:none}
+.copybtn.ok .i-check{display:block}
 </style></head>
 <body>
 <span class="glow g1"></span><span class="glow g2"></span>
@@ -75,6 +90,32 @@ h1 span{color:var(--o)}
   ${gruposHTML}
 
 </div>
+<script>
+document.querySelectorAll('.copybtn').forEach(function(btn){
+  btn.addEventListener('click', function(e){
+    e.preventDefault();
+    var href = btn.dataset.href;
+    var done = function(){
+      btn.classList.add('ok');
+      clearTimeout(btn._t);
+      btn._t = setTimeout(function(){ btn.classList.remove('ok'); }, 1500);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(href).then(done).catch(function(){ fallbackCopy(href, done); });
+    } else {
+      fallbackCopy(href, done);
+    }
+  });
+});
+function fallbackCopy(text, cb){
+  var ta = document.createElement('textarea');
+  ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+  cb();
+}
+</script>
 </body></html>`;
 
 const outPath = join(distRoot, "links-uteis", "index.html");
