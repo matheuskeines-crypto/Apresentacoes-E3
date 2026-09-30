@@ -119,6 +119,9 @@ export const onboarding = {
         { n: 4, title: "Fechamentos — Contratos assinados", desc: "O resultado que de fato importa para o seu faturamento.", owner: "cliente" },
       ] },
 
+    { type: "cac", kicker: "Custo aproximado de aquisição de clientes", title: "Calculadora de CAC",
+      lead: "Qual será o seu investimento mensal?" },
+
     { type: "rules", kicker: "Diretrizes essenciais para maximizar suas conversões", title: "Regras do Comercial",
       items: [
         { icon: "clock", title: "Atendimento Rápido", badge: "5 minutos", desc: "Tempo máximo para atender cada lead que entra.", note: "A velocidade de resposta impacta diretamente na conversão." },
@@ -127,9 +130,6 @@ export const onboarding = {
       ],
       callout: { icon: "alert", title: "Por que essas regras são importantes?",
         desc: "Estudos mostram que 78% dos clientes fecham com a primeira empresa que responde. Além disso, múltiplos pontos de contato aumentam em até 400% as chances de conversão." } },
-
-    { type: "cac", kicker: "Custo aproximado de aquisição de clientes", title: "Calculadora de CAC",
-      lead: "Qual será o seu investimento mensal?" },
 
     { type: "list", kicker: "Direcionamento", title: "Objetivos e Metas",
       items: [
