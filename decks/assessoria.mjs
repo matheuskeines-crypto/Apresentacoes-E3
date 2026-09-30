@@ -104,19 +104,19 @@ export const onboarding = {
       ],
       note: "Nosso objetivo: conectar o marketing ao comercial, garantindo que o investimento em tráfego se converta em resultados reais e sustentáveis." },
 
-    { type: "funnel", kicker: "Entendendo o fluxo de conversão das suas campanhas", title: "Alinhamento de Funil",
-      lead: "Cada etapa responde a uma pergunta diferente. A primeira nós medimos sozinhos; as três seguintes só existem dentro do seu escritório — e por isso dependem de você nos informar.",
+    { type: "funnel", cap: 1.7, kicker: "Entendendo o fluxo de conversão das suas campanhas", title: "Alinhamento de Funil",
+      lead: "A primeira etapa nós medimos sozinhos; as três seguintes só existem dentro do seu escritório — e por isso dependem de você nos informar.",
       steps: [
         { title: "Leads", value: "100%", w: 100 },
-        { title: "MQL", value: "20–30%", w: 76 },
-        { title: "SQL", value: "5–10%", w: 54 },
-        { title: "Fechamentos", value: "Acima de 5%", w: 32 },
+        { title: "MQL", value: "20–30%", w: 84 },
+        { title: "SQL", value: "5–10%", w: 70 },
+        { title: "Fechamentos", value: "Acima de 5%", w: 56 },
       ],
       rows: [
-        { n: 1, title: "Leads recebidos", desc: "Quantas pessoas entraram em contato pelo anúncio.", owner: "e3", resp: "Marketing" },
-        { n: 2, title: "MQL — Leads qualificados", desc: "Lead com perfil real de caso, que demonstrou interesse genuíno.", owner: "cliente", resp: "Marketing + Comercial" },
-        { n: 3, title: "SQL — Atendimentos realizados", desc: "Lead que efetivamente compareceu à reunião ou consulta.", owner: "cliente", resp: "Comercial do cliente" },
-        { n: 4, title: "Fechamentos — Contratos assinados", desc: "O resultado que de fato importa para o seu faturamento.", owner: "cliente", resp: "Comercial do cliente" },
+        { n: 1, title: "Leads recebidos", desc: "Quem entrou em contato pelo anúncio.", owner: "e3", resp: "Marketing" },
+        { n: 2, title: "MQL — Leads qualificados", desc: "Perfil real de caso, com interesse genuíno.", owner: "cliente", resp: "Marketing + Comercial" },
+        { n: 3, title: "SQL — Atendimentos realizados", desc: "Compareceu à reunião ou consulta.", owner: "cliente", resp: "Comercial do cliente" },
+        { n: 4, title: "Fechamentos — Contratos assinados", desc: "O que de fato vira faturamento.", owner: "cliente", resp: "Comercial do cliente" },
       ] },
 
     { type: "cac", kicker: "Custo aproximado de aquisição de clientes", title: "Calculadora de CAC",

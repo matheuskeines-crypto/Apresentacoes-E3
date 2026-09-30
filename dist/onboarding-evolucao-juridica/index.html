@@ -136,27 +136,33 @@ b,strong,.hl{color:var(--o)}
 .tbl td{padding:13px 18px;border-top:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.72);vertical-align:top}
 .tbl tr:nth-child(even) td{background:rgba(255,255,255,.015)}
 /* funnel (marketing) */
-.funnel{display:flex;flex-direction:column;align-items:center;gap:7px;margin:8px 0 24px}
-.funnel-bar{display:flex;align-items:center;justify-content:center;gap:12px;height:66px;clip-path:polygon(6% 0,94% 0,88% 100%,12% 100%);color:#fff}
-.fb-t{font-family:var(--d);font-weight:800;font-size:1.22rem;letter-spacing:.01em}
-.fb-v{font-size:1.02rem;font-weight:700;opacity:.9}
+.si-funnel{gap:14px}
+.funnel-head{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:end}
+.funnel-head .h2{font-size:3rem;max-width:none}
+.funnel-head .lead{font-size:1.05rem;max-width:none;padding-bottom:4px}
+.funnel-wrap{display:grid;grid-template-columns:.72fr 1.28fr;gap:24px;align-items:center;margin-top:10px}
+.funnel{display:flex;flex-direction:column;align-items:center;gap:7px}
+.funnel-bar{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;height:78px;clip-path:polygon(6% 0,94% 0,88% 100%,12% 100%);color:#fff}
+.fb-t{font-family:var(--d);font-weight:800;font-size:1.34rem;letter-spacing:.01em;line-height:1.1}
+.fb-v{font-size:1.04rem;font-weight:700;opacity:.92}
 .fb-1{background:linear-gradient(90deg,#3a3f47,#4a5059)}
 .fb-2{background:linear-gradient(90deg,#a4431f,#c8511f)}
 .fb-3{background:linear-gradient(90deg,#dd5620,var(--o))}
 .fb-4{background:linear-gradient(90deg,var(--o),var(--o2))}
 .funnel-rows{display:flex;flex-direction:column;gap:11px}
-.fr-row{display:flex;align-items:center;gap:20px;padding:18px 22px;border-radius:14px}
+.fr-row{display:flex;align-items:center;gap:18px;padding:15px 20px;border-radius:14px}
 .fr-dark{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
 .fr-orange{background:linear-gradient(90deg,rgba(255,95,31,.16),rgba(255,51,0,.12));border:1px solid rgba(255,95,31,.3)}
-.fr-n{font-family:var(--d);font-weight:800;font-size:1.5rem;color:rgba(255,255,255,.5);min-width:26px}
+.fr-n{font-family:var(--d);font-weight:800;font-size:1.6rem;color:rgba(255,255,255,.5);min-width:24px}
 .fr-body{flex:1}
-.fr-t{font-family:var(--d);font-weight:700;font-size:1.14rem;margin-bottom:4px}
-.fr-d{font-size:.95rem;color:rgba(255,255,255,.58);line-height:1.42}
-.fr-resp{margin-top:6px;font-size:.82rem;color:rgba(255,255,255,.75)}
-.fr-resp b{color:var(--o);font-weight:700}
-.fr-badge{flex:0 0 auto;font-size:.76rem;font-weight:800;letter-spacing:.05em;padding:8px 16px;border-radius:999px;white-space:nowrap}
+.fr-t{font-family:var(--d);font-weight:700;font-size:1.2rem;line-height:1.2;margin-bottom:4px}
+.fr-d{font-size:1rem;color:rgba(255,255,255,.6);line-height:1.35}
+.fr-tags{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.fr-badge{font-size:.78rem;font-weight:800;letter-spacing:.05em;padding:8px 15px;border-radius:999px;white-space:nowrap}
 .fr-dark .fr-badge{background:rgba(255,255,255,.12);color:rgba(255,255,255,.75)}
 .fr-orange .fr-badge{background:#fff;color:#c8511f}
+.fr-resp{font-size:.76rem;font-weight:700;letter-spacing:.04em;color:var(--o);border:1px solid rgba(255,95,31,.45);padding:5px 13px;border-radius:999px;white-space:nowrap}
+.fr-dark .fr-resp{color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.2)}
 /* rules (diretrizes) */
 .rules-cards .card{align-items:flex-start;padding:22px 24px}
 .rule-badge{display:inline-block;margin-left:8px;font-size:.72rem;font-weight:700;letter-spacing:.03em;color:var(--o);border:1px solid rgba(255,95,31,.5);background:rgba(255,95,31,.08);padding:3px 12px;border-radius:999px;vertical-align:middle}
@@ -296,7 +302,8 @@ b,strong,.hl{color:var(--o)}
     inner.style.transform='none';
     var availW=(W||deck.clientWidth)*0.9, availH=(H||deck.clientHeight)*0.9;
     var w=inner.offsetWidth||1000, h=inner.offsetHeight||1;
-    var sc=Math.min(availW/w, availH/h, 1.15);
+    var cap=parseFloat(slide.getAttribute('data-cap'))||1.15;
+    var sc=Math.min(availW/w, availH/h, cap);
     inner.style.transform='scale('+sc+')';
   }
   function go(n){i=Math.max(0,Math.min(slides.length-1,n));
