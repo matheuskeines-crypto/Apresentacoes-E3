@@ -150,30 +150,6 @@ export const onboarding = {
         { label: "Dia 17 · Pro", icon: "handshake", title: "1º alinhamento comercial", desc: "Revisão do funil e ajuste fino do processo." },
       ] },
 
-    { type: "table", kicker: "Após o onboarding · 1 de 2", title: "O que acontece depois da reunião",
-      lead: "As entregas e os prazos a partir do onboarding.",
-      head: ["Etapa", "Prazo"],
-      rows: [
-        ["Reunião de onboarding", "1 dia"],
-        ["Envio de treinamento online", "Imediatamente após o onboarding"],
-        ["Envio de CRM grátis (Light, sem IA)", "Imediatamente após o onboarding"],
-        ["Solicitação de copy dos criativos estáticos", "Até 24h do onboarding"],
-        ["Envio de roteiros e orientações à gravação (vídeo)", "Até 24h do onboarding"],
-        ["Envio de exemplos de vídeos, se houver", "Até 24h do onboarding"],
-      ] },
-
-    { type: "table", kicker: "Após o onboarding · 2 de 2", title: "O que acontece depois da reunião",
-      lead: "As entregas e os prazos a partir do onboarding.",
-      head: ["Etapa", "Prazo"],
-      rows: [
-        ["Envio do roteiro de atendimento (qualificação de lead)", "Até 24h do onboarding"],
-        ["Fixar PGM na descrição do grupo", "Até 48h do onboarding"],
-        ["Envio dos criativos estáticos prontos", "3 dias úteis"],
-        ["Conexão da plataforma / coleta de acessos", "Até 1 dia após o onboarding"],
-        ["Criação do criativo e fixação no grupo", "Até 1 dia após o início das campanhas"],
-        ["Atualização do ClickUp", "A cada 3 dias, até começar a campanha"],
-      ] },
-
     { type: "bullets", kicker: "Como falamos com você", title: "Comunicação", cols: 2,
       items: [
         { icon: "message", title: "Tudo pelo grupo do WhatsApp", desc: "Nossa comunicação é toda através do nosso grupo do WhatsApp. Envie as mensagens sempre no grupo para mantermos a organização. Responderemos o mais rápido possível!" },
