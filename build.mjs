@@ -835,6 +835,9 @@ const menuHTML = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"/
 html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{background:var(--bg);color:#fff;font-family:var(--s);min-height:100vh;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
+.glow{position:fixed;border-radius:50%;filter:blur(130px);pointer-events:none;z-index:0}
+.g1{top:-10%;left:12%;width:44vw;height:44vw;background:rgba(255,95,31,.16)}
+.g2{bottom:-15%;right:8%;width:40vw;height:40vw;background:rgba(255,51,0,.10)}
 .top{position:sticky;top:0;z-index:20;background:rgba(13,10,9,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .top-in{max-width:1320px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;gap:28px}
 .brand img{height:42px;width:auto;display:block}
@@ -847,7 +850,7 @@ a{color:inherit;text-decoration:none}
 .nav{display:flex;gap:26px;font-weight:600;font-size:.93rem}
 .nav a{color:rgba(255,255,255,.85);transition:.2s}
 .nav a:hover{color:var(--o)}
-main{max-width:1320px;margin:0 auto;padding:56px 32px 80px}
+main{position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:56px 32px 80px}
 .hero h1{font-family:var(--d);font-weight:800;font-size:clamp(2.8rem,6vw,4.4rem);letter-spacing:-.035em;line-height:1}
 .hero h1 span{color:var(--o)}
 .hero p{color:rgba(255,255,255,.62);font-size:1.12rem;margin-top:14px}
@@ -890,12 +893,13 @@ main{max-width:1320px;margin:0 auto;padding:56px 32px 80px}
 .ico-course{background:rgba(190,130,255,.14);color:#c39bff}
 .empty{display:none;text-align:center;color:var(--mute);padding:48px 0;font-size:1rem}
 .hide{display:none!important}
-footer{text-align:center;color:rgba(255,255,255,.3);font-size:.82rem;padding:0 32px 40px}
+footer{position:relative;z-index:2;text-align:center;color:rgba(255,255,255,.3);font-size:.82rem;padding:0 32px 40px}
 @media(max-width:1100px){.kgrid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:900px){.pgrid{grid-template-columns:1fr}.nav{display:none}}
 @media(max-width:600px){.top-in{padding:12px 16px;gap:14px}.brand img{height:28px}.search kbd{display:none}.search input{padding-right:14px}main{padding:36px 16px 60px}.kgrid{grid-template-columns:1fr}.pcard{padding:20px}}
 </style></head>
 <body>
+<span class="glow g1"></span><span class="glow g2"></span>
 <header class="top"><div class="top-in">
   <a class="brand" href="./index.html"><img src="${LOGO_URI}" alt="E3 Digital"/></a>
   <label class="search">
