@@ -797,6 +797,7 @@ const PRODUCTS = [
       CONSULTORIA_COMERCIAL,
       { label: "Forms 360°", sub: "Formulário de diagnóstico", kind: "form", href: "https://forms.gle/2SPjwk6HiPpgXgsq9" },
       { label: "Auditoria Criativa", sub: "Diagnóstico criativo do Instagram", kind: "deck", href: "./auditoria-criativa/index.html" },
+      { label: "Auditoria de Mídia Paga", sub: "Funil, vídeos e campanhas", kind: "deck", href: "./auditoria-midia-paga-estruturacao/index.html" },
     ],
   },
 ];

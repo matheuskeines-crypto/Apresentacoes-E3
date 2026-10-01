@@ -230,3 +230,127 @@ export const offboarding = {
       contact: "E3 Digital · o hub de marketing e vendas para advogados" },
   ],
 };
+
+export const auditoriaMidia = {
+  slug: "auditoria-midia-paga-estruturacao",
+  title: "Auditoria de Mídia Paga · Estruturação",
+  slides: [
+    { type: "cover", kicker: "Auditoria de Mídia Paga · E3 Digital",
+      title: 'Anúncios que viram <span class="hl">clientes</span>',
+      subtitle: "Como falar com a pessoa certa, no momento certo, para o seu escritório crescer com previsibilidade.",
+      tag: "Estruturação" },
+
+    { type: "agenda", kicker: "Roteiro", title: "O que vamos ver hoje",
+      items: [
+        "O funil e a mensagem certa para cada etapa",
+        "A jornada do herói nos anúncios",
+        "Como gravar os vídeos",
+        "A estrutura de um anúncio campeão",
+        "Os tipos de campanha",
+        "O anúncio certo para cada campanha",
+      ] },
+
+    { type: "section", num: "01", kicker: "Funil x comunicação", title: "Cada pessoa está em um momento",
+      desc: "O anúncio precisa conversar com o momento de quem está do outro lado da tela." },
+
+    { type: "bullets", kicker: "Funil x comunicação", title: "As 3 etapas do funil", cols: 3,
+      items: [
+        { icon: "search", title: "Topo · Descoberta", desc: "A pessoa ainda não sabe que tem um direito. Aqui você explica e desperta a atenção." },
+        { icon: "users", title: "Meio · Confiança", desc: "Ela já entende o problema e está avaliando. Aqui você mostra que sabe do assunto." },
+        { icon: "message", title: "Fundo · Decisão", desc: "Ela está pronta para agir. Aqui você convida para conversar, de forma clara e direta." },
+      ],
+      note: "Falar de decisão com quem ainda está descobrindo o problema afasta. Falar só de informação com quem já quer contratar faz perder o cliente." },
+
+    { type: "table", kicker: "Funil x comunicação", title: "O que falar em cada etapa",
+      head: ["Etapa", "Objetivo", "Exemplo de mensagem"],
+      rows: [
+        ["Topo", "Despertar", "“Foi demitido e não recebeu tudo o que deveria?”"],
+        ["Meio", "Gerar confiança", "“Entenda, passo a passo, como funciona o pedido das verbas rescisórias.”"],
+        ["Fundo", "Chamar para conversar", "“Fale com nossa equipe e entenda o seu caso.”"],
+      ] },
+
+    { type: "section", num: "02", kicker: "Jornada do herói", title: "Uma história que prende a atenção",
+      desc: "O herói da história é o seu cliente. O advogado é o guia que mostra o caminho." },
+
+    { type: "timeline", kicker: "Jornada do herói", title: "Os 5 passos da história",
+      lead: "Quando o cliente se reconhece no anúncio, ele para de rolar a tela.",
+      steps: [
+        { label: "Passo 1", icon: "users", title: "O herói", desc: "Uma pessoa comum, com a rotina de sempre." },
+        { label: "Passo 2", icon: "alert", title: "O problema", desc: "Algo dá errado: demissão, benefício negado, dívida." },
+        { label: "Passo 3", icon: "handshake", title: "O guia", desc: "Você aparece, entende a situação e acolhe." },
+        { label: "Passo 4", icon: "target", title: "O plano", desc: "Mostra um caminho simples, em poucos passos." },
+        { label: "Passo 5", icon: "award", title: "A conquista", desc: "A tranquilidade de ter o direito buscado." },
+      ] },
+
+    { type: "section", num: "03", kicker: "Vídeos", title: "Como gravar os vídeos",
+      desc: "Não precisa de estúdio. Precisa de clareza, boa luz e naturalidade." },
+
+    { type: "bullets", kicker: "Vídeos", title: "O básico que faz diferença", cols: 3,
+      items: [
+        { icon: "layers", title: "Vertical e curto", desc: "Celular em pé, entre 30 e 60 segundos." },
+        { icon: "zap", title: "Comece forte", desc: "Os 3 primeiros segundos decidem se a pessoa fica." },
+        { icon: "message", title: "Fale como numa conversa", desc: "Olhando para a câmera, sem ler e sem juridiquês." },
+        { icon: "check", title: "Luz e som", desc: "Luz de frente para o rosto e microfone de lapela." },
+        { icon: "pen", title: "Legenda sempre", desc: "Muita gente assiste sem som." },
+        { icon: "target", title: "Uma mensagem por vídeo", desc: "Um assunto só. Se quiser falar de outro, grave outro vídeo." },
+      ] },
+
+    { type: "section", num: "04", kicker: "Anúncio campeão", title: "A estrutura que funciona",
+      desc: "Todo anúncio que dá resultado segue a mesma lógica, em 4 partes." },
+
+    { type: "timeline", kicker: "Anúncio campeão", title: "As 4 partes do anúncio",
+      steps: [
+        { label: "0 a 3 segundos", icon: "zap", title: "Gancho", desc: "Uma pergunta ou frase que faz a pessoa parar." },
+        { label: "3 a 15 segundos", icon: "alert", title: "Problema", desc: "Mostre que você entende o que ela está vivendo." },
+        { label: "15 a 40 segundos", icon: "check", title: "Caminho", desc: "Explique de forma simples o que pode ser feito." },
+        { label: "Final", icon: "message", title: "Chamada", desc: "Diga exatamente o próximo passo: “Toque em Saiba mais e fale com a equipe”." },
+      ] },
+
+    { type: "table", kicker: "Anúncio campeão", title: "Exemplo na prática · Trabalhista",
+      head: ["Parte", "O que dizer"],
+      rows: [
+        ["Gancho", "“Trabalhou sem carteira assinada?”"],
+        ["Problema", "“Muita gente perde direitos por não saber que esse período pode ser reconhecido.”"],
+        ["Caminho", "“Com os documentos certos, é possível buscar o registro e as verbas do período.”"],
+        ["Chamada", "“Toque em Saiba mais e converse com a nossa equipe.”"],
+      ] },
+
+    { type: "section", num: "05", kicker: "Campanhas", title: "Os tipos de campanha",
+      desc: "Cada campanha tem uma função. Juntas, elas formam o caminho até o cliente." },
+
+    { type: "bullets", kicker: "Campanhas", title: "Para que serve cada uma", cols: 3,
+      items: [
+        { icon: "megaphone", title: "Reconhecimento", desc: "Faz o escritório ser visto e lembrado na região." },
+        { icon: "users", title: "Engajamento", desc: "Cria conexão com conteúdo útil e forma público para depois." },
+        { icon: "message", title: "Mensagens", desc: "Leva a pessoa direto para o WhatsApp. É a que gera contatos." },
+        { icon: "refresh", title: "Remarketing", desc: "Volta a aparecer para quem já viu, curtiu ou clicou." },
+        { icon: "search", title: "Google Pesquisa", desc: "Aparece quando a pessoa procura por um advogado no Google." },
+      ] },
+
+    { type: "section", num: "06", kicker: "Anúncio x campanha", title: "O anúncio certo para cada campanha",
+      desc: "O mesmo vídeo não serve para tudo. Cada campanha pede um tipo de mensagem." },
+
+    { type: "table", kicker: "Anúncio x campanha", title: "O que usar em cada campanha",
+      head: ["Campanha", "Tipo de anúncio", "Exemplo"],
+      rows: [
+        ["Reconhecimento", "Vídeo apresentando o advogado e a área", "“Sou a Dra. Ana e ajudo trabalhadores a entender seus direitos.”"],
+        ["Engajamento", "Dica, explicação ou dúvida frequente", "“3 sinais de que sua demissão pode ter sido irregular.”"],
+        ["Mensagens", "Anúncio direto, com convite para conversar", "“Teve o benefício negado? Fale com a nossa equipe.”"],
+        ["Remarketing", "Bastidores e como funciona o atendimento", "“Veja como é o primeiro atendimento no escritório.”"],
+        ["Google Pesquisa", "Texto curto que responde à busca", "“Advogado Previdenciário · Atendimento online.”"],
+      ] },
+
+    { type: "rules", kicker: "Publicidade na advocacia", title: "Sempre dentro das regras da OAB",
+      items: [
+        { icon: "check", title: "Informar, nunca prometer", badge: "Sem promessa", desc: "O anúncio explica direitos e caminhos.", note: "Nunca garantir resultado ou valor a receber." },
+        { icon: "dollar", title: "Sem preço e sem “grátis”", badge: "Sem valores", desc: "Não citar honorários nem consulta gratuita.", note: "O foco é a informação, não a oferta." },
+        { icon: "shield", title: "Tom sóbrio e respeitoso", badge: "Sem exagero", desc: "Nada de sensacionalismo ou apelo exagerado.", note: "Confiança vem da clareza." },
+      ],
+      callout: { icon: "alert", title: "Provimento 205/2021 da OAB",
+        desc: "Permite anúncios pagos com conteúdo informativo. Toda a estratégia da E3 é construída respeitando essas regras." } },
+
+    { type: "final", title: "Anúncio bom é anúncio que conversa.",
+      subtitle: "Com a mensagem certa para cada etapa, cada real investido trabalha a favor do seu escritório.",
+      contact: "E3 Digital · o hub de marketing e vendas para advogados" },
+  ],
+};
