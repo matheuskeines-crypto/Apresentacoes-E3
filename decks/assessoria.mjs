@@ -98,7 +98,11 @@ export const onboarding = {
     { type: "acronym", kicker: "Nossa metodologia",
       lead: "Uma solução completa de marketing e vendas, na qual faça escritórios de advocacia faturarem mais através da nossa metodologia CPP.",
       big: "CPP",
-      pills: ["Canais de aquisição de clientes", "Produtos Jurídicos", "Processo comercial"] },
+      breakdown: [
+        { letter: "C", title: "Canais de Aquisição de Clientes", desc: "Mapeamos e gerenciamos os canais mais eficazes (Google, Meta, Instagram, WhatsApp) para gerar leads qualificados." },
+        { letter: "P", title: "Produtos Jurídicos", desc: "Analisamos o portfólio do escritório para focar nas teses e serviços com maior potencial de retorno." },
+        { letter: "P", title: "Processo Comercial", desc: "Qualificação, abordagem e gestão de funil — do primeiro contato ao fechamento do contrato." },
+      ] },
 
     { type: "bullets", kicker: "Nossa metodologia", title: "Processo Comercial Estruturado", cols: 3,
       lead: "Apoiamos o seu escritório em toda a jornada comercial, da abordagem ao fechamento, ensinando e estruturando o processo para que sua equipe venda com método, previsibilidade e segurança.",
