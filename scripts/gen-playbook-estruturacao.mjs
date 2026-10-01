@@ -1,4 +1,4 @@
-// Gera o Playbook de Funções (Estruturação PRO) em slides 16:9, prontos para impressão.
+// Gera o Playbook de Funções (Estruturação) em slides 16:9, prontos para impressão.
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -23,14 +23,14 @@ const ic = {
 const svg = (n) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ic[n]}</svg>`;
 const callout = makeCallout(svg);
 const cardHead = makeCardHead(svg);
-const tagPro = () => tag("ESTRUTURAÇÃO PRO", "tag-pro");
+const tagPro = () => tag("ESTRUTURAÇÃO", "tag-pro");
 
 const NAV = [
   null, "Visão geral", "Frentes", "Squad",
   "Account Manager", "Gestor de Tráfego", "Gestor de Projetos",
   "Consultor Comercial", "SLA",
 ];
-const { page, SECTIONS } = makePageFactory("PLAYBOOK · ESTRUTURAÇÃO PRO", NAV);
+const { page, SECTIONS } = makePageFactory("PLAYBOOK · ESTRUTURAÇÃO", NAV);
 
 const P = [];
 
@@ -38,7 +38,7 @@ const P = [];
 P.push(page(`
   <img class="logo" src="${LOGO_URI}" alt="E3"/>
   <p class="kicker cov-k">PLAYBOOK DE ENTREGA &amp; OPERAÇÃO · DOCUMENTO OPERACIONAL</p>
-  <h1>Estruturação <span>PRO</span></h1>
+  <h1>Estruturação</h1>
   <p class="cov-sub">Escopo de entrega, cronograma operacional, funções da squad e diretrizes de execução — do diagnóstico 360° à consolidação da máquina de marketing, CRM e vendas para escritórios de advocacia.</p>
   <div class="pills">
     <span class="pill">DIAGNÓSTICO 360°</span><span class="pill">CRM &amp; IA</span>
@@ -52,9 +52,9 @@ P.push(page(`
 P.push(page(`
   ${split2(`
     <p class="kicker">VISÃO GERAL</p>
-    <h2 class="h2">O que é a Estruturação PRO</h2>
-    <p class="body">Este documento oficializa o <b>escopo de entrega</b>, o cronograma operacional, as <b>responsabilidades e os indicadores de cada função</b> e as diretrizes de execução do produto <b>Estruturação PRO</b>.</p>
-    <p class="body">A Estruturação PRO parte do diagnóstico 360° e transforma o escritório em uma operação orientada a dados — com <b>CRM configurado</b>, <b>máquina de vendas</b> ativa e <b>mídia paga auditada</b>, pronto para a próxima fase de crescimento.</p>
+    <h2 class="h2">O que é a Estruturação</h2>
+    <p class="body">Este documento oficializa o <b>escopo de entrega</b>, o cronograma operacional, as <b>responsabilidades e os indicadores de cada função</b> e as diretrizes de execução do produto <b>Estruturação</b>.</p>
+    <p class="body">A Estruturação parte do diagnóstico 360° e transforma o escritório em uma operação orientada a dados — com <b>CRM configurado</b>, <b>máquina de vendas</b> ativa e <b>mídia paga auditada</b>, pronto para a próxima fase de crescimento.</p>
     ${statRow([
       { v: "6", l: "Semanas de cronograma" },
       { v: "4", l: "Frentes de entrega" },
@@ -240,7 +240,7 @@ P.push(page(`
 
 /* — SLA — */
 P.push(page(`
-  ${secHead("03", "Acordo de Nível de Serviço (SLA)", "Para o sucesso e a velocidade da Estruturação PRO, as diretrizes abaixo devem ser seguidas por E3 e cliente.")}
+  ${secHead("03", "Acordo de Nível de Serviço (SLA)", "Para o sucesso e a velocidade da Estruturação, as diretrizes abaixo devem ser seguidas por E3 e cliente.")}
   ${rules([
     { t: "SLA de Retorno de Informações", d: "Acessos técnicos e formulários em <b>até 48h</b> após o onboarding." },
     { t: "Diagnóstico 360° e Auditoria (Semana 2)", d: "Dashboard, score geral e plano de campanhas entregues ao cliente." },
@@ -255,8 +255,8 @@ P.push(page(`
 `));
 
 const html = shell({
-  title: "Playbook de Funções — Estruturação PRO · E3 Digital",
-  navTitle: "Playbook de Funções · Estruturação PRO",
+  title: "Playbook de Funções — Estruturação · E3 Digital",
+  navTitle: "Playbook de Funções · Estruturação",
   logoUri: LOGO_URI,
   pages: P,
 });

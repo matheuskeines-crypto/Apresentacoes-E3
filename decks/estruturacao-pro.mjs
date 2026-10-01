@@ -1,4 +1,4 @@
-// Estruturação PRO / Assessoria PRO (6 semanas) — proposta + onboarding
+// Estruturação (6 semanas) — proposta + onboarding
 const quemSomos = { type: "stats", kicker: "Quem somos", title: "Especialistas em crescimento jurídico",
   items: [
     { v: "+1.000", l: "escritórios atendidos" },
@@ -20,14 +20,14 @@ const jornada = {
 
 export const proposta = {
   slug: "proposta-estruturacao-pro", layout: "vertical",
-  title: "Proposta · Estruturação PRO",
+  title: "Proposta · Estruturação",
   slides: [
     { type: "cover", kicker: "Proposta Comercial · E3 Digital",
-      title: 'Estruturação <span class="hl">PRO</span>',
+      title: 'Estruturação',
       subtitle: "Mídia, tecnologia e comercial estruturados em 6 semanas — as três engrenagens do crescimento previsível.",
-      tag: "Assessoria PRO · 6 semanas" },
+      tag: "Estruturação · 6 semanas" },
     quemSomos,
-    { type: "bullets", kicker: "O produto", title: "As 3 frentes da Estruturação PRO", cols: 3,
+    { type: "bullets", kicker: "O produto", title: "As 3 frentes da Estruturação", cols: 3,
       lead: "Uma assessoria completa que organiza tudo que gera crescimento sustentável.",
       items: [
         { icon: "megaphone", title: "Mídia", desc: "Auditoria e gestão de mídia paga focada em ROI." },
@@ -45,7 +45,7 @@ export const proposta = {
         { icon: "trending", title: "Operação comercial", desc: "Processo rodando com conversão em alta." },
       ] },
     { type: "quote", text: "Estruturamos as <span class=\"hl\">três engrenagens</span> — mídia, tecnologia e comercial — para um crescimento previsível.",
-      author: "Método E3 · Estruturação PRO" },
+      author: "Método E3 · Estruturação" },
     { type: "final", title: "Vamos estruturar.",
       subtitle: "Do diagnóstico à consolidação, sua operação sai do improviso e entra no padrão.",
       contact: "E3 Digital · o hub de marketing e vendas para advogados" },
@@ -198,12 +198,12 @@ export const onboarding = {
 };
 export const offboarding = {
   slug: "offboarding-estruturacao-pro",
-  title: "Entrega Final · Estruturação PRO",
+  title: "Entrega Final · Estruturação",
   slides: [
     { type: "cover", kicker: "Entrega Final · E3 Digital",
       title: 'O que <span class="hl">construímos</span> juntos',
-      subtitle: "Uma retrospectiva de tudo que entregamos na Estruturação PRO.",
-      tag: "Estruturação PRO · 6 semanas" },
+      subtitle: "Uma retrospectiva de tudo que entregamos na Estruturação.",
+      tag: "Estruturação · 6 semanas" },
     { type: "agenda", kicker: "Roteiro", title: "O que vamos revisar",
       items: ["O que entregamos nas 3 frentes", "A jornada percorrida", "O que mudou na operação", "Próximos passos"] },
     { type: "bullets", kicker: "Entregas", title: "O que ficou pronto", cols: 2,

@@ -1,4 +1,4 @@
-// Gera o Manual de Entrega (Estruturação PRO) em slides 16:9, prontos para impressão.
+// Gera o Manual de Entrega (Estruturação) em slides 16:9, prontos para impressão.
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -17,7 +17,7 @@ const svg = (n) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" s
 const callout = makeCallout(svg);
 
 const NAV = [null, "Visão geral", "Cronograma S1–S3", "Cronograma S5–S6", "KPIs", "Reuniões Estratégicas", "Responsáveis"];
-const { page, SECTIONS } = makePageFactory("MANUAL DE ENTREGA · ESTRUTURAÇÃO PRO", NAV);
+const { page, SECTIONS } = makePageFactory("MANUAL DE ENTREGA · ESTRUTURAÇÃO", NAV);
 
 const P = [];
 
@@ -25,7 +25,7 @@ const P = [];
 P.push(page(`
   <img class="logo" src="${LOGO_URI}" alt="E3"/>
   <p class="kicker cov-k">PLAYBOOK DE ENTREGA &amp; ALINHAMENTO · DOCUMENTO OPERACIONAL</p>
-  <h1>Estruturação <span>PRO</span></h1>
+  <h1>Estruturação</h1>
   <p class="cov-sub">Escopo metodológico, cronograma de reuniões, ritos de acompanhamento e entregáveis operacionais — do diagnóstico à consolidação de mídia, CRM e comercial.</p>
   <div class="pills">
     <span class="pill">DIAGNÓSTICO 360°</span><span class="pill">CRM &amp; IA</span>
@@ -39,8 +39,8 @@ P.push(page(`
 P.push(page(`
   ${split2(`
     <p class="kicker">VISÃO GERAL</p>
-    <h2 class="h2">Entrega e Alinhamento — Estruturação PRO</h2>
-    <p class="body">Este documento estabelece o <b>escopo metodológico</b>, o cronograma de reuniões, os ritos de acompanhamento e os entregáveis operacionais do produto Estruturação PRO — alinhamento de expectativas e execução das melhorias de <b>marketing</b>, <b>processos comerciais</b> e <b>tecnologia</b>.</p>
+    <h2 class="h2">Entrega e Alinhamento — Estruturação</h2>
+    <p class="body">Este documento estabelece o <b>escopo metodológico</b>, o cronograma de reuniões, os ritos de acompanhamento e os entregáveis operacionais do produto Estruturação — alinhamento de expectativas e execução das melhorias de <b>marketing</b>, <b>processos comerciais</b> e <b>tecnologia</b>.</p>
     ${statRow([
       { v: "6", l: "Semanas de cronograma" },
       { v: "3", l: "Ritos estratégicos" },
@@ -121,13 +121,13 @@ P.push(page(`
   <div class="commit commit-solo">
     <span class="commit-pill">COMPROMISSO E3</span>
     <h3 class="commit-t">Do diagnóstico à consolidação, um ROI mensurável.</h3>
-    <p class="commit-d">Relatório Final Consolidado, ROI comprovado e o cronograma de continuidade fecham o ciclo — a Estruturação PRO entrega a máquina pronta para a próxima fase de crescimento.</p>
+    <p class="commit-d">Relatório Final Consolidado, ROI comprovado e o cronograma de continuidade fecham o ciclo — a Estruturação entrega a máquina pronta para a próxima fase de crescimento.</p>
   </div>
 `));
 
 const html = shell({
-  title: "Manual de Entrega — Estruturação PRO · E3 Digital",
-  navTitle: "Manual de Entrega · Estruturação PRO",
+  title: "Manual de Entrega — Estruturação · E3 Digital",
+  navTitle: "Manual de Entrega · Estruturação",
   logoUri: LOGO_URI,
   pages: P,
 });
