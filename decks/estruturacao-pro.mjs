@@ -113,17 +113,6 @@ export const onboarding = {
         { letter: "P", title: "Processo Comercial", desc: "Geração, qualificação, abordagem e gestão de funil através de um treinamento da equipe, ou seja, do primeiro contato ao fechamento do contrato." },
       ] },
 
-    { type: "bullets", kicker: "Nossa metodologia", title: "Processo Comercial Estruturado", cols: 3,
-      lead: "Apoiamos o seu escritório em toda a jornada comercial, da abordagem ao fechamento, ensinando e estruturando o processo para que sua equipe venda com método, previsibilidade e segurança.",
-      items: [
-        { icon: "search", title: "Qualificação de leads", desc: "Identificação e filtragem dos melhores prospects." },
-        { icon: "message", title: "Abordagem e comunicação comercial", desc: "Estratégias de contato e persuasão eficazes." },
-        { icon: "chart", title: "Gestão de funil e acompanhamento", desc: "Monitoramento constante do pipeline de vendas." },
-        { icon: "users", title: "Treinamento da equipe", desc: "Capacitação contínua do time comercial." },
-        { icon: "calendar", title: "Reuniões quinzenais estratégicas", desc: "Conversão e alinhamento (plano Pro)." },
-      ],
-      note: "Nosso objetivo: conectar o marketing ao comercial, garantindo que o investimento em tráfego se converta em resultados reais e sustentáveis." },
-
     { type: "funnel", cap: 1.7, kicker: "Entendendo o fluxo de conversão das suas campanhas", title: "Alinhamento de Funil",
       lead: "A primeira etapa nós medimos sozinhos; as três seguintes só existem dentro do seu escritório — e por isso dependem de você nos informar.",
       steps: [
