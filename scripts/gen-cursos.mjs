@@ -11,7 +11,7 @@ const distRoot = fileURLToPath(new URL("../dist", import.meta.url));
 
 /* ─────────────────────────────── cursos internos (deck) ─────────────────────────────── */
 const INTERNOS = [
-  { label: "Comercial Interno", sub: "deck · slides do treinamento", href: "../treinamento-comercial/index.html" },
+  { label: "Comercial Interno", sub: "Em breve", href: null },
 ];
 
 /* ─────────────────────────────── plataformas externas (link + login) ───────────────────────────────
@@ -48,7 +48,10 @@ const copyBtn = (value) => `<button class="copybtn" type="button" data-copy="${v
           <svg class="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
         </button>`;
 
-const internosHTML = INTERNOS.map((l) => `<a href="${l.href}"><span class="mt">${l.label}</span><span class="ms">${l.sub}</span></a>`).join("\n      ");
+const internosHTML = INTERNOS.map((l) => l.href
+  ? `<a href="${l.href}"><span class="mt">${l.label}</span><span class="ms">${l.sub}</span></a>`
+  : `<div class="k-grid-item disabled"><span class="mt">${l.label}</span><span class="ms">${l.sub}</span></div>`
+).join("\n      ");
 
 const plataformasHTML = PLATAFORMAS.map((p) => `<details class="course">
         <summary>
@@ -87,8 +90,10 @@ h1 span{color:var(--o)}
 .k-sub{color:rgba(255,255,255,.45);font-size:.88rem;margin-top:4px;margin-bottom:16px}
 .k-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 @media(max-width:720px){.k-grid{grid-template-columns:1fr}}
-.k-grid a{display:flex;flex-direction:column;padding:15px 17px;border:1px solid rgba(255,255,255,.08);border-radius:14px;background:rgba(255,255,255,.02);text-decoration:none;color:#fff;transition:.25s}
+.k-grid a,.k-grid-item{display:flex;flex-direction:column;padding:15px 17px;border:1px solid rgba(255,255,255,.08);border-radius:14px;background:rgba(255,255,255,.02);text-decoration:none;color:#fff;transition:.25s}
 .k-grid a:hover{border-color:var(--o);background:rgba(255,95,31,.08);transform:translateX(3px)}
+.k-grid-item.disabled{cursor:default;opacity:.55}
+.k-grid-item.disabled .mt{color:rgba(255,255,255,.75)}
 .mt{font-weight:700;font-size:1rem}
 .ms{font-size:.76rem;color:rgba(255,255,255,.42);margin-top:3px}
 .courses{display:flex;flex-direction:column;gap:12px}
