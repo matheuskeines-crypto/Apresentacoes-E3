@@ -14,6 +14,12 @@ const INTERNOS = [
   { label: "Comercial Interno", sub: "Em breve", href: null },
 ];
 
+/* ─────────────────────────────── apresentações (vídeo) ───────────────────────────────
+   Adicionar uma nova apresentação: inclua um item no array abaixo.  */
+const APRESENTACOES = [
+  { label: "Apresentação do Minutta CRM", sub: "Playlist · YouTube", href: "https://www.youtube.com/playlist?list=PLCPZCnpqB0nA" },
+];
+
 /* ─────────────────────────────── plataformas externas (link + login) ───────────────────────────────
    Adicionar uma nova plataforma: inclua um item no array abaixo.  */
 const PLATAFORMAS = [
@@ -52,6 +58,8 @@ const internosHTML = INTERNOS.map((l) => l.href
   ? `<a href="${l.href}"><span class="mt">${l.label}</span><span class="ms">${l.sub}</span></a>`
   : `<div class="k-grid-item disabled"><span class="mt">${l.label}</span><span class="ms">${l.sub}</span></div>`
 ).join("\n      ");
+
+const apresentacoesHTML = APRESENTACOES.map((l) => `<a href="${l.href}" target="_blank" rel="noopener"><span class="mt">${l.label}</span><span class="ms">${l.sub}</span></a>`).join("\n      ");
 
 const plataformasHTML = PLATAFORMAS.map((p) => `<details class="course">
         <summary>
@@ -141,6 +149,16 @@ h1 span{color:var(--o)}
 
   <div class="k-wrap">
     <div class="k-head">
+      <h2>Apresentações</h2>
+      <p class="k-sub">Vídeos de apresentação das ferramentas usadas pelo time.</p>
+    </div>
+    <div class="k-grid">
+      ${apresentacoesHTML}
+    </div>
+  </div>
+
+  <div class="k-wrap">
+    <div class="k-head">
       <h2>Plataformas de curso</h2>
       <p class="k-sub">Clique para ver o link de acesso, login e senha de cada plataforma.</p>
     </div>
@@ -181,4 +199,4 @@ function fallbackCopy(text, cb){
 const outPath = join(distRoot, "cursos", "index.html");
 mkdirSync(dirname(outPath), { recursive: true });
 writeFileSync(outPath, html, "utf8");
-console.log("cursos (hub):", outPath, "·", INTERNOS.length, "internos ·", PLATAFORMAS.length, "plataformas");
+console.log("cursos (hub):", outPath, "·", INTERNOS.length, "internos ·", APRESENTACOES.length, "apresentações ·", PLATAFORMAS.length, "plataformas");
