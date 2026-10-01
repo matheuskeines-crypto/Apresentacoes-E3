@@ -1,6 +1,6 @@
 // E3 Digital — gerador de sites de apresentação (slides) autossuficientes.
 // Cada deck vira dist/<slug>/index.html com a estética E3 embutida.
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { execFileSync } from "node:child_process";
@@ -281,7 +281,7 @@ function page(deck) {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23000'/%3E%3Ctext x='50' y='68' font-size='54' font-family='Arial' font-weight='800' fill='%23FF5F1F' text-anchor='middle'%3EE3%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>${CSS}</style>
 </head>
 <body>
@@ -669,7 +669,7 @@ function pageV(deck) {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23000'/%3E%3Ctext x='50' y='68' font-size='54' font-family='Arial' font-weight='800' fill='%23FF5F1F' text-anchor='middle'%3EE3%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>${CSS}${CSS_V}</style>
 </head>
 <body class="vbody">
@@ -741,128 +741,231 @@ for (const gen of ["gen-playbook.mjs", "gen-playbook-entrega.mjs", "gen-manual-e
   execFileSync(process.execPath, [join(__dirname, "scripts", gen)], { stdio: "inherit" });
 }
 
-/* ─── página-menu (índice) ─── */
-const CONSULTORIA_COMERCIAL = { label: "Consultoria Comercial", sub: "playbook comercial · site", href: "https://consultoria-comercial-e3.vercel.app" };
+/* ─── página-menu (índice): Hub E3 ─── */
+copyFileSync(join(__dirname, "assets", "favicon.png"), join(distRoot, "favicon.png"));
+copyFileSync(join(__dirname, "assets", "apple-touch-icon.png"), join(distRoot, "apple-touch-icon.png"));
+
+const HUB_ICONS = {
+  deck: '<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>',
+  doc: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/>',
+  site: '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
+  form: '<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/>',
+  video: '<rect x="2" y="4" width="20" height="16" rx="3"/><polygon points="10 9 15 12 10 15 10 9"/>',
+  course: '<path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/>',
+  folder: '<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>',
+  link: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
+};
+const hubIcon = (k) => `<span class="ico ico-${k}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${HUB_ICONS[k]}</svg></span>`;
+const ARROW = '<svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>';
+
+const CONSULTORIA_COMERCIAL = { label: "Consultoria Comercial", sub: "Playbook comercial", kind: "site", href: "https://consultoria-comercial-e3.vercel.app" };
 
 const PRODUCTS = [
   {
-    name: "Assessoria Light & Pro",
+    id: "assessoria", name: "Assessoria Light & Pro", desc: "Gestão de tráfego, CRM e presença digital",
     links: [
-      { label: "Onboarding", sub: "deck · kickoff", href: "./onboarding-assessoria-light-pro/index.html" },
-      { label: "Manual de Entrega", sub: "documento · escopo & alinhamento", href: "./playbook-entrega-alinhamento/index.html" },
-      { label: "Playbook de Funções", sub: "documento · escopo, rotinas & kpis", href: "./playbook-assessoria-light-pro/index.html" },
+      { label: "Onboarding", sub: "Kickoff com o cliente", kind: "deck", href: "./onboarding-assessoria-light-pro/index.html" },
+      { label: "Manual de Entrega", sub: "Escopo e alinhamento", kind: "doc", href: "./playbook-entrega-alinhamento/index.html" },
+      { label: "Playbook de Funções", sub: "Escopo, rotinas e KPIs", kind: "doc", href: "./playbook-assessoria-light-pro/index.html" },
       CONSULTORIA_COMERCIAL,
     ],
   },
   {
-    name: "Aceleração Comercial",
+    id: "aceleracao", name: "Aceleração Comercial", desc: "Estruturação do comercial do escritório",
     links: [
-      { label: "Onboarding", sub: "deck · kickoff", href: "./onboarding-aceleracao-comercial/index.html" },
+      { label: "Onboarding", sub: "Kickoff com o cliente", kind: "deck", href: "./onboarding-aceleracao-comercial/index.html" },
       CONSULTORIA_COMERCIAL,
     ],
   },
   {
-    name: "Evolução",
+    id: "evolucao", name: "Evolução", desc: "Posicionamento, conteúdo e presença digital",
     links: [
-      { label: "Onboarding", sub: "deck · kickoff", href: "./onboarding-evolucao-juridica/index.html" },
-      { label: "Manual de Entrega", sub: "documento · entregas & alinhamento", href: "./manual-entrega-evolucao-juridica/index.html" },
-      { label: "Playbook de Funções", sub: "documento · escopo, rotinas & kpis", href: "./playbook-evolucao-juridica/index.html" },
+      { label: "Onboarding", sub: "Kickoff com o cliente", kind: "deck", href: "./onboarding-evolucao-juridica/index.html" },
+      { label: "Manual de Entrega", sub: "Entregas e alinhamento", kind: "doc", href: "./manual-entrega-evolucao-juridica/index.html" },
+      { label: "Playbook de Funções", sub: "Escopo, rotinas e KPIs", kind: "doc", href: "./playbook-evolucao-juridica/index.html" },
       CONSULTORIA_COMERCIAL,
-      { label: "Forms 360°", sub: "formulário diagnóstico · a definir", href: "https://forms.gle/iZQ3dn1iJUEWcgeH7" },
-      { label: "Auditoria Criativa", sub: "deck · 39 slides", href: "./auditoria-criativa/index.html" },
+      { label: "Forms 360°", sub: "Formulário de diagnóstico", kind: "form", href: "https://forms.gle/iZQ3dn1iJUEWcgeH7" },
+      { label: "Auditoria Criativa", sub: "Diagnóstico criativo do Instagram", kind: "deck", href: "./auditoria-criativa/index.html" },
     ],
   },
   {
-    name: "Estruturação",
+    id: "estruturacao", name: "Estruturação", desc: "Diagnóstico, CRM, mídia e comercial em 6 semanas",
     links: [
-      { label: "Onboarding", sub: "deck · kickoff", href: "./onboarding-estruturacao-pro/index.html" },
-      { label: "Manual de Entrega", sub: "documento · entregas & alinhamento", href: "./manual-entrega-estruturacao-pro/index.html" },
-      { label: "Playbook de Funções", sub: "documento · escopo, rotinas &amp; kpis", href: "./playbook-estruturacao-pro/index.html" },
+      { label: "Onboarding", sub: "Kickoff com o cliente", kind: "deck", href: "./onboarding-estruturacao-pro/index.html" },
+      { label: "Manual de Entrega", sub: "Entregas e alinhamento", kind: "doc", href: "./manual-entrega-estruturacao-pro/index.html" },
+      { label: "Playbook de Funções", sub: "Escopo, rotinas e KPIs", kind: "doc", href: "./playbook-estruturacao-pro/index.html" },
       CONSULTORIA_COMERCIAL,
-      { label: "Forms 360°", sub: "formulário diagnóstico · a definir", href: "https://forms.gle/2SPjwk6HiPpgXgsq9" },
-      { label: "Auditoria Criativa", sub: "deck · 39 slides", href: "./auditoria-criativa/index.html" },
+      { label: "Forms 360°", sub: "Formulário de diagnóstico", kind: "form", href: "https://forms.gle/2SPjwk6HiPpgXgsq9" },
+      { label: "Auditoria Criativa", sub: "Diagnóstico criativo do Instagram", kind: "deck", href: "./auditoria-criativa/index.html" },
     ],
   },
 ];
 
 const KNOWLEDGE = [
-  { label: "Cursos", sub: "hub · comercial interno & plataformas", href: "./cursos/index.html" },
-  { label: "Apresentação da Empresa", sub: "playlist · YouTube", href: "https://youtube.com/playlist?list=PLDqQzbm7q4NQ&si=Mf2_kLJ63HbhvBpB" },
-  { label: "Materiais PDF", sub: "hub · teses & materiais de apoio", href: "./materiais-pdf/index.html" },
-  { label: "Links Úteis", sub: "hub · formulários & links", href: "./links-uteis/index.html" },
+  { label: "Cursos", sub: "Comercial interno e plataformas", kind: "course", href: "./cursos/index.html" },
+  { label: "Apresentação da Empresa", sub: "Playlist · YouTube", kind: "video", href: "https://youtube.com/playlist?list=PLDqQzbm7q4NQ&si=Mf2_kLJ63HbhvBpB" },
+  { label: "Materiais PDF", sub: "Teses e materiais de apoio", kind: "folder", href: "./materiais-pdf/index.html" },
+  { label: "Links Úteis", sub: "Formulários e links", kind: "link", href: "./links-uteis/index.html" },
 ];
 
-const extLink = (e) => {
-  const isHttp = e.href.startsWith("http");
-  const isHash = e.href === "#";
-  const target = isHttp ? ' target="_blank" rel="noopener"' : "";
-  const click = isHash ? ' onclick="event.preventDefault();"' : "";
-  return `<a href="${e.href}"${target}${click}><span class="mt">${e.label}</span><span class="ms">${e.sub}</span></a>`;
-};
+const linkAttrs = (href) => (href.startsWith("http") ? ' target="_blank" rel="noopener"' : "");
+const searchKey = (...parts) => esc(parts.join(" ").toLowerCase());
 
-const menuCard = (p) => `<div class="mcard">
-  <h3>${p.name}</h3>
-  <div class="mlinks">
-    ${p.links.map(extLink).join("\n    ")}
-  </div>
-</div>`;
+const knowCard = (k) => `<a class="kcard" href="${k.href}"${linkAttrs(k.href)} data-q="${searchKey(k.label, k.sub, "conhecimento")}">
+        ${hubIcon(k.kind)}<span class="kt">${esc(k.label)}</span><span class="ks">${esc(k.sub)}</span>${ARROW}</a>`;
+
+const prodItem = (p, l) => `<a class="item" href="${l.href}"${linkAttrs(l.href)} data-q="${searchKey(l.label, l.sub, p.name)}">
+          ${hubIcon(l.kind)}<span class="it-txt"><span class="it">${esc(l.label)}</span><span class="is">${esc(l.sub)}</span></span>${ARROW}</a>`;
+
+const prodCard = (p) => `<section class="pcard" data-p="${p.id}">
+      <header class="phead"><div><h3>${esc(p.name)}</h3><p>${esc(p.desc)}</p></div><span class="count">${p.links.length} materiais</span></header>
+      <div class="items">
+        ${p.links.map((l) => prodItem(p, l)).join("\n        ")}
+      </div>
+    </section>`;
 
 const menuHTML = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Apresentações E3 — Índice</title>
+<title>Hub E3 — E3 Digital</title>
+<link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--o:#FF5F1F;--o2:#FF3300}
+:root{--o:#FF5F1F;--o2:#FF3300;--bg:#0d0a09;--card:#161211;--card2:#1c1715;--line:rgba(255,255,255,.07);--line2:rgba(255,255,255,.12);--mute:rgba(255,255,255,.5);--d:'Bricolage Grotesque',sans-serif;--s:'DM Sans',sans-serif}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#050505;color:#fff;font-family:'DM Sans',sans-serif;min-height:100vh;padding:48px 24px}
-.glow{position:fixed;border-radius:50%;filter:blur(130px);pointer-events:none}
-.g1{top:-10%;left:12%;width:44vw;height:44vw;background:rgba(255,95,31,.16)}
-.g2{bottom:-15%;right:8%;width:40vw;height:40vw;background:rgba(255,51,0,.10)}
-.wrap{position:relative;z-index:2;max-width:1180px;margin:0 auto}
-header{text-align:center;margin-bottom:44px}
-header img{height:64px;margin-bottom:20px;filter:drop-shadow(0 0 22px rgba(255,95,31,.5))}
-h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3.2rem);letter-spacing:-.03em}
-h1 span{color:var(--o)}
-.sub{color:rgba(255,255,255,.5);margin-top:10px;font-size:1.05rem}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-@media(max-width:720px){.grid{grid-template-columns:1fr}}
-.mcard{border:1px solid rgba(255,255,255,.08);border-radius:20px;background:rgba(255,255,255,.02);padding:24px}
-.mcard h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.35rem;margin-bottom:16px}
-.mlinks{display:flex;flex-direction:column;gap:10px}
-.mlinks a{display:flex;flex-direction:column;padding:13px 16px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:rgba(255,255,255,.02);text-decoration:none;color:#fff;transition:.25s}
-.mlinks a:hover{border-color:var(--o);background:rgba(255,95,31,.08);transform:translateX(3px)}
-.mt{font-weight:700;font-size:.98rem}
-.ms{font-size:.74rem;color:rgba(255,255,255,.42);letter-spacing:.02em}
-.k-wrap{margin-bottom:36px;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:32px}
-.k-head{margin-bottom:18px}
-.k-head h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.55rem;letter-spacing:-.02em;color:#fff}
-.k-sub{color:rgba(255,255,255,.45);font-size:.9rem;margin-top:4px}
-.k-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-@media(max-width:720px){.k-grid{grid-template-columns:1fr}}
-.k-grid a{display:flex;flex-direction:column;padding:14px 18px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:rgba(255,255,255,.02);text-decoration:none;color:#fff;transition:.25s}
-.k-grid a:hover{border-color:var(--o);background:rgba(255,95,31,.08);transform:translateX(3px)}
-footer{text-align:center;color:rgba(255,255,255,.3);margin-top:40px;font-size:.82rem}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--bg);color:#fff;font-family:var(--s);min-height:100vh;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.top{position:sticky;top:0;z-index:20;background:rgba(13,10,9,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top-in{max-width:1320px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;gap:28px}
+.brand img{height:42px;width:auto;display:block}
+.search{flex:1;max-width:600px;margin:0 auto;position:relative}
+.search svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:17px;height:17px;color:var(--mute);pointer-events:none}
+.search input{width:100%;height:46px;border-radius:12px;border:1px solid var(--line2);background:var(--card);color:#fff;font-family:var(--s);font-size:.95rem;padding:0 64px 0 44px;outline:none;transition:.2s}
+.search input::placeholder{color:rgba(255,255,255,.38)}
+.search input:focus{border-color:rgba(255,95,31,.55);box-shadow:0 0 0 4px rgba(255,95,31,.1)}
+.search kbd{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-family:var(--s);font-size:.72rem;color:var(--mute);border:1px solid var(--line2);border-radius:6px;padding:3px 7px;background:rgba(255,255,255,.03)}
+.nav{display:flex;gap:26px;font-weight:600;font-size:.93rem}
+.nav a{color:rgba(255,255,255,.85);transition:.2s}
+.nav a:hover{color:var(--o)}
+main{max-width:1320px;margin:0 auto;padding:56px 32px 80px}
+.hero h1{font-family:var(--d);font-weight:800;font-size:clamp(2.8rem,6vw,4.4rem);letter-spacing:-.035em;line-height:1}
+.hero h1 span{color:var(--o)}
+.hero p{color:rgba(255,255,255,.62);font-size:1.12rem;margin-top:14px}
+.sec{margin-top:56px}
+.sec-h{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 16px;margin-bottom:20px}
+.sec-h h2{font-family:var(--d);font-weight:800;font-size:1.6rem;letter-spacing:-.02em}
+.sec-h p{color:var(--mute);font-size:.95rem}
+.kgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.kcard{position:relative;display:flex;flex-direction:column;padding:20px 22px 22px;border:1px solid var(--line);border-radius:16px;background:var(--card);transition:.25s}
+.kcard .ico{margin-bottom:16px}
+.kt{font-weight:700;font-size:1.05rem}
+.ks{color:var(--mute);font-size:.86rem;margin-top:4px}
+.arr{position:absolute;top:18px;right:18px;width:17px;height:17px;color:rgba(255,255,255,.3);transition:.25s}
+.kcard:hover,.item:hover{border-color:rgba(255,95,31,.45);background:var(--card2)}
+.kcard:hover .arr,.item:hover .arr{color:var(--o);transform:translate(2px,-2px)}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+.pill{font-family:var(--s);font-weight:600;font-size:.92rem;color:#fff;background:transparent;border:1px solid var(--line2);border-radius:999px;padding:11px 20px;cursor:pointer;transition:.2s}
+.pill:hover{border-color:rgba(255,95,31,.5)}
+.pill.on{background:linear-gradient(135deg,var(--o),var(--o2));border-color:transparent;box-shadow:0 8px 24px rgba(255,95,31,.25)}
+.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;align-items:start}
+.pcard{border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.015);padding:28px}
+.phead{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:22px}
+.phead h3{font-family:var(--d);font-weight:800;font-size:1.55rem;letter-spacing:-.02em}
+.phead p{color:var(--mute);font-size:.93rem;margin-top:5px}
+.count{flex:0 0 auto;font-weight:700;font-size:.8rem;color:rgba(255,255,255,.85);background:rgba(255,255,255,.06);border-radius:999px;padding:7px 13px}
+.items{display:flex;flex-direction:column;gap:11px}
+.item{position:relative;display:flex;align-items:center;gap:16px;padding:15px 52px 15px 16px;border:1px solid var(--line);border-radius:14px;background:var(--card);transition:.25s}
+.item .arr{top:50%;margin-top:-8.5px}
+.item:hover .arr{transform:translate(2px,-2px)}
+.it-txt{display:flex;flex-direction:column;min-width:0}
+.it{font-weight:700;font-size:1.02rem}
+.is{color:var(--mute);font-size:.84rem;margin-top:2px}
+.ico{flex:0 0 auto;width:44px;height:44px;border-radius:12px;display:grid;place-items:center}
+.ico svg{width:20px;height:20px}
+.ico-deck,.ico-folder{background:rgba(255,95,31,.14);color:#ff7a45}
+.ico-doc{background:rgba(214,170,120,.14);color:#e2b98a}
+.ico-site,.ico-link{background:rgba(110,150,255,.14);color:#8aa8ff}
+.ico-form{background:rgba(80,200,140,.14);color:#6fd6a3}
+.ico-video{background:rgba(240,90,120,.14);color:#f2849a}
+.ico-course{background:rgba(190,130,255,.14);color:#c39bff}
+.empty{display:none;text-align:center;color:var(--mute);padding:48px 0;font-size:1rem}
+.hide{display:none!important}
+footer{text-align:center;color:rgba(255,255,255,.3);font-size:.82rem;padding:0 32px 40px}
+@media(max-width:1100px){.kgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.pgrid{grid-template-columns:1fr}.nav{display:none}}
+@media(max-width:600px){.top-in{padding:12px 16px;gap:14px}.brand img{height:28px}.search kbd{display:none}.search input{padding-right:14px}main{padding:36px 16px 60px}.kgrid{grid-template-columns:1fr}.pcard{padding:20px}}
 </style></head>
 <body>
-<span class="glow g1"></span><span class="glow g2"></span>
-<div class="wrap">
-  <header>
-    <img src="${LOGO_URI}" alt="E3"/>
-    <h1>Apresentações <span>E3</span></h1>
-    <p class="sub">Proposta · Onboarding · Materiais — por produto</p>
-  </header>
-  <div class="k-wrap">
-    <div class="k-head">
-      <h2>Conhecimento</h2>
-      <p class="k-sub">Capacitação interna e teses estratégicas</p>
+<header class="top"><div class="top-in">
+  <a class="brand" href="./index.html"><img src="${LOGO_URI}" alt="E3 Digital"/></a>
+  <label class="search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input id="q" type="search" placeholder="Buscar deck, playbook, curso..." autocomplete="off" aria-label="Buscar"/>
+    <kbd id="kbd">⌘K</kbd>
+  </label>
+  <nav class="nav"><a href="#conhecimento">Conhecimento</a><a href="#produtos">Produtos</a></nav>
+</div></header>
+<main>
+  <section class="hero">
+    <h1>Hub <span>E3</span></h1>
+    <p>Tudo o que o time usa com o cliente — da proposta à consultoria — em um só lugar.</p>
+  </section>
+
+  <section class="sec" id="conhecimento">
+    <div class="sec-h"><h2>Conhecimento</h2><p>Capacitação interna e teses estratégicas · uso interno</p></div>
+    <div class="kgrid">
+      ${KNOWLEDGE.map(knowCard).join("\n      ")}
     </div>
-    <div class="k-grid">
-      ${KNOWLEDGE.map(extLink).join("\n      ")}
+  </section>
+
+  <section class="sec" id="produtos">
+    <div class="sec-h"><h2>Produtos</h2><p>Materiais de cada produto, do onboarding à entrega</p></div>
+    <div class="pills" role="tablist">
+      <button class="pill on" data-f="all">Todos</button>
+      ${PRODUCTS.map((p) => `<button class="pill" data-f="${p.id}">${esc(p.name)}</button>`).join("\n      ")}
     </div>
-  </div>
-  <div class="grid">${PRODUCTS.map(menuCard).join("")}</div>
-  <footer>E3 Digital · o hub de marketing e vendas para advogados</footer>
-</div>
+    <div class="pgrid">
+    ${PRODUCTS.map(prodCard).join("\n    ")}
+    </div>
+  </section>
+  <p class="empty" id="empty">Nenhum material encontrado para essa busca.</p>
+</main>
+<footer>E3 Digital · o hub de marketing e vendas para advogados</footer>
+<script>
+(function(){
+  var q = document.getElementById('q'), empty = document.getElementById('empty');
+  var pills = [].slice.call(document.querySelectorAll('.pill'));
+  var cards = [].slice.call(document.querySelectorAll('.pcard'));
+  var kcards = [].slice.call(document.querySelectorAll('.kcard'));
+  var know = document.getElementById('conhecimento');
+  var filter = 'all';
+  if (!/Mac|iPhone|iPad/.test(navigator.platform)) document.getElementById('kbd').textContent = 'Ctrl K';
+  function norm(t){ return t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function apply(){
+    var term = norm(q.value.trim()), shown = 0;
+    kcards.forEach(function(k){ var ok = !term || norm(k.dataset.q).indexOf(term) > -1; k.classList.toggle('hide', !ok); if (ok) shown++; });
+    know.classList.toggle('hide', !!term && !kcards.some(function(k){ return !k.classList.contains('hide'); }));
+    cards.forEach(function(c){
+      var inFilter = filter === 'all' || c.dataset.p === filter, any = false;
+      c.querySelectorAll('.item').forEach(function(it){
+        var ok = inFilter && (!term || norm(it.dataset.q).indexOf(term) > -1);
+        it.classList.toggle('hide', !ok); if (ok) { any = true; shown++; }
+      });
+      c.classList.toggle('hide', !any);
+    });
+    empty.style.display = shown ? 'none' : 'block';
+  }
+  pills.forEach(function(p){ p.addEventListener('click', function(){
+    filter = p.dataset.f; pills.forEach(function(x){ x.classList.toggle('on', x === p); }); apply();
+  }); });
+  q.addEventListener('input', apply);
+  document.addEventListener('keydown', function(e){
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); q.focus(); q.select(); }
+    else if (e.key === '/' && document.activeElement !== q) { e.preventDefault(); q.focus(); }
+    else if (e.key === 'Escape' && document.activeElement === q) { q.value = ''; apply(); q.blur(); }
+  });
+})();
+</script>
 </body></html>`;
 writeFileSync(join(distRoot, "index.html"), menuHTML, "utf8");
 
