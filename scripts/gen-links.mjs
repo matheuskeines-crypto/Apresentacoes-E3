@@ -22,6 +22,42 @@ const GRUPOS = [
   },
 ];
 
+/* ─────────────────────────────── plataformas da operação (link + login) ───────────────────────────────
+   Adicionar uma nova plataforma: inclua um item no array abaixo.  */
+const PLATAFORMAS = [
+  {
+    nome: "Criativivo",
+    dominio: "criativivo.com.br",
+    link: "https://criativivo.com.br",
+    login: "operacionale3digital@gmail.com",
+    senha: "e3DigiTALL2026",
+  },
+  {
+    nome: "TLDV",
+    dominio: "tldv.io",
+    link: "https://tldv.io/app",
+    login: "operacionale3digital@gmail.com",
+    senha: "kayonever03",
+  },
+];
+
+const copyBtn = (value) => `<button class="copybtn" type="button" data-copy="${value.replace(/"/g, "&quot;")}" title="Copiar" aria-label="Copiar">
+          <svg class="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <svg class="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>`;
+
+const plataformasHTML = PLATAFORMAS.map((p) => `<details class="course">
+        <summary>
+          <span class="course-s"><span class="mt">${p.nome}</span><span class="ms">${p.dominio}</span></span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="course-body">
+          <div class="course-row"><span class="cl">Link</span><a class="cv link" href="${p.link}" target="_blank" rel="noopener">${p.link}</a>${copyBtn(p.link)}</div>
+          <div class="course-row"><span class="cl">Login</span><span class="cv">${p.login}</span>${copyBtn(p.login)}</div>
+          <div class="course-row"><span class="cl">Senha</span><span class="cv">${p.senha}</span>${copyBtn(p.senha)}</div>
+        </div>
+      </details>`).join("\n      ");
+
 const gruposHTML = GRUPOS.map((g) => `<div class="k-wrap">
     <div class="k-head">
       <h2>${g.titulo}</h2>
@@ -77,6 +113,22 @@ h1 span{color:var(--o)}
 .copybtn.ok{border-color:#22c55e;color:#22c55e;background:rgba(34,197,94,.12)}
 .copybtn.ok .i-copy{display:none}
 .copybtn.ok .i-check{display:block}
+.courses{display:flex;flex-direction:column;gap:12px}
+.course{border:1px solid rgba(255,255,255,.08);border-radius:14px;background:rgba(255,255,255,.02);overflow:hidden}
+.course[open]{border-color:rgba(255,95,31,.35)}
+.course summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 17px;cursor:pointer;list-style:none}
+.course summary::-webkit-details-marker{display:none}
+.course summary:hover{background:rgba(255,95,31,.06)}
+.course-s{display:flex;flex-direction:column}
+.chev{width:18px;height:18px;color:rgba(255,255,255,.4);flex:0 0 auto;transition:transform .25s}
+.course[open] .chev{transform:rotate(180deg);color:var(--o)}
+.course-body{padding:4px 17px 16px;display:flex;flex-direction:column;gap:8px;border-top:1px solid rgba(255,255,255,.06)}
+.course-row{display:flex;align-items:center;gap:10px;padding-top:10px}
+.cl{flex:0 0 70px;font-size:.74rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.04em}
+.cv{flex:1;font-size:.9rem;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cv.link{color:var(--o);text-decoration:none}
+.cv.link:hover{text-decoration:underline}
+.course-row .copybtn{position:static;flex:0 0 auto}
 </style></head>
 <body>
 <span class="glow g1"></span><span class="glow g2"></span>
@@ -90,12 +142,22 @@ h1 span{color:var(--o)}
 
   ${gruposHTML}
 
+  <div class="k-wrap">
+    <div class="k-head">
+      <h2>Plataformas da Operação</h2>
+      <p class="k-sub">Clique para ver o link de acesso, login e senha de cada plataforma.</p>
+    </div>
+    <div class="courses">
+      ${plataformasHTML}
+    </div>
+  </div>
+
 </div>
 <script>
 document.querySelectorAll('.copybtn').forEach(function(btn){
   btn.addEventListener('click', function(e){
     e.preventDefault();
-    var href = btn.dataset.href;
+    var href = btn.dataset.href || btn.dataset.copy;
     var done = function(){
       btn.classList.add('ok');
       clearTimeout(btn._t);
@@ -122,4 +184,4 @@ function fallbackCopy(text, cb){
 const outPath = join(distRoot, "links-uteis", "index.html");
 mkdirSync(dirname(outPath), { recursive: true });
 writeFileSync(outPath, html, "utf8");
-console.log("links úteis (hub):", outPath, "·", GRUPOS.reduce((a, g) => a + g.links.length, 0), "links");
+console.log("links úteis (hub):", outPath, "·", GRUPOS.reduce((a, g) => a + g.links.length, 0), "links ·", PLATAFORMAS.length, "plataformas");
