@@ -111,9 +111,9 @@ P.push(page(`
   <p class="body">Camada adicional de indicadores comerciais, acompanhada junto ao Consultor Comercial dedicado.</p>
   ${tbl(["KPI comercial", "O que mede na prática", "Meta ideal / referência Pro"], [
     ["SLA de Triagem (IA)", "Tempo de resposta da primeira interação no WhatsApp.", "Imediato — menos de 1 minuto, 24h/dia"],
-    ["Taxa de Qualificação de Leads", "% de leads que passam no filtro técnico da IA/LP.", "Acima de 40%"],
-    ["Eficiência de Vendas (CRM)", "% de leads qualificados convertidos em contrato.", "15% a 30%, com auditoria de vendas ativa"],
-    ["Conversão de Social Selling", "Abordagens ativas (DMs) que viram reuniões.", "Mínimo de 5% a 10% de conversão"],
+    ["Taxa de Qualificação de Leads", "% de leads que passam no filtro técnico da IA/LP.", "Acima de 20%"],
+    ["Eficiência de Vendas (CRM)", "% de leads qualificados convertidos em contrato.", "5% a 20%, com auditoria de vendas ativa"],
+    ["Conversão de Social Selling", "Abordagens ativas (DMs) que viram reuniões.", "Mínimo de 3% a 10% de conversão"],
     ["ROI Geral do Pro", "Retorno sobre a verba de mídia e taxa de assessoria.", "Projeção mínima de 4x a 6x o investimento"],
   ])}
 `));

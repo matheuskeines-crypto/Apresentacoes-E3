@@ -292,7 +292,7 @@ P.push(page(`
 P.push(page(`
   ${secHead("05", "Regras de Ouro — Como Agir", "Valem para o squad inteiro, independente da função — o que transforma este playbook em referência de consulta, não só numa lista de tarefas.")}
   ${rules([
-    { t: "Campanha nova entrou no ar", d: "O GT avisa o cliente no grupo, com clareza dos próximos passos e o número de onde os leads vão chegar." },
+    { t: "Campanha nova entrou no ar", d: "O GT avisa o cliente no grupo, com clareza dos próximos passos e o número de onde os leads vão chegar, além de atualizar as informações no ClickUp." },
     { t: "Qualificação de quarta-feira", d: "O GP não só registra a resposta: sonda o motivo da desqualificação e devolve o gap para o GT ajustar." },
     { t: "Cliente reclama de leads desqualificados", d: "Busque antes os 4 números do funil — leads, MQL, SQL, fechamentos. Sem dado não existe parecer, só achismo." },
     { t: "Problema não é da nossa equipe (ex.: financeiro)", d: "Resolva mesmo assim, o mais rápido possível. O cliente é da E3 — não existe “isso não é comigo”." },
@@ -310,20 +310,21 @@ P.push(page(`
     tbl(["Etapa", "Prazo", "Resp."], [
       ["Reunião de onboarding", "1 dia", "AM/GP"],
       ["Treinamento online", "Imediato", "AM/GP"],
-      ["CRM grátis (Light, sem IA)", "Imediato", "AM/GP"],
-      ["Copy dos criativos estáticos", "Até 24h", "GT"],
-      ["Roteiro e orientação (vídeo)", "Até 24h", "GT"],
-      ["Exemplos de vídeos, se houver", "Até 24h", "GT"],
+      ["Formulário CRM/IA", "Imediato", "AM/GP"],
+      ["Solicitação e copy dos criativos estáticos", "Até 24h", "GT"],
+      ["Envio dos criativos estáticos para validação", "3 dias úteis", "GP"],
+      ["Fixar PGM na descrição do grupo", "Até 48h", "GP"],
     ]),
     tbl(["Etapa", "Prazo", "Resp."], [
       ["Roteiro de atendimento (lead)", "Até 24h", "GP"],
-      ["Fixar PGM na descrição do grupo", "Até 48h", "GP"],
-      ["Criativos estáticos prontos", "3 dias úteis", "GP"],
-      ["Conexão da plataforma / acessos", "Até 1 dia", "GT"],
-      ["Criativo fixado + início campanhas", "Até 1 dia", "GT"],
+      ["Conexão da plataforma / acessos", "24h", "GT"],
+      ["Roteiro e orientação (vídeo)", "Até 24h", "GT"],
+      ["Exemplos de vídeos, se houver", "Até 24h", "GT"],
+      ["Início das campanhas", "Dias 8–15", "GT"],
       ["Atualização do ClickUp", "A cada 3 dias", "GP"],
     ])
   )}
+  ${notabar("OBSERVAÇÃO", "Todo prazo desta tabela é contabilizado a partir da data do Onboarding.")}
 `));
 
 /* — SQUAD EM ALTA PERFORMANCE — */
