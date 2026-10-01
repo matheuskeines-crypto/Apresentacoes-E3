@@ -101,7 +101,7 @@ export const onboarding = {
       breakdown: [
         { letter: "C", title: "Canais de Aquisição de Clientes", desc: "Mapeamos e gerenciamos os canais mais eficazes (Google, Meta, Instagram, WhatsApp) para gerar leads qualificados." },
         { letter: "P", title: "Produtos Jurídicos", desc: "Analisamos o portfólio do escritório para focar nas teses e serviços com maior potencial de retorno." },
-        { letter: "P", title: "Processo Comercial", desc: "Qualificação, abordagem e gestão de funil — do primeiro contato ao fechamento do contrato." },
+        { letter: "P", title: "Processo Comercial", desc: "Geração, qualificação, abordagem e gestão de funil através de um treinamento da equipe, ou seja, do primeiro contato ao fechamento do contrato." },
       ] },
 
     { type: "bullets", kicker: "Nossa metodologia", title: "Processo Comercial Estruturado", cols: 3,
