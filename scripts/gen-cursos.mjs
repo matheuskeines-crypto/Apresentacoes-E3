@@ -11,7 +11,7 @@ const distRoot = fileURLToPath(new URL("../dist", import.meta.url));
 
 /* ─────────────────────────────── cursos internos (deck) ─────────────────────────────── */
 const INTERNOS = [
-  { label: "Comercial Interno", sub: "Em breve", href: null },
+  { label: "Comercial Interno", sub: "Playlist · YouTube", href: "https://www.youtube.com/playlist?list=PLRV3PR6X9tE0" },
 ];
 
 /* ─────────────────────────────── apresentações (vídeo) ───────────────────────────────
@@ -55,7 +55,7 @@ const copyBtn = (value) => `<button class="copybtn" type="button" data-copy="${v
         </button>`;
 
 const internosHTML = INTERNOS.map((l) => l.href
-  ? `<a href="${l.href}"><span class="mt">${l.label}</span><span class="ms">${l.sub}</span></a>`
+  ? `<a href="${l.href}" target="_blank" rel="noopener"><span class="mt">${l.label}</span><span class="ms">${l.sub}</span></a>`
   : `<div class="k-grid-item disabled"><span class="mt">${l.label}</span><span class="ms">${l.sub}</span></div>`
 ).join("\n      ");
 
