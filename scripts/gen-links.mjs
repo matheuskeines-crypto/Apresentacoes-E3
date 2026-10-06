@@ -22,41 +22,7 @@ const GRUPOS = [
   },
 ];
 
-/* ─────────────────────────────── plataformas da operação (link + login) ───────────────────────────────
-   Adicionar uma nova plataforma: inclua um item no array abaixo.  */
-const PLATAFORMAS = [
-  {
-    nome: "Criativivo",
-    dominio: "criativivo.com.br",
-    link: "https://criativivo.com.br",
-    login: "operacionale3digital@gmail.com",
-    senha: "e3DigiTALL2026",
-  },
-  {
-    nome: "TLDV",
-    dominio: "tldv.io",
-    link: "https://tldv.io/app",
-    login: "operacionale3digital@gmail.com",
-    senha: "kayonever03",
-  },
-];
 
-const copyBtn = (value) => `<button class="copybtn" type="button" data-copy="${value.replace(/"/g, "&quot;")}" title="Copiar" aria-label="Copiar">
-          <svg class="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-          <svg class="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-        </button>`;
-
-const plataformasHTML = PLATAFORMAS.map((p) => `<details class="course">
-        <summary>
-          <span class="course-s"><span class="mt">${p.nome}</span><span class="ms">${p.dominio}</span></span>
-          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <div class="course-body">
-          <div class="course-row"><span class="cl">Link</span><a class="cv link" href="${p.link}" target="_blank" rel="noopener">${p.link}</a>${copyBtn(p.link)}</div>
-          <div class="course-row"><span class="cl">Login</span><span class="cv">${p.login}</span>${copyBtn(p.login)}</div>
-          <div class="course-row"><span class="cl">Senha</span><span class="cv">${p.senha}</span>${copyBtn(p.senha)}</div>
-        </div>
-      </details>`).join("\n      ");
 
 const gruposHTML = GRUPOS.map((g) => `<div class="k-wrap">
     <div class="k-head">
@@ -142,16 +108,6 @@ h1 span{color:var(--o)}
 
   ${gruposHTML}
 
-  <div class="k-wrap">
-    <div class="k-head">
-      <h2>Plataformas da Operação</h2>
-      <p class="k-sub">Clique para ver o link de acesso, login e senha de cada plataforma.</p>
-    </div>
-    <div class="courses">
-      ${plataformasHTML}
-    </div>
-  </div>
-
 </div>
 <script>
 document.querySelectorAll('.copybtn').forEach(function(btn){
@@ -184,4 +140,4 @@ function fallbackCopy(text, cb){
 const outPath = join(distRoot, "links-uteis", "index.html");
 mkdirSync(dirname(outPath), { recursive: true });
 writeFileSync(outPath, html, "utf8");
-console.log("links úteis (hub):", outPath, "·", GRUPOS.reduce((a, g) => a + g.links.length, 0), "links ·", PLATAFORMAS.length, "plataformas");
+console.log("links úteis (hub):", outPath, "·", GRUPOS.reduce((a, g) => a + g.links.length, 0), "links");
