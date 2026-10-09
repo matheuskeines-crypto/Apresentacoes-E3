@@ -248,6 +248,7 @@ AREAS.forEach(buildArea);
 const TRILHAS = [
   { nome: "Account", slug: "trilha-account", sub: "90 dias · 12 semanas · 3 checkpoints" },
   { nome: "Gestor de Projetos", slug: "trilha-gestor-projetos", sub: "90 dias · 12 semanas · 3 checkpoints" },
+  { nome: "Gestor de Tráfego", slug: "trilha-gestor-trafego", sub: "90 dias · 12 semanas · 3 checkpoints" },
 ];
 
 /* ─────────────────────────────── hub: Materiais PDF ─────────────────────────────── */

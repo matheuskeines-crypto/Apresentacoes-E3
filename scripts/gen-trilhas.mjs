@@ -21,6 +21,12 @@ const ic = {
   mic: '<rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><line x1="12" y1="17" x2="12" y2="22"/>',
   award: '<circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>',
   check: '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>',
+  refresh: '<polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10"/><path d="M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>',
+  alert: '<path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>',
+  zap: '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>',
+  layers: '<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>',
+  trending: '<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>',
+  funnel: '<polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>',
 };
 const svg = (n) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ic[n]}</svg>`;
 const callout = makeCallout(svg);
@@ -1129,5 +1135,525 @@ function buildGestorProjetos() {
   console.log("trilha gestor de projetos:", outDir, "·", P.length, "páginas · PDF anexado");
 }
 
+/* ══════════════════════ TRILHA — GESTOR DE TRÁFEGO ══════════════════════ */
+
+/* O PDF do GT deixa os campos de curso em branco (nome/link/login/senha) para
+   serem preenchidos. Em vez de reproduzir linhas vazias, os slots apontam para
+   o hub de Cursos, onde as credenciais de Meta Ads e Google Ads já estão. */
+const LT = {
+  cursos: "../cursos/index.html",
+  teses: "../materiais-pdf/index.html",
+  links: "../links-uteis/index.html",
+  metaBlueprint: "https://www.facebook.com/business/learn",
+  metaBusiness: "https://www.facebook.com/business",
+  skillshop: "https://skillshop.withgoogle.com",
+  googleHelp: "https://support.google.com/google-ads",
+  subido: "https://www.subido.com.br",
+  sobral: "https://www.youtube.com/results?search_query=Pedro+Sobral+tr%C3%A1fego",
+  hopkins: "https://www.amazon.com.br/s?k=Scientific+Advertising+Claude+Hopkins",
+  schwartz: "https://www.amazon.com.br/s?k=Breakthrough+Advertising+Eugene+Schwartz",
+  leanAnalytics: "https://www.amazon.com.br/s?k=Lean+Analytics+Alistair+Croll",
+};
+
+function buildGestorTrafego() {
+  const NAV = [
+    null, "Visão da função", "Como funciona", "Base E3", "Gestão empresarial",
+    "Mês 01", "Semanas 01–02", "Semanas 03–04", "Checkpoint 30 dias",
+    "Mês 02", "Semanas 05–06", "Semanas 07–08", "Checkpoint 60 dias",
+    "Mês 03", "Semanas 09–10", "Semanas 11–12", "Projeto final",
+    "Certificação 90 dias", "Cursos obrigatórios", "Canais e referências",
+    "Livros", "Rotina semanal", "Critério final",
+  ];
+  const { page } = makePageFactory("TRILHA DE DESENVOLVIMENTO · GESTOR DE TRÁFEGO", NAV);
+  const P = [];
+
+  /* — CAPA — */
+  P.push(page(`
+    <img class="logo" src="${LOGO_URI}" alt="E3"/>
+    <p class="kicker cov-k">TRILHA DE DESENVOLVIMENTO · DOCUMENTO DE FORMAÇÃO</p>
+    <h1>Gestor de <span>Tráfego</span></h1>
+    <p class="cov-sub">Formar o profissional técnico e estratégico da mídia paga: conectando campanhas, criativos, dados, funil comercial e resultado do cliente.</p>
+    <div class="pills">
+      <span class="pill">90 DIAS</span><span class="pill">12 SEMANAS</span>
+      <span class="pill">2 A 3H POR SEMANA</span><span class="pill">3 CHECKPOINTS</span><span class="pill">CERTIFICAÇÃO INTERNA</span>
+    </div>
+    <div class="cov-rule"></div>
+    <p class="cov-foot">E3 Digital · o hub de marketing e vendas para advogados</p>
+  `, { cover: true }));
+
+  /* — VISÃO DA FUNÇÃO — */
+  P.push(page(`
+    ${split2(`
+      <p class="kicker">VISÃO DA FUNÇÃO</p>
+      <h2 class="h2">O GT não só sobe campanhas</h2>
+      <p class="body">O Gestor de Tráfego da E3 não deve ser apenas responsável por subir campanhas.</p>
+      ${statRow([
+        { v: "90", l: "dias de trilha" },
+        { v: "12", l: "semanas" },
+        { v: "2–3h", l: "por semana" },
+      ])}
+      ${notabar("EVOLUÇÃO ESPERADA", "Execução → Análise → Otimização → Estratégia → <b>Escala</b>")}
+    `, `
+      <div class="blk"><p class="kicker">O QUE ESPERAMOS DESENVOLVER</p></div>
+      <div class="grid2">
+        ${block("EXECUTAR", ["Estruturar campanhas corretamente.", "Analisar criativos.", "Otimizar campanhas."])}
+        ${block("ANALISAR", ["Analisar dados e identificar gargalos.", "Trabalhar com hipóteses.", "Decidir com base em dados."])}
+        ${block("CONECTAR", ["Entender qualidade dos leads.", "Conectar mídia ao CRM.", "Entender o funil comercial."])}
+        ${block("ESCALAR", ["Criar planos de ação.", "Identificar oportunidades de escala.", "Comunicar resultados com clareza."])}
+      </div>
+    `)}
+  `));
+
+  /* — COMO FUNCIONA A TRILHA — */
+  P.push(page(`
+    ${secHead("01", "Como funciona a trilha", "12 semanas, de 2 a 3 horas semanais. Toda semana deve existir aplicação prática.")}
+    ${split2(`
+      <h3 class="h3">A carga se divide entre</h3>
+      ${feat([
+        { t: "Cursos técnicos", d: "Meta, Google e tracking." },
+        { t: "Conteúdos internos", d: "Treinamentos da própria E3." },
+        { t: "Aplicação prática", d: "Em campanha de cliente real." },
+        { t: "Análise de campanhas", d: "O exercício central da função." },
+        { t: "Conteúdos de referência", d: "Quem já faz, em alto nível." },
+        { t: "Feedback do líder", d: "Fecha cada ciclo de aprendizado." },
+      ])}
+    `, `
+      ${callout("refresh", "A METODOLOGIA", "Aprender → Aplicar → Analisar → Otimizar → Apresentar", "O ciclo não termina na entrega: ele termina quando o resultado da alteração é lido e apresentado.")}
+      <div class="quote">
+        <p class="qk">O QUE MUDA NO MÊS 02</p>
+        <p>Sai da <b>execução operacional</b></p>
+        <p>e entra a <b>capacidade de diagnóstico e tomada de decisão</b>.</p>
+      </div>
+    `)}
+  `));
+
+  /* — BASE OBRIGATÓRIA E3 — */
+  P.push(page(`
+    ${secHead("02", "Base obrigatória E3", "Todos os Gestores de Tráfego devem concluir estes conteúdos internos.")}
+    <div class="pilares3">
+      <div class="card">
+        ${cardHead("award", "BASE 01", "Cultura E3")}
+        ${feat([
+          { t: "História da empresa", d: "De onde viemos." },
+          { t: "Cultura e valores", d: "Como agimos." },
+          { t: "Posicionamento", d: "Onde a E3 joga." },
+          { t: "Comportamentos esperados", d: "O que é inegociável." },
+        ])}
+      </div>
+      <div class="card">
+        ${cardHead("target", "BASE 02", "Produtos E3")}
+        ${feat([
+          { t: "Produtos e escopos", d: "O que vendemos e até onde vai." },
+          { t: "Público e teses", d: `A biblioteca de teses por área. ${chips([{ href: LT.teses, label: "Teses" }])}` },
+          { t: "Jornada e objetivos", d: "Como é executado." },
+          { t: "Principais ofertas", d: "O que leva o lead a converter." },
+        ])}
+      </div>
+      <div class="card">
+        ${cardHead("users", "BASE 03", "Processos")}
+        ${feat([
+          { t: "Fluxo Account → GP → GT", d: "Hops, SLA e briefing." },
+          { t: "Jornada do Herói", d: "E o processo de criativos." },
+          { t: "Relatórios", d: "Planos de ação e PDCA." },
+          { t: "Acessos da operação", d: `Plataformas e credenciais. ${chips([{ href: LT.links, label: "Links úteis" }])}` },
+        ])}
+      </div>
+    </div>
+  `));
+
+  /* — GESTÃO EMPRESARIAL — */
+  P.push(page(`
+    ${secHead("03", "Gestão empresarial", "Treinamentos internos para conectar mídia a resultado financeiro.")}
+    ${split2(`
+      <h3 class="h3">Conceitos a dominar</h3>
+      <div class="grid2">
+        ${block("CUSTO", ["CAC.", "CPL.", "ROI."])}
+        ${block("RECEITA", ["Receita.", "Ticket médio.", "Conversão."])}
+        ${block("JORNADA", ["Funil.", "Marketing.", "Comercial."])}
+        ${block("BASE", ["Retenção."])}
+      </div>
+      ${chips([{ href: L.novaEraDrive, label: "A nova era do mercado" }, { href: L.agenciaIA, label: "Agência com IA" }])}
+    `, `
+      ${callout("alert", "A REGRA QUE MUDA TUDO", "Campanha boa não é apenas campanha com CPL baixo", "Campanha boa é aquela que contribui para gerar <b>leads qualificados, oportunidades e receita</b>.")}
+    `)}
+  `));
+
+  /* — MÊS 01 — */
+  P.push(page(`
+    ${secHead("04", "Mês 01 · Fundamentos e execução", "Dominar os fundamentos das plataformas, estrutura de campanha, métricas e processos internos.")}
+    ${callout("target", "RESULTADO DO MÊS", "Operar as plataformas e executar com supervisão", "Estruturar campanhas, entender métricas e identificar problemas básicos.")}
+    ${tbl(["Semana", "Tema", "Entregável"], [
+      ["01", "E3, produtos e papel do GT", "Mapa estratégico de 1 cliente"],
+      ["02", "Meta Ads", "Estrutura de campanha validada pelo líder"],
+      ["03", "Google Ads", "Campanha estruturada + justificativa da estratégia"],
+      ["04", "Métricas e tracking", "Diagnóstico de performance de 1 campanha"],
+    ])}
+  `));
+
+  /* — SEMANAS 01 e 02 — */
+  P.push(page(`
+    ${split2(`
+      <div class="card">
+        ${cardHead("users", "", "E3, produtos e papel do GT", semanaTag("01"))}
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        ${feat([
+          { t: "Produtos, teses e público", d: "Ofertas e jornada do cliente." },
+          { t: "Responsabilidades do GT", d: "Fluxo Account → GP → GT, Hops e processos." },
+        ])}
+        <div class="blk"><p class="kicker">APLICAÇÃO PRÁTICA</p></div>
+        <p class="body">Selecionar 1 cliente e mapear: produto, público, oferta, investimento, objetivo da campanha, canal, funil e resultado esperado.</p>
+      </div>
+      ${entregavel("Mapa estratégico de 1 cliente.")}
+    `, `
+      <div class="card">
+        ${cardHead("zap", "", "Meta Ads", semanaTag("02"))}
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        ${feat([
+          { t: "Estrutura da conta", d: "Business Manager, campanha, conjunto e anúncio." },
+          { t: "Configuração", d: "Objetivos, públicos, posicionamentos e orçamento." },
+          { t: "Mensuração", d: "Pixel, eventos e conversões." },
+        ])}
+        <div class="blk"><p class="kicker">CURSOS</p></div>
+        ${chips([{ href: LT.cursos, label: "Curso Meta Ads · acessos" }, { href: LT.metaBlueprint, label: "Meta Blueprint" }])}
+      </div>
+      ${entregavel("Estrutura de campanha validada pelo líder.")}
+    `)}
+  `));
+
+  /* — SEMANAS 03 e 04 — */
+  P.push(page(`
+    ${split2(`
+      <div class="card">
+        ${cardHead("target", "", "Google Ads", semanaTag("03"))}
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        ${feat([
+          { t: "Estrutura da conta", d: "Campanhas e rede de pesquisa." },
+          { t: "Palavras-chave", d: "Correspondências e termos de pesquisa." },
+          { t: "Anúncios e conversões", d: "Extensões e orçamento." },
+        ])}
+        <div class="blk"><p class="kicker">CURSOS</p></div>
+        ${chips([{ href: LT.cursos, label: "Curso Google Ads · acessos" }, { href: LT.skillshop, label: "Skillshop" }])}
+      </div>
+      ${entregavel("Campanha estruturada + justificativa da estratégia utilizada.")}
+    `, `
+      <div class="card">
+        ${cardHead("chart", "", "Métricas e tracking", semanaTag("04"))}
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        <div class="grid2">
+          ${block("CUSTO", ["CPM, CPC e CPL.", "CPA, ROI e ROAS."])}
+          ${block("ENTREGA", ["CTR e taxa de conversão.", "Frequência e alcance."])}
+        </div>
+        ${chips([{ href: LT.googleHelp, label: "Google Ads · ajuda" }, { href: LT.metaBusiness, label: "Meta for Business" }])}
+        ${notabar("A PERGUNTA DA SEMANA", "O que cada métrica me diz sobre o <b>problema</b> da campanha?")}
+      </div>
+      ${entregavel("Diagnóstico de performance: métricas, problema, hipótese e ação recomendada.")}
+    `)}
+  `));
+
+  /* — CHECKPOINT 30 DIAS — */
+  P.push(page(`
+    ${secHead("05", "Checkpoint · 30 dias", "Avaliação de 0 a 10 em cada dimensão, conduzida pelo líder.")}
+    ${split2(`
+      <h3 class="h3">Avaliar de 0 a 10</h3>
+      <div class="grid2">
+        ${block("TÉCNICO", ["Conhecimento dos produtos.", "Meta Ads.", "Google Ads.", "Capacidade técnica."])}
+        ${block("ANÁLISE", ["Métricas.", "Tracking.", "Organização.", "Processos e comunicação."])}
+      </div>
+    `, `
+      <h3 class="h3">Resultado esperado</h3>
+      ${feat([
+        { t: "Estruturar campanhas", d: "Nas duas plataformas." },
+        { t: "Entender métricas", d: "E o que cada uma indica." },
+        { t: "Identificar problemas básicos", d: "Antes de pedir ajuda." },
+        { t: "Operar as plataformas", d: "Com segurança." },
+        { t: "Seguir processos", d: "Executando com supervisão." },
+      ])}
+    `)}
+  `));
+
+  /* — MÊS 02 — */
+  P.push(page(`
+    ${secHead("06", "Mês 02 · Análise, criativos e otimização", "Sair da execução operacional e desenvolver capacidade de diagnóstico e tomada de decisão.")}
+    ${callout("alert", "A REGRA DO MÊS", "Otimização não é “vou alterar alguma coisa”", "Otimização é <b>Dado → Hipótese → Alteração → Resultado</b>.")}
+    ${tbl(["Semana", "Tema", "Entregável"], [
+      ["05", "Funil de aquisição", "Mapa do funil + gargalos identificados"],
+      ["06", "Criativos", "Análise de 10 criativos + 3 novas hipóteses"],
+      ["07", "Otimização", "Plano de otimização com 3 hipóteses"],
+      ["08", "Qualidade dos leads", "Diagnóstico de qualidade dos leads"],
+    ])}
+  `));
+
+  /* — SEMANAS 05 e 06 — */
+  P.push(page(`
+    ${split2(`
+      <div class="card">
+        ${cardHead("funnel", "", "Funil de aquisição", semanaTag("05"))}
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        ${feat([
+          { t: "Público frio e remarketing", d: "Conversão, jornada e multifunis." },
+          { t: "Da captação à venda", d: "Lead, MQL, oportunidade e venda." },
+        ])}
+        ${notabar("MAPEAR O FUNIL", "Impressão → Clique → Lead → MQL → Reunião → <b>Venda</b>")}
+      </div>
+      ${entregavel("Mapa do funil + gargalos identificados.")}
+    `, `
+      <div class="card">
+        ${cardHead("layers", "", "Criativos", semanaTag("06"))}
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        ${feat([
+          { t: "Hook, oferta e ângulo", d: "Público, formato e copy." },
+          { t: "Intenção por funil", d: "Criativo de frio x de remarketing e variações." },
+        ])}
+        <div class="blk"><p class="kicker">APLICAÇÃO PRÁTICA</p></div>
+        <p class="body">Analisar 10 criativos e, para cada um: público, hook, oferta, CTA, métrica e resultado.</p>
+      </div>
+      ${entregavel("Análise de criativos + 3 novas hipóteses.")}
+    `)}
+  `));
+
+  /* — SEMANAS 07 e 08 — */
+  P.push(page(`
+    ${split2(`
+      <div class="card">
+        ${cardHead("refresh", "", "Otimização", semanaTag("07"))}
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        ${feat([
+          { t: "Quando otimizar e quando esperar", d: "Orçamento, público e criativo." },
+          { t: "O que mexer", d: "Posicionamento, oferta, landing page e formulário." },
+        ])}
+        ${chips([{ href: LT.sobral, label: "Pedro Sobral" }, { href: LT.subido, label: "Subido" }])}
+        ${notabar("A REGRA", "Nunca “vou alterar alguma coisa”. Sempre <b>Dado → Hipótese → Alteração → Resultado</b>.")}
+      </div>
+      ${entregavel("Plano de otimização com 3 hipóteses.")}
+    `, `
+      <div class="card">
+        ${cardHead("check", "", "Qualidade dos leads", semanaTag("08"))}
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        ${feat([
+          { t: "Lead, MQL e SQL", d: "Qualificação e CRM." },
+          { t: "Atendimento e comercial", d: "Motivos de desqualificação." },
+        ])}
+        ${callout("alert", "O QUE O GT PRECISA ENTENDER", "CPL baixo com lead ruim não é boa performance", "Cruzar: <b>Campanha → Criativo → Lead → Qualificação → Venda</b>.")}
+      </div>
+      ${entregavel("Diagnóstico de qualidade dos leads.")}
+    `)}
+  `));
+
+  /* — CHECKPOINT 60 DIAS — */
+  P.push(page(`
+    ${secHead("07", "Checkpoint · 60 dias", "O GT já deve diagnosticar e decidir, não apenas executar.")}
+    ${split2(`
+      <h3 class="h3">Avaliar</h3>
+      <div class="grid2">
+        ${block("ANÁLISE", ["Capacidade analítica.", "Criativos.", "Funil."])}
+        ${block("DECISÃO", ["Otimização.", "Tomada de decisão.", "Autonomia."])}
+        ${block("QUALIDADE", ["Qualidade dos leads."])}
+        ${block("POSTURA", ["Comunicação.", "Organização."])}
+      </div>
+    `, `
+      <h3 class="h3">O GT já deve conseguir</h3>
+      ${feat([
+        { t: "Identificar gargalos", d: "E criar hipóteses." },
+        { t: "Otimizar campanhas", d: "Com critério, não por impulso." },
+        { t: "Analisar criativos", d: "E a qualidade dos leads." },
+        { t: "Relacionar mídia ao comercial", d: "Ligando campanha e CRM." },
+        { t: "Trabalhar com autonomia", d: "Sem depender do líder a cada passo." },
+      ])}
+    `)}
+  `));
+
+  /* — MÊS 03 — */
+  P.push(page(`
+    ${secHead("08", "Mês 03 · Estratégia, negócio e escala", "Desenvolver visão estratégica e capacidade de conectar mídia ao resultado financeiro.")}
+    ${tbl(["Semana", "Tema", "Entregável"], [
+      ["09", "Visão de negócio", "Diagnóstico de mídia + negócio"],
+      ["10", "Testes e hipóteses", "Backlog com pelo menos 5 testes"],
+      ["11", "Escala", "Plano de escala ou justificativa técnica para não escalar"],
+      ["12", "Estratégia de mídia", "Projeto final do cliente"],
+    ])}
+    ${notabar("A PERGUNTA DO MÊS", "Por que essa campanha está pronta — ou <b>não está pronta</b> — para escalar?")}
+  `));
+
+  /* — SEMANAS 09 e 10 — */
+  P.push(page(`
+    ${split2(`
+      <div class="card">
+        ${cardHead("chart", "", "Visão de negócio", semanaTag("09"))}
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        <div class="grid2">
+          ${block("CUSTO", ["CAC.", "ROI.", "Payback."])}
+          ${block("RETORNO", ["Receita e ticket.", "Conversão e LTV."])}
+        </div>
+        <div class="blk"><p class="kicker">TREINAMENTO OBRIGATÓRIO</p></div>
+        <p class="body">Gestão Empresarial E3. Analisar um cliente: investimento, leads, MQLs, reuniões, contratos, receita, CAC e ROI.</p>
+      </div>
+      ${entregavel("Diagnóstico de mídia + negócio.")}
+    `, `
+      <div class="card">
+        ${cardHead("activity", "", "Testes e hipóteses", semanaTag("10"))}
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        ${feat([
+          { t: "Testes e variáveis", d: "Criativos, público e oferta." },
+          { t: "Destino", d: "Landing page e formulários." },
+        ])}
+        <div class="blk"><p class="kicker">APLICAÇÃO PRÁTICA</p></div>
+        <p class="body">Criar um backlog com hipótese, motivo, variável, resultado esperado e prioridade.</p>
+      </div>
+      ${entregavel("Backlog com pelo menos 5 testes.")}
+    `)}
+  `));
+
+  /* — SEMANAS 11 e 12 — */
+  P.push(page(`
+    ${split2(`
+      <div class="card">
+        ${cardHead("trending", "", "Escala", semanaTag("11"))}
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        ${feat([
+          { t: "Vertical e horizontal", d: "Aumento de orçamento e novas campanhas." },
+          { t: "Novas frentes", d: "Novos públicos e novos criativos." },
+          { t: "Os limites", d: "Saturação e frequência." },
+        ])}
+        ${notabar("A PERGUNTA", "Por que essa campanha está pronta — ou não está pronta — para escalar?")}
+      </div>
+      ${entregavel("Plano de escala ou justificativa técnica para não escalar.")}
+    `, `
+      <div class="card">
+        ${cardHead("award", "", "Estratégia de mídia", semanaTag("12"))}
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        ${feat([
+          { t: "Planejamento", d: "Objetivo, canal, público e oferta." },
+          { t: "Execução", d: "Criativo, orçamento e métricas." },
+          { t: "Resultado", d: "Funil e escala." },
+        ])}
+        ${chips([{ href: LT.metaBusiness, label: "Meta for Business" }, { href: LT.skillshop, label: "Skillshop" }])}
+      </div>
+      ${entregavel("Projeto final apresentado ao líder.")}
+    `)}
+  `));
+
+  /* — PROJETO FINAL — */
+  P.push(page(`
+    ${secHead("09", "Projeto final", "Selecionar um cliente real e apresentar o percurso completo, do objetivo ao plano dos próximos 90 dias.")}
+    <div class="grid3">
+      ${block("O PLANO", ["Objetivo.", "Produto.", "Público.", "Oferta.", "Estratégia."])}
+      ${block("A EXECUÇÃO", ["Canais.", "Criativos.", "Investimento.", "Resultados.", "Gargalos."])}
+      ${block("A EVOLUÇÃO", ["Plano de otimização.", "Plano de escala.", "Próximos 90 dias."])}
+    </div>
+    ${notabar("COMO APRESENTAR", "A sequência é encadeada: cada bloco responde ao anterior. O líder avalia se o raciocínio se sustenta do objetivo até a escala.")}
+  `));
+
+  /* — CERTIFICAÇÃO 90 DIAS — */
+  P.push(page(`
+    ${secHead("10", "Certificação interna · 90 dias", "O líder avalia cada dimensão com nota de 0 a 10.")}
+    ${rules([
+      { t: "Meta Ads", d: "Domínio da plataforma." },
+      { t: "Google Ads", d: "Domínio da plataforma." },
+      { t: "Análise de dados", d: "Capacidade de interpretar métricas." },
+      { t: "Otimização", d: "Capacidade de identificar problemas e propor ações." },
+      { t: "Criativos", d: "Capacidade de analisar performance e propor hipóteses." },
+      { t: "Funil", d: "Capacidade de conectar mídia ao CRM e ao comercial." },
+      { t: "Visão de negócio", d: "Capacidade de conectar mídia à receita." },
+      { t: "Comunicação", d: "Capacidade de explicar decisões." },
+      { t: "Autonomia", d: "Executar sem depender constantemente do líder." },
+      { t: "Protagonismo", d: "Assumir responsabilidade sobre a performance." },
+    ], "grid2r")}
+  `));
+
+  /* — CURSOS OBRIGATÓRIOS — */
+  P.push(page(`
+    ${secHead("11", "Cursos obrigatórios", "Os acessos de Meta Ads e Google Ads ficam no hub de Cursos, com link, login e senha.")}
+    ${split2(`
+      <h3 class="h3">Plataformas</h3>
+      ${rules([
+        { t: "Meta Ads " + tag("OBRIGATÓRIO", "tag-pro"), d: `Curso da operação e certificação oficial. ${chips([{ href: LT.cursos, label: "Acessos" }, { href: LT.metaBlueprint, label: "Blueprint" }])}` },
+        { t: "Google Ads " + tag("OBRIGATÓRIO", "tag-pro"), d: `Curso da operação e certificação Skillshop. ${chips([{ href: LT.cursos, label: "Acessos" }, { href: LT.skillshop, label: "Skillshop" }])}` },
+        { t: "Tracking e Analytics", d: `Eventos, conversões e mensuração. ${chips([{ href: LT.googleHelp, label: "Documentação" }])}` },
+      ])}
+    `, `
+      <h3 class="h3">Cursos internos E3</h3>
+      ${feat([
+        { t: "Treinamento de tráfego", d: "A base técnica da casa." },
+        { t: "Treinamento de criativos", d: "Processo e padrão E3." },
+        { t: "Treinamento de processos", d: "Fluxo, Hops e SLA." },
+        { t: "Gestão empresarial", d: "Receita, CAC, ROI e funil." },
+        { t: "Análise de campanhas", d: "Diagnóstico e plano de ação." },
+      ])}
+      ${notabar("ONDE ESTÃO", "Os acessos das plataformas ficam no hub de Cursos; os treinamentos internos são liberados pelo líder.")}
+    `)}
+  `));
+
+  /* — CANAIS E REFERÊNCIAS — */
+  P.push(page(`
+    ${secHead("12", "Canais e referências recomendadas", "Dois com frequência definida e dois canais oficiais para acompanhar atualizações.")}
+    ${split2(`
+      <h3 class="h3">Para modelar</h3>
+      ${rules([
+        { t: "Pedro Sobral / Subido " + tag("1 POR SEMANA", "tag-pro"), d: `Meta Ads, estrutura de campanhas, otimização, análise, rotina de gestor e escala. ${chips([{ href: LT.sobral, label: "Conteúdos" }, { href: LT.subido, label: "Subido" }])}` },
+        { t: "ROI Hunters " + tag("1 A CADA 15 DIAS", "tag-light"), d: `Marketing, growth, performance, negócio, vendas, estratégia e aquisição. ${chips([{ href: LG.roihunters, label: "Ouvir" }])}` },
+      ])}
+    `, `
+      <h3 class="h3">Canais oficiais</h3>
+      ${rules([
+        { t: "Meta for Business", d: `Meta Ads, algoritmo, criativos, conversões, Pixel, API de Conversões e novos recursos. ${chips([{ href: LT.metaBusiness, label: "Acessar" }])}` },
+        { t: "Google Ads", d: `Search, Performance Max, conversões, Analytics, tracking e atualizações de plataforma. ${chips([{ href: LT.googleHelp, label: "Acessar" }])}` },
+      ])}
+    `)}
+  `));
+
+  /* — LIVROS — */
+  P.push(page(`
+    ${secHead("13", "Livros recomendados", "Três clássicos de publicidade e dados, para formar repertório além da plataforma.")}
+    ${rules([
+      { t: "Scientific Advertising — Claude Hopkins", d: `Testes, publicidade, mensagem, oferta e métricas. ${chips([{ href: LT.hopkins, label: "Livro" }])}` },
+      { t: "Breakthrough Advertising — Eugene Schwartz", d: `Níveis de consciência, mercado, desejo, oferta e comunicação. ${chips([{ href: LT.schwartz, label: "Livro" }])}` },
+      { t: "Lean Analytics — Croll e Yoskovitz", d: `Métricas, dados, análise e tomada de decisão. ${chips([{ href: LT.leanAnalytics, label: "Livro" }])}` },
+    ], "grid2r")}
+  `));
+
+  /* — ROTINA SEMANAL — */
+  P.push(page(`
+    ${secHead("14", "Rotina semanal de desenvolvimento", "Toda semana o Gestor de Tráfego deve cumprir os cinco itens abaixo.")}
+    ${rules([
+      { t: "Conteúdo técnico", d: "Curso Meta, Google ou treinamento interno." },
+      { t: "Conteúdo de referência", d: "1 conteúdo técnico recomendado." },
+      { t: "Análise prática", d: "Selecionar pelo menos uma campanha real." },
+      { t: "Aplicação", d: "Executar uma melhoria, hipótese ou análise." },
+      { t: "Registro", d: "O que identifiquei? Qual dado sustenta? Qual ação recomendo? Qual resultado espero?" },
+    ], "grid2r")}
+    ${notabar("MODELO DE ACOMPANHAMENTO", "Para cada conteúdo: tema, prazo, status (não iniciado / em andamento / concluído), conteúdo, curso/link, aplicação prática, entregável e feedback do líder.")}
+  `));
+
+  /* — CRITÉRIO FINAL — */
+  P.push(page(`
+    ${secHead("15", "Critério final da trilha", "Ao final dos 90 dias, o que o Gestor de Tráfego precisa conseguir fazer.")}
+    <div class="grid3">
+      ${block("OPERAR", ["Estruturar campanhas.", "Operar Meta Ads.", "Operar Google Ads.", "Interpretar métricas."])}
+      ${block("DIAGNOSTICAR", ["Diagnosticar problemas.", "Criar hipóteses.", "Otimizar campanhas.", "Analisar criativos."])}
+      ${block("CONECTAR", ["Avaliar qualidade dos leads.", "Entender CRM e funil comercial.", "Conectar campanhas à receita.", "Criar testes e planos de escala."])}
+    </div>
+    <div class="commit">
+      <span class="commit-pill">RESULTADO ESPERADO</span>
+      <h3 class="commit-t">Não formar alguém que apenas sobe campanhas.</h3>
+      <p class="commit-d">Formar um profissional que transforme <b>Dados → Diagnóstico → Decisão → Otimização → Resultado</b>. Gestor de Tráfego E3 = Performance + Dados + Estratégia + Negócio + Escala.</p>
+    </div>
+  `));
+
+  const html = shell({
+    title: "Trilha de Desenvolvimento — Gestor de Tráfego · E3 Digital",
+    navTitle: "Trilha de Desenvolvimento · Gestor de Tráfego",
+    logoUri: LOGO_URI,
+    pages: P,
+    pdfHref: "./trilha-gestor-trafego.pdf",
+    pdfName: "Trilha de Desenvolvimento - Gestor de Trafego - E3 Digital.pdf",
+  });
+  const outDir = join(distRoot, "trilha-gestor-trafego");
+  mkdirSync(outDir, { recursive: true });
+  writeFileSync(join(outDir, "index.html"), html, "utf8");
+  copyFileSync(join(pdfSrcDir, "trilha-gestor-trafego.pdf"), join(outDir, "trilha-gestor-trafego.pdf"));
+  console.log("trilha gestor de tráfego:", outDir, "·", P.length, "páginas · PDF anexado");
+}
+
 buildAccount();
 buildGestorProjetos();
+buildGestorTrafego();
