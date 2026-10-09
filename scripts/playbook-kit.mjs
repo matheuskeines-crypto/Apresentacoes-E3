@@ -265,7 +265,8 @@ export function shell({ title, navTitle, logoUri, pages, pdfHref, pdfName }) {
   }
   window.addEventListener('resize',fit);
   if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit)}
-  go(0);
+  var hp=/[#&]p=([0-9]+)/.exec(location.hash);
+  go(hp?parseInt(hp[1],10)-1:0);
   setTimeout(fit,250);
 })();
 `;

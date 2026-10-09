@@ -561,7 +561,7 @@ function buildAccount() {
   `));
 
   const html = shell({
-    title: "Trilha de Desenvolvimento — Account · E3 Digital",
+    title: "Trilha de Desenvolvimento — Account Manager · E3 Digital",
     navTitle: "Trilha de Desenvolvimento · Account",
     logoUri: LOGO_URI,
     pages: P,

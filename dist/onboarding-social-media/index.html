@@ -318,7 +318,8 @@ b,strong,.hl{color:var(--o)}
   if(document.fonts&&document.fonts.ready){document.fonts.ready.then(function(){fit(slides[i])})}
   window.addEventListener('beforeprint',function(){slides.forEach(function(s){fit(s,1280,720)})});
   window.addEventListener('afterprint',function(){fit(slides[i])});
-  go(0);
+  var hp=/[#&]p=([0-9]+)/.exec(location.hash);
+  go(hp?parseInt(hp[1],10)-1:0);
   setTimeout(function(){fit(slides[i])},250);
 })();
 </script>

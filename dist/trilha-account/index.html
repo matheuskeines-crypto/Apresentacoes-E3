@@ -1,7 +1,7 @@
 <!doctype html><html lang="pt-BR" translate="no"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="google" content="notranslate"/>
-<title>Trilha de Desenvolvimento — Account · E3 Digital</title>
+<title>Trilha de Desenvolvimento — Account Manager · E3 Digital</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>
@@ -718,7 +718,8 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
   }
   window.addEventListener('resize',fit);
   if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit)}
-  go(0);
+  var hp=/[#&]p=([0-9]+)/.exec(location.hash);
+  go(hp?parseInt(hp[1],10)-1:0);
   setTimeout(fit,250);
 })();
 </script>

@@ -1,6 +1,7 @@
 // E3 Digital — gerador de sites de apresentação (slides) autossuficientes.
 // Cada deck vira dist/<slug>/index.html com a estética E3 embutida.
 import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from "node:fs";
+import { buildSearchIndex, discover } from "./scripts/search-index.mjs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { execFileSync } from "node:child_process";
@@ -585,7 +586,8 @@ const JS = `
   if(document.fonts&&document.fonts.ready){document.fonts.ready.then(function(){fit(slides[i])})}
   window.addEventListener('beforeprint',function(){slides.forEach(function(s){fit(s,1280,720)})});
   window.addEventListener('afterprint',function(){fit(slides[i])});
-  go(0);
+  var hp=/[#&]p=([0-9]+)/.exec(location.hash);
+  go(hp?parseInt(hp[1],10)-1:0);
   setTimeout(function(){fit(slides[i])},250);
 })();
 `;
@@ -827,6 +829,9 @@ const prodCard = (p) => `<section class="pcard" data-p="${p.id}">
       </div>
     </section>`;
 
+const HUB_SEARCH_JS = readFileSync(join(__dirname, "scripts", "hub-search.client.js"), "utf8")
+  .replace("/*ICONS*/{}", JSON.stringify(HUB_ICONS));
+
 const menuHTML = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Hub E3 — E3 Digital</title>
@@ -894,6 +899,26 @@ main{position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:56px 32p
 .ico-form,.ico-trail{background:rgba(80,200,140,.14);color:#6fd6a3}
 .ico-video{background:rgba(240,90,120,.14);color:#f2849a}
 .ico-course{background:rgba(190,130,255,.14);color:#c39bff}
+.results{max-width:900px;margin:0 auto}
+.res-head{margin:8px 0 24px}
+.res-head h2{font-family:var(--d);font-weight:800;font-size:1.8rem;letter-spacing:-.02em}
+.res-head p{color:var(--mute);font-size:.98rem;margin-top:5px}
+.res{border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.015);margin-bottom:14px;overflow:hidden}
+.res-top{position:relative;display:flex;align-items:center;gap:16px;padding:16px 52px 16px 16px;background:var(--card);transition:.2s}
+.res-top .arr{top:50%;margin-top:-8.5px}
+.res-top:hover{background:var(--card2)}
+.res-top:hover .arr{color:var(--o);transform:translate(2px,-2px)}
+.res-t{display:flex;flex-direction:column;min-width:0}
+.res-name{font-weight:700;font-size:1.06rem}
+.res-g{color:var(--mute);font-size:.84rem;margin-top:2px}
+.res-p{display:flex;flex-direction:column;gap:4px;padding:13px 22px 13px 76px;border-top:1px solid var(--line);transition:.2s}
+.res-p:hover{background:rgba(255,95,31,.07)}
+.res-pl{font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--o)}
+.res-s{color:rgba(255,255,255,.72);font-size:.93rem;line-height:1.55}
+.res-more{display:block;padding:10px 22px 14px 76px;border-top:1px solid var(--line);color:var(--mute);font-size:.8rem}
+.empty-res{color:var(--mute);font-size:1rem;padding:8px 0 40px}
+mark{background:rgba(255,95,31,.3);color:#fff;border-radius:3px;padding:0 2px}
+@media(max-width:600px){.res-p,.res-more{padding-left:20px}}
 .empty{display:none;text-align:center;color:var(--mute);padding:48px 0;font-size:1rem}
 .hide{display:none!important}
 footer{position:relative;z-index:2;text-align:center;color:rgba(255,255,255,.3);font-size:.82rem;padding:0 32px 40px}
@@ -913,6 +938,7 @@ footer{position:relative;z-index:2;text-align:center;color:rgba(255,255,255,.3);
   <nav class="nav"><a href="#conhecimento">Conhecimento</a><a href="#produtos">Produtos</a></nav>
 </div></header>
 <main>
+  <section class="results hide" id="results" aria-live="polite"></section>
   <section class="hero">
     <h1>Hub <span>E3</span></h1>
     <p>Tudo o que o time usa com o cliente — da proposta à consultoria — em um só lugar.</p>
@@ -935,45 +961,24 @@ footer{position:relative;z-index:2;text-align:center;color:rgba(255,255,255,.3);
     ${PRODUCTS.map(prodCard).join("\n    ")}
     </div>
   </section>
-  <p class="empty" id="empty">Nenhum material encontrado para essa busca.</p>
 </main>
 <footer>E3 Digital · o hub de marketing e vendas para advogados</footer>
 <script>
-(function(){
-  var q = document.getElementById('q'), empty = document.getElementById('empty');
-  var pills = [].slice.call(document.querySelectorAll('.pill'));
-  var cards = [].slice.call(document.querySelectorAll('.pcard'));
-  var kcards = [].slice.call(document.querySelectorAll('.kcard'));
-  var know = document.getElementById('conhecimento');
-  var filter = 'all';
-  if (!/Mac|iPhone|iPad/.test(navigator.platform)) document.getElementById('kbd').textContent = 'Ctrl K';
-  function norm(t){ return t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
-  function apply(){
-    var term = norm(q.value.trim()), shown = 0;
-    kcards.forEach(function(k){ var ok = !term || norm(k.dataset.q).indexOf(term) > -1; k.classList.toggle('hide', !ok); if (ok) shown++; });
-    know.classList.toggle('hide', !!term && !kcards.some(function(k){ return !k.classList.contains('hide'); }));
-    cards.forEach(function(c){
-      var inFilter = filter === 'all' || c.dataset.p === filter, any = false;
-      c.querySelectorAll('.item').forEach(function(it){
-        var ok = inFilter && (!term || norm(it.dataset.q).indexOf(term) > -1);
-        it.classList.toggle('hide', !ok); if (ok) { any = true; shown++; }
-      });
-      c.classList.toggle('hide', !any);
-    });
-    empty.style.display = shown ? 'none' : 'block';
-  }
-  pills.forEach(function(p){ p.addEventListener('click', function(){
-    filter = p.dataset.f; pills.forEach(function(x){ x.classList.toggle('on', x === p); }); apply();
-  }); });
-  q.addEventListener('input', apply);
-  document.addEventListener('keydown', function(e){
-    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); q.focus(); q.select(); }
-    else if (e.key === '/' && document.activeElement !== q) { e.preventDefault(); q.focus(); }
-    else if (e.key === 'Escape' && document.activeElement === q) { q.value = ''; apply(); q.blur(); }
-  });
-})();
+${HUB_SEARCH_JS}
 </script>
 </body></html>`;
 writeFileSync(join(distRoot, "index.html"), menuHTML, "utf8");
+
+/* Índice de busca de texto completo: só o que é acessível a partir do Hub
+   (ofertas, conhecimento, teses e trilhas). Propostas e offboardings não entram. */
+const searchEntries = [
+  ...PRODUCTS.flatMap((p) => p.links.map((l) => ({ title: l.label, sub: l.sub, group: p.name, kind: l.kind, href: l.href }))),
+  ...KNOWLEDGE.map((k) => ({ title: k.label, sub: k.sub, group: "Conhecimento", kind: k.kind, href: k.href,
+    crawl: !["./trilhas/index.html", "./materiais-pdf/index.html"].includes(k.href) })),
+  ...discover(distRoot, "tese-", "Materiais sobre Teses", "folder"),
+  ...discover(distRoot, "trilha-", "Trilhas de Desenvolvimento", "trail"),
+];
+const idx = buildSearchIndex(distRoot, searchEntries);
+console.log("search-index.js:", idx.materials, "materiais ·", idx.parts, "trechos");
 
 console.log("\\nDone. " + decks.length + " deck(s) + menu (index.html) in dist/");
