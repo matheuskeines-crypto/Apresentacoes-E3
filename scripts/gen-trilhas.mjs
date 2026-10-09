@@ -1,5 +1,5 @@
 // Gera as Trilhas de Desenvolvimento por função, em slides 16:9 (mesmo kit dos playbooks).
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
@@ -10,6 +10,7 @@ import {
 const LOGO = readFileSync(LOGO_B64_PATH, "utf8").trim();
 const LOGO_URI = `data:image/png;base64,${LOGO}`;
 const distRoot = fileURLToPath(new URL("../dist", import.meta.url));
+const pdfSrcDir = fileURLToPath(new URL("../assets/pdf", import.meta.url));
 
 const ic = {
   activity: '<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>',
@@ -558,11 +559,14 @@ function buildAccount() {
     navTitle: "Trilha de Desenvolvimento · Account",
     logoUri: LOGO_URI,
     pages: P,
+    pdfHref: "./trilha-account.pdf",
+    pdfName: "Trilha de Desenvolvimento - Account - E3 Digital.pdf",
   });
-  const outPath = join(distRoot, "trilha-account", "index.html");
-  mkdirSync(dirname(outPath), { recursive: true });
-  writeFileSync(outPath, html, "utf8");
-  console.log("trilha account:", outPath, "·", P.length, "páginas");
+  const outDir = join(distRoot, "trilha-account");
+  mkdirSync(outDir, { recursive: true });
+  writeFileSync(join(outDir, "index.html"), html, "utf8");
+  copyFileSync(join(pdfSrcDir, "trilha-account.pdf"), join(outDir, "trilha-account.pdf"));
+  console.log("trilha account:", outDir, "·", P.length, "páginas · PDF anexado");
 }
 
 buildAccount();

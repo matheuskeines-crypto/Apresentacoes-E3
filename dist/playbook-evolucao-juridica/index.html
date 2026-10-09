@@ -137,8 +137,9 @@ html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoo
   .topnav .nt{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .topnav .counter{margin-left:auto;font-size:.78rem;color:rgba(255,255,255,.4);white-space:nowrap}
   .topnav .counter b{color:var(--o);font-weight:700}
-  .topnav button{flex:0 0 auto;font-family:var(--s);font-size:12px;font-weight:700;letter-spacing:.04em;color:#fff;background:linear-gradient(135deg,var(--o),var(--o2));border:0;padding:9px 18px;border-radius:999px;cursor:pointer;box-shadow:0 6px 20px rgba(255,95,31,.35);transition:transform .2s}
-  .topnav button:hover{transform:translateY(-1px)}
+  .topnav .pdfbtn{text-decoration:none;display:inline-block}
+  .topnav button,.topnav .pdfbtn{flex:0 0 auto;font-family:var(--s);font-size:12px;font-weight:700;letter-spacing:.04em;color:#fff;background:linear-gradient(135deg,var(--o),var(--o2));border:0;padding:9px 18px;border-radius:999px;cursor:pointer;box-shadow:0 6px 20px rgba(255,95,31,.35);transition:transform .2s}
+  .topnav button:hover,.topnav .pdfbtn:hover{transform:translateY(-1px)}
   .stage{position:relative;flex:1 1 auto;overflow:hidden}
   .page{position:absolute;top:50%;left:50%;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s ease;border-radius:16px;border:1px solid rgba(255,255,255,.08);box-shadow:0 30px 80px rgba(0,0,0,.55)}
   .page.active{opacity:1;visibility:visible;pointer-events:auto}

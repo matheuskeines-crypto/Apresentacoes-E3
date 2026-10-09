@@ -179,7 +179,7 @@ export const chips = (items) => `<div class="chips">${items.map((c) => `<a class
 export const notabar = (kicker, text) => `<div class="notabar"><span class="nk">${kicker}</span><span>${text}</span></div>`;
 export const split2 = (left, right) => `<div class="split2"><div>${left}</div><div>${right}</div></div>`;
 
-export function shell({ title, navTitle, logoUri, pages }) {
+export function shell({ title, navTitle, logoUri, pages, pdfHref, pdfName }) {
   const WEB_CSS = `
 .topnav,.controls{display:none}
 @media screen{
@@ -190,8 +190,9 @@ export function shell({ title, navTitle, logoUri, pages }) {
   .topnav .nt{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .topnav .counter{margin-left:auto;font-size:.78rem;color:rgba(255,255,255,.4);white-space:nowrap}
   .topnav .counter b{color:var(--o);font-weight:700}
-  .topnav button{flex:0 0 auto;font-family:var(--s);font-size:12px;font-weight:700;letter-spacing:.04em;color:#fff;background:linear-gradient(135deg,var(--o),var(--o2));border:0;padding:9px 18px;border-radius:999px;cursor:pointer;box-shadow:0 6px 20px rgba(255,95,31,.35);transition:transform .2s}
-  .topnav button:hover{transform:translateY(-1px)}
+  .topnav .pdfbtn{text-decoration:none;display:inline-block}
+  .topnav button,.topnav .pdfbtn{flex:0 0 auto;font-family:var(--s);font-size:12px;font-weight:700;letter-spacing:.04em;color:#fff;background:linear-gradient(135deg,var(--o),var(--o2));border:0;padding:9px 18px;border-radius:999px;cursor:pointer;box-shadow:0 6px 20px rgba(255,95,31,.35);transition:transform .2s}
+  .topnav button:hover,.topnav .pdfbtn:hover{transform:translateY(-1px)}
   .stage{position:relative;flex:1 1 auto;overflow:hidden}
   .page{position:absolute;top:50%;left:50%;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s ease;border-radius:16px;border:1px solid rgba(255,255,255,.08);box-shadow:0 30px 80px rgba(0,0,0,.55)}
   .page.active{opacity:1;visibility:visible;pointer-events:auto}
@@ -280,7 +281,9 @@ export function shell({ title, navTitle, logoUri, pages }) {
 <header class="topnav">
   <img src="${logoUri}" alt="E3"/><span class="nt">${navTitle}</span>
   <span class="counter"><b id="cur">1</b> / <span id="tot">1</span></span>
-  <button type="button" onclick="window.print()">Baixar PDF</button>
+  ${pdfHref
+    ? `<a class="pdfbtn" href="${pdfHref}" download${pdfName ? `="${pdfName}"` : ""}>Baixar PDF</a>`
+    : `<button type="button" onclick="window.print()">Baixar PDF</button>`}
 </header>
 <main class="stage" id="stage">
 ${pages.join("\n")}
