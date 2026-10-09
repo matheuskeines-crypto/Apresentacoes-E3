@@ -243,8 +243,17 @@ function buildArea(area) {
 
 AREAS.forEach(buildArea);
 
+/* ─────────────────────────────── trilhas de desenvolvimento ───────────────────────────────
+   Adicionar uma nova trilha: inclua um item aqui e gere o deck em scripts/gen-trilhas.mjs.  */
+const TRILHAS = [
+  { nome: "Account", slug: "trilha-account", sub: "90 dias · 12 semanas · 3 checkpoints" },
+];
+
 /* ─────────────────────────────── hub: Materiais PDF ─────────────────────────────── */
 const totalTeses = AREAS.reduce((a, x) => a + x.teses.length, 0);
+const cardsTrilhas = TRILHAS.map((t) =>
+  `<a href="../${t.slug}/index.html"><span class="mt">${t.nome}</span><span class="ms">${t.sub}</span></a>`
+).join("\n      ");
 const cardsTeses = AREAS.map((a) =>
   `<a href="../${a.slug}/index.html"><span class="mt">${a.nome}</span><span class="ms">${a.teses.length} teses · CPL ${a.faixa}</span></a>`
 ).join("\n      ");
@@ -298,6 +307,16 @@ footer{text-align:center;color:rgba(255,255,255,.3);margin-top:36px;font-size:.8
     </div>
     <div class="k-grid">
       ${cardsTeses}
+    </div>
+  </div>
+
+  <div class="k-wrap">
+    <div class="k-head">
+      <h2>Trilhas de desenvolvimento</h2>
+      <p class="k-sub">Formação por função: o que estudar, o que aplicar e o que entregar em cada semana.</p>
+    </div>
+    <div class="k-grid">
+      ${cardsTrilhas}
     </div>
   </div>
 

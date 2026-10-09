@@ -737,7 +737,7 @@ for (const deck of decks) {
 }
 
 /* ─── playbooks (HTML responsivo, com "Baixar PDF" via impressão) ─── */
-for (const gen of ["gen-playbook.mjs", "gen-playbook-entrega.mjs", "gen-manual-evolucao.mjs", "gen-playbook-evolucao.mjs", "gen-manual-estruturacao.mjs", "gen-playbook-estruturacao.mjs", "gen-teses.mjs", "gen-links.mjs", "gen-cursos.mjs"]) {
+for (const gen of ["gen-playbook.mjs", "gen-playbook-entrega.mjs", "gen-manual-evolucao.mjs", "gen-playbook-evolucao.mjs", "gen-manual-estruturacao.mjs", "gen-playbook-estruturacao.mjs", "gen-teses.mjs", "gen-trilhas.mjs", "gen-links.mjs", "gen-cursos.mjs"]) {
   execFileSync(process.execPath, [join(__dirname, "scripts", gen)], { stdio: "inherit" });
 }
 
