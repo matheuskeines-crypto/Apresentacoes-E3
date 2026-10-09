@@ -1,0 +1,770 @@
+<!doctype html><html lang="pt-BR" translate="no"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="google" content="notranslate"/>
+<title>Trilha de Desenvolvimento — Gestor de Projetos · E3 Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Sans:wght@400;500;600;700&display=swap');
+@page{size:1280px 720px;margin:0}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--o:#FF5F1F;--o2:#FF3300;--bg:#050505;--d:'Bricolage Grotesque',sans-serif;--s:'DM Sans',sans-serif}
+html,body{background:var(--bg);color:#fff;font-family:var(--s);-webkit-font-smoothing:antialiased}
+.page{position:relative;width:1280px;height:720px;overflow:hidden;background:var(--bg);page-break-after:always}
+.page:last-child{page-break-after:auto}
+.amb{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.amb::before{content:"";position:absolute;top:-18%;left:-8%;width:46%;height:60%;border-radius:50%;background:rgba(255,95,31,.16);filter:blur(90px)}
+.amb::after{content:"";position:absolute;bottom:-20%;right:-8%;width:42%;height:56%;border-radius:50%;background:rgba(255,51,0,.10);filter:blur(90px)}
+.pbody{position:relative;z-index:2;padding:40px 64px 0}
+.pfoot{position:absolute;left:64px;right:64px;bottom:20px;z-index:2;display:flex;justify-content:space-between;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.pfoot b{color:var(--o)}
+.kicker{font-family:var(--s);font-size:17px;letter-spacing:.14em;text-transform:uppercase;color:var(--o);font-weight:700;margin-bottom:9px}
+.h2{font-family:var(--d);font-weight:800;font-size:42px;letter-spacing:-.01em;margin-bottom:13px}
+.h3{font-family:var(--d);font-weight:800;font-size:24px;letter-spacing:-.01em;margin:14px 0 9px}
+.body{font-size:19px;line-height:1.45;color:rgba(255,255,255,.75);margin-bottom:10px}
+.body b{color:#fff;font-weight:700}
+.muted{font-weight:400;color:rgba(255,255,255,.5);font-size:15px}
+/* CAPA */
+.cover .pbody{padding:0 84px;display:flex;flex-direction:column;justify-content:center;height:100%}
+.cover .logo{width:130px;margin:0 0 20px}
+.cov-k{margin-bottom:13px}
+.cover h1{font-family:var(--d);font-weight:800;font-size:66px;line-height:1.03;letter-spacing:-.02em;margin-bottom:16px}
+.cover h1 span{color:var(--o)}
+.cov-sub{font-size:20px;line-height:1.5;color:rgba(255,255,255,.73);max-width:60ch;margin-bottom:22px}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+.pill{font-size:14.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,95,31,.5);background:rgba(255,95,31,.06);padding:10px 20px;border-radius:999px}
+.cov-rule{height:1px;background:rgba(255,255,255,.12);margin-bottom:12px}
+.cov-foot{font-size:16px;color:rgba(255,255,255,.42)}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;margin:12px 0}
+.stat{display:flex;flex-direction:column;align-items:center;gap:5px;padding:15px 8px;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
+.stat:last-child{border-right:0}
+.sv{font-family:var(--d);font-weight:800;font-size:32px;color:var(--o)}
+.sl{font-size:14px;color:rgba(255,255,255,.54);line-height:1.28}
+/* callout */
+.callout{display:flex;gap:15px;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:15px 19px;background:rgba(255,255,255,.02);margin-bottom:12px}
+.isq{flex:0 0 auto;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--o),var(--o2));color:#fff}
+.isq svg{width:21px;height:21px}
+.callout h4{font-family:var(--d);font-weight:700;font-size:19px;margin:2px 0 5px}
+.cd{font-size:16px;line-height:1.38;color:rgba(255,255,255,.64)}
+.cd b{color:#fff}
+/* quote */
+.quote{border-left:3px solid var(--o);padding:12px 18px;background:rgba(255,95,31,.04)}
+.quote p{font-size:16px;line-height:1.42;color:rgba(255,255,255,.72);margin-top:6px}
+.quote p:first-of-type{margin-top:0}
+.quote b{color:var(--o)}
+.qk{font-family:var(--s);font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--o);font-weight:700}
+.quote.inline{margin:8px 0 10px;background:rgba(255,255,255,.02);border-left:3px solid var(--o)}
+.quote.inline p{color:rgba(255,255,255,.78);margin:0}
+.quote.inline b{color:var(--o)}
+/* sechead */
+.sechead{display:flex;align-items:flex-start;gap:18px;margin-bottom:11px}
+.secnum{font-family:var(--d);font-weight:800;font-size:56px;line-height:.8;color:transparent;-webkit-text-stroke:1.8px rgba(255,95,31,.6)}
+.sechead h2{font-family:var(--d);font-weight:800;font-size:34px;letter-spacing:-.01em;margin-bottom:6px}
+.sechead .lead{font-size:16px;color:rgba(255,255,255,.59);line-height:1.35}
+.rule{height:1px;background:rgba(255,255,255,.1);margin-bottom:13px}
+/* cards */
+.card{border:1px solid rgba(255,255,255,.1);border-radius:16px;background:rgba(255,255,255,.02);padding:17px 21px;margin-bottom:11px}
+.chead{display:flex;align-items:center;gap:13px;margin-bottom:9px}
+.chead h3{font-family:var(--d);font-weight:800;font-size:24px;display:flex;align-items:center;gap:11px}
+.chead .kicker{margin-bottom:2px}
+/* tags */
+.tag{display:inline-block;font-family:var(--s);font-size:13px;font-weight:800;letter-spacing:.04em;padding:5px 12px;border-radius:999px;vertical-align:middle}
+.tag-both{color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.06)}
+.tag-pro{color:var(--o);border:1px solid rgba(255,95,31,.5);background:rgba(255,95,31,.1)}
+.tag-light{color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.04)}
+.dense .rules{gap:8px}
+.dense .rule-item{padding:10px 15px}
+.dense .rd{line-height:1.28}
+.lnk{color:var(--o);text-decoration:none;border-bottom:1px solid rgba(255,95,31,.45)}
+.lnk:hover{border-bottom-color:var(--o)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:700;letter-spacing:.02em;color:var(--o);border:1px solid rgba(255,95,31,.45);background:rgba(255,95,31,.08);padding:4px 12px;border-radius:999px;text-decoration:none}
+.chip.num{justify-content:center;min-width:31px;padding:4px 7px}
+.notabar{display:flex;gap:11px;align-items:baseline;border-left:3px solid var(--o);background:rgba(255,95,31,.07);border-radius:0 10px 10px 0;padding:9px 15px;margin-bottom:11px;font-size:14.5px;line-height:1.35;color:rgba(255,255,255,.78)}
+.notabar .nk{flex:0 0 auto;font-weight:800;color:var(--o);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.notabar b{color:#fff}
+.cpl{display:inline-block;margin-left:5px;font-size:12.5px;font-weight:800;letter-spacing:.02em;color:var(--o);border:1px solid rgba(255,95,31,.45);background:rgba(255,95,31,.09);padding:2px 9px;border-radius:999px;white-space:nowrap}
+.blk .kicker .tag{margin-left:4px;transform:translateY(-1px)}
+.legend{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.lg-item{display:flex;align-items:center;gap:10px;font-size:16px;color:rgba(255,255,255,.64)}
+.lg-item b{color:#fff}
+/* pilares lado a lado */
+.pilares3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.feats{display:flex;flex-direction:column;gap:9px}
+.feat{position:relative;padding-left:16px}
+.feat::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:999px;background:var(--o)}
+.ft{font-family:var(--s);font-weight:700;font-size:17px;margin-bottom:3px}
+.fd{font-size:14.5px;color:rgba(255,255,255,.54);line-height:1.28}
+/* grid2/3 · blk · bul */
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:9px 26px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:9px 18px}
+.blk .kicker{font-size:13.5px;letter-spacing:.05em;margin-bottom:4px}
+.bul{list-style:none}
+.bul li{position:relative;padding-left:16px;font-size:16px;line-height:1.32;color:rgba(255,255,255,.76);margin-bottom:3px}
+.bul li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:999px;background:var(--o)}
+.bul li b{color:#fff}
+/* split em 2 colunas (rotina + kpis lado a lado, etc.) */
+.split2{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+/* tabelas */
+.tblw{width:100%}
+.tbl{width:100%;border-collapse:collapse;font-size:16px;border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden}
+.tbl th{background:linear-gradient(90deg,rgba(255,95,31,.16),rgba(255,51,0,.05));color:var(--o);text-align:left;padding:10px 16px;font-family:var(--d);font-weight:700;font-size:14.5px;letter-spacing:.01em}
+.tbl td{padding:9px 16px;border-top:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.74);vertical-align:top;line-height:1.28}
+.tbl td.k{color:#fff;font-weight:700}
+.tbl td b{color:var(--o)}
+/* rules (ritos / SLA) */
+.rules{display:flex;flex-direction:column;gap:9px;margin-bottom:13px}
+.rules.grid2r{display:grid;grid-template-columns:1fr 1fr;gap:9px 18px}
+.rule-item{display:flex;gap:13px;align-items:flex-start;border:1px solid rgba(255,255,255,.1);border-radius:13px;padding:12px 16px;background:rgba(255,255,255,.02)}
+.nbadge{flex:0 0 auto;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--o),var(--o2));font-family:var(--d);font-weight:800;font-size:16px;color:#fff}
+.rt{font-family:var(--s);font-weight:700;font-size:17.5px;margin-bottom:3px}
+.rd{font-size:14.5px;line-height:1.32;color:rgba(255,255,255,.64)}
+.rd b{color:var(--o)}
+.commit{border:1px solid rgba(255,95,31,.35);border-radius:16px;padding:22px 32px;text-align:center}
+.commit-pill{display:inline-block;font-size:14px;font-weight:700;letter-spacing:.08em;color:var(--o);border:1px solid rgba(255,95,31,.5);border-radius:999px;padding:7px 17px;margin-bottom:11px}
+.commit-t{font-family:var(--d);font-weight:800;font-size:28px;letter-spacing:-.01em;margin-bottom:9px}
+.commit-d{font-size:16.5px;line-height:1.38;color:rgba(255,255,255,.6);max-width:72ch;margin:0 auto}
+.commit-solo{margin-top:60px}
+</style>
+<style>
+.topnav,.controls{display:none}
+@media screen{
+  html,body{height:100%;overflow:hidden}
+  body{background:var(--bg);display:flex;flex-direction:column}
+  .topnav{position:relative;z-index:20;flex:0 0 auto;display:flex;align-items:center;gap:14px;padding:12px 28px;background:rgba(5,5,5,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.07)}
+  .topnav img{height:30px;width:auto}
+  .topnav .nt{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .topnav .counter{margin-left:auto;font-size:.78rem;color:rgba(255,255,255,.4);white-space:nowrap}
+  .topnav .counter b{color:var(--o);font-weight:700}
+  .topnav .pdfbtn{text-decoration:none;display:inline-block}
+  .topnav button,.topnav .pdfbtn{flex:0 0 auto;font-family:var(--s);font-size:12px;font-weight:700;letter-spacing:.04em;color:#fff;background:linear-gradient(135deg,var(--o),var(--o2));border:0;padding:9px 18px;border-radius:999px;cursor:pointer;box-shadow:0 6px 20px rgba(255,95,31,.35);transition:transform .2s}
+  .topnav button:hover,.topnav .pdfbtn:hover{transform:translateY(-1px)}
+  .stage{position:relative;flex:1 1 auto;overflow:hidden}
+  .page{position:absolute;top:50%;left:50%;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s ease;border-radius:16px;border:1px solid rgba(255,255,255,.08);box-shadow:0 30px 80px rgba(0,0,0,.55)}
+  .page.active{opacity:1;visibility:visible;pointer-events:auto}
+  .controls{flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:18px;padding:14px 28px;background:rgba(5,5,5,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.07)}
+  .navbtn{flex:0 0 auto;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);color:#fff;cursor:pointer;transition:.2s}
+  .navbtn svg{width:18px;height:18px}
+  .navbtn:hover:not(:disabled){border-color:var(--o);color:var(--o);background:rgba(255,95,31,.08)}
+  .navbtn:disabled{opacity:.25;cursor:not-allowed}
+  .dots{display:flex;align-items:center;gap:7px;flex-wrap:wrap;justify-content:center;max-width:60vw}
+  .dot{width:7px;height:7px;border-radius:999px;border:0;background:rgba(255,255,255,.2);cursor:pointer;transition:.25s;padding:0}
+  .dot.active{width:22px;background:var(--o);box-shadow:0 0 10px rgba(255,95,31,.6)}
+}
+@media screen and (max-width:720px){
+  .topnav{padding:10px 16px}
+  .topnav .nt{display:none}
+  .controls{padding:10px 16px;gap:12px}
+  .navbtn{width:34px;height:34px}
+}
+@media print{
+  .topnav,.controls{display:none!important}
+  .stage{position:static;overflow:visible}
+  .page{position:relative!important;opacity:1!important;visibility:visible!important;transform:none!important;border:0!important;box-shadow:none!important;border-radius:0!important}
+}
+</style>
+</head><body>
+<header class="topnav">
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbsAAAHSCAYAAAB1kmWMAAAACXBIWXMAACE3AAAhNwEzWJ96AAAgAElEQVR4nO3dy3okx3nm8TeztO+6gy5vYosiTVG0ZtGljWzZsgFeQWcv5hl7aKqhjUUdibaOlCUT1GFm2YkrGGA7GxauwMBSsRFwBdN1AULOIrO6C+gCKs+REfn/PQ8esAvIqo/dQL35RUZERlmWCcDI/bd4LmmqaOOx6O3P2eaft33PPceV/p4uvtZFvXcey5T1+nobn6/i/5VdCTtFhN39rLUzSYeSFpL2nBaDoTqXdGiMuXBdSC1fjw8kpYr0SNLON1fCbvtjDsNOirSSdCopjf+YLYWtCLt7WGuPJT13XQe8sJI0M8a8cl1IJV+PZ5L+LKn0mytht/0xx2G3+T0nkg7jP2R+/Sz2IHZdwNBYa6fW2gsRdCjvkaTEdRE1HLkuAK17Kml583E0dV3I0BB2b0vFkCWq8/HN5cB1AejEnqRj10UMDWG3wVp7IGnfdR3w0pXrAir5mziRiut0CNHTm4+jhesihoSwu+3IdQHw1qnrAiqiqwvfoesChoSwKxQzLxm+RB1nXk1O+SCeiRGMMeDfeANh98bMdQHwVuq6gIro6kbi5uNo7rqGoSDsgGZWxhjfhjAZ3hoPHydOdYKwA5pJXRdQyQfxQtJjx1UAvSPsgGZS1wVUlLguAHCBsAPqu/Zqm7AP4qm4XoeRIuyA+nxbuHsg1tZhpAg7oD7fJqYkrgsAXCHsgHrOjDFXroso7WvxTNIT12UArhB2QD2+dXUsN8CoEXZAdev7h/mEiSkYNcIOqO7Uq+3BvhYfiLV1GDnCDqgudV1ARXR1GD3CDqjm2hizdF1Eae/HU+U39ARGjbADquFaHeAhwg6oxreF5MzCBETYAVVcerW27v14Lu7RCEgi7IAqfOvqEtcFAENB2AHl+Xa9LnFdADAUhB1QzolXa+vej9n0GdhA2AHl0NUBHiPsgN1Wxhh/wu6r8VTSvusygCEh7IDdUtcFVJS4LgAYGsIO2C11XUBFrK0D7iDsgIddGmMuXBdR2lfjudj0GXgLYQc8LHVdQEV0dcAWhB3wMH8mpuTYCxPYgrAD7nfm1fZg78WJWFsHbEXYAffzratLXBcADBVhB2y3Msakroso7b14JumJ6zKAoSLsgO3o6oCAEHbAdqnrAipKXBcADBlhB7zt2hizdF1Eae/FC7G2DngQYQe8LXVdQEWJ6wKAoSPsgLelrgso7a/jqVhbB+xE2AG3nXu1ti4POtbWATsQdsBtqesCKmJ7MKAEwg64zZ8lB+/GM0l7rssAfEDYAW+cGGNeuS6iAro6oCTCDnjDn64ux8QUoCTCDshdG2P8Cbt34wOxtg4ojbADcv4EXS5xXQDgE8IOyKWuCyjt3Xgqad91GYBPCDtAujTGXLguooLEdQGAbwg7wKeuLpe4LgDwDWEH+BR278RzsbYOqIyww9ideba2LnFdAOAjwg5jxyxMYAQIO4zZyhiTui6itHfiRGz6DNRC2GHMfOvq2DEFqImww5gduy6gtHk8E2vrgNoIuzemrgtAr649W1tHVwc0QNi9MXddAHrlT1eX4w4HQAOE3Rt0duPiz/W6ebwQmz6jnoXrAoaCsHuDYaLxODfGXLkuooLEdQHwFu9rBcJOkrU2EWfOY5K6LqAi3rBQ197Nd6KF6yKGYPRhZ62dSjpyXQd6s5J/Q5isrUMT6c13otFfphl12BVBtxRd3ZicerY9mE+1YpgeS1rePB934I027Ky1M+VBx6a645K6LqCSi5sLSeeuy4D39pQH3mhnnUdZlrmuoVfW2rnyadxPXdeC3n1hjPFvCv88zkcgouLELNr4WrTlz9u+p43jIikr+9wPfe77a13Ue+exTFmvr9fwuBNJp4q0jD/PRjNysDXsiuG9RPm01VBa36nqdXHrazxXrVaDPr1SPnx55bqQRvLb+0wJuxZft6XjHIbdVJEWyicxPR7e30vHr3f7a5fKTwqPJ59kV7rjrbCz1h5J+vTuN47QStKhVxsFAxitm4+iRJGOJT0aadhtfv5i8kl2axTnddhtTNbgGpZ0KWnh2UQGACN386/R7SFvaaxht+70FpPv5UO1mxNUTkXQSQQdAE/Ff8heKb/8dO24lCHY08aEtFh6vaj6iZt6Bich6AD4qgi8xHUdA7H/l8+iA+lNZ3fkrpZBOfFsJ3wAeEv8+2wplqysHUlSXEzFZ1F1zp+dNQDgYanrAgZi7y+/jmax2HfvNWMMYQcgFIxSvTEb7Q4qABCy+PcZYffGnLADAIRuStgBAIJH2AEAgkfYAQCCR9gBAIJH2AEAgkfYAQCCR9gBAIJH2AEAgkfYAQCCR9gBAIJH2AEAgkfYAQCCR9gBAIJH2AEAgkfYAQCCR9gBAIJH2AEAgkfYAQCCR9gBAIJH2AEAgkfYAQCCR9gBAIJH2AEAgkfYAQCCR9gBAIJH2AEAgkfYAQCCR9gBAIJH2AEAgkfYAQCCR9gBAIJH2AEAgkfYAQCCR9gBAIJH2AEAgkfYAQCCR9gBAIJH2AEAgkfYAQCCR9gBAIJH2AEAQndF2AEAQkfYAQDCR9gBAEJHZwcACNpq8m8ZYQcACNqFxDAmACBspxJhBwAIG2EHAAja5eR72ZVE2AEAwnW8/g/CDgAQouvJ97J0/QfCDgAQoqPNPxB2AIDQnG92dRJhBwAIy0rS4d0HCTsAQEgOJ59kF3cfJOwAAKE4mXxye/hy7Ss9FzJo1tql6xpG5pWkU2NM6roQ+C87iA8lHSgqHrj7uexjNY7LlPX6epWOG4+Tyfez5L4vEna3PXFdwAjtW2sXxpjEdSHwV7Yfp4r01HUdcObBoJMYxsQwPLXWzl0XAT9l+/FcIuhG7LuTHzwcdBJhh+E4cF0AvJW4LgDOPJv8IDve/W0MY2I4rlwXAG8lrgtA71aSkskPstOyBxB2GIrSP7TAWrYfH0h65LoO9GolaTH54dvLCx7CMCaG4MwY88p1EfBS4roA9KpW0EmEHYYhdV0A/JP9UzyVtO+6DvTmUtJs8qPqQScRdnBvZYxhCBN1JK4LQG8uJS0mP8pqjwARdnAtdV0AvPXW/ocI0omkxeTH9YNOYoIK3EtdFwD/ZP8UzyU9dl0HOncy+fHuNXRl0NnBpWtjTK3xd4weXV34Xkx+0k7QSXR2cKvUYlBgCzYhCNuzyU+2b+hcF50dXGJiCirL/jFOxNq6UK0kPZt82m7QSXR2cOfMGHPlugh4KXFdADqRr6H7tN7Sgl3o7OAKXR0qy/4xnom7k4QoD7qjboJOIuzgxop72KGmxHUBaN2lpHmXQScxjAk36OpQV+K6ALQqXyz+otkaujLo7OBC6roA+Cf7drwQa+tCcqaegk6is0P/ro0xS9dFwEuJ6wLQmpPJv7e3hq4MOjv0LXVdAPyTfTueiruRh+KLvoNOorND/1LXBcBLLCIPw7PJT9tfQ1cGnR36dMnaOtTE9mD+cxZ0Ep0d+sX2YKgs+3Y8k7Tnug7Ulq+h+2m3Swt2obNDn1hygDro6vyVB93P3AadRNihPyfGmF6mGCM4XK/zU75YfABBJzGMif7Q1aGy7B/iA0WsrfNQvlj85/2soSuDzg59WBljCDvUkbguAJWdS1rEAwo6ic4O/UhdFwD/ZP8QTyXtu64DlZzEv+h/DV0ZdHboQ+q6AHgpcV0AKjmJfznMoJMIO3Tv0hgziAvU8E7iugCU9mzIQScRduhe6roA+Cf7+3gu1tb54ln8S3eLxcvimh26lrouAF5ibd3wrSQdxL/Klq4LKYOwQ5fOWFuHmlhbN2wrSYv4V8NYQ1cGw5joEssNUFn293Ei6ZHrOnCvS0mL+DN/gk6is0N3VsaY1HUR8BJd3XCtg867ERs6O3SFrg6VZd+KZ2Jt3VDli8U9DDqJzg7d4Q4HqCNxXQC2Ool/PeylBbvQ2aEL16ytQ02J6wLwlpP4P/wOOomwQzdS1wXAP9m34oXEps8D890Qgk5iGBPdSF0XAC8lrgvALc/i3wx/sXhZhB3adm6MuXJdBPySfSueilmYQ7GSlMS/yYKaZEbYoW2p6wLgpQOxtm4I8sXiv/VrDV0ZXLND24I6G0RvEtcFQNcKNOgkOju064TtwVBV9nfxTJGeuK5j5PLF4r/1cw1dGXR2aBNdHepg02e38qD7z3CDTqKzQ3uujTGEHepgYoo7J/HnYSwt2IXODm0h6FBZ9nfxgVhb58pogk4i7NCe1HUB8BJdnRsvxhR0EsOYaMcl24Ohquxv46kiPXVdxwg9i4/DWSxeFp0d2pC6LgBeSlwXMDIrjTToJDo7tCN1XQC8lLguYETyxeJfhLmGrgw6OzR1xto6VJX9bTyXtOe6jhEZddBJhB2aS10XAC8lrgsYke/Gvxt30EmEHZpZsbYONSWuCxiJ6/h3GTdSFmGHZgg6VJZ9M07Eps994Xe0QNihCc4YUQdr6/qzdF3AUBB2qOuatXWoKvtmPJO077qOEWHyWIGwQ110daiDrg5OEHaoi2sBqIM7HPRr5rqAoSDsUMe5MebKdRHwS/bNeC42fe7bwnUBQ0HYoY7UdQHwEl1d/57efCeaui5iCAg7VLUSQ5ioh+t1bnB9XYQdqjtlezDUxNo6N57efCdKXBfhGmGHqlLXBcBbZ64LGLGXN8+jUQ8jE3ao4swYs3RdBLx1pHwYHG58fvM8Wt4cRgvXhbjALX5uO3ddwICdGmMY+0dt0f+9uSgWlSeSmDTRjoXy5QVlZ7k+kfTlzWG0UqQLSReSXikqvhptfOfdx97+nqkizR86Ltt+XLnHqnyPdKVIV5JOJ9/fvul19Kc//elI0qfbvjg2xpho93cBwLDcfBTNJR0pKnanaRoiLR3XY9htPnYu6WjySbbc+CrDmADgu/iP2UX8x+xA0odiqPiJpC//8tntSTmEHQAEIv5DdioWkq+93Aw8wg4AAhL/IbuQ9F3XdQzEy798Fs0kwg4AghP/PjuWdO26joE4kgg7AAgVs6dzTyXCDgBCxf0mC3/5dbQg7AAgQPHvb0+9H7kpYQcACN2csAMABI+wAwAEj7ADAASPsAMABI+wAwAEj7ADAASPsAMABI+wAwAEj7ADAASPsAMABI+wAwAEj7ADAASPsAMABI+wAwAEj7ADAASPsAMABI+wAwAEj7ADAASPsAMABI+wAwAEj7ADAASPsAMABI+wAwAEj7ADAASPsAMABI+wAwAEj7ADAASPsAMABI+wAwAEj7ADAASPsAMABI+wAwAEj7ADAASPsAMABI+wA4AA3XwczVzXMCSEHQCEaea6gCEh7DZYa2euawCAlsxcFzAgS8LutrnrAgCgJbyfbYglvXJdxIDwwwEgFAvXBQxJLOnCdREDcuC6AABo6ubjaCppz3UdQ8Iw5m17XLcDEABO3O8g7N7GDwkA3x26LmBgXsXGmKXrKgaGHxIA3rr512ghhjBvmfxbdkFn97bH1trEdREAUNOR6wKGaB12l06rGJ4j1wUAQFVFV/fEdR0Dcym9CTuWH9z22FrLcCYA3xy7LmCAXklvwo7lB287YmYmAF/cfBQdiWt121xJb8LuylkZw/VI0qnrIgBgl5uPogNJn7quY6CuJDq7XfastanrIgDgPjcfRXNJqes6BuxCIuzKeErgARiim/8ZzSUtlY9EYbsrqQg7Y8wrSdcuqxk4Ag/AoBB05Uy+l93q7CS6u12eWmtPrbVT14UAGLebf4kSEXRlvF5WR9hVsy/pwlq7cF0IgPG5+edoevMv0amklyLoynida5tht+y/Di89lvSltTalywPQl5t/jg6VX3/ad1yKT16HXZRl2etHrbXZ1m/HfVbKZ0EdG2Ou3JYCIDQ3/yOaSkokHSrSY0lSVHzx7ueyj/V4XNb16+3+2jvra3Z3w24ptpqp60z5urwlwQegrpv/Hs0UaSHpQNFGF+cwtOoe5zjsVpPvZa9H376i25Yi7OraLz5krb1W3j5fKN+qhuuh4bry/uTm6/FcUXFrqx1vLNmu77nnuNLf08XXenlTz5q+3lSR5pLm4lpcW5abf9gWdqzCb+5x8cHY+ghYa58ZY1LXddTy9TiV9NR1GUAHlpt/uHWLn+Ledqv+agGC8NJaO3ddRGVfjxci6BCu5eYftt3Pjv0ggep8vMM9d/ZAqK7XE1PWtoXdsp9aADjzN/FUDLMjXMu7D9DZAe3wbRJS4roAoENv5dhbYVfsk3nWSzlAGFbGGN9OEhnCRKhWk0+y3WFXSLutBQhK6rqASj6I51KxQBkIz9YTz61hV5ylMisTKCd1XUBFdHUIWfmwe+gAALdcG2N8u17n48xRoIzrbUOY0sNhd9xRMUBI/Po9+SBOxA4dCNe9Tdq9YVecrV7e93UAkvwbAUlcFwB06N6Tz4c6uwcPBKAzr/bF/CCeib1vEa7zyfezq/u++GDYFfv9MVEF2I6uDhiOB5uzXZ3dzicARmrl4ebPiesCgI5cT76/fWLKWtmwo7sDbvOrq/tavBBr6xCuo13fsDPsih1V6O6A21LXBVSUuC4A6MhKJU4+y3R2Et0dsOm6uB2WH74WT8XaOoTrePKD7NWubyoVdnR3wC2p6wIqOhBr6xCmlUpmU9nOTqK7A9ZS1wVUxPZgCFWprk6qEHZ0d4Ak6dKrtXXvxzNJe67LADpQuquTqnV2Kp74uuIxQEh8O+Gjq0OoDst2dVLFsCu6O355MGZ+LTlgYgrCdDn5YZZWOaBqZ7e+/c951eOAAJwUJ3x+eD8+EGvrEKbKTVflsCskNY8DfOZbV5e4LgDowNnkh9my6kG1wq64QP+izrGAp1bFqIYf3o+nkvZdlwG0bKWaJ3F1OzsZY47ELYAwHqnrAipKXBcAdOBo8qPyk1I21Q67QtLweMAXqesCKkpcFwC07Hzyo6z2bOhGYVfc4JXhTITusvhZ98NX47lYW4ew1B6+XGva2TGciTFIXRdQUeK6AKBlh5Mf339j1jIah13hQGwlhnD5MzEll7guAGjR2eTH1dbUbdNK2BWzM5M2ngsYmDOvtgf7apyITZ8Rjmu1lC1tdXbrxeZftPV8wED41tWxYwpCcjD5cb3Zl3dFWZa18TyvWWuXkp60+qSAGytjzNR1EaW9F88U6c+SpGjj8ejO5/V/l/meO5+zss/90Oe+v9ZFvXcey5T1+nq+HJeV+J4HXu/Z5CfNhy/XWuvsNhyIzaIRBro6wI2TNoNO6iDsir0DmbCCEHCHA6B/l5NPs6TtJ+2is1uvv+MsEz679mpt3XvxQmz6DP9dSlp08cSdhJ0kGWOWkp519fxAx1LXBVSUuC4AaGgl6WDyaTsTUu7qLOwkyRiTisCDn1LXBZT2XjwVIynw20rSYnLUbOH4QzoNO+l14LGlGHxy7tXaujzoWFsHX62DrtPLBp2HnfR6S7GTPl4LaEHquoCKEtcFADXlQfei26CTego7STLGJCLw4Ad/lhz8dTwT61rhp96CTuox7KTXgcc1PAzZSbF8xheJ6wKAGnoNOqnnsJOYtILB86eryyWuCwAqyoPu3/sLOslB2Em3Ao+F5xiS62KPVz+8Gx+ItXXwi5OgkxyFnfQ68BYi8DAc/gRdjuUG8MmlpNnkp/0HneQw7KTXO63Mxc1fMQyp6wJKezeeSnrqugygpDNJi8lPu1kwXobTsJNe3wtvofwvA3Dl0qvtwejq4I8Xk59lBy6DThpA2En55tHGmANJ33VdC0YrdV1ARWz6jKFbSfpw8rPsyHUh0kDCbs0YcyzpG+I6HvqXui6gtHfjmaQ912UAD7iUNJ/8PBvMdfBBhZ30egPpmRjWRH/OPFtbR1eHIfsi/kU2j3/e3T6XdQwu7KRbw5osT0AfUtcFVJS4LgDY4lrSN+JfZIM8GRtk2K0VyxPmks4dl4JwrbxaW/dOzKbPGKIvJM3jX2ZL14Xc5yuuC9hlPVvTWnug/AycX3S0yZ+gyyWuCwA2XEtKhhxya4Pu7DYVZ98z5WcQQFuOXRdQ2jvxVNK+6zIA5ZeXXsS/ymbxr4YfdJJHYSe9vpZ3KOkdMbSJ5q49W1uXuC4AUH73mnn82TCWFJQ1+GHMbYo3qIW1dqH8zJxp2KjDn64uN8gL/xiNc0lH8Wd+dHJ3RVmWua6hMWttIulIbIqLav7KmzuSz+O5Iv2XJCnaeDza8udt39PGcZGUlX3uhz73/bUu6r3zWKas19fr+bg85P7Dz5BbCyLs1orQS8TNLLHbuTFm4bqI0uZxqqjYC5OwG1oYhBp2ecj9xu+QWwsq7NaK4c1DcTEf93tWLG3xwzx+paiYiUzYDSUMXn8OLOxOJB3Hv3Vzd4KuBBl2a9bamfLQS8SSBbyxkjTzZteUeZxIetlaaNU9jrALOeyuJaWKdBz/1u2GzV0JOuw2Fev0EtHtQToxxiSuiyhtHp9K2ifsan6NsLvv80r5OtM0/jyMocqHjCbs1qy1U+W3RzkQwTdWH3qza8o8nkr6f5LaC626xxF2IYTdSpGWkk4V6TT+PMwubpvRhd2mjeBbFJ8Z6gzftTFm5rqI0ubxQtKXkgi7ul8j7K6Vh9sy/mI4dyHom5fr7NpSXLNJiw9Za+fKg2/9QfiFx7df9qAmCaAX15KW64/4d8O6+4Aro+7sdikmuMyLj0XxmQD010rS3Ju1dWvz+FjSczq7ml8Lu7M7V6QrSVeSlop0Ef9hPEOTVRB2NRRLG6bKw0/Kg1DFY+zmMkzXkg482x7sjXl8pEiJpMeEXYuv29JxHYTd+Z3HlsV/X63DLf7fdGxVEHYAgOB5tRE0AAB1EHYAgOARdgCA4BF2AIDgEXYAgOARdgCA4BF2AIDgEXYAgOARdgCA4BF2AIDgEXYAgOARdgCA4BF2AIDgEXYAgOARdgCA4BF2AIDgEXYAgOARdgCA4BF2AIDgEXYAgOARdgCA4BF2AIDgEXYAgOARdgCA4BF2AIDgEXYAgOARdgCA4BF2AIDgEXYAgOARdgCA4BF2AIDgEXYAgOARdgCA4BF2AIDgEXYAgOARdgCA4BF2AIDgEXYAgOARdgCA4BF2AIDgEXYAgOARdgCA4BF2AIDgEXYAgOARdgCA4BF2AIDgEXYAgOARdgCA4BF2AIDgEXYAgOARdgCA4BF2AIDgEXYAgOARdgCA4BF2AIDgEXYAgOARdgCA4BF2AIDgEXYAgOARdgCA4BF2AIDgEXYAgOARdgCA4H3FdQEYB2vtosHhF8aYV23VAmB8oizLXNeAQBSBtpA0Kz7mkh61/DLnxecLSVfKg3DZ8msACExvYWetPZL0aS8vVt618jdMFZ+vVLyJGmMu3JTU+O/qC2PMYYvl3MtaO5d0UHzs9fGaD7iUtJR02mX4Nfy3eWGMOSrxGmM/Ay3197SLtTaR9LJxNdudGGOSjp57pwY/I+fGmEWbtfhi7MOYj4sPSXqy+QVrrfTmDXRpjDnttbL6Oh3us9ZOlYfbkd783Q3BXvHx3Fp7LSmVlBpjrlwWBaeSDp/7qbX2kOF1fzBB5WF7kp5L+j/W2lfW2rThtaeylj28RmVFV3Ol/Gx5SEF312Pl3defrbXHRUBjRKy1M905ge3AQcfP/5BLh6/tJcKuvEeSnkr60lp7Za11+YPeK2vt3Fp7oTxA2r4G17Xnkq56OknBcPTx++nyPYCOsiLCrp7Hyru9ZXEGGaziusd/yf01uSYeKT9JSVwXgt4kPbzGPqMG/iDsmnki6SLUN9Fi2LKrC/wuvAz13wpvFCegfZ2cjWaEx3eEXXOPlL+JHrsupE1FKAxt9mwbXjKkGbxeZiMXCDtPEHbteR5K4BVhEFJHd1fK8FPQ+gwghjI9Qdi167nvw2TFL64vyyzqeqx+z/7Rk2LtZ98zhZOeXw81EHbtOy5+4Xx1LP9mXNZxyBl5kJKRvCYqIuza90h5YHinuLD/1HUdPXkkrreEKHHwmnuhz8oOwdh3UOnKE2ttYoxJXRdS0VHHz79Svh2blK8T2rYl21T5npprM3U3LHWgfKcVBKBY++pqVOJAnp7kjoUvYfei5edbFJ9n6u6N9EgevZEWQ3ptd3WXyq//LZvuV1kMDc+V/9st1M6/234LzzEUlyq/0Hiq+lPzq7zO2kz9XEer06lvnoBJ9f9uEhF2g+ZF2LWxKex9ijf5zQ2N2/qlfGytXXi0I3/S4nOdSDpqc1/KYmPuCxUnEMVEoCM1/Pca4r+RMSbq8vmL2bZf1jz8cGh/X9KtPVurSjc3Ti+GI/9c43n2rLUz9mIdrtFfszPGvDLGLI0xh8aYmaQPld8NoQ1JS8/Th6SF51hJ+oYxJun6l74YIp6r+R6BPk8mwht1hzDTzT8UP7d1f6aY4Ttgow+7u4wxp0XonbTwdF5M9ijOipvuOLGS1GuXVOw4v1Czk5NZK8XAtTpd3fU9t/JKe6wBPSHs7lHcq6px4HmyYXQbNS5c3AOwCLwmZ9R0dp4rhh7rXH+9bz1p3XWmjz1fdhQ0wu4BReCd7/q+HRbNK+lc01/QL1ze7La41+DK1evDubona+m2BxsOZSY1j0PHCLvdkobHL1qooWtNw+6ojSIaWtY8joXl/ktqHHPfEOZaWq8UhjKHirDboTjLazKc6cOtcZrc5PJkIHdrrttZ+vDvg3s0uMPBrqHKJkOZBN4AEXblNNorcsi77Lew80Po+2hi2Oper10+9MXiJLfuxCfCboAIuxJauCY0a6mULswaHr9soYY2OLtmCKdqLSQvfqd3qXsiR9gNkBeLygdiqfo7bszaK6N1Ta7XXQ5kCFPKw67sTjvLDutAT4oRkzqbCpQNsVTS8xrP/8hae1AyUNETwq68C4UZdk0maAymmyqGnY4cl4F+JTWPKxVCxpgLa+216gVqUvZ10A+GMctr8sY+a6uIgblyXQBGrcshzLW6gcVNXQeGsCtvKMN1bVs0OHYwnR3GpcEdDqqG17LGa6xx7W5ACLuSGm6DNWunisEJ9QQAw4umdMwAAAYnSURBVJfUPG5Z5ZsbTk4j7AaEsOtHH7c3AUahGB6se/28zrBkk6HMWc1j0TLCDk0wjAkX6nZMZzVnDzeZaEJ3NxCEXTVt3fonCANadoBxqbuQvG5oLWseJ7FX5mAQdtVcuS4AGLMG24NJNcOuOKk7q/maewxlDgPr7NAra+2xhndbnQO6VG8kNY9rugHCqepfJ0zEGlDnCDv0ba5mG0+3jqDzSlLzuLTh655Kelnz2ESEnXMMYwLwQnFj1LozmxvtZlKcENW9tyU3dR0Awg6AL+pOTLkstpNrqklgJi28Phog7AD4ou40/rb2qGQJgscIu2rY6w5woMH2YFJLYVd0h5c1D+emro4RdtVwV2vAjaTmcdfGmDY3P0gbHEvYOUTYoTYuuqMPDrYH6+r5CDuHCLt+NLnL+ZAxrIs+NAmJtK0ipMZDmY8YynSHsCupYRfDHpJAfXVnYbY9hLm2bHBs0lINqIiwKy/ULqbJmwHDmOiUi+3BSkgbHMtNXR1hB5XymryxD3mHjia11fmlPax5XBlfdvS8cKduVydJz621z1urpD0Hanl4FbsRduUxjPm2yn8nHQ0rSZKstV09NdwJ8RpXIsKudwxjlrdocOyQO7tlg2MZxkRnrLULhXnj4yfcCaF/hF0JxQ9mk1+6IXd2TYL4cQC/tNyjcLgS1wV0KMSOddAIu3KShscPNuxaGFZctFFHUw1my161WQdaFXIgJK4LGBvCbodi5lSTi+TXHtxCpkl3k7RVREPMcAuItTZR/e3BfLDHpgz9Iux2O1SzX7rBdnUbmtQ4lOsPi5rHXbVYA9oTcle3lrguYEwIuwcUF8g/bfg0Xa31adOy4fHHbRTRUN03x6s2i0BzxclT3e3BfDKGQB8Mwu4eRdC1EVTLFp6ja8uGx+8Xw05OFP9WdRce+9B5j81YQuBx8bOLHhB2d1hrp9baI+ULlJteM2jrppGdKiapNJ2V+NLFL25xTbVJZ0nYDU/iuoAeJa4LGAvCrmCtnVtrj5UPazUdulwbwvBeWW10sV9aa5tM5qmkCLql6nd1Kx9ORsakmLQxpltpjaWLdc6LHVQ66hjmymfwLYr/bnvm10p+XK9bSyW1sbXS50XgHRlj0hae7y0bM2SbTh5atlIQ2pS4LqBnj6y1B8aYvt4rZsXI1VAsjTHLPl7Ii7CTn3seHnuw5OA1Y8yFtfZc0pMWnu6x8mHNl5LOlA8VLiVdVe2kimBbn5jMlZ+ctFGj5NfJyFgkDY79K1edurX2leqfeCXq72fxsdobuWrLso8X8SXsfLOSX0OYa6naC5K1/eLjU+mt/SvPt3z/TP1tEUXYDUhxr7e6geH6+vippKc1j9231k59Ojn2EdfsupH4+INbDDtuC6CuPNny0VfQnfj4bxS4wdyktYamJ05cu+sYYde+kx7H37vQ2wQTx45cF4A3iuHqup2R5LhLL37nVw2eYiy/d84Qdu26lOc/tMUyhBeu6+jYCbMwB6dJZ+N6CHOtSeDuDWQnomARdu25lLQIYWjMGHOkfGJJiFby/IQkUE3+TdK2imiIocwBI+zaca5Agm5DojzAQxPav5P3io6mydq6QVw2YChz2Ai75l4YY4J7Ay3+fxYKq8N71uWd0lFbkzf5oQxhrjUJ3sfcCaE7hF19J8rX9Ry5LqQrxphXxpgD+X8NbyXpG10tckdjPs/CvKtpl5m0UQTeRthVs9KbkEsGdkbZmSLQ31G/yxLaciZp1tcuDaimWFvXZLnJIIYw11qYiZ2U/D7u31gRYbfbOuA+VP6m2UfIDW4owxhzYYxZSPqG/Ai9c+Xd3EFoQ8yOtf2zmTQ4dmhDmGtNhv4fFScAu4xp/9BWsIPKbZeSXqnY2kr5vm1XDuoY7Flb0SEtikkFh8qHoPpaCL7LtfIz/eOBvgmGoLWfzWJtXZP71qUtldK2UzX7/0o0sI41BH2G3bLH13rIlW7fsPPVACctLBsc28v/SxEmh5IOi+BbKD/rn6v9Lce2WSn/f11/9HVisnR0bJuuVP867LK9MjRtUIc03EA4Vb7tXZd8v46+tuzrhaIsy/p6LYzIlg2c19aP7XKlOyclKoKc628Aqvr/dEHMc1AXw/cAAAAASUVORK5CYII=" alt="E3"/><span class="nt">Trilha de Desenvolvimento · Gestor de Projetos</span>
+  <span class="counter"><b id="cur">1</b> / <span id="tot">1</span></span>
+  <a class="pdfbtn" href="./trilha-gestor-projetos.pdf" download="Trilha de Desenvolvimento - Gestor de Projetos - E3 Digital.pdf">Baixar PDF</a>
+</header>
+<main class="stage" id="stage">
+<section class="page cover">
+  <div class="amb"></div>
+  <div class="pbody">
+    <img class="logo" src="data:image/png;base64,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" alt="E3"/>
+    <p class="kicker cov-k">TRILHA DE DESENVOLVIMENTO · DOCUMENTO DE FORMAÇÃO</p>
+    <h1>Gestor de <span>Projetos</span></h1>
+    <p class="cov-sub">Formar o responsável pela organização, planejamento, acompanhamento e previsibilidade dos projetos — garantindo entregas no prazo, com qualidade e clareza de responsabilidades.</p>
+    <div class="pills">
+      <span class="pill">90 DIAS</span><span class="pill">12 SEMANAS</span>
+      <span class="pill">2 A 3H POR SEMANA</span><span class="pill">3 CHECKPOINTS</span><span class="pill">CERTIFICAÇÃO INTERNA</span>
+    </div>
+    <div class="cov-rule"></div>
+    <p class="cov-foot">E3 Digital · o hub de marketing e vendas para advogados</p>
+  </div>
+  
+</section>
+<section class="page" id="s1" data-label="Visão da função">
+  <div class="amb"></div>
+  <div class="pbody">
+    <div class="split2"><div>
+      <p class="kicker">VISÃO DA FUNÇÃO</p>
+      <h2 class="h2">O GP não só cobra tarefas</h2>
+      <p class="body">O papel do Gestor de Projetos na E3 não deve ser apenas cobrar tarefas, atualizar ferramentas ou perguntar se uma entrega foi concluída.</p>
+      <div class="stats"><div class="stat"><span class="sv">90</span><span class="sl">dias de trilha</span></div><div class="stat"><span class="sv">12</span><span class="sl">semanas</span></div><div class="stat"><span class="sv">2–3h</span><span class="sl">por semana</span></div></div>
+      <div class="notabar"><span class="nk">EVOLUÇÃO ESPERADA</span><span>Organização → Planejamento → Execução → Previsibilidade → <b>Melhoria contínua</b></span></div>
+    </div><div>
+      <div class="blk"><p class="kicker">O QUE ESPERAMOS DESENVOLVER</p></div>
+      <div class="grid2">
+        <div class="blk"><p class="kicker">PLANEJAR</p><ul class="bul"><li>Transformar objetivos em planos de ação.</li><li>Organizar projetos de forma clara e visual.</li><li>Definir atividades, responsáveis e prazos.</li></ul></div>
+        <div class="blk"><p class="kicker">ANTECIPAR</p><ul class="bul"><li>Acompanhar a execução de forma proativa.</li><li>Identificar riscos antes que virem problemas.</li><li>Priorizar demandas.</li></ul></div>
+        <div class="blk"><p class="kicker">INTEGRAR</p><ul class="bul"><li>Gerenciar dependências entre funções.</li><li>Cobrar com clareza e responsabilidade.</li><li>Facilitar a comunicação entre Account, GT e demais funções.</li></ul></div>
+        <div class="blk"><p class="kicker">EVOLUIR</p><ul class="bul"><li>Identificar gargalos e reduzir retrabalho.</li><li>Usar dados para decidir e melhorar processos.</li><li>Autonomia, organização e protagonismo.</li></ul></div>
+      </div>
+    </div></div>
+  </div>
+  <div class="pfoot"><span>TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS · <b>E3</b></span><span>01</span></div>
+</section>
+<section class="page" id="s2" data-label="Como funciona">
+  <div class="amb"></div>
+  <div class="pbody">
+    <div class="sechead">
+  <span class="secnum">01</span>
+  <div><h2>Como funciona a trilha</h2><p class="lead">12 semanas, de 2 a 3 horas semanais de desenvolvimento. O conteúdo não se conclui assistindo — se conclui aplicando.</p></div>
+</div><div class="rule"></div>
+    <div class="split2"><div>
+      <h3 class="h3">A carga se divide entre</h3>
+      <div class="feats"><div class="feat"><p class="ft">Cursos e treinamentos</p><p class="fd">Conteúdo técnico interno e externo.</p></div><div class="feat"><p class="ft">Livros</p><p class="fd">Leitura programada do livro do mês.</p></div><div class="feat"><p class="ft">Podcasts</p><p class="fd">Repertório semanal sobre projetos e gestão.</p></div><div class="feat"><p class="ft">Referências da área</p><p class="fd">Conteúdo de quem já faz.</p></div><div class="feat"><p class="ft">Aplicações práticas</p><p class="fd">Dentro da operação, em projeto real.</p></div><div class="feat"><p class="ft">Feedback do líder</p><p class="fd">Fecha cada ciclo de aprendizado.</p></div></div>
+    </div><div>
+      <div class="callout">
+  <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
+  <div><p class="kicker">A METODOLOGIA</p><h4>Aprender → Aplicar → Apresentar → Receber feedback</h4><p class="cd">O colaborador não conclui uma etapa apenas por assistir ao conteúdo. <b>Cada etapa deve gerar uma aplicação prática dentro da operação.</b></p></div>
+</div>
+      <div class="quote">
+        <p class="qk">O QUE MUDA NO MÊS 02</p>
+        <p>A pergunta deixa de ser <b>“essa tarefa foi feita?”</b></p>
+        <p>e passa a ser <b>“existe alguma coisa que pode impedir essa tarefa ou projeto de ser concluído?”</b></p>
+      </div>
+    </div></div>
+  </div>
+  <div class="pfoot"><span>TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS · <b>E3</b></span><span>02</span></div>
+</section>
+<section class="page" id="s3" data-label="Base E3">
+  <div class="amb"></div>
+  <div class="pbody">
+    <div class="sechead">
+  <span class="secnum">02</span>
+  <div><h2>Base obrigatória E3</h2><p class="lead">Todos os Gestores de Projetos devem concluir estes conteúdos internos.</p></div>
+</div><div class="rule"></div>
+    <div class="pilares3">
+      <div class="card">
+        <div class="chead">
+  <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></span>
+  <div><p class="kicker">BASE 01</p><h3>Cultura E3</h3></div>
+</div>
+        <div class="feats"><div class="feat"><p class="ft">História da empresa</p><p class="fd">De onde viemos.</p></div><div class="feat"><p class="ft">Posicionamento</p><p class="fd">Onde a E3 joga.</p></div><div class="feat"><p class="ft">Cultura e valores</p><p class="fd">Como agimos.</p></div><div class="feat"><p class="ft">Visão de futuro</p><p class="fd">Para onde vamos.</p></div><div class="feat"><p class="ft">Comportamentos esperados</p><p class="fd">O que é inegociável.</p></div></div>
+      </div>
+      <div class="card">
+        <div class="chead">
+  <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+  <div><p class="kicker">BASE 02</p><h3>Produtos E3</h3></div>
+</div>
+        <div class="feats"><div class="feat"><p class="ft">Produtos e serviços</p><p class="fd">O que vendemos.</p></div><div class="feat"><p class="ft">Escopo e seus limites</p><p class="fd">Até onde vai cada produto.</p></div><div class="feat"><p class="ft">Perfil de cliente</p><p class="fd">Para quem serve.</p></div><div class="feat"><p class="ft">Jornada de entrega</p><p class="fd">E os principais entregáveis.</p></div><div class="feat"><p class="ft">Possibilidades de expansão</p><p class="fd">Só se gerencia o que se entende.</p></div></div>
+      </div>
+      <div class="card">
+        <div class="chead">
+  <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+  <div><p class="kicker">BASE 03</p><h3>Processos</h3></div>
+</div>
+        <div class="feats"><div class="feat"><p class="ft">Estrutura da operação</p><p class="fd">Responsabilidades por função.</p></div><div class="feat"><p class="ft">Fluxo Account → GP → GT</p><p class="fd">Quem entrega o quê, e quando.</p></div><div class="feat"><p class="ft">Hops e SLA</p><p class="fd">Registro, acompanhamento e prazos.</p></div><div class="feat"><p class="ft">Jornada do Herói e PDCA</p><p class="fd">Os dois métodos da casa.</p></div><div class="feat"><p class="ft">Onboarding e renovação</p><p class="fd">Planejamento e rotinas de acompanhamento.</p></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="pfoot"><span>TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS · <b>E3</b></span><span>03</span></div>
+</section>
+<section class="page" id="s4" data-label="Gestão empresarial">
+  <div class="amb"></div>
+  <div class="pbody">
+    <div class="sechead">
+  <span class="secnum">03</span>
+  <div><h2>Gestão empresarial</h2><p class="lead">Os mesmos treinamentos internos indicados na trilha de Account.</p></div>
+</div><div class="rule"></div>
+    <div class="split2"><div>
+      <h3 class="h3">Conceitos a dominar</h3>
+      <div class="grid2">
+        <div class="blk"><p class="kicker">RECEITA</p><ul class="bul"><li>Receita.</li><li>Margem.</li><li>Crescimento.</li></ul></div>
+        <div class="blk"><p class="kicker">CLIENTE</p><ul class="bul"><li>Aquisição.</li><li>Retenção.</li><li>Churn.</li></ul></div>
+        <div class="blk"><p class="kicker">INDICADORES</p><ul class="bul"><li>NRR.</li><li>LTV.</li><li>CAC.</li></ul></div>
+        <div class="blk"><p class="kicker">ÁREAS</p><ul class="bul"><li>Estrutura comercial.</li><li>Operação.</li><li>Marketing.</li></ul></div>
+      </div>
+    </div><div>
+      <h3 class="h3">Conteúdos</h3>
+      <div class="rules "><div class="rule-item"><span class="nbadge">1</span><div><p class="rt">A nova era do nosso mercado</p><p class="rd">Início aos 12:00 min. <div class="chips"><a class="chip" href="https://drive.google.com/file/d/1KIWeLtanvMrZFhpX-XH-nXDH7PkPWXU2/view" target="_blank" rel="noopener">Drive</a><a class="chip" href="https://www.youtube.com/live/Q44vOhYZCiU" target="_blank" rel="noopener">YouTube</a></div></p></div></div><div class="rule-item"><span class="nbadge">2</span><div><p class="rt">Agência com IA</p><p class="rd">Material completo. <div class="chips"><a class="chip" href="https://drive.google.com/file/d/1o2LpH3wXxpcXEAaU7amQlbye3WiItgkX/view" target="_blank" rel="noopener">Drive</a></div></p></div></div></div>
+      <div class="callout">
+  <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
+  <div><p class="kicker">O OBJETIVO</p><h4>Não basta perguntar se a tarefa foi entregue</h4><p class="cd">O GP precisa perguntar também: <b>essa entrega está contribuindo para o objetivo do projeto e para o resultado do cliente?</b></p></div>
+</div>
+    </div></div>
+  </div>
+  <div class="pfoot"><span>TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS · <b>E3</b></span><span>04</span></div>
+</section>
+<section class="page" id="s5" data-label="Mês 01">
+  <div class="amb"></div>
+  <div class="pbody">
+    <div class="sechead">
+  <span class="secnum">04</span>
+  <div><h2>Mês 01 · Fundamentos, processos e planejamento</h2><p class="lead">Entender a E3, os produtos, processos, responsabilidades e os fundamentos da gestão de projetos.</p></div>
+</div><div class="rule"></div>
+    <div class="callout">
+  <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+  <div><p class="kicker">RESULTADO DO MÊS</p><h4>Organizar e acompanhar um projeto com supervisão</h4><p class="cd">Ao final do primeiro mês, o profissional deve ser capaz de organizar e acompanhar um projeto com supervisão.</p></div>
+</div>
+    <div class="tblw"><table class="tbl"><thead><tr><th>Semana</th><th>Tema</th><th>Entregável</th></tr></thead>
+  <tbody><tr><td class="k">01</td><td>E3, produtos e papel do GP</td><td>Mapa completo de 1 projeto da operação</td></tr><tr><td class="k">02</td><td>Fundamentos de gestão de projetos</td><td>Plano básico do projeto</td></tr><tr><td class="k">03</td><td>Onboarding e kickoff</td><td>Checklist ideal de kickoff e início de projeto</td></tr><tr><td class="k">04</td><td>Organização e gestão visual</td><td>Projeto estruturado na plataforma</td></tr></tbody></table></div>
+  </div>
+  <div class="pfoot"><span>TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS · <b>E3</b></span><span>05</span></div>
+</section>
+<section class="page" id="s6" data-label="Semanas 01–02">
+  <div class="amb"></div>
+  <div class="pbody">
+    <div class="split2"><div>
+      <div class="card">
+        <div class="chead">
+  <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+  <div><h3>E3, produtos e papel do GP<span class="tag tag-pro">SEMANA 01</span></h3></div>
+</div>
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        <div class="feats"><div class="feat"><p class="ft">Cultura, produtos e jornada</p><p class="fd">Estrutura da operação e Jornada do Herói.</p></div><div class="feat"><p class="ft">Responsabilidades</p><p class="fd">Do GP, do Account e do GT.</p></div><div class="feat"><p class="ft">Hops e processos internos</p><p class="fd">Conteúdo complementar: Sebrae. <div class="chips"><a class="chip" href="https://www.youtube.com/@sebrae" target="_blank" rel="noopener">Canal Sebrae</a></div></p></div></div>
+        <div class="notabar"><span class="nk">A PERGUNTA DA SEMANA</span><span>O GP não é responsável apenas pela ferramenta. É responsável por garantir <b>Clareza → Responsável → Prazo → Execução → Acompanhamento</b>.</span></div>
+      </div>
+      <div class="notabar"><span class="nk">ENTREGÁVEL</span><span>Mapa completo de 1 projeto da operação.</span></div>
+    </div><div>
+      <div class="card">
+        <div class="chead">
+  <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
+  <div><h3>Fundamentos de gestão de projetos<span class="tag tag-pro">SEMANA 02</span></h3></div>
+</div>
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        <div class="feats"><div class="feat"><p class="ft">O projeto de ponta a ponta</p><p class="fd">Objetivo, escopo, entregáveis e responsáveis.</p></div><div class="feat"><p class="ft">Cronograma e stakeholders</p><p class="fd">Riscos, dependências e encerramento.</p></div></div>
+        <div class="blk"><p class="kicker">CURSO E CONTEÚDOS</p></div>
+        <p class="body">PMI Kickoff: fundamentos, planejamento, execução e abordagens tradicional e ágil.</p>
+        <div class="chips"><a class="chip" href="https://www.pmi.org/kickoff" target="_blank" rel="noopener">PMI Kickoff</a><a class="chip" href="https://www.ev.org.br" target="_blank" rel="noopener">Fund. Bradesco</a><a class="chip" href="https://rvarg.as/youtube" target="_blank" rel="noopener">Ricardo Vargas</a></div>
+      </div>
+      <div class="notabar"><span class="nk">ENTREGÁVEL</span><span>Plano básico do projeto.</span></div>
+    </div></div>
+  </div>
+  <div class="pfoot"><span>TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS · <b>E3</b></span><span>06</span></div>
+</section>
+<section class="page" id="s7" data-label="Semanas 03–04">
+  <div class="amb"></div>
+  <div class="pbody">
+    <div class="split2"><div>
+      <div class="card">
+        <div class="chead">
+  <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+  <div><h3>Onboarding e kickoff<span class="tag tag-pro">SEMANA 03</span></h3></div>
+</div>
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        <div class="feats"><div class="feat"><p class="ft">Kickoff e passagem de bastão</p><p class="fd">Primeira impressão e definição de objetivos.</p></div><div class="feat"><p class="ft">Alinhamento Account → GP → execução</p><p class="fd">Cronograma e próximos passos.</p></div></div>
+        <div class="blk"><p class="kicker">LIVRO OBRIGATÓRIO</p></div>
+        <p class="body"><b>Onboarding Orquestrado</b> — Donna Weber. <div class="chips"><a class="chip" href="https://www.amazon.com.br/Onboarding-orquestrado-metodologia-bem-sucedidos-lucrativos/dp/6559282716" target="_blank" rel="noopener">Livro físico</a><a class="chip" href="https://drive.google.com/file/d/1Qg_qOtBAnek-JtunSYSQXCXO16Z4bVe8/view?usp=sharing" target="_blank" rel="noopener">PDF</a><a class="chip" href="https://www.youtube.com/results?search_query=Gino+Terentim" target="_blank" rel="noopener">Gino Terentim</a></div></p>
+        <div class="notabar"><span class="nk">A DIVISÃO</span><span>O Account compreende o cliente. O GP transforma essas informações em uma <b>jornada executável</b>.</span></div>
+      </div>
+      <div class="notabar"><span class="nk">ENTREGÁVEL</span><span>Checklist ideal de kickoff e início de projeto.</span></div>
+    </div><div>
+      <div class="card">
+        <div class="chead">
+  <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
+  <div><h3>Organização e gestão visual<span class="tag tag-pro">SEMANA 04</span></h3></div>
+</div>
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        <div class="feats"><div class="feat"><p class="ft">Gestão de tarefas</p><p class="fd">Status, responsáveis, prazos e prioridades.</p></div><div class="feat"><p class="ft">Documentação e histórico</p><p class="fd">Gestão visual, Hops e rotinas de acompanhamento.</p></div></div>
+        <div class="chips"><a class="chip" href="https://www.youtube.com/@alura" target="_blank" rel="noopener">Alura · Kanban e Scrum</a><a class="chip" href="https://www.escolavirtual.gov.br" target="_blank" rel="noopener">ENAP</a></div>
+        <div class="notabar"><span class="nk">O TESTE</span><span>Quem nunca participou do projeto deve abrir o Hops e entender: onde estamos, o que acontece, quem é responsável, qual o prazo, o que atrasou e qual o próximo passo.</span></div>
+      </div>
+      <div class="notabar"><span class="nk">ENTREGÁVEL</span><span>Projeto estruturado: etapas, tasks, responsáveis, prazos, status, dependências e próximos passos.</span></div>
+    </div></div>
+  </div>
+  <div class="pfoot"><span>TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS · <b>E3</b></span><span>07</span></div>
+</section>
+<section class="page" id="s8" data-label="Checkpoint 30 dias">
+  <div class="amb"></div>
+  <div class="pbody">
+    <div class="sechead">
+  <span class="secnum">05</span>
+  <div><h2>Checkpoint · 30 dias</h2><p class="lead">Avaliação de 0 a 10 em cada dimensão, conduzida pelo líder.</p></div>
+</div><div class="rule"></div>
+    <div class="split2"><div>
+      <h3 class="h3">Avaliar de 0 a 10</h3>
+      <div class="grid2">
+        <div class="blk"><p class="kicker">CONHECIMENTO</p><ul class="bul"><li>Conhecimento da E3.</li><li>Conhecimento dos produtos.</li><li>Conhecimento dos processos.</li><li>Uso das ferramentas.</li></ul></div>
+        <div class="blk"><p class="kicker">EXECUÇÃO</p><ul class="bul"><li>Organização.</li><li>Planejamento.</li><li>Comunicação.</li><li>Postura e capacidade de aprendizado.</li></ul></div>
+      </div>
+    </div><div>
+      <h3 class="h3">Resultado esperado</h3>
+      <div class="feats"><div class="feat"><p class="ft">Entende o funcionamento da E3</p><p class="fd">E compreende o papel do GP.</p></div><div class="feat"><p class="ft">Conhece os produtos</p><p class="fd">E o fluxo entre as funções.</p></div><div class="feat"><p class="ft">Consegue organizar projetos</p><p class="fd">E acompanhar atividades.</p></div><div class="feat"><p class="ft">Registra corretamente</p><p class="fd">Informações e acordos.</p></div><div class="feat"><p class="ft">Trabalha com supervisão</p><p class="fd">Ainda com acompanhamento do líder.</p></div></div>
+    </div></div>
+  </div>
+  <div class="pfoot"><span>TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS · <b>E3</b></span><span>08</span></div>
+</section>
+<section class="page" id="s9" data-label="Mês 02">
+  <div class="amb"></div>
+  <div class="pbody">
+    <div class="sechead">
+  <span class="secnum">06</span>
+  <div><h2>Mês 02 · Execução, prioridade e prevenção</h2><p class="lead">Deixar de apenas registrar e acompanhar demandas para gerenciar a execução de forma proativa.</p></div>
+</div><div class="rule"></div>
+    <div class="callout">
+  <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+  <div><p class="kicker">A VIRADA DO MÊS</p><h4>De registrar para prevenir</h4><p class="cd">A pergunta deixa de ser “essa tarefa foi feita?” e passa a ser <b>“existe alguma coisa que pode impedir essa tarefa ou projeto de ser concluído?”</b></p></div>
+</div>
+    <div class="tblw"><table class="tbl"><thead><tr><th>Semana</th><th>Tema</th><th>Entregável</th></tr></thead>
+  <tbody><tr><td class="k">05</td><td>Planejamento e priorização</td><td>Planejamento semanal do squad</td></tr><tr><td class="k">06</td><td>Riscos e prevenção</td><td>Mapa de riscos do projeto</td></tr><tr><td class="k">07</td><td>Comunicação e dependências</td><td>Apresentação do caso no Comitê de GPs</td></tr><tr><td class="k">08</td><td>Qualidade, checklist e retrabalho</td><td>Checklist operacional de uma atividade real</td></tr></tbody></table></div>
+  </div>
+  <div class="pfoot"><span>TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS · <b>E3</b></span><span>09</span></div>
+</section>
+<section class="page" id="s10" data-label="Semanas 05–06">
+  <div class="amb"></div>
+  <div class="pbody">
+    <div class="split2"><div>
+      <div class="card">
+        <div class="chead">
+  <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
+  <div><h3>Planejamento e priorização<span class="tag tag-pro">SEMANA 05</span></h3></div>
+</div>
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        <div class="feats"><div class="feat"><p class="ft">Urgência x importância</p><p class="fd">Capacidade, sequenciamento e dependências.</p></div><div class="feat"><p class="ft">Planejamento semanal</p><p class="fd">Prazos, milestones e critérios de prioridade.</p></div></div>
+        <div class="chips"><a class="chip" href="https://www.youtube.com/@escolaconquer" target="_blank" rel="noopener">Escola Conquer</a><a class="chip" href="https://rvarg.as/youtube" target="_blank" rel="noopener">Ricardo Vargas</a></div>
+        <div class="notabar"><span class="nk">O CONCEITO</span><span>Nem tudo que chega é prioridade. O GP diferencia: <b>urgente · importante · pode esperar · não deveria estar sendo feito</b>.</span></div>
+      </div>
+      <div class="notabar"><span class="nk">ENTREGÁVEL</span><span>Planejamento semanal do squad.</span></div>
+    </div><div>
+      <div class="card">
+        <div class="chead">
+  <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">undefined</svg></span>
+  <div><h3>Riscos e prevenção<span class="tag tag-pro">SEMANA 06</span></h3></div>
+</div>
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        <div class="feats"><div class="feat"><p class="ft">Identificação antecipada</p><p class="fd">Probabilidade, impacto e mitigação.</p></div><div class="feat"><p class="ft">Plano de contingência</p><p class="fd">Red flags e análise de causa.</p></div></div>
+        <div class="chips"><a class="chip" href="https://www.escolavirtual.gov.br" target="_blank" rel="noopener">ENAP · Gestão de Riscos</a><a class="chip" href="https://rvarg.as/youtube" target="_blank" rel="noopener">Ricardo Vargas</a></div>
+        <div class="blk"><p class="kicker">APLICAÇÃO PRÁTICA</p></div>
+        <p class="body">Identificar ao menos 3 riscos com probabilidade, impacto, responsável, ação preventiva e plano caso aconteça.</p>
+      </div>
+      <div class="notabar"><span class="nk">ENTREGÁVEL</span><span>Mapa de riscos do projeto.</span></div>
+    </div></div>
+  </div>
+  <div class="pfoot"><span>TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS · <b>E3</b></span><span>10</span></div>
+</section>
+<section class="page" id="s11" data-label="Semanas 07–08">
+  <div class="amb"></div>
+  <div class="pbody">
+    <div class="split2"><div>
+      <div class="card">
+        <div class="chead">
+  <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+  <div><h3>Comunicação e dependências<span class="tag tag-pro">SEMANA 07</span></h3></div>
+</div>
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        <div class="feats"><div class="feat"><p class="ft">Delegação e cobrança</p><p class="fd">Follow-up, alinhamento e registro de decisões.</p></div><div class="feat"><p class="ft">Comunicação entre áreas</p><p class="fd">Account → GP → GT e gestão de dependências.</p></div></div>
+        <div class="chips"><a class="chip" href="https://www.youtube.com/@escolaconquer" target="_blank" rel="noopener">Escola Conquer</a><a class="chip" href="https://www.amazon.com.br/s?k=Nunca+Divida+a+Diferen%C3%A7a+Chris+Voss" target="_blank" rel="noopener">Nunca Divida a Diferença</a></div>
+        <div class="notabar"><span class="nk">NÃO BASTA DIZER</span><span>“Fulano ainda não entregou.” O GP comunica: <b>temos um atraso nesta atividade, a causa é X, o impacto é Y e a ação de correção é Z.</b></span></div>
+      </div>
+      <div class="notabar"><span class="nk">ENTREGÁVEL</span><span>Apresentação do caso no Comitê de Gestores de Projetos.</span></div>
+    </div><div>
+      <div class="card">
+        <div class="chead">
+  <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>
+  <div><h3>Qualidade, checklist e retrabalho<span class="tag tag-pro">SEMANA 08</span></h3></div>
+</div>
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        <div class="feats"><div class="feat"><p class="ft">Critérios de aceite</p><p class="fd">Checklist, padronização e controle.</p></div><div class="feat"><p class="ft">Prevenção de erros</p><p class="fd">Redução de retrabalho e POPs.</p></div></div>
+        <div class="blk"><p class="kicker">LIVRO OBRIGATÓRIO</p></div>
+        <p class="body"><b>Checklist — Como Fazer as Coisas Bem-Feitas</b> — Atul Gawande. <div class="chips"><a class="chip" href="https://www.amazon.com.br/s?k=Checklist+Atul+Gawande" target="_blank" rel="noopener">Livro</a><a class="chip" href="https://www.youtube.com/@sebrae" target="_blank" rel="noopener">Canal Sebrae</a></div></p>
+      </div>
+      <div class="notabar"><span class="nk">ENTREGÁVEL</span><span>Checklist operacional de uma atividade real.</span></div>
+    </div></div>
+  </div>
+  <div class="pfoot"><span>TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS · <b>E3</b></span><span>11</span></div>
+</section>
+<section class="page" id="s12" data-label="Checkpoint 60 dias">
+  <div class="amb"></div>
+  <div class="pbody">
+    <div class="sechead">
+  <span class="secnum">07</span>
+  <div><h2>Checkpoint · 60 dias</h2><p class="lead">O GP já deve operar com autonomia sobre os projetos do squad.</p></div>
+</div><div class="rule"></div>
+    <div class="split2"><div>
+      <h3 class="h3">Avaliar</h3>
+      <div class="grid2">
+        <div class="blk"><p class="kicker">GESTÃO</p><ul class="bul"><li>Organização.</li><li>Planejamento.</li><li>Priorização.</li></ul></div>
+        <div class="blk"><p class="kicker">RELAÇÃO</p><ul class="bul"><li>Comunicação.</li><li>Proatividade.</li><li>Autonomia.</li></ul></div>
+        <div class="blk"><p class="kicker">ANÁLISE</p><ul class="bul"><li>Identificação de riscos.</li><li>Capacidade de resolução.</li></ul></div>
+        <div class="blk"><p class="kicker">ENTREGA</p><ul class="bul"><li>Gestão de prazos.</li><li>Gestão de dependências.</li></ul></div>
+      </div>
+    </div><div>
+      <h3 class="h3">O GP já deve conseguir</h3>
+      <div class="feats"><div class="feat"><p class="ft">Planejar projetos</p><p class="fd">E organizar prioridades.</p></div><div class="feat"><p class="ft">Gerenciar prazos</p><p class="fd">E identificar atrasos.</p></div><div class="feat"><p class="ft">Antecipar riscos</p><p class="fd">E conduzir planos de ação.</p></div><div class="feat"><p class="ft">Cobrar responsáveis</p><p class="fd">E gerenciar dependências.</p></div><div class="feat"><p class="ft">Reduzir retrabalho</p><p class="fd">Com maior autonomia.</p></div></div>
+    </div></div>
+  </div>
+  <div class="pfoot"><span>TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS · <b>E3</b></span><span>12</span></div>
+</section>
+<section class="page" id="s13" data-label="Mês 03">
+  <div class="amb"></div>
+  <div class="pbody">
+    <div class="sechead">
+  <span class="secnum">08</span>
+  <div><h2>Mês 03 · Gestão operacional, melhoria e liderança</h2><p class="lead">Transformar o profissional em um verdadeiro gestor da execução.</p></div>
+</div><div class="rule"></div>
+    <div class="callout">
+  <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">undefined</svg></span>
+  <div><p class="kicker">O CICLO DO MÊS</p><h4>Identificar → Analisar → Decidir → Corrigir → Melhorar</h4><p class="cd">O GP precisa deixar de apenas controlar tarefas e passar a conduzir o ciclo completo.</p></div>
+</div>
+    <div class="tblw"><table class="tbl"><thead><tr><th>Semana</th><th>Tema</th><th>Entregável</th></tr></thead>
+  <tbody><tr><td class="k">09</td><td>Indicadores e gestão da operação</td><td>Diagnóstico operacional do squad</td></tr><tr><td class="k">10</td><td>PDCA e melhoria contínua</td><td>PDCA completo de um problema real</td></tr><tr><td class="k">11</td><td>Gestão de crise e tomada de decisão</td><td>Plano de resposta a uma situação crítica</td></tr><tr><td class="k">12</td><td>Gestão de projetos e liderança da execução</td><td>Projeto final da conta</td></tr></tbody></table></div>
+  </div>
+  <div class="pfoot"><span>TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS · <b>E3</b></span><span>13</span></div>
+</section>
+<section class="page" id="s14" data-label="Semanas 09–10">
+  <div class="amb"></div>
+  <div class="pbody">
+    <div class="split2"><div>
+      <div class="card">
+        <div class="chead">
+  <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
+  <div><h3>Indicadores e gestão da operação<span class="tag tag-pro">SEMANA 09</span></h3></div>
+</div>
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        <div class="grid2">
+          <div class="blk"><p class="kicker">PRAZO</p><ul class="bul"><li>SLA, prazo e entregas.</li><li>Atrasos e retrabalho.</li></ul></div>
+          <div class="blk"><p class="kicker">FLUXO</p><ul class="bul"><li>Capacidade, backlog e gargalos.</li><li>Produtividade e qualidade.</li></ul></div>
+        </div>
+        <div class="blk"><p class="kicker">TREINAMENTO E CONTEÚDO</p></div>
+        <p class="body">Gestão Empresarial E3 (obrigatório). <div class="chips"><a class="chip" href="https://www.sebrae.com.br" target="_blank" rel="noopener">Sebrae</a><a class="chip" href="https://open.spotify.com/search/ROI%20Hunters" target="_blank" rel="noopener">ROI Hunters</a></div></p>
+      </div>
+      <div class="notabar"><span class="nk">ENTREGÁVEL</span><span>Diagnóstico operacional do squad.</span></div>
+    </div><div>
+      <div class="card">
+        <div class="chead">
+  <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">undefined</svg></span>
+  <div><h3>PDCA e melhoria contínua<span class="tag tag-pro">SEMANA 10</span></h3></div>
+</div>
+        <div class="blk"><p class="kicker">O CICLO</p></div>
+        <div class="feats"><div class="feat"><p class="ft">PLAN</p><p class="fd">Planejar.</p></div><div class="feat"><p class="ft">DO</p><p class="fd">Executar.</p></div><div class="feat"><p class="ft">CHECK</p><p class="fd">Verificar.</p></div><div class="feat"><p class="ft">ACT</p><p class="fd">Corrigir e padronizar.</p></div></div>
+        <div class="chips"><a class="chip" href="https://rvarg.as/youtube" target="_blank" rel="noopener">Ricardo Vargas</a><a class="chip" href="https://www.youtube.com/results?search_query=Gino+Terentim" target="_blank" rel="noopener">Gino Terentim</a><a class="chip" href="https://www.escolavirtual.gov.br" target="_blank" rel="noopener">ENAP</a></div>
+        <div class="notabar"><span class="nk">A PERGUNTA</span><span>O que precisa mudar para esse problema <b>não acontecer novamente</b>?</span></div>
+      </div>
+      <div class="notabar"><span class="nk">ENTREGÁVEL</span><span>PDCA completo: problema → causa → plano → execução → resultado → padronização.</span></div>
+    </div></div>
+  </div>
+  <div class="pfoot"><span>TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS · <b>E3</b></span><span>14</span></div>
+</section>
+<section class="page" id="s15" data-label="Semanas 11–12">
+  <div class="amb"></div>
+  <div class="pbody">
+    <div class="split2"><div>
+      <div class="card">
+        <div class="chead">
+  <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">undefined</svg></span>
+  <div><h3>Gestão de crise e tomada de decisão<span class="tag tag-pro">SEMANA 11</span></h3></div>
+</div>
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        <div class="feats"><div class="feat"><p class="ft">Pressão e priorização</p><p class="fd">Crise, escalonamento e responsabilidade.</p></div><div class="feat"><p class="ft">Decisão e negociação</p><p class="fd">Comunicação e gestão de conflitos.</p></div></div>
+        <div class="chips"><a class="chip" href="https://www.youtube.com/@escolaconquer" target="_blank" rel="noopener">Escola Conquer</a><a class="chip" href="https://ricardo-vargas.com/podcasts" target="_blank" rel="noopener">5 Minutes PM</a></div>
+        <div class="blk"><p class="kicker">APLICAÇÃO PRÁTICA</p></div>
+        <p class="body">O que aconteceu · qual impacto · o que resolver primeiro · quem participa · qual decisão · plano imediato · como evitar recorrência.</p>
+      </div>
+      <div class="notabar"><span class="nk">ENTREGÁVEL</span><span>Plano de resposta a uma situação crítica.</span></div>
+    </div><div>
+      <div class="card">
+        <div class="chead">
+  <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></span>
+  <div><h3>Gestão de projetos e liderança da execução<span class="tag tag-pro">SEMANA 12</span></h3></div>
+</div>
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        <div class="feats"><div class="feat"><p class="ft">Previsibilidade</p><p class="fd">Planejamento, processos e melhoria.</p></div><div class="feat"><p class="ft">Liderança da execução</p><p class="fd">Responsabilidade, autonomia e protagonismo.</p></div></div>
+        <div class="blk"><p class="kicker">CONTEÚDO E REVISÃO</p></div>
+        <p class="body">ROI Hunters e revisão das referências da trilha.</p>
+        <div class="chips"><a class="chip" href="https://open.spotify.com/search/ROI%20Hunters" target="_blank" rel="noopener">ROI Hunters</a><a class="chip" href="https://ricardo-vargas.com" target="_blank" rel="noopener">Ricardo Vargas</a><a class="chip" href="https://www.instagram.com/fernandomiranda777/?hl=pt" target="_blank" rel="noopener">Fernando Miranda</a><a class="chip" href="https://www.instagram.com/joaopedro/?hl=pt" target="_blank" rel="noopener">João Pedro Motta</a></div>
+      </div>
+      <div class="notabar"><span class="nk">ENTREGÁVEL</span><span>Projeto final apresentado ao líder.</span></div>
+    </div></div>
+  </div>
+  <div class="pfoot"><span>TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS · <b>E3</b></span><span>15</span></div>
+</section>
+<section class="page" id="s16" data-label="Projeto final">
+  <div class="amb"></div>
+  <div class="pbody">
+    <div class="sechead">
+  <span class="secnum">09</span>
+  <div><h2>Projeto final</h2><p class="lead">Selecionar um projeto real e apresentar o percurso completo, do objetivo ao plano dos próximos 90 dias.</p></div>
+</div><div class="rule"></div>
+    <div class="grid3">
+      <div class="blk"><p class="kicker">O PLANO</p><ul class="bul"><li>Objetivo.</li><li>Escopo.</li><li>Etapas.</li><li>Cronograma.</li></ul></div>
+      <div class="blk"><p class="kicker">A EXECUÇÃO</p><ul class="bul"><li>Responsáveis.</li><li>Dependências.</li><li>Riscos.</li><li>Indicadores.</li></ul></div>
+      <div class="blk"><p class="kicker">A EVOLUÇÃO</p><ul class="bul"><li>Problemas identificados.</li><li>Plano de ação.</li><li>Melhorias propostas.</li><li>Plano para 30/60/90 dias.</li></ul></div>
+    </div>
+    <div class="notabar"><span class="nk">COMO APRESENTAR</span><span>A sequência é encadeada: cada bloco responde ao anterior. O líder avalia se o raciocínio se sustenta do começo ao fim.</span></div>
+  </div>
+  <div class="pfoot"><span>TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS · <b>E3</b></span><span>16</span></div>
+</section>
+<section class="page" id="s17" data-label="Certificação 90 dias">
+  <div class="amb"></div>
+  <div class="pbody">
+    <div class="sechead">
+  <span class="secnum">10</span>
+  <div><h2>Certificação interna · 90 dias</h2><p class="lead">O líder avalia cada dimensão com nota de 0 a 10.</p></div>
+</div><div class="rule"></div>
+    <div class="rules grid2r"><div class="rule-item"><span class="nbadge">1</span><div><p class="rt">Conhecimento técnico</p><p class="rd">Processos, planejamento, riscos, indicadores e gestão de projetos.</p></div></div><div class="rule-item"><span class="nbadge">2</span><div><p class="rt">Execução</p><p class="rd">Capacidade de transformar planejamento em execução.</p></div></div><div class="rule-item"><span class="nbadge">3</span><div><p class="rt">Organização</p><p class="rd">Manter projetos, tarefas, informações e prazos organizados.</p></div></div><div class="rule-item"><span class="nbadge">4</span><div><p class="rt">Planejamento</p><p class="rd">Definir prioridades, atividades e responsáveis.</p></div></div><div class="rule-item"><span class="nbadge">5</span><div><p class="rt">Comunicação</p><p class="rd">Clareza com Accounts, GTs, liderança e demais funções.</p></div></div><div class="rule-item"><span class="nbadge">6</span><div><p class="rt">Gestão de riscos</p><p class="rd">Capacidade de antecipar problemas.</p></div></div><div class="rule-item"><span class="nbadge">7</span><div><p class="rt">Capacidade de resolução</p><p class="rd">Identificar causa e propor soluções.</p></div></div><div class="rule-item"><span class="nbadge">8</span><div><p class="rt">Autonomia</p><p class="rd">Trabalhar sem depender constantemente da liderança.</p></div></div><div class="rule-item"><span class="nbadge">9</span><div><p class="rt">Melhoria contínua</p><p class="rd">Transformar problemas recorrentes em melhorias de processo.</p></div></div><div class="rule-item"><span class="nbadge">10</span><div><p class="rt">Protagonismo</p><p class="rd">Assumir responsabilidade e conduzir situações.</p></div></div></div>
+  </div>
+  <div class="pfoot"><span>TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS · <b>E3</b></span><span>17</span></div>
+</section>
+<section class="page" id="s18" data-label="Livros">
+  <div class="amb"></div>
+  <div class="pbody">
+    <div class="sechead">
+  <span class="secnum">11</span>
+  <div><h2>Livros</h2><p class="lead">Dois obrigatórios, com mês definido, e três recomendados.</p></div>
+</div><div class="rule"></div>
+    <div class="split2"><div>
+      <h3 class="h3">Obrigatórios</h3>
+      <div class="rules "><div class="rule-item"><span class="nbadge">1</span><div><p class="rt">Onboarding Orquestrado — Donna Weber <span class="tag tag-pro">MÊS 01</span></p><p class="rd">Organizar os primeiros momentos da jornada: passagem de bastão, alinhamento, kickoff e próximos passos. <div class="chips"><a class="chip" href="https://www.amazon.com.br/Onboarding-orquestrado-metodologia-bem-sucedidos-lucrativos/dp/6559282716" target="_blank" rel="noopener">Livro físico</a><a class="chip" href="https://drive.google.com/file/d/1Qg_qOtBAnek-JtunSYSQXCXO16Z4bVe8/view?usp=sharing" target="_blank" rel="noopener">PDF</a></div></p></div></div><div class="rule-item"><span class="nbadge">2</span><div><p class="rt">Checklist — Atul Gawande <span class="tag tag-pro">MÊS 02</span></p><p class="rd">Padronização, qualidade, prevenção de erros, redução de retrabalho e gestão de processos. <div class="chips"><a class="chip" href="https://www.amazon.com.br/s?k=Checklist+Atul+Gawande" target="_blank" rel="noopener">Livro</a></div></p></div></div></div>
+    </div><div>
+      <h3 class="h3">Recomendados</h3>
+      <div class="rules "><div class="rule-item"><span class="nbadge">1</span><div><p class="rt">Customer Success — Mehta, Steinman e Murphy</p><p class="rd">Retenção, churn, experiência e valor percebido. Cumprir prazo não basta se o projeto não gera valor. <div class="chips"><a class="chip" href="https://www.amazon.com.br/Customer-Success-empresas-inovadoras-descobriram/dp/8551302795" target="_blank" rel="noopener">Livro</a><a class="chip" href="https://drive.google.com/file/d/1OTbFSwUUDE5moCS9w_bYzquqGK_IXUpo/view?usp=drive_link" target="_blank" rel="noopener">PDF</a></div></p></div></div><div class="rule-item"><span class="nbadge">2</span><div><p class="rt">Scrum — Jeff Sutherland</p><p class="rd">Sprints, priorização, backlog, iteração e ritmo de execução. <div class="chips"><a class="chip" href="https://www.amazon.com.br/s?k=Scrum+Jeff+Sutherland" target="_blank" rel="noopener">Livro</a></div></p></div></div><div class="rule-item"><span class="nbadge">3</span><div><p class="rt">Nunca Divida a Diferença — Chris Voss</p><p class="rd">Negociação, escuta, perguntas e gestão de conflitos. <div class="chips"><a class="chip" href="https://www.amazon.com.br/s?k=Nunca+Divida+a+Diferen%C3%A7a+Chris+Voss" target="_blank" rel="noopener">Livro</a></div></p></div></div></div>
+    </div></div>
+  </div>
+  <div class="pfoot"><span>TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS · <b>E3</b></span><span>18</span></div>
+</section>
+<section class="page" id="s19" data-label="Cursos gratuitos">
+  <div class="amb"></div>
+  <div class="pbody">
+    <div class="sechead">
+  <span class="secnum">12</span>
+  <div><h2>Cursos e conteúdos gratuitos</h2><p class="lead">Quatro plataformas, todas sem custo. Clique para acessar.</p></div>
+</div><div class="rule"></div>
+    <div class="rules grid2r"><div class="rule-item"><span class="nbadge">1</span><div><p class="rt">PMI Kickoff <span class="tag tag-pro">PRIORIDADE ALTA</span></p><p class="rd">Fundamentos, planejamento, execução, gestão tradicional e ágil. <div class="chips"><a class="chip" href="https://www.pmi.org/kickoff" target="_blank" rel="noopener">Acessar</a></div></p></div></div><div class="rule-item"><span class="nbadge">2</span><div><p class="rt">Fundação Bradesco — Escola Virtual</p><p class="rd">Gestão, administração, liderança, comunicação, produtividade, organização e Excel. <div class="chips"><a class="chip" href="https://www.ev.org.br" target="_blank" rel="noopener">Acessar</a></div></p></div></div><div class="rule-item"><span class="nbadge">3</span><div><p class="rt">ENAP — Escola Virtual</p><p class="rd">Gestão de projetos, processos, riscos, planejamento, metodologias ágeis e liderança. <div class="chips"><a class="chip" href="https://www.escolavirtual.gov.br" target="_blank" rel="noopener">Acessar</a></div></p></div></div><div class="rule-item"><span class="nbadge">4</span><div><p class="rt">Sebrae</p><p class="rd">Gestão empresarial, planejamento, processos, indicadores, liderança e produtividade. <div class="chips"><a class="chip" href="https://www.sebrae.com.br" target="_blank" rel="noopener">Acessar</a></div></p></div></div></div>
+  </div>
+  <div class="pfoot"><span>TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS · <b>E3</b></span><span>19</span></div>
+</section>
+<section class="page" id="s20" data-label="Canais">
+  <div class="amb"></div>
+  <div class="pbody">
+    <div class="sechead">
+  <span class="secnum">13</span>
+  <div><h2>Canais e conteúdos recomendados</h2><p class="lead">Dois obrigatórios, com frequência definida, e dois para priorizar por tema.</p></div>
+</div><div class="rule"></div>
+    <div class="split2"><div>
+      <h3 class="h3">Obrigatórios</h3>
+      <div class="rules "><div class="rule-item"><span class="nbadge">1</span><div><p class="rt">Ricardo Vargas <span class="tag tag-pro">2 POR SEMANA</span></p><p class="rd">Projetos, planejamento, cronograma, riscos, liderança, decisão, IA e gestão de crise. <div class="chips"><a class="chip" href="https://rvarg.as/youtube" target="_blank" rel="noopener">YouTube</a><a class="chip" href="https://ricardo-vargas.com" target="_blank" rel="noopener">Site</a></div></p></div></div><div class="rule-item"><span class="nbadge">2</span><div><p class="rt">Gino Terentim <span class="tag tag-pro">1 POR SEMANA</span></p><p class="rd">Projetos, métodos ágeis, liderança, gestão da mudança, transformação, IA e gestão de times. <div class="chips"><a class="chip" href="https://www.youtube.com/results?search_query=Gino+Terentim" target="_blank" rel="noopener">YouTube</a></div></p></div></div></div>
+    </div><div>
+      <h3 class="h3">Para priorizar</h3>
+      <div class="rules "><div class="rule-item"><span class="nbadge">1</span><div><p class="rt">Alura — YouTube</p><p class="rd">Scrum, Kanban, Agile, gestão de projetos, produtividade, processos, tecnologia e IA. <div class="chips"><a class="chip" href="https://www.youtube.com/@alura" target="_blank" rel="noopener">Canal</a></div></p></div></div><div class="rule-item"><span class="nbadge">2</span><div><p class="rt">Escola Conquer — YouTube</p><p class="rd">Liderança, comunicação, gestão, produtividade, feedback, gestão do tempo e negociação. <div class="chips"><a class="chip" href="https://www.youtube.com/@escolaconquer" target="_blank" rel="noopener">Canal</a></div></p></div></div><div class="rule-item"><span class="nbadge">3</span><div><p class="rt">Sebrae — YouTube</p><p class="rd">Gestão empresarial, planejamento, processos, indicadores, liderança e produtividade. <div class="chips"><a class="chip" href="https://www.youtube.com/@sebrae" target="_blank" rel="noopener">Canal</a></div></p></div></div></div>
+    </div></div>
+  </div>
+  <div class="pfoot"><span>TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS · <b>E3</b></span><span>20</span></div>
+</section>
+<section class="page" id="s21" data-label="Podcasts">
+  <div class="amb"></div>
+  <div class="pbody">
+    <div class="sechead">
+  <span class="secnum">14</span>
+  <div><h2>Podcasts</h2><p class="lead">Repertório contínuo, com registro de aprendizado a cada episódio.</p></div>
+</div><div class="rule"></div>
+    <div class="split2"><div>
+      <div class="rules "><div class="rule-item"><span class="nbadge">1</span><div><p class="rt">5 Minutes Project Management — Ricardo Vargas <span class="tag tag-pro">2 POR SEMANA</span></p><p class="rd">Projetos, planejamento, riscos, liderança, comunicação, tomada de decisão e gestão de crise. <div class="chips"><a class="chip" href="https://ricardo-vargas.com/podcasts" target="_blank" rel="noopener">Ouvir</a></div></p></div></div><div class="rule-item"><span class="nbadge">2</span><div><p class="rt">ROI Hunters <span class="tag tag-light">1 A CADA 15 DIAS</span></p><p class="rd">Gestão, growth, marketing, vendas, liderança, processos, negócios e crescimento. <div class="chips"><a class="chip" href="https://open.spotify.com/search/ROI%20Hunters" target="_blank" rel="noopener">Ouvir</a></div></p></div></div></div>
+    </div><div>
+      <div class="callout">
+  <span class="isq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+  <div><p class="kicker">APÓS CADA EPISÓDIO</p><h4>Três perguntas, sempre</h4><p class="cd">1. O que aprendi?<br/>2. Como isso se conecta à minha função?<br/>3. Onde consigo aplicar dentro da operação?</p></div>
+</div>
+    </div></div>
+  </div>
+  <div class="pfoot"><span>TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS · <b>E3</b></span><span>21</span></div>
+</section>
+<section class="page" id="s22" data-label="Referências">
+  <div class="amb"></div>
+  <div class="pbody">
+    <div class="sechead">
+  <span class="secnum">15</span>
+  <div><h2>Referências para modelar</h2><p class="lead">O objetivo não é copiar a personalidade. É observar como pensam, estruturam problemas, planejam, decidem e conectam execução a resultado.</p></div>
+</div><div class="rule"></div>
+    <div class="tblw"><table class="tbl"><thead><tr><th>Referência</th><th>Modelar</th><th>O que observar</th></tr></thead>
+  <tbody><tr><td class="k"><a class="lnk" href="https://ricardo-vargas.com" target="_blank" rel="noopener">Ricardo Vargas</a></td><td>Projetos, riscos, planejamento e decisão</td><td>Priorização, gestão de crise, liderança e IA aplicada a projetos</td></tr><tr><td class="k"><a class="lnk" href="https://www.youtube.com/results?search_query=Gino+Terentim" target="_blank" rel="noopener">Gino Terentim</a></td><td>Projetos, liderança e transformação</td><td>Gestão ágil, change management e gestão de times</td></tr><tr><td class="k"><a class="lnk" href="https://www.instagram.com/fernandomiranda777/?hl=pt" target="_blank" rel="noopener">Fernando Miranda</a></td><td>Gestão, visão de negócio e crescimento</td><td>Processos, growth, marketing, vendas, receita e estratégia</td></tr><tr><td class="k"><a class="lnk" href="https://www.instagram.com/joaopedro/?hl=pt" target="_blank" rel="noopener">João Pedro Motta</a></td><td>Estratégia e raciocínio de negócio</td><td>Análise, growth, tomada de decisão e negócios</td></tr></tbody></table></div>
+    <div class="notabar"><span class="nk">COMO USAR</span><span>Clique no nome para abrir o perfil ou o canal.</span></div>
+  </div>
+  <div class="pfoot"><span>TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS · <b>E3</b></span><span>22</span></div>
+</section>
+<section class="page" id="s23" data-label="Rotina semanal">
+  <div class="amb"></div>
+  <div class="pbody">
+    <div class="sechead">
+  <span class="secnum">16</span>
+  <div><h2>Rotina semanal de desenvolvimento</h2><p class="lead">Toda semana o Gestor de Projetos deve cumprir os seis itens abaixo.</p></div>
+</div><div class="rule"></div>
+    <div class="rules grid2r"><div class="rule-item"><span class="nbadge">1</span><div><p class="rt">Conteúdo técnico</p><p class="rd">Curso, treinamento interno ou aula da trilha.</p></div></div><div class="rule-item"><span class="nbadge">2</span><div><p class="rt">Livro</p><p class="rd">Leitura programada do livro do mês.</p></div></div><div class="rule-item"><span class="nbadge">3</span><div><p class="rt">Podcast</p><p class="rd">Ricardo Vargas e, quinzenalmente, ROI Hunters.</p></div></div><div class="rule-item"><span class="nbadge">4</span><div><p class="rt">Referência</p><p class="rd">Pelo menos 1 conteúdo de uma pessoa recomendada.</p></div></div><div class="rule-item"><span class="nbadge">5</span><div><p class="rt">Aplicação</p><p class="rd">Aplicar um conceito da semana em um projeto real.</p></div></div><div class="rule-item"><span class="nbadge">6</span><div><p class="rt">Registro</p><p class="rd">O que aprendi? Onde isso aparece na rotina? O que vou fazer diferente?</p></div></div></div>
+    <div class="notabar"><span class="nk">MODELO DE ACOMPANHAMENTO</span><span>Para cada conteúdo: tema, prazo, status (não iniciado / em andamento / concluído), conteúdo, aplicação prática, entregável e feedback do líder.</span></div>
+  </div>
+  <div class="pfoot"><span>TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS · <b>E3</b></span><span>23</span></div>
+</section>
+<section class="page" id="s24" data-label="Critério final">
+  <div class="amb"></div>
+  <div class="pbody">
+    <div class="sechead">
+  <span class="secnum">17</span>
+  <div><h2>Critério final da trilha</h2><p class="lead">Ao final dos 90 dias, o que o Gestor de Projetos precisa conseguir fazer.</p></div>
+</div><div class="rule"></div>
+    <div class="grid3">
+      <div class="blk"><p class="kicker">PLANEJAR</p><ul class="bul"><li>Organizar projetos com clareza.</li><li>Transformar objetivos em planos de ação.</li><li>Definir atividades, responsáveis e prazos.</li><li>Gerenciar prioridades.</li></ul></div>
+      <div class="blk"><p class="kicker">CONDUZIR</p><ul class="bul"><li>Acompanhar execução e cobrar atividades.</li><li>Identificar atrasos e antecipar riscos.</li><li>Gerenciar dependências.</li><li>Comunicar problemas com clareza.</li></ul></div>
+      <div class="blk"><p class="kicker">EVOLUIR</p><ul class="bul"><li>Identificar gargalos e reduzir retrabalho.</li><li>Criar checklists e documentar processos.</li><li>Aplicar PDCA e interpretar indicadores.</li><li>Propor melhorias com autonomia.</li></ul></div>
+    </div>
+    <div class="commit">
+      <span class="commit-pill">RESULTADO ESPERADO</span>
+      <h3 class="commit-t">Não formar alguém que apenas acompanha tarefas.</h3>
+      <p class="commit-d">Formar alguém capaz de garantir que os projetos tenham clareza, organização, previsibilidade, execução e evolução constante. <b>Gestor de Projetos E3 = Planejamento + Organização + Execução + Previsibilidade + Melhoria.</b></p>
+    </div>
+  </div>
+  <div class="pfoot"><span>TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS · <b>E3</b></span><span>24</span></div>
+</section>
+</main>
+<footer class="controls">
+  <button id="prev" class="navbtn" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+  <div class="dots" id="dots"></div>
+  <button id="next" class="navbtn" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+</footer>
+<script>
+(function(){
+  var stage=document.getElementById('stage');
+  var pages=[].slice.call(document.querySelectorAll('.page'));
+  var dotsWrap=document.getElementById('dots');
+  var cur=document.getElementById('cur'), tot=document.getElementById('tot');
+  var prev=document.getElementById('prev'), next=document.getElementById('next');
+  if(tot) tot.textContent=pages.length;
+  var i=0;
+  pages.forEach(function(p,k){
+    var b=document.createElement('button');
+    b.className='dot';
+    b.setAttribute('aria-label','Página '+(k+1));
+    var lab=p.getAttribute('data-label'); if(lab) b.title=lab;
+    b.onclick=function(){go(k)};
+    dotsWrap.appendChild(b);
+  });
+  var dots=[].slice.call(dotsWrap.children);
+  function fit(){
+    var p=pages[i]; if(!p||!stage) return;
+    var r=stage.getBoundingClientRect();
+    var sc=Math.min((r.width*0.96)/1280,(r.height*0.96)/720,1.9);
+    p.style.transform='translate(-50%,-50%) scale('+sc+')';
+  }
+  function go(n){
+    i=Math.max(0,Math.min(pages.length-1,n));
+    pages.forEach(function(p,k){p.classList.toggle('active',k===i)});
+    dots.forEach(function(d,k){d.classList.toggle('active',k===i)});
+    if(cur) cur.textContent=i+1;
+    if(prev) prev.disabled=i===0;
+    if(next) next.disabled=i===pages.length-1;
+    fit();
+  }
+  if(prev) prev.onclick=function(){go(i-1)};
+  if(next) next.onclick=function(){go(i+1)};
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();go(i+1)}
+    if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(i-1)}
+    if(e.key==='Home')go(0);
+    if(e.key==='End')go(pages.length-1);
+  });
+  var sx=0;
+  if(stage){
+    stage.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+    stage.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)go(i+(dx<0?1:-1))},{passive:true});
+  }
+  window.addEventListener('resize',fit);
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit)}
+  go(0);
+  setTimeout(fit,250);
+})();
+</script>
+</body></html>

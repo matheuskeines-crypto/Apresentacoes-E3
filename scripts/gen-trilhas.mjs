@@ -569,4 +569,565 @@ function buildAccount() {
   console.log("trilha account:", outDir, "·", P.length, "páginas · PDF anexado");
 }
 
+/* ══════════════════════ TRILHA — GESTOR DE PROJETOS ══════════════════════ */
+
+/* Links citados. O PDF do GP não traz URLs embutidas: os institucionais apontam
+   para o site oficial e, onde não há página canônica verificável (canais e
+   podcasts pessoais, livros sem link no material), para a busca da plataforma. */
+const LG = {
+  pmi: "https://www.pmi.org/kickoff",
+  bradesco: "https://www.ev.org.br",
+  enap: "https://www.escolavirtual.gov.br",
+  sebrae: "https://www.sebrae.com.br",
+  sebraeYoutube: "https://www.youtube.com/@sebrae",
+  alura: "https://www.youtube.com/@alura",
+  conquer: "https://www.youtube.com/@escolaconquer",
+  vargasSite: "https://ricardo-vargas.com",
+  vargasYoutube: "https://rvarg.as/youtube",
+  vargasPodcast: "https://ricardo-vargas.com/podcasts",
+  terentim: "https://www.youtube.com/results?search_query=Gino+Terentim",
+  roihunters: "https://open.spotify.com/search/ROI%20Hunters",
+  checklistLivro: "https://www.amazon.com.br/s?k=Checklist+Atul+Gawande",
+  scrumLivro: "https://www.amazon.com.br/s?k=Scrum+Jeff+Sutherland",
+  vossLivro: "https://www.amazon.com.br/s?k=Nunca+Divida+a+Diferen%C3%A7a+Chris+Voss",
+};
+
+function buildGestorProjetos() {
+  const NAV = [
+    null, "Visão da função", "Como funciona", "Base E3", "Gestão empresarial",
+    "Mês 01", "Semanas 01–02", "Semanas 03–04", "Checkpoint 30 dias",
+    "Mês 02", "Semanas 05–06", "Semanas 07–08", "Checkpoint 60 dias",
+    "Mês 03", "Semanas 09–10", "Semanas 11–12", "Projeto final",
+    "Certificação 90 dias", "Livros", "Cursos gratuitos", "Canais", "Podcasts",
+    "Referências", "Rotina semanal", "Critério final",
+  ];
+  const { page } = makePageFactory("TRILHA DE DESENVOLVIMENTO · GESTOR DE PROJETOS", NAV);
+  const P = [];
+
+  /* — CAPA — */
+  P.push(page(`
+    <img class="logo" src="${LOGO_URI}" alt="E3"/>
+    <p class="kicker cov-k">TRILHA DE DESENVOLVIMENTO · DOCUMENTO DE FORMAÇÃO</p>
+    <h1>Gestor de <span>Projetos</span></h1>
+    <p class="cov-sub">Formar o responsável pela organização, planejamento, acompanhamento e previsibilidade dos projetos — garantindo entregas no prazo, com qualidade e clareza de responsabilidades.</p>
+    <div class="pills">
+      <span class="pill">90 DIAS</span><span class="pill">12 SEMANAS</span>
+      <span class="pill">2 A 3H POR SEMANA</span><span class="pill">3 CHECKPOINTS</span><span class="pill">CERTIFICAÇÃO INTERNA</span>
+    </div>
+    <div class="cov-rule"></div>
+    <p class="cov-foot">E3 Digital · o hub de marketing e vendas para advogados</p>
+  `, { cover: true }));
+
+  /* — VISÃO DA FUNÇÃO — */
+  P.push(page(`
+    ${split2(`
+      <p class="kicker">VISÃO DA FUNÇÃO</p>
+      <h2 class="h2">O GP não só cobra tarefas</h2>
+      <p class="body">O papel do Gestor de Projetos na E3 não deve ser apenas cobrar tarefas, atualizar ferramentas ou perguntar se uma entrega foi concluída.</p>
+      ${statRow([
+        { v: "90", l: "dias de trilha" },
+        { v: "12", l: "semanas" },
+        { v: "2–3h", l: "por semana" },
+      ])}
+      ${notabar("EVOLUÇÃO ESPERADA", "Organização → Planejamento → Execução → Previsibilidade → <b>Melhoria contínua</b>")}
+    `, `
+      <div class="blk"><p class="kicker">O QUE ESPERAMOS DESENVOLVER</p></div>
+      <div class="grid2">
+        ${block("PLANEJAR", ["Transformar objetivos em planos de ação.", "Organizar projetos de forma clara e visual.", "Definir atividades, responsáveis e prazos."])}
+        ${block("ANTECIPAR", ["Acompanhar a execução de forma proativa.", "Identificar riscos antes que virem problemas.", "Priorizar demandas."])}
+        ${block("INTEGRAR", ["Gerenciar dependências entre funções.", "Cobrar com clareza e responsabilidade.", "Facilitar a comunicação entre Account, GT e demais funções."])}
+        ${block("EVOLUIR", ["Identificar gargalos e reduzir retrabalho.", "Usar dados para decidir e melhorar processos.", "Autonomia, organização e protagonismo."])}
+      </div>
+    `)}
+  `));
+
+  /* — COMO FUNCIONA A TRILHA — */
+  P.push(page(`
+    ${secHead("01", "Como funciona a trilha", "12 semanas, de 2 a 3 horas semanais de desenvolvimento. O conteúdo não se conclui assistindo — se conclui aplicando.")}
+    ${split2(`
+      <h3 class="h3">A carga se divide entre</h3>
+      ${feat([
+        { t: "Cursos e treinamentos", d: "Conteúdo técnico interno e externo." },
+        { t: "Livros", d: "Leitura programada do livro do mês." },
+        { t: "Podcasts", d: "Repertório semanal sobre projetos e gestão." },
+        { t: "Referências da área", d: "Conteúdo de quem já faz." },
+        { t: "Aplicações práticas", d: "Dentro da operação, em projeto real." },
+        { t: "Feedback do líder", d: "Fecha cada ciclo de aprendizado." },
+      ])}
+    `, `
+      ${callout("activity", "A METODOLOGIA", "Aprender → Aplicar → Apresentar → Receber feedback", "O colaborador não conclui uma etapa apenas por assistir ao conteúdo. <b>Cada etapa deve gerar uma aplicação prática dentro da operação.</b>")}
+      <div class="quote">
+        <p class="qk">O QUE MUDA NO MÊS 02</p>
+        <p>A pergunta deixa de ser <b>“essa tarefa foi feita?”</b></p>
+        <p>e passa a ser <b>“existe alguma coisa que pode impedir essa tarefa ou projeto de ser concluído?”</b></p>
+      </div>
+    `)}
+  `));
+
+  /* — BASE OBRIGATÓRIA E3 — */
+  P.push(page(`
+    ${secHead("02", "Base obrigatória E3", "Todos os Gestores de Projetos devem concluir estes conteúdos internos.")}
+    <div class="pilares3">
+      <div class="card">
+        ${cardHead("award", "BASE 01", "Cultura E3")}
+        ${feat([
+          { t: "História da empresa", d: "De onde viemos." },
+          { t: "Posicionamento", d: "Onde a E3 joga." },
+          { t: "Cultura e valores", d: "Como agimos." },
+          { t: "Visão de futuro", d: "Para onde vamos." },
+          { t: "Comportamentos esperados", d: "O que é inegociável." },
+        ])}
+      </div>
+      <div class="card">
+        ${cardHead("target", "BASE 02", "Produtos E3")}
+        ${feat([
+          { t: "Produtos e serviços", d: "O que vendemos." },
+          { t: "Escopo e seus limites", d: "Até onde vai cada produto." },
+          { t: "Perfil de cliente", d: "Para quem serve." },
+          { t: "Jornada de entrega", d: "E os principais entregáveis." },
+          { t: "Possibilidades de expansão", d: "Só se gerencia o que se entende." },
+        ])}
+      </div>
+      <div class="card">
+        ${cardHead("users", "BASE 03", "Processos")}
+        ${feat([
+          { t: "Estrutura da operação", d: "Responsabilidades por função." },
+          { t: "Fluxo Account → GP → GT", d: "Quem entrega o quê, e quando." },
+          { t: "Hops e SLA", d: "Registro, acompanhamento e prazos." },
+          { t: "Jornada do Herói e PDCA", d: "Os dois métodos da casa." },
+          { t: "Onboarding e renovação", d: "Planejamento e rotinas de acompanhamento." },
+        ])}
+      </div>
+    </div>
+  `));
+
+  /* — GESTÃO EMPRESARIAL — */
+  P.push(page(`
+    ${secHead("03", "Gestão empresarial", "Os mesmos treinamentos internos indicados na trilha de Account.")}
+    ${split2(`
+      <h3 class="h3">Conceitos a dominar</h3>
+      <div class="grid2">
+        ${block("RECEITA", ["Receita.", "Margem.", "Crescimento."])}
+        ${block("CLIENTE", ["Aquisição.", "Retenção.", "Churn."])}
+        ${block("INDICADORES", ["NRR.", "LTV.", "CAC."])}
+        ${block("ÁREAS", ["Estrutura comercial.", "Operação.", "Marketing."])}
+      </div>
+    `, `
+      <h3 class="h3">Conteúdos</h3>
+      ${rules([
+        { t: "A nova era do nosso mercado", d: `Início aos 12:00 min. ${chips([{ href: L.novaEraDrive, label: "Drive" }, { href: L.novaEraYoutube, label: "YouTube" }])}` },
+        { t: "Agência com IA", d: `Material completo. ${chips([{ href: L.agenciaIA, label: "Drive" }])}` },
+      ])}
+      ${callout("activity", "O OBJETIVO", "Não basta perguntar se a tarefa foi entregue", "O GP precisa perguntar também: <b>essa entrega está contribuindo para o objetivo do projeto e para o resultado do cliente?</b>")}
+    `)}
+  `));
+
+  /* — MÊS 01 — */
+  P.push(page(`
+    ${secHead("04", "Mês 01 · Fundamentos, processos e planejamento", "Entender a E3, os produtos, processos, responsabilidades e os fundamentos da gestão de projetos.")}
+    ${callout("target", "RESULTADO DO MÊS", "Organizar e acompanhar um projeto com supervisão", "Ao final do primeiro mês, o profissional deve ser capaz de organizar e acompanhar um projeto com supervisão.")}
+    ${tbl(["Semana", "Tema", "Entregável"], [
+      ["01", "E3, produtos e papel do GP", "Mapa completo de 1 projeto da operação"],
+      ["02", "Fundamentos de gestão de projetos", "Plano básico do projeto"],
+      ["03", "Onboarding e kickoff", "Checklist ideal de kickoff e início de projeto"],
+      ["04", "Organização e gestão visual", "Projeto estruturado na plataforma"],
+    ])}
+  `));
+
+  /* — SEMANAS 01 e 02 — */
+  P.push(page(`
+    ${split2(`
+      <div class="card">
+        ${cardHead("users", "", "E3, produtos e papel do GP", semanaTag("01"))}
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        ${feat([
+          { t: "Cultura, produtos e jornada", d: "Estrutura da operação e Jornada do Herói." },
+          { t: "Responsabilidades", d: "Do GP, do Account e do GT." },
+          { t: "Hops e processos internos", d: `Conteúdo complementar: Sebrae. ${chips([{ href: LG.sebraeYoutube, label: "Canal Sebrae" }])}` },
+        ])}
+        ${notabar("A PERGUNTA DA SEMANA", "O GP não é responsável apenas pela ferramenta. É responsável por garantir <b>Clareza → Responsável → Prazo → Execução → Acompanhamento</b>.")}
+      </div>
+      ${entregavel("Mapa completo de 1 projeto da operação.")}
+    `, `
+      <div class="card">
+        ${cardHead("chart", "", "Fundamentos de gestão de projetos", semanaTag("02"))}
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        ${feat([
+          { t: "O projeto de ponta a ponta", d: "Objetivo, escopo, entregáveis e responsáveis." },
+          { t: "Cronograma e stakeholders", d: "Riscos, dependências e encerramento." },
+        ])}
+        <div class="blk"><p class="kicker">CURSO E CONTEÚDOS</p></div>
+        <p class="body">PMI Kickoff: fundamentos, planejamento, execução e abordagens tradicional e ágil.</p>
+        ${chips([{ href: LG.pmi, label: "PMI Kickoff" }, { href: LG.bradesco, label: "Fund. Bradesco" }, { href: LG.vargasYoutube, label: "Ricardo Vargas" }])}
+      </div>
+      ${entregavel("Plano básico do projeto.")}
+    `)}
+  `));
+
+  /* — SEMANAS 03 e 04 — */
+  P.push(page(`
+    ${split2(`
+      <div class="card">
+        ${cardHead("book", "", "Onboarding e kickoff", semanaTag("03"))}
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        ${feat([
+          { t: "Kickoff e passagem de bastão", d: "Primeira impressão e definição de objetivos." },
+          { t: "Alinhamento Account → GP → execução", d: "Cronograma e próximos passos." },
+        ])}
+        <div class="blk"><p class="kicker">LIVRO OBRIGATÓRIO</p></div>
+        <p class="body"><b>Onboarding Orquestrado</b> — Donna Weber. ${chips([{ href: L.onboardingAmazon, label: "Livro físico" }, { href: L.onboardingPdf, label: "PDF" }, { href: LG.terentim, label: "Gino Terentim" }])}</p>
+        ${notabar("A DIVISÃO", "O Account compreende o cliente. O GP transforma essas informações em uma <b>jornada executável</b>.")}
+      </div>
+      ${entregavel("Checklist ideal de kickoff e início de projeto.")}
+    `, `
+      <div class="card">
+        ${cardHead("activity", "", "Organização e gestão visual", semanaTag("04"))}
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        ${feat([
+          { t: "Gestão de tarefas", d: "Status, responsáveis, prazos e prioridades." },
+          { t: "Documentação e histórico", d: "Gestão visual, Hops e rotinas de acompanhamento." },
+        ])}
+        ${chips([{ href: LG.alura, label: "Alura · Kanban e Scrum" }, { href: LG.enap, label: "ENAP" }])}
+        ${notabar("O TESTE", "Quem nunca participou do projeto deve abrir o Hops e entender: onde estamos, o que acontece, quem é responsável, qual o prazo, o que atrasou e qual o próximo passo.")}
+      </div>
+      ${entregavel("Projeto estruturado: etapas, tasks, responsáveis, prazos, status, dependências e próximos passos.")}
+    `)}
+  `));
+
+  /* — CHECKPOINT 30 DIAS — */
+  P.push(page(`
+    ${secHead("05", "Checkpoint · 30 dias", "Avaliação de 0 a 10 em cada dimensão, conduzida pelo líder.")}
+    ${split2(`
+      <h3 class="h3">Avaliar de 0 a 10</h3>
+      <div class="grid2">
+        ${block("CONHECIMENTO", ["Conhecimento da E3.", "Conhecimento dos produtos.", "Conhecimento dos processos.", "Uso das ferramentas."])}
+        ${block("EXECUÇÃO", ["Organização.", "Planejamento.", "Comunicação.", "Postura e capacidade de aprendizado."])}
+      </div>
+    `, `
+      <h3 class="h3">Resultado esperado</h3>
+      ${feat([
+        { t: "Entende o funcionamento da E3", d: "E compreende o papel do GP." },
+        { t: "Conhece os produtos", d: "E o fluxo entre as funções." },
+        { t: "Consegue organizar projetos", d: "E acompanhar atividades." },
+        { t: "Registra corretamente", d: "Informações e acordos." },
+        { t: "Trabalha com supervisão", d: "Ainda com acompanhamento do líder." },
+      ])}
+    `)}
+  `));
+
+  /* — MÊS 02 — */
+  P.push(page(`
+    ${secHead("06", "Mês 02 · Execução, prioridade e prevenção", "Deixar de apenas registrar e acompanhar demandas para gerenciar a execução de forma proativa.")}
+    ${callout("target", "A VIRADA DO MÊS", "De registrar para prevenir", "A pergunta deixa de ser “essa tarefa foi feita?” e passa a ser <b>“existe alguma coisa que pode impedir essa tarefa ou projeto de ser concluído?”</b>")}
+    ${tbl(["Semana", "Tema", "Entregável"], [
+      ["05", "Planejamento e priorização", "Planejamento semanal do squad"],
+      ["06", "Riscos e prevenção", "Mapa de riscos do projeto"],
+      ["07", "Comunicação e dependências", "Apresentação do caso no Comitê de GPs"],
+      ["08", "Qualidade, checklist e retrabalho", "Checklist operacional de uma atividade real"],
+    ])}
+  `));
+
+  /* — SEMANAS 05 e 06 — */
+  P.push(page(`
+    ${split2(`
+      <div class="card">
+        ${cardHead("chart", "", "Planejamento e priorização", semanaTag("05"))}
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        ${feat([
+          { t: "Urgência x importância", d: "Capacidade, sequenciamento e dependências." },
+          { t: "Planejamento semanal", d: "Prazos, milestones e critérios de prioridade." },
+        ])}
+        ${chips([{ href: LG.conquer, label: "Escola Conquer" }, { href: LG.vargasYoutube, label: "Ricardo Vargas" }])}
+        ${notabar("O CONCEITO", "Nem tudo que chega é prioridade. O GP diferencia: <b>urgente · importante · pode esperar · não deveria estar sendo feito</b>.")}
+      </div>
+      ${entregavel("Planejamento semanal do squad.")}
+    `, `
+      <div class="card">
+        ${cardHead("alert", "", "Riscos e prevenção", semanaTag("06"))}
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        ${feat([
+          { t: "Identificação antecipada", d: "Probabilidade, impacto e mitigação." },
+          { t: "Plano de contingência", d: "Red flags e análise de causa." },
+        ])}
+        ${chips([{ href: LG.enap, label: "ENAP · Gestão de Riscos" }, { href: LG.vargasYoutube, label: "Ricardo Vargas" }])}
+        <div class="blk"><p class="kicker">APLICAÇÃO PRÁTICA</p></div>
+        <p class="body">Identificar ao menos 3 riscos com probabilidade, impacto, responsável, ação preventiva e plano caso aconteça.</p>
+      </div>
+      ${entregavel("Mapa de riscos do projeto.")}
+    `)}
+  `));
+
+  /* — SEMANAS 07 e 08 — */
+  P.push(page(`
+    ${split2(`
+      <div class="card">
+        ${cardHead("users", "", "Comunicação e dependências", semanaTag("07"))}
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        ${feat([
+          { t: "Delegação e cobrança", d: "Follow-up, alinhamento e registro de decisões." },
+          { t: "Comunicação entre áreas", d: "Account → GP → GT e gestão de dependências." },
+        ])}
+        ${chips([{ href: LG.conquer, label: "Escola Conquer" }, { href: LG.vossLivro, label: "Nunca Divida a Diferença" }])}
+        ${notabar("NÃO BASTA DIZER", "“Fulano ainda não entregou.” O GP comunica: <b>temos um atraso nesta atividade, a causa é X, o impacto é Y e a ação de correção é Z.</b>")}
+      </div>
+      ${entregavel("Apresentação do caso no Comitê de Gestores de Projetos.")}
+    `, `
+      <div class="card">
+        ${cardHead("check", "", "Qualidade, checklist e retrabalho", semanaTag("08"))}
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        ${feat([
+          { t: "Critérios de aceite", d: "Checklist, padronização e controle." },
+          { t: "Prevenção de erros", d: "Redução de retrabalho e POPs." },
+        ])}
+        <div class="blk"><p class="kicker">LIVRO OBRIGATÓRIO</p></div>
+        <p class="body"><b>Checklist — Como Fazer as Coisas Bem-Feitas</b> — Atul Gawande. ${chips([{ href: LG.checklistLivro, label: "Livro" }, { href: LG.sebraeYoutube, label: "Canal Sebrae" }])}</p>
+      </div>
+      ${entregavel("Checklist operacional de uma atividade real.")}
+    `)}
+  `));
+
+  /* — CHECKPOINT 60 DIAS — */
+  P.push(page(`
+    ${secHead("07", "Checkpoint · 60 dias", "O GP já deve operar com autonomia sobre os projetos do squad.")}
+    ${split2(`
+      <h3 class="h3">Avaliar</h3>
+      <div class="grid2">
+        ${block("GESTÃO", ["Organização.", "Planejamento.", "Priorização."])}
+        ${block("RELAÇÃO", ["Comunicação.", "Proatividade.", "Autonomia."])}
+        ${block("ANÁLISE", ["Identificação de riscos.", "Capacidade de resolução."])}
+        ${block("ENTREGA", ["Gestão de prazos.", "Gestão de dependências."])}
+      </div>
+    `, `
+      <h3 class="h3">O GP já deve conseguir</h3>
+      ${feat([
+        { t: "Planejar projetos", d: "E organizar prioridades." },
+        { t: "Gerenciar prazos", d: "E identificar atrasos." },
+        { t: "Antecipar riscos", d: "E conduzir planos de ação." },
+        { t: "Cobrar responsáveis", d: "E gerenciar dependências." },
+        { t: "Reduzir retrabalho", d: "Com maior autonomia." },
+      ])}
+    `)}
+  `));
+
+  /* — MÊS 03 — */
+  P.push(page(`
+    ${secHead("08", "Mês 03 · Gestão operacional, melhoria e liderança", "Transformar o profissional em um verdadeiro gestor da execução.")}
+    ${callout("refresh", "O CICLO DO MÊS", "Identificar → Analisar → Decidir → Corrigir → Melhorar", "O GP precisa deixar de apenas controlar tarefas e passar a conduzir o ciclo completo.")}
+    ${tbl(["Semana", "Tema", "Entregável"], [
+      ["09", "Indicadores e gestão da operação", "Diagnóstico operacional do squad"],
+      ["10", "PDCA e melhoria contínua", "PDCA completo de um problema real"],
+      ["11", "Gestão de crise e tomada de decisão", "Plano de resposta a uma situação crítica"],
+      ["12", "Gestão de projetos e liderança da execução", "Projeto final da conta"],
+    ])}
+  `));
+
+  /* — SEMANAS 09 e 10 — */
+  P.push(page(`
+    ${split2(`
+      <div class="card">
+        ${cardHead("chart", "", "Indicadores e gestão da operação", semanaTag("09"))}
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        <div class="grid2">
+          ${block("PRAZO", ["SLA, prazo e entregas.", "Atrasos e retrabalho."])}
+          ${block("FLUXO", ["Capacidade, backlog e gargalos.", "Produtividade e qualidade."])}
+        </div>
+        <div class="blk"><p class="kicker">TREINAMENTO E CONTEÚDO</p></div>
+        <p class="body">Gestão Empresarial E3 (obrigatório). ${chips([{ href: LG.sebrae, label: "Sebrae" }, { href: LG.roihunters, label: "ROI Hunters" }])}</p>
+      </div>
+      ${entregavel("Diagnóstico operacional do squad.")}
+    `, `
+      <div class="card">
+        ${cardHead("refresh", "", "PDCA e melhoria contínua", semanaTag("10"))}
+        <div class="blk"><p class="kicker">O CICLO</p></div>
+        ${feat([
+          { t: "PLAN", d: "Planejar." },
+          { t: "DO", d: "Executar." },
+          { t: "CHECK", d: "Verificar." },
+          { t: "ACT", d: "Corrigir e padronizar." },
+        ])}
+        ${chips([{ href: LG.vargasYoutube, label: "Ricardo Vargas" }, { href: LG.terentim, label: "Gino Terentim" }, { href: LG.enap, label: "ENAP" }])}
+        ${notabar("A PERGUNTA", "O que precisa mudar para esse problema <b>não acontecer novamente</b>?")}
+      </div>
+      ${entregavel("PDCA completo: problema → causa → plano → execução → resultado → padronização.")}
+    `)}
+  `));
+
+  /* — SEMANAS 11 e 12 — */
+  P.push(page(`
+    ${split2(`
+      <div class="card">
+        ${cardHead("alert", "", "Gestão de crise e tomada de decisão", semanaTag("11"))}
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        ${feat([
+          { t: "Pressão e priorização", d: "Crise, escalonamento e responsabilidade." },
+          { t: "Decisão e negociação", d: "Comunicação e gestão de conflitos." },
+        ])}
+        ${chips([{ href: LG.conquer, label: "Escola Conquer" }, { href: LG.vargasPodcast, label: "5 Minutes PM" }])}
+        <div class="blk"><p class="kicker">APLICAÇÃO PRÁTICA</p></div>
+        <p class="body">O que aconteceu · qual impacto · o que resolver primeiro · quem participa · qual decisão · plano imediato · como evitar recorrência.</p>
+      </div>
+      ${entregavel("Plano de resposta a uma situação crítica.")}
+    `, `
+      <div class="card">
+        ${cardHead("award", "", "Gestão de projetos e liderança da execução", semanaTag("12"))}
+        <div class="blk"><p class="kicker">DESENVOLVER</p></div>
+        ${feat([
+          { t: "Previsibilidade", d: "Planejamento, processos e melhoria." },
+          { t: "Liderança da execução", d: "Responsabilidade, autonomia e protagonismo." },
+        ])}
+        <div class="blk"><p class="kicker">CONTEÚDO E REVISÃO</p></div>
+        <p class="body">ROI Hunters e revisão das referências da trilha.</p>
+        ${chips([{ href: LG.roihunters, label: "ROI Hunters" }, { href: LG.vargasSite, label: "Ricardo Vargas" }, { href: L.fernando, label: "Fernando Miranda" }, { href: L.joao, label: "João Pedro Motta" }])}
+      </div>
+      ${entregavel("Projeto final apresentado ao líder.")}
+    `)}
+  `));
+
+  /* — PROJETO FINAL — */
+  P.push(page(`
+    ${secHead("09", "Projeto final", "Selecionar um projeto real e apresentar o percurso completo, do objetivo ao plano dos próximos 90 dias.")}
+    <div class="grid3">
+      ${block("O PLANO", ["Objetivo.", "Escopo.", "Etapas.", "Cronograma."])}
+      ${block("A EXECUÇÃO", ["Responsáveis.", "Dependências.", "Riscos.", "Indicadores."])}
+      ${block("A EVOLUÇÃO", ["Problemas identificados.", "Plano de ação.", "Melhorias propostas.", "Plano para 30/60/90 dias."])}
+    </div>
+    ${notabar("COMO APRESENTAR", "A sequência é encadeada: cada bloco responde ao anterior. O líder avalia se o raciocínio se sustenta do começo ao fim.")}
+  `));
+
+  /* — CERTIFICAÇÃO 90 DIAS — */
+  P.push(page(`
+    ${secHead("10", "Certificação interna · 90 dias", "O líder avalia cada dimensão com nota de 0 a 10.")}
+    ${rules([
+      { t: "Conhecimento técnico", d: "Processos, planejamento, riscos, indicadores e gestão de projetos." },
+      { t: "Execução", d: "Capacidade de transformar planejamento em execução." },
+      { t: "Organização", d: "Manter projetos, tarefas, informações e prazos organizados." },
+      { t: "Planejamento", d: "Definir prioridades, atividades e responsáveis." },
+      { t: "Comunicação", d: "Clareza com Accounts, GTs, liderança e demais funções." },
+      { t: "Gestão de riscos", d: "Capacidade de antecipar problemas." },
+      { t: "Capacidade de resolução", d: "Identificar causa e propor soluções." },
+      { t: "Autonomia", d: "Trabalhar sem depender constantemente da liderança." },
+      { t: "Melhoria contínua", d: "Transformar problemas recorrentes em melhorias de processo." },
+      { t: "Protagonismo", d: "Assumir responsabilidade e conduzir situações." },
+    ], "grid2r")}
+  `));
+
+  /* — LIVROS — */
+  P.push(page(`
+    ${secHead("11", "Livros", "Dois obrigatórios, com mês definido, e três recomendados.")}
+    ${split2(`
+      <h3 class="h3">Obrigatórios</h3>
+      ${rules([
+        { t: "Onboarding Orquestrado — Donna Weber " + tag("MÊS 01", "tag-pro"), d: `Organizar os primeiros momentos da jornada: passagem de bastão, alinhamento, kickoff e próximos passos. ${chips([{ href: L.onboardingAmazon, label: "Livro físico" }, { href: L.onboardingPdf, label: "PDF" }])}` },
+        { t: "Checklist — Atul Gawande " + tag("MÊS 02", "tag-pro"), d: `Padronização, qualidade, prevenção de erros, redução de retrabalho e gestão de processos. ${chips([{ href: LG.checklistLivro, label: "Livro" }])}` },
+      ])}
+    `, `
+      <h3 class="h3">Recomendados</h3>
+      ${rules([
+        { t: "Customer Success — Mehta, Steinman e Murphy", d: `Retenção, churn, experiência e valor percebido. Cumprir prazo não basta se o projeto não gera valor. ${chips([{ href: L.csAmazon, label: "Livro" }, { href: L.csPdf, label: "PDF" }])}` },
+        { t: "Scrum — Jeff Sutherland", d: `Sprints, priorização, backlog, iteração e ritmo de execução. ${chips([{ href: LG.scrumLivro, label: "Livro" }])}` },
+        { t: "Nunca Divida a Diferença — Chris Voss", d: `Negociação, escuta, perguntas e gestão de conflitos. ${chips([{ href: LG.vossLivro, label: "Livro" }])}` },
+      ])}
+    `)}
+  `));
+
+  /* — CURSOS GRATUITOS — */
+  P.push(page(`
+    ${secHead("12", "Cursos e conteúdos gratuitos", "Quatro plataformas, todas sem custo. Clique para acessar.")}
+    ${rules([
+      { t: "PMI Kickoff " + tag("PRIORIDADE ALTA", "tag-pro"), d: `Fundamentos, planejamento, execução, gestão tradicional e ágil. ${chips([{ href: LG.pmi, label: "Acessar" }])}` },
+      { t: "Fundação Bradesco — Escola Virtual", d: `Gestão, administração, liderança, comunicação, produtividade, organização e Excel. ${chips([{ href: LG.bradesco, label: "Acessar" }])}` },
+      { t: "ENAP — Escola Virtual", d: `Gestão de projetos, processos, riscos, planejamento, metodologias ágeis e liderança. ${chips([{ href: LG.enap, label: "Acessar" }])}` },
+      { t: "Sebrae", d: `Gestão empresarial, planejamento, processos, indicadores, liderança e produtividade. ${chips([{ href: LG.sebrae, label: "Acessar" }])}` },
+    ], "grid2r")}
+  `));
+
+  /* — CANAIS — */
+  P.push(page(`
+    ${secHead("13", "Canais e conteúdos recomendados", "Dois obrigatórios, com frequência definida, e dois para priorizar por tema.")}
+    ${split2(`
+      <h3 class="h3">Obrigatórios</h3>
+      ${rules([
+        { t: "Ricardo Vargas " + tag("2 POR SEMANA", "tag-pro"), d: `Projetos, planejamento, cronograma, riscos, liderança, decisão, IA e gestão de crise. ${chips([{ href: LG.vargasYoutube, label: "YouTube" }, { href: LG.vargasSite, label: "Site" }])}` },
+        { t: "Gino Terentim " + tag("1 POR SEMANA", "tag-pro"), d: `Projetos, métodos ágeis, liderança, gestão da mudança, transformação, IA e gestão de times. ${chips([{ href: LG.terentim, label: "YouTube" }])}` },
+      ])}
+    `, `
+      <h3 class="h3">Para priorizar</h3>
+      ${rules([
+        { t: "Alura — YouTube", d: `Scrum, Kanban, Agile, gestão de projetos, produtividade, processos, tecnologia e IA. ${chips([{ href: LG.alura, label: "Canal" }])}` },
+        { t: "Escola Conquer — YouTube", d: `Liderança, comunicação, gestão, produtividade, feedback, gestão do tempo e negociação. ${chips([{ href: LG.conquer, label: "Canal" }])}` },
+        { t: "Sebrae — YouTube", d: `Gestão empresarial, planejamento, processos, indicadores, liderança e produtividade. ${chips([{ href: LG.sebraeYoutube, label: "Canal" }])}` },
+      ])}
+    `)}
+  `));
+
+  /* — PODCASTS — */
+  P.push(page(`
+    ${secHead("14", "Podcasts", "Repertório contínuo, com registro de aprendizado a cada episódio.")}
+    ${split2(`
+      ${rules([
+        { t: "5 Minutes Project Management — Ricardo Vargas " + tag("2 POR SEMANA", "tag-pro"), d: `Projetos, planejamento, riscos, liderança, comunicação, tomada de decisão e gestão de crise. ${chips([{ href: LG.vargasPodcast, label: "Ouvir" }])}` },
+        { t: "ROI Hunters " + tag("1 A CADA 15 DIAS", "tag-light"), d: `Gestão, growth, marketing, vendas, liderança, processos, negócios e crescimento. ${chips([{ href: LG.roihunters, label: "Ouvir" }])}` },
+      ])}
+    `, `
+      ${callout("book", "APÓS CADA EPISÓDIO", "Três perguntas, sempre", "1. O que aprendi?<br/>2. Como isso se conecta à minha função?<br/>3. Onde consigo aplicar dentro da operação?")}
+    `)}
+  `));
+
+  /* — REFERÊNCIAS — */
+  P.push(page(`
+    ${secHead("15", "Referências para modelar", "O objetivo não é copiar a personalidade. É observar como pensam, estruturam problemas, planejam, decidem e conectam execução a resultado.")}
+    ${tbl(["Referência", "Modelar", "O que observar"], [
+      [link(LG.vargasSite, "Ricardo Vargas"), "Projetos, riscos, planejamento e decisão", "Priorização, gestão de crise, liderança e IA aplicada a projetos"],
+      [link(LG.terentim, "Gino Terentim"), "Projetos, liderança e transformação", "Gestão ágil, change management e gestão de times"],
+      [link(L.fernando, "Fernando Miranda"), "Gestão, visão de negócio e crescimento", "Processos, growth, marketing, vendas, receita e estratégia"],
+      [link(L.joao, "João Pedro Motta"), "Estratégia e raciocínio de negócio", "Análise, growth, tomada de decisão e negócios"],
+    ])}
+    ${notabar("COMO USAR", "Clique no nome para abrir o perfil ou o canal.")}
+  `));
+
+  /* — ROTINA SEMANAL — */
+  P.push(page(`
+    ${secHead("16", "Rotina semanal de desenvolvimento", "Toda semana o Gestor de Projetos deve cumprir os seis itens abaixo.")}
+    ${rules([
+      { t: "Conteúdo técnico", d: "Curso, treinamento interno ou aula da trilha." },
+      { t: "Livro", d: "Leitura programada do livro do mês." },
+      { t: "Podcast", d: "Ricardo Vargas e, quinzenalmente, ROI Hunters." },
+      { t: "Referência", d: "Pelo menos 1 conteúdo de uma pessoa recomendada." },
+      { t: "Aplicação", d: "Aplicar um conceito da semana em um projeto real." },
+      { t: "Registro", d: "O que aprendi? Onde isso aparece na rotina? O que vou fazer diferente?" },
+    ], "grid2r")}
+    ${notabar("MODELO DE ACOMPANHAMENTO", "Para cada conteúdo: tema, prazo, status (não iniciado / em andamento / concluído), conteúdo, aplicação prática, entregável e feedback do líder.")}
+  `));
+
+  /* — CRITÉRIO FINAL — */
+  P.push(page(`
+    ${secHead("17", "Critério final da trilha", "Ao final dos 90 dias, o que o Gestor de Projetos precisa conseguir fazer.")}
+    <div class="grid3">
+      ${block("PLANEJAR", ["Organizar projetos com clareza.", "Transformar objetivos em planos de ação.", "Definir atividades, responsáveis e prazos.", "Gerenciar prioridades."])}
+      ${block("CONDUZIR", ["Acompanhar execução e cobrar atividades.", "Identificar atrasos e antecipar riscos.", "Gerenciar dependências.", "Comunicar problemas com clareza."])}
+      ${block("EVOLUIR", ["Identificar gargalos e reduzir retrabalho.", "Criar checklists e documentar processos.", "Aplicar PDCA e interpretar indicadores.", "Propor melhorias com autonomia."])}
+    </div>
+    <div class="commit">
+      <span class="commit-pill">RESULTADO ESPERADO</span>
+      <h3 class="commit-t">Não formar alguém que apenas acompanha tarefas.</h3>
+      <p class="commit-d">Formar alguém capaz de garantir que os projetos tenham clareza, organização, previsibilidade, execução e evolução constante. <b>Gestor de Projetos E3 = Planejamento + Organização + Execução + Previsibilidade + Melhoria.</b></p>
+    </div>
+  `));
+
+  const html = shell({
+    title: "Trilha de Desenvolvimento — Gestor de Projetos · E3 Digital",
+    navTitle: "Trilha de Desenvolvimento · Gestor de Projetos",
+    logoUri: LOGO_URI,
+    pages: P,
+    pdfHref: "./trilha-gestor-projetos.pdf",
+    pdfName: "Trilha de Desenvolvimento - Gestor de Projetos - E3 Digital.pdf",
+  });
+  const outDir = join(distRoot, "trilha-gestor-projetos");
+  mkdirSync(outDir, { recursive: true });
+  writeFileSync(join(outDir, "index.html"), html, "utf8");
+  copyFileSync(join(pdfSrcDir, "trilha-gestor-projetos.pdf"), join(outDir, "trilha-gestor-projetos.pdf"));
+  console.log("trilha gestor de projetos:", outDir, "·", P.length, "páginas · PDF anexado");
+}
+
 buildAccount();
+buildGestorProjetos();
