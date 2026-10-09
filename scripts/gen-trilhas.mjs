@@ -4,7 +4,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   shell, LOGO_B64_PATH, makePageFactory, secHead, tbl, statRow, feat,
-  makeCallout, makeCardHead, tag, block, rules, split2, notabar,
+  makeCallout, makeCardHead, tag, block, rules, split2, notabar, link, chips,
 } from "./playbook-kit.mjs";
 
 const LOGO = readFileSync(LOGO_B64_PATH, "utf8").trim();
@@ -26,6 +26,36 @@ const callout = makeCallout(svg);
 const cardHead = makeCardHead(svg);
 const semanaTag = (n) => tag(`SEMANA ${n}`, "tag-pro");
 const entregavel = (txt) => notabar("ENTREGÁVEL", txt);
+
+/* ─────────────── links citados no material ─────────────── */
+const L = {
+  novaEraDrive: "https://drive.google.com/file/d/1KIWeLtanvMrZFhpX-XH-nXDH7PkPWXU2/view",
+  novaEraYoutube: "https://www.youtube.com/live/Q44vOhYZCiU",
+  agenciaIA: "https://drive.google.com/file/d/1o2LpH3wXxpcXEAaU7amQlbye3WiItgkX/view",
+  hubspot: "https://www.coursera.org/partners/hubspot-academy",
+  onboardingAmazon: "https://www.amazon.com.br/Onboarding-orquestrado-metodologia-bem-sucedidos-lucrativos/dp/6559282716",
+  onboardingPdf: "https://drive.google.com/file/d/1Qg_qOtBAnek-JtunSYSQXCXO16Z4bVe8/view?usp=sharing",
+  csAmazon: "https://www.amazon.com.br/Customer-Success-empresas-inovadoras-descobriram/dp/8551302795",
+  csPdf: "https://drive.google.com/file/d/1OTbFSwUUDE5moCS9w_bYzquqGK_IXUpo/view?usp=drive_link",
+  lui: "https://www.instagram.com/cs.by.lui/?hl=pt",
+  diego: "https://www.instagram.com/o.diegoazevedo/",
+  fernando: "https://www.instagram.com/fernandomiranda777/?hl=pt",
+  joao: "https://www.instagram.com/joaopedro/?hl=pt",
+  alfredo: "https://www.instagram.com/alfredosoares/",
+};
+const CS_ACADEMY = [
+  "https://youtu.be/by2lIEzL42I?si=x3g0gXwH3qcuxbwr",
+  "https://youtu.be/hDcmysoMLv0?si=YkH8nuURItP_1845",
+  "https://youtu.be/R1iJPmghr1I?si=GhDzxcQ8MwmLDJak",
+  "https://youtu.be/pOzRcVh5Yss?si=Y1CfYr5oTcr7w2xJ",
+  "https://youtu.be/2s4H7JwhijQ?si=16M-p9hZPlGQ0_5Y",
+  "https://youtu.be/5M0lMNhPXbQ?si=jxkutPGYTVLaGGJF",
+  "https://youtu.be/QK5uF4-uu3o?si=DgyObVuOghB-Yxvs",
+  "https://youtu.be/9NVExAHsQo0?si=ved3ZqKlV5_f5NPi",
+  "https://youtu.be/G5_UGkaHiaA?si=BCJ-Jqfgm8qwTUgp",
+  "https://youtu.be/snLCLMSJCq0?si=OAiEHpsUx0VvFJxM",
+  "https://youtu.be/R2YFfCYvXCk?si=9WKsPqWglXhJD4nR",
+];
 
 /* ══════════════════════ TRILHA — ACCOUNT ══════════════════════ */
 function buildAccount() {
@@ -150,8 +180,8 @@ function buildAccount() {
     `, `
       <h3 class="h3">Conteúdos</h3>
       ${rules([
-        { t: "A nova era do nosso mercado", d: "Início aos 12:00 min. Disponível no Drive e na live do YouTube." },
-        { t: "Agência com IA", d: "Material completo no Drive." },
+        { t: "A nova era do nosso mercado", d: `Início aos 12:00 min. ${chips([{ href: L.novaEraDrive, label: "Drive" }, { href: L.novaEraYoutube, label: "YouTube" }])}` },
+        { t: "Agência com IA", d: `Material completo. ${chips([{ href: L.agenciaIA, label: "Drive" }])}` },
       ])}
       ${callout("activity", "O OBJETIVO", "Falar de negócio, não de entrega", "O Account precisa entender o que o cliente fatura, quanto investe e onde está o gargalo — para então falar de campanha.")}
     `)}
@@ -193,8 +223,10 @@ function buildAccount() {
           { t: "Sucesso do cliente", d: "Customer Centricity e resultado esperado." },
           { t: "Valor percebido", d: "O que o cliente enxerga como entrega." },
         ])}
-        <div class="blk"><p class="kicker">CONTEÚDO</p></div>
-        <p class="body">Customer Success Essential — CS Academy (11 vídeos) e HubSpot Academy, gratuito: Inbound, jornada do comprador, Service e experiência do cliente.</p>
+        <div class="blk"><p class="kicker">CS ACADEMY · 11 VÍDEOS</p></div>
+        ${chips(CS_ACADEMY.map((href, i) => ({ href, label: String(i + 1), num: true })))}
+        <div class="blk" style="margin-top:9px"><p class="kicker">HUBSPOT ACADEMY · GRATUITO</p></div>
+        <p class="body">Inbound, jornada do comprador, Service e experiência do cliente. ${chips([{ href: L.hubspot, label: "Acessar curso" }])}</p>
       </div>
       ${entregavel("Documento: Cliente → Objetivo → Sucesso esperado → Como a E3 contribui.")}
     `)}
@@ -212,7 +244,7 @@ function buildAccount() {
           { t: "Comunicação", d: "O tom dos primeiros dias." },
         ])}
         <div class="blk"><p class="kicker">LIVRO OBRIGATÓRIO</p></div>
-        <p class="body"><b>Onboarding Orquestrado</b> — Donna Weber. Disponível em físico e em PDF no Drive.</p>
+        <p class="body"><b>Onboarding Orquestrado</b> — Donna Weber. ${chips([{ href: L.onboardingAmazon, label: "Livro físico" }, { href: L.onboardingPdf, label: "PDF" }])}</p>
         <div class="blk"><p class="kicker">APLICAÇÃO PRÁTICA</p></div>
         <p class="body">Acompanhar um onboarding real e identificar o que foi bem feito, onde houve ruído e o que poderia melhorar.</p>
       </div>
@@ -280,7 +312,7 @@ function buildAccount() {
           { t: "Health Score", d: "O termômetro de cada conta." },
         ])}
         <div class="blk"><p class="kicker">LIVRO OBRIGATÓRIO</p></div>
-        <p class="body"><b>Customer Success</b> — Mehta, Steinman e Murphy. Foco em retenção, churn, receita recorrente, expansão e gestão proativa.</p>
+        <p class="body"><b>Customer Success</b> — Mehta, Steinman e Murphy. Retenção, churn, receita recorrente, expansão e gestão proativa. ${chips([{ href: L.csAmazon, label: "Livro físico" }, { href: L.csPdf, label: "PDF" }])}</p>
       </div>
       ${entregavel("Mapa de saúde da carteira.")}
     `, `
@@ -447,8 +479,8 @@ function buildAccount() {
     ${split2(`
       <h3 class="h3">Obrigatórios</h3>
       ${rules([
-        { t: "Onboarding Orquestrado — Donna Weber " + tag("MÊS 01", "tag-pro"), d: "Conduzir os primeiros momentos da jornada, alinhar expectativas e acelerar a percepção de valor." },
-        { t: "Customer Success — Mehta, Steinman e Murphy " + tag("MÊS 02", "tag-pro"), d: "Retenção, churn, expansão, receita recorrente e gestão estratégica da carteira." },
+        { t: "Onboarding Orquestrado — Donna Weber " + tag("MÊS 01", "tag-pro"), d: `Conduzir os primeiros momentos da jornada e acelerar a percepção de valor. ${chips([{ href: L.onboardingAmazon, label: "Livro físico" }, { href: L.onboardingPdf, label: "PDF" }])}` },
+        { t: "Customer Success — Mehta, Steinman e Murphy " + tag("MÊS 02", "tag-pro"), d: `Retenção, churn, expansão, receita recorrente e gestão da carteira. ${chips([{ href: L.csAmazon, label: "Livro físico" }, { href: L.csPdf, label: "PDF" }])}` },
       ])}
     `, `
       <h3 class="h3">Complementares</h3>
@@ -466,8 +498,8 @@ function buildAccount() {
     ${split2(`
       <h3 class="h3">Cursos</h3>
       ${rules([
-        { t: "CS Academy " + tag("PRIORIDADE ALTA", "tag-pro"), d: "Customer Success, Customer Experience, jornada do cliente, gestão de carteira, churn, expansão, dados e liderança." },
-        { t: "HubSpot Academy " + tag("GRATUITO", "tag-light"), d: "Inbound, jornada do comprador, Customer Service, vendas, CRM e experiência do cliente." },
+        { t: "CS Academy " + tag("PRIORIDADE ALTA", "tag-pro"), d: `Customer Success, CX, jornada do cliente, gestão de carteira, churn, expansão, dados e liderança. ${chips(CS_ACADEMY.slice(0, 11).map((href, i) => ({ href, label: String(i + 1), num: true })))}` },
+        { t: "HubSpot Academy " + tag("GRATUITO", "tag-light"), d: `Inbound, jornada do comprador, Customer Service, vendas, CRM e experiência do cliente. ${chips([{ href: L.hubspot, label: "Acessar curso" }])}` },
       ])}
     `, `
       <h3 class="h3">Podcasts · obrigatórios</h3>
@@ -483,12 +515,13 @@ function buildAccount() {
   P.push(page(`
     ${secHead("12", "Referências para modelar", "O objetivo não é copiar a personalidade. É observar como pensam, diagnosticam, se comunicam e tomam decisões.")}
     ${tbl(["Referência", "Tema", "O que observar"], [
-      ["Lui von Holleben", "Customer Success e gestão de carteira", "Health Score, onboarding, churn, expansão e CS"],
-      ["Diego Azevedo", "CS, CX e estruturação de operação", "Jornada, desenvolvimento profissional e gestão de clientes"],
-      ["Fernando Miranda", "Growth e visão de negócio", "Diagnóstico, marketing, vendas, receita e estratégia"],
-      ["João Pedro Motta", "Estratégia, marketing e crescimento", "Análise de negócios, growth e tomada de decisão"],
-      ["Alfredo Soares", "Relacionamento, vendas e negócios", "Networking, posicionamento e empreendedorismo"],
+      [link(L.lui, "Lui von Holleben"), "Customer Success e gestão de carteira", "Health Score, onboarding, churn, expansão e CS"],
+      [link(L.diego, "Diego Azevedo"), "CS, CX e estruturação de operação", "Jornada, desenvolvimento profissional e gestão de clientes"],
+      [link(L.fernando, "Fernando Miranda"), "Growth e visão de negócio", "Diagnóstico, marketing, vendas, receita e estratégia"],
+      [link(L.joao, "João Pedro Motta"), "Estratégia, marketing e crescimento", "Análise de negócios, growth e tomada de decisão"],
+      [link(L.alfredo, "Alfredo Soares"), "Relacionamento, vendas e negócios", "Networking, posicionamento e empreendedorismo"],
     ])}
+    ${notabar("COMO USAR", "Clique no nome para abrir o perfil. O objetivo não é copiar a personalidade — é observar como pensam, diagnosticam e decidem.")}
   `));
 
   /* — ROTINA SEMANAL — */
