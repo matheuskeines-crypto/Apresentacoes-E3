@@ -753,6 +753,7 @@ const HUB_ICONS = {
   video: '<rect x="2" y="4" width="20" height="16" rx="3"/><polygon points="10 9 15 12 10 15 10 9"/>',
   course: '<path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/>',
   folder: '<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>',
+  trail: '<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>',
   link: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
 };
 const hubIcon = (k) => `<span class="ico ico-${k}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${HUB_ICONS[k]}</svg></span>`;
@@ -804,8 +805,9 @@ const PRODUCTS = [
 
 const KNOWLEDGE = [
   { label: "Cursos", sub: "Comercial interno e plataformas", kind: "course", href: "./cursos/index.html" },
+  { label: "Trilhas de Desenvolvimento", sub: "Formação por função · 90 dias", kind: "trail", href: "./trilhas/index.html" },
   { label: "Apresentação da Empresa", sub: "Playlist · YouTube", kind: "video", href: "https://youtube.com/playlist?list=PLDqQzbm7q4NQ&si=Mf2_kLJ63HbhvBpB" },
-  { label: "Materiais", sub: "Teses e materiais de apoio", kind: "folder", href: "./materiais-pdf/index.html" },
+  { label: "Materiais sobre Teses", sub: "82 teses por área, com CPL", kind: "folder", href: "./materiais-pdf/index.html" },
   { label: "Links Úteis", sub: "Formulários e links", kind: "link", href: "./links-uteis/index.html" },
 ];
 
@@ -859,8 +861,8 @@ main{position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:56px 32p
 .sec-h{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 16px;margin-bottom:20px}
 .sec-h h2{font-family:var(--d);font-weight:800;font-size:1.6rem;letter-spacing:-.02em}
 .sec-h p{color:var(--mute);font-size:.95rem}
-.kgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.kcard{position:relative;display:flex;flex-direction:column;padding:20px 22px 22px;border:1px solid var(--line);border-radius:16px;background:var(--card);transition:.25s}
+.kgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.kcard{position:relative;display:flex;flex-direction:column;padding:18px 18px 20px;border:1px solid var(--line);border-radius:16px;background:var(--card);transition:.25s}
 .kcard .ico{margin-bottom:16px}
 .kt{font-weight:700;font-size:1.05rem}
 .ks{color:var(--mute);font-size:.86rem;margin-top:4px}
@@ -889,7 +891,7 @@ main{position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:56px 32p
 .ico-deck,.ico-folder{background:rgba(255,95,31,.14);color:#ff7a45}
 .ico-doc{background:rgba(214,170,120,.14);color:#e2b98a}
 .ico-site,.ico-link{background:rgba(110,150,255,.14);color:#8aa8ff}
-.ico-form{background:rgba(80,200,140,.14);color:#6fd6a3}
+.ico-form,.ico-trail{background:rgba(80,200,140,.14);color:#6fd6a3}
 .ico-video{background:rgba(240,90,120,.14);color:#f2849a}
 .ico-course{background:rgba(190,130,255,.14);color:#c39bff}
 .empty{display:none;text-align:center;color:var(--mute);padding:48px 0;font-size:1rem}

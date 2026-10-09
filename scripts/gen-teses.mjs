@@ -251,7 +251,7 @@ const TRILHAS = [
   { nome: "Gestor de Tráfego", slug: "trilha-gestor-trafego", sub: "90 dias · 12 semanas · 3 checkpoints" },
 ];
 
-/* ─────────────────────────────── hub: Materiais PDF ─────────────────────────────── */
+/* ─────────────────────────────── hubs: Materiais sobre Teses e Trilhas ─────────────────────────────── */
 const totalTeses = AREAS.reduce((a, x) => a + x.teses.length, 0);
 const card = (slug, titulo, sub) => `<a class="mcard" href="../${slug}/index.html">
         <span class="mthumb"><img src="./thumbs/${slug}.png" alt="" loading="lazy" width="640" height="360"/></span>
@@ -262,10 +262,10 @@ const cardsTeses = AREAS.map((a) =>
   card(a.slug, a.nome, `${a.teses.length} teses · CPL ${a.faixa}`)
 ).join("\n      ");
 
-const hubHTML = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"/>
+const hubPage = ({ title, h1, sub, body }) => `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<title>Materiais — E3 Digital</title>
+<title>${title} — E3 Digital</title>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--o:#FF5F1F;--o2:#FF3300}
@@ -305,42 +305,45 @@ footer{text-align:center;color:rgba(255,255,255,.3);margin-top:36px;font-size:.8
   <header>
     <a class="back" href="../index.html">&larr; Voltar ao índice</a>
     <img src="${LOGO_URI}" alt="E3"/>
-    <h1>Materiais</h1>
-    <p class="sub">Materiais de apoio para consulta rápida — organizados por assunto.</p>
+    <h1>${h1}</h1>
+    <p class="sub">${sub}</p>
   </header>
 
-  <div class="k-wrap">
-    <div class="k-head">
-      <h2>Teses por área</h2>
-      <p class="k-sub">${totalTeses} teses explicadas em linguagem simples, cada uma com a faixa de CPL da régua do painel.</p>
-    </div>
-    <div class="k-grid">
-      ${cardsTeses}
-    </div>
-  </div>
-
-  <div class="k-wrap">
-    <div class="k-head">
-      <h2>Trilhas de desenvolvimento</h2>
-      <p class="k-sub">Formação por função: o que estudar, o que aplicar e o que entregar em cada semana.</p>
-    </div>
-    <div class="k-grid">
-      ${cardsTrilhas}
-    </div>
-  </div>
+  ${body}
 
 </div>
 </body></html>`;
 
-const hubOut = join(distRoot, "materiais-pdf", "index.html");
-mkdirSync(dirname(hubOut), { recursive: true });
-writeFileSync(hubOut, hubHTML, "utf8");
+const section = (titulo, sub, cards) => `<div class="k-wrap">
+    <div class="k-head">
+      <h2>${titulo}</h2>
+      <p class="k-sub">${sub}</p>
+    </div>
+    <div class="k-grid">
+      ${cards}
+    </div>
+  </div>`;
 
-/* capas dos cards: PNGs gerados por scripts/gen-thumbs.mjs, versionados em assets/thumbs */
-const thumbsOut = join(distRoot, "materiais-pdf", "thumbs");
 const thumbsSrc = fileURLToPath(new URL("../assets/thumbs", import.meta.url));
-mkdirSync(thumbsOut, { recursive: true });
-for (const slug of [...AREAS.map((a) => a.slug), ...TRILHAS.map((t) => t.slug)]) {
-  copyFileSync(join(thumbsSrc, `${slug}.png`), join(thumbsOut, `${slug}.png`));
+/* capas dos cards: PNGs gerados por scripts/gen-thumbs.mjs, versionados em assets/thumbs */
+function writeHub(dir, html, slugs) {
+  mkdirSync(join(distRoot, dir, "thumbs"), { recursive: true });
+  writeFileSync(join(distRoot, dir, "index.html"), html, "utf8");
+  for (const slug of slugs) copyFileSync(join(thumbsSrc, `${slug}.png`), join(distRoot, dir, "thumbs", `${slug}.png`));
 }
-console.log("materiais pdf (hub):", hubOut, "·", totalTeses, "teses");
+
+writeHub("materiais-pdf", hubPage({
+  title: "Materiais sobre Teses",
+  h1: "Materiais sobre <span>Teses</span>",
+  sub: "Materiais de apoio para consulta rápida — organizados por área do direito.",
+  body: section("Teses por área", `${totalTeses} teses explicadas em linguagem simples, cada uma com a faixa de CPL da régua do painel.`, cardsTeses),
+}), AREAS.map((a) => a.slug));
+
+writeHub("trilhas", hubPage({
+  title: "Trilhas de Desenvolvimento",
+  h1: "Trilhas de <span>Desenvolvimento</span>",
+  sub: "Formação por função: o que estudar, o que aplicar e o que entregar em cada semana.",
+  body: section("Por função", "Cada trilha tem 90 dias, 12 semanas, 3 checkpoints e certificação interna.", cardsTrilhas),
+}), TRILHAS.map((t) => t.slug));
+
+console.log("hubs:", totalTeses, "teses ·", TRILHAS.length, "trilhas");
