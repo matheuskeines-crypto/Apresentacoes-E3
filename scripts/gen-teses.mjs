@@ -1,6 +1,6 @@
 // Gera os materiais de Teses (explicação + faixa de CPL por tese) em slides 16:9.
 // Fonte do CPL: régua de benchmarks do Painel E3 (cpl_benchmarks) — 73 teses em 11 áreas.
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
@@ -246,24 +246,26 @@ AREAS.forEach(buildArea);
 /* ─────────────────────────────── trilhas de desenvolvimento ───────────────────────────────
    Adicionar uma nova trilha: inclua um item aqui e gere o deck em scripts/gen-trilhas.mjs.  */
 const TRILHAS = [
-  { nome: "Account", slug: "trilha-account", sub: "90 dias · 12 semanas · 3 checkpoints" },
+  { nome: "Account Manager", slug: "trilha-account", sub: "90 dias · 12 semanas · 3 checkpoints" },
   { nome: "Gestor de Projetos", slug: "trilha-gestor-projetos", sub: "90 dias · 12 semanas · 3 checkpoints" },
   { nome: "Gestor de Tráfego", slug: "trilha-gestor-trafego", sub: "90 dias · 12 semanas · 3 checkpoints" },
 ];
 
 /* ─────────────────────────────── hub: Materiais PDF ─────────────────────────────── */
 const totalTeses = AREAS.reduce((a, x) => a + x.teses.length, 0);
-const cardsTrilhas = TRILHAS.map((t) =>
-  `<a href="../${t.slug}/index.html"><span class="mt">${t.nome}</span><span class="ms">${t.sub}</span></a>`
-).join("\n      ");
+const card = (slug, titulo, sub) => `<a class="mcard" href="../${slug}/index.html">
+        <span class="mthumb"><img src="./thumbs/${slug}.png" alt="" loading="lazy" width="640" height="360"/></span>
+        <span class="mbody"><span class="mt">${titulo}</span><span class="ms">${sub}</span></span>
+      </a>`;
+const cardsTrilhas = TRILHAS.map((t) => card(t.slug, t.nome, t.sub)).join("\n      ");
 const cardsTeses = AREAS.map((a) =>
-  `<a href="../${a.slug}/index.html"><span class="mt">${a.nome}</span><span class="ms">${a.teses.length} teses · CPL ${a.faixa}</span></a>`
+  card(a.slug, a.nome, `${a.teses.length} teses · CPL ${a.faixa}`)
 ).join("\n      ");
 
 const hubHTML = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<title>Materiais PDF — E3 Digital</title>
+<title>Materiais — E3 Digital</title>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--o:#FF5F1F;--o2:#FF3300}
@@ -286,10 +288,15 @@ h1 span{color:var(--o)}
 .k-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .k-grid.two{grid-template-columns:repeat(2,1fr)}
 @media(max-width:880px){.k-grid,.k-grid.two{grid-template-columns:1fr}}
-.k-grid a{display:flex;flex-direction:column;padding:15px 17px;border:1px solid rgba(255,255,255,.08);border-radius:14px;background:rgba(255,255,255,.02);text-decoration:none;color:#fff;transition:.25s}
-.k-grid a:hover{border-color:var(--o);background:rgba(255,95,31,.08);transform:translateX(3px)}
-.mt{font-weight:700;font-size:1rem}
-.ms{font-size:.76rem;color:rgba(255,255,255,.42);margin-top:3px}
+.mcard{display:flex;flex-direction:column;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.02);text-decoration:none;color:#fff;overflow:hidden;transition:border-color .25s,background .25s,transform .25s}
+.mcard:hover{border-color:var(--o);background:rgba(255,95,31,.07);transform:translateY(-3px)}
+.mthumb{display:block;position:relative;aspect-ratio:16/9;background:#0b0b0b;border-bottom:1px solid rgba(255,255,255,.07);overflow:hidden}
+.mthumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+.mcard:hover .mthumb img{transform:scale(1.03)}
+.mbody{display:flex;flex-direction:column;padding:14px 16px 16px}
+.mt{font-weight:700;font-size:1.02rem;letter-spacing:-.01em}
+.ms{font-size:.78rem;color:rgba(255,255,255,.45);margin-top:4px}
+@supports not (aspect-ratio:16/9){.mthumb{height:0;padding-bottom:56.25%}.mthumb img{position:absolute;inset:0}}
 footer{text-align:center;color:rgba(255,255,255,.3);margin-top:36px;font-size:.82rem}
 </style></head>
 <body>
@@ -298,7 +305,7 @@ footer{text-align:center;color:rgba(255,255,255,.3);margin-top:36px;font-size:.8
   <header>
     <a class="back" href="../index.html">&larr; Voltar ao índice</a>
     <img src="${LOGO_URI}" alt="E3"/>
-    <h1>Materiais <span>PDF</span></h1>
+    <h1>Materiais</h1>
     <p class="sub">Materiais de apoio para consulta rápida — organizados por assunto.</p>
   </header>
 
@@ -328,4 +335,12 @@ footer{text-align:center;color:rgba(255,255,255,.3);margin-top:36px;font-size:.8
 const hubOut = join(distRoot, "materiais-pdf", "index.html");
 mkdirSync(dirname(hubOut), { recursive: true });
 writeFileSync(hubOut, hubHTML, "utf8");
+
+/* capas dos cards: PNGs gerados por scripts/gen-thumbs.mjs, versionados em assets/thumbs */
+const thumbsOut = join(distRoot, "materiais-pdf", "thumbs");
+const thumbsSrc = fileURLToPath(new URL("../assets/thumbs", import.meta.url));
+mkdirSync(thumbsOut, { recursive: true });
+for (const slug of [...AREAS.map((a) => a.slug), ...TRILHAS.map((t) => t.slug)]) {
+  copyFileSync(join(thumbsSrc, `${slug}.png`), join(thumbsOut, `${slug}.png`));
+}
 console.log("materiais pdf (hub):", hubOut, "·", totalTeses, "teses");

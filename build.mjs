@@ -805,7 +805,7 @@ const PRODUCTS = [
 const KNOWLEDGE = [
   { label: "Cursos", sub: "Comercial interno e plataformas", kind: "course", href: "./cursos/index.html" },
   { label: "Apresentação da Empresa", sub: "Playlist · YouTube", kind: "video", href: "https://youtube.com/playlist?list=PLDqQzbm7q4NQ&si=Mf2_kLJ63HbhvBpB" },
-  { label: "Materiais PDF", sub: "Teses e materiais de apoio", kind: "folder", href: "./materiais-pdf/index.html" },
+  { label: "Materiais", sub: "Teses e materiais de apoio", kind: "folder", href: "./materiais-pdf/index.html" },
   { label: "Links Úteis", sub: "Formulários e links", kind: "link", href: "./links-uteis/index.html" },
 ];
 
