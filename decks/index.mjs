@@ -5,6 +5,7 @@ import { proposta as propEvo, onboarding as onbEvo, offboarding as offEvo } from
 import { proposta as propSoc, onboarding as onbSoc, offboarding as offSoc } from "./social-media.mjs";
 import { proposta as propIg, onboarding as onbIg, offboarding as offIg } from "./estruturacao-instagram.mjs";
 import { treinamentoComercial } from "./treinamento-comercial.mjs";
+import { liveTiktok } from "./evolucao-tiktok.mjs";
 
 // Por produto: proposta (vertical, "caminho") + onboarding (deck) + offboarding (entrega final, deck)
 export const decks = [
@@ -15,4 +16,5 @@ export const decks = [
   propSoc, onbSoc, offSoc,
   propIg, onbIg, offIg,
   treinamentoComercial, // material interno → slides
+  liveTiktok,            // Evolução: treinamento de live no TikTok (ainda não linkado no Hub)
 ];
