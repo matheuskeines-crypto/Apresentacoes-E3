@@ -248,6 +248,13 @@ function slideInner(s) {
           calc();
         })();</script>` };
 
+    case "figure": // ilustração explicativa (SVG inline) + legendas opcionais
+      return { cls: "si-figure", html: `${kicker}<h2 class="h2">${s.title}</h2>
+        ${s.lead ? `<p class="lead">${esc(s.lead)}</p>` : ""}
+        <div class="figwrap">${s.figure}</div>
+        ${s.legend ? `<div class="figlegend">${s.legend.map((l) => `<span class="figleg"><span class="figleg-n">${esc(l.n)}</span>${esc(l.t)}</span>`).join("")}</div>` : ""}
+        ${s.note ? `<p class="lead note">${esc(s.note)}</p>` : ""}` };
+
     case "quote":
       return { cls: "si-quote", html: `<span class="q-mark">&ldquo;</span>
         <p class="q-text">${s.text}</p>
@@ -510,6 +517,24 @@ b,strong,.hl{color:var(--o)}
 .cac-insight{margin-top:6px;padding:14px 16px;border-radius:12px;border:1px solid rgba(255,95,31,.35);background:rgba(255,95,31,.08);font-size:.82rem;line-height:1.5;color:rgba(255,255,255,.85)}
 @media(max-width:720px){.cac-grid{grid-template-columns:1fr}}
 /* quote */
+/* ── figuras explicativas ── */
+.si-figure .figwrap{margin-top:18px;display:flex;justify-content:center}
+.si-figure svg{max-width:100%;height:auto;display:block}
+.fig-card{fill:rgba(255,255,255,.025);stroke:rgba(255,255,255,.09)}
+.fig-card-2{fill:rgba(255,255,255,.05);stroke:rgba(255,255,255,.12)}
+.fig-o{fill:#FF5F1F}
+.fig-o-soft{fill:rgba(255,95,31,.16);stroke:rgba(255,95,31,.5)}
+.fig-stroke-o{stroke:#FF5F1F;fill:none}
+.fig-dash{stroke:rgba(255,255,255,.22);stroke-dasharray:4 4;fill:none}
+.fig-t{fill:#fff;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600}
+.fig-t-sm{fill:rgba(255,255,255,.55);font-family:'DM Sans',sans-serif;font-size:12.5px}
+.fig-t-o{fill:#FF5F1F;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em}
+.fig-t-big{fill:#fff;font-family:'Bricolage Grotesque',sans-serif;font-size:19px;font-weight:800}
+.fig-ok{fill:#4ade80}
+.fig-no{fill:#f87171}
+.figlegend{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:18px;justify-content:center}
+.figleg{display:inline-flex;align-items:center;gap:9px;font-size:.95rem;color:rgba(255,255,255,.75)}
+.figleg-n{flex:0 0 auto;width:23px;height:23px;border-radius:50%;display:grid;place-items:center;background:rgba(255,95,31,.15);border:1px solid rgba(255,95,31,.5);color:#FF5F1F;font-size:.76rem;font-weight:800}
 .si-quote{align-items:center;justify-content:center;text-align:center}
 .q-mark{font-family:var(--d);font-size:8rem;line-height:.6;color:var(--o);opacity:.5}
 .q-text{font-family:var(--d);font-weight:700;font-size:clamp(1.5rem,3.6vw,2.8rem);line-height:1.2;letter-spacing:-.02em;max-width:22ch;margin-top:10px}
