@@ -814,6 +814,7 @@ const PRODUCTS = [
       CONSULTORIA_COMERCIAL,
       { label: "Forms 360°", sub: "Formulário de diagnóstico", kind: "form", href: "https://forms.gle/iZQ3dn1iJUEWcgeH7" },
       { label: "Auditoria Criativa", sub: "Diagnóstico criativo do Instagram", kind: "deck", href: "./auditoria-criativa/index.html" },
+      { label: "Live Estratégica TikTok", sub: "Treinamento de live para advogados", kind: "deck", href: "./live-tiktok-evolucao-juridica/index.html" },
     ],
   },
   {
