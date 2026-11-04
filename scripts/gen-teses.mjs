@@ -155,13 +155,13 @@ const AREAS = [
   },
   {
     slug: "tese-tributario", nome: "Tributário", titulo: 'Direito <span>Tributário</span>',
-    faixa: "R$ 4 a R$ 70", benchTeses: 6,
+    faixa: "R$ 4 a R$ 80", benchTeses: 6,
     subtitle: "Dois extremos na mesma área: isenções de massa com CPL baixo e teses consultivas de ticket alto para empresas.",
     pills: ["Isenção de IPVA", "Isenção de IR", "Execução fiscal", "Recuperação", "Transação"],
     teses: [
       { t: "Isenção de IPVA", cpl: "R$ 4–12", d: "Isenção do imposto do veículo para pessoa com deficiência, autista, taxista e demais casos da lei estadual, com restituição do que foi pago." },
       { t: "Isenção de IR", cpl: "R$ 8–18", d: "Aposentado ou pensionista com doença grave (câncer, cardiopatia, Parkinson e outras) fica isento e recupera os últimos 5 anos." },
-      { t: "Execução fiscal", cpl: "R$ 18–35", d: "Defesa de quem está sendo cobrado pela Fazenda: prescrição, excesso de execução, nulidade da CDA e liberação de bens penhorados." },
+      { t: "Execução fiscal", cpl: "R$ 40–80", d: "Defesa de quem está sendo cobrado pela Fazenda: prescrição, excesso de execução, nulidade da CDA e liberação de bens penhorados." },
       { t: "Diagnóstico tributário", cpl: "R$ 18–35", d: "Revisão completa da carga tributária da empresa para achar pagamento indevido, crédito não aproveitado e enquadramento errado." },
       { t: "Recuperação de tributos", cpl: "R$ 20–40", d: "Recupera em dinheiro ou compensação os tributos pagos a mais nos últimos 5 anos (PIS/Cofins, INSS sobre verbas indenizatórias, ICMS na base)." },
       { t: "Transação tributária", cpl: "R$ 30–70", d: "Acordo com a Fazenda (Lei 13.988/2020) com até 65% de desconto em multas e juros, parcelamento em até 120 vezes e uso de prejuízo fiscal." },
