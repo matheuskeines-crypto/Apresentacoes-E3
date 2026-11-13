@@ -786,7 +786,7 @@ const HUB_ICONS = {
 const hubIcon = (k) => `<span class="ico ico-${k}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${HUB_ICONS[k]}</svg></span>`;
 const ARROW = '<svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>';
 
-const CONSULTORIA_COMERCIAL = { label: "Consultoria Comercial", sub: "Playbook comercial", kind: "site", href: "https://consultoria-comercial-e3.vercel.app" };
+const CONSULTORIA_COMERCIAL = { label: "Consultoria Comercial", sub: "Playbook comercial", kind: "site", href: "https://consultoriacomerciale3digital.lovable.app/#entregas" };
 
 const PRODUCTS = [
   {
