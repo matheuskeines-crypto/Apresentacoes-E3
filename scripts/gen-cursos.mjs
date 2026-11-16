@@ -14,6 +14,12 @@ const INTERNOS = [
   { label: "Comercial Interno", sub: "Playlist · YouTube", href: "https://www.youtube.com/playlist?list=PLRV3PR6X9tE0" },
 ];
 
+/* ─────────────────────────────── metodologia (site) ───────────────────────────────
+   Adicionar outra metodologia: inclua um item no array abaixo.  */
+const METODOLOGIA = [
+  { label: "Metodologia CPP", sub: "Site · método da E3", href: "https://metodocpp.lovable.app/" },
+];
+
 /* ─────────────────────────────── apresentações (vídeo) ───────────────────────────────
    Adicionar uma nova apresentação: inclua um item no array abaixo.  */
 const APRESENTACOES = [
@@ -58,6 +64,8 @@ const internosHTML = INTERNOS.map((l) => l.href
   ? `<a href="${l.href}" target="_blank" rel="noopener"><span class="mt">${l.label}</span><span class="ms">${l.sub}</span></a>`
   : `<div class="k-grid-item disabled"><span class="mt">${l.label}</span><span class="ms">${l.sub}</span></div>`
 ).join("\n      ");
+
+const metodologiaHTML = METODOLOGIA.map((l) => `<a href="${l.href}" target="_blank" rel="noopener"><span class="mt">${l.label}</span><span class="ms">${l.sub}</span></a>`).join("\n      ");
 
 const apresentacoesHTML = APRESENTACOES.map((l) => `<a href="${l.href}" target="_blank" rel="noopener"><span class="mt">${l.label}</span><span class="ms">${l.sub}</span></a>`).join("\n      ");
 
@@ -144,6 +152,16 @@ h1 span{color:var(--o)}
     </div>
     <div class="k-grid">
       ${internosHTML}
+    </div>
+  </div>
+
+  <div class="k-wrap">
+    <div class="k-head">
+      <h2>Metodologia</h2>
+      <p class="k-sub">O método da E3 para estruturar o comercial do escritório.</p>
+    </div>
+    <div class="k-grid">
+      ${metodologiaHTML}
     </div>
   </div>
 
